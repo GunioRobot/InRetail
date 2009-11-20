@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="InRetail.UserInterface.Shell"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="clr-namespace:InRetail.UserInterface.Controls">
+    <DockPanel>
+        <Controls:CommandBar DockPanel.Dock="Top" x:Name="commandBar" />
+        <TabControl Name="explorerTabs" DockPanel.Dock="Left" TabStripPlacement="Top" Width="300">
+            <TabItem Header="Menu">
+                <TreeView Name="menuTree" >
+                </TreeView>
+            </TabItem>
+         </TabControl>
+        <TabControl Name="mainTabs" TabStripPlacement="Top" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
+        </TabControl>
+    </DockPanel>
+</UserControl>
