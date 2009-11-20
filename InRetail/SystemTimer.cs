@@ -6,7 +6,7 @@ namespace InRetail
 {
     public interface IKnowWhen
     {
-        void In(int miliseconds);
+        void In(int milliseconds);
     }
 
     public class SystemTimer : IKnowWhen
