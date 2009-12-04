@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Interface Name="InRetail.UiCore.IScreen" Collapsed="true">
+    <Position X="3" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEBAAAAAAAAAAAABAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>IScreen.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="InRetail.UiCore.IScreen&lt;T&gt;">
+    <Position X="5.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IScreen.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="InRetail.UiCore.IScreenCollection">
+    <Position X="3.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAEAAAAABAAAAARAAAAAAEAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>IScreenCollection.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="InRetail.UiCore.IScreenConductor">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAgAAgAAAAACAAAI=</HashCode>
+      <FileName>IScreenConductor.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="InRetail.UiCore.IScreenFactory">
+    <Position X="3" Y="5.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IScreenFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="InRetail.UiCore.IScreenSubject">
+    <Position X="0.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IScreenSubject.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="InRetail.UiCore.IScreenSubject&lt;T&gt;" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IScreenSubject.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="InRetail.UiCore.IStartable" Collapsed="true">
+    <Position X="2" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IStartable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="InRetail.UiCore.INeedBuildUp" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>INeedBuildUp.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -33,6 +33,7 @@ namespace InRetail.UserInterface
 
             setupShell();
         }
+
         private void setupSynchronization()
         {
             ForSingletonOf<SynchronizationContext>().TheDefault.Is.ConstructedBy(() =>

@@ -24,6 +24,7 @@ namespace InRetail.UserInterface
         public void Register()
         {
             Action("UserScreenActivation").Bind(Key.F6).PublishEvent<UserScreenActivation>();
+            
         }
     }
 }

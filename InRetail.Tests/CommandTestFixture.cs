@@ -88,7 +88,35 @@ namespace Tests.InRetail
         }
     }
 
-    public class ThereWasNoExceptionButOneWasExpectedException : Exception { }
+    public class ThereWasNoExceptionButOneWasExpectedException : Exception {
+        public bool Equals(ThereWasNoExceptionButOneWasExpectedException other)
+        {
+            return !ReferenceEquals(null, other);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != typeof (ThereWasNoExceptionButOneWasExpectedException)) return false;
+            return Equals((ThereWasNoExceptionButOneWasExpectedException) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return 0;
+        }
+
+        public static bool operator ==(ThereWasNoExceptionButOneWasExpectedException left, ThereWasNoExceptionButOneWasExpectedException right)
+        {
+            return Equals(left, right);
+        }
+
+        public static bool operator !=(ThereWasNoExceptionButOneWasExpectedException left, ThereWasNoExceptionButOneWasExpectedException right)
+        {
+            return !Equals(left, right);
+        }
+    }
 
     public class PrepareDomainEvent
     {
