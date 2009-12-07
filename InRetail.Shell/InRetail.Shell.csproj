@@ -98,6 +98,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationRegistry.cs" />
+    <Compile Include="Dialogs\Dialog.cs" />
+    <Compile Include="Dialogs\DialogLauncher.cs" />
+    <Compile Include="Dialogs\ICommandDialog.cs" />
+    <Compile Include="Dialogs\IDialogLauncher.cs" />
     <Compile Include="ScreenCollection.cs" />
     <Compile Include="ScreenConductor.cs" />
     <Compile Include="ScreenFactory.cs" />
@@ -122,6 +126,10 @@
     </Compile>
     <Compile Include="ShellPresenter.cs" />
     <Compile Include="StructureMap\StructureMapBootstrapper.cs" />
+    <Compile Include="Trash\ListLeagueList.cs" />
+    <Compile Include="Trash\Division.cs" />
+    <Compile Include="Trash\League.cs" />
+    <Compile Include="Trash\Team.cs" />
     <Compile Include="Views\IProductDetailView.cs" />
     <Compile Include="Views\ProductDetailView.xaml.cs">
       <DependentUpon>ProductDetailView.xaml</DependentUpon>

@@ -4,7 +4,7 @@ using InRetail.UiCore.Actions;
 
 namespace InRetail.Shell
 {
-    public class ShellPresenter:IShellService
+    public class ShellPresenter : IShellService
     {
         public ShellPresenter(IShellView view)
         {
