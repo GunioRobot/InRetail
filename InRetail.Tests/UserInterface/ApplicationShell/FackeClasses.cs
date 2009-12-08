@@ -124,6 +124,7 @@ namespace Tests.InRetail.UserInterface.ApplicationShell
     public class TestScreen : IScreen
     {
         public int CountOfActivateCalled = 0;
+        public object ObjectReturnedByView;
 
         public void Dispose()
         {
@@ -132,7 +133,7 @@ namespace Tests.InRetail.UserInterface.ApplicationShell
 
         public object View
         {
-            get { throw new NotImplementedException(); }
+            get { return ObjectReturnedByView; }
         }
 
         public string Title

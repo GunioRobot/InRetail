@@ -4,7 +4,7 @@ using StructureMap;
 
 namespace InRetail.Shell
 {
-    public class ScreenFactory:IScreenFactory
+    public class ScreenFactory : IScreenFactory
     {
         private readonly IContainer _container;
 

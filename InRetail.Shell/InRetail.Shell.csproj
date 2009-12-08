@@ -106,7 +106,6 @@
     <Compile Include="ScreenConductor.cs" />
     <Compile Include="ScreenFactory.cs" />
     <Compile Include="ScreenObjectRegistry.cs" />
-    <Compile Include="SingletonScreenSubject.cs" />
     <Compile Include="StructureMap\StructureMapExtensions.cs" />
     <Compile Include="StructureMap\StructureMapServiceLocator.cs" />
     <Compile Include="InRetailBootstrapper.cs" />

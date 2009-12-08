@@ -14,6 +14,12 @@ namespace Tests.InRetail.UserInterface.ApplicationShell
         {
             screen = new TestScreen();
             OnDependency<IScreenFactory>().Setup(x => x.Build<TestScreen>()).Returns(screen);
+            
+        }
+
+        protected override void When()
+        {
+            SubjectUnderTest.OpenScreen(new TestScreenSubject<TestScreen>());
         }
 
         [Then]
@@ -34,10 +40,6 @@ namespace Tests.InRetail.UserInterface.ApplicationShell
             screen.CountOfActivateCalled.WillBe(1);
         }
 
-        protected override void When()
-        {
-            SubjectUnderTest.OpenScreen(new TestScreenSubject<TestScreen>());
-        }
     }
 
     public class When_opening_screen_using_screen_subject_and_screen_for_given_subject_is_already_opened_bat_is_not_active :
