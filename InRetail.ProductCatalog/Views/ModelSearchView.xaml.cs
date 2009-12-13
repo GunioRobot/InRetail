@@ -12,22 +12,28 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace InRetail.Shell
+namespace InRetail.ProductCatalog.Views
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for ModelSearchView.xaml
     /// </summary>
-    public partial class Window1 : Window,IShellView
+    public partial class ModelSearchView : UserControl
     {
-        public Window1()
+        private readonly IObservable<IEvent<RoutedEventArgs>> _refreshList;
+
+        public ModelSearchView()
         {
             InitializeComponent();
-            
+            _refreshList = Observable.FromEvent<RoutedEventArgs>(btnRefresh, "Click");
+
+
+           
         }
 
-        public void ShowView()
+        public IObservable<IEvent<RoutedEventArgs>> RefreshList
         {
-            Show();
+            get { return _refreshList; }
         }
     }
+    
 }

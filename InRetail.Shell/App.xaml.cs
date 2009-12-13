@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
+using System.Threading;
 using System.Windows;
 using InRetail.Shell.StructureMap;
 using InRetail.UiCore;
@@ -19,10 +20,12 @@ namespace InRetail.Shell
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+            
+            Observable.Context = SynchronizationContexts.CurrentDispatcher;
 
             var bootstrapper = new InRetailBootstrapper();
             bootstrapper.Run();
-            
+
             StartupShell(bootstrapper.Container);
             this.ShutdownMode = ShutdownMode.OnMainWindowClose;
         }

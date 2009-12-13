@@ -2,11 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using InRetail.ProductCatalog.Services;
+using InRetail.UiCore.Extensions;
+using ProductCatalogModel;
+using System.Threading.Tasks;
+using System.Threading;
+using System.Collections;
+
 
 namespace InRetail.ProductCatalog.Presenters
 {
-    public interface IRepository<T> where T:class 
+    public interface IRepository<T> where T : class
     {
         IQueryable<T> Models { get; }
     }
@@ -23,6 +28,21 @@ namespace InRetail.ProductCatalog.Presenters
         public IQueryable<T> Models
         {
             get { return FindSet(); }
+        }
+        public IObservable<T> ObservableModels
+        {
+            get
+            {
+                var task = Task.Factory.StartNew(() =>
+                {
+                    var container = new ProductCatalogContainer(new Uri(@"http://localhost:2691/ProductCatalog.svc/"));
+                    var list = (IEnumerable<T>)container.ProductDetailViewModels.Take(10);
+                    
+                    return list.ToList();
+                });
+                
+                return task.ToObservable().SelectMany(x => x);
+            }
         }
 
         //todo: make Cache for fast access
@@ -43,7 +63,7 @@ namespace InRetail.ProductCatalog.Presenters
         {
             var repository = new Repository<ProductDetailViewModel>();
             var models1 = repository.Models.ToList();
-            var models2 = repository.Models.OrderByDescending(x=>x.Description).Take(1).ToList();
+            var models2 = repository.Models.OrderByDescending(x => x.Description).Take(1).ToList();
         }
     }
 

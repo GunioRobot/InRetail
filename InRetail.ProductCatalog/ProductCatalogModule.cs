@@ -1,6 +1,7 @@
 using InRetail.ProductCatalog.Presenters;
 using InRetail.UiCore;
 using Microsoft.Practices.Composite.Modularity;
+using ProductCatalogModel;
 
 namespace InRetail.ProductCatalog
 {
@@ -15,7 +16,7 @@ namespace InRetail.ProductCatalog
 
         public void Initialize()
         {
-            var subject = new SingletonScreenSubject<ModelSearchPresenter>();
+            var subject = new SingletonScreenSubject<ModelSearchPresenter<ProductDetailViewModel>>();
             _screenConductor.OpenScreen(subject);
         }
     }
