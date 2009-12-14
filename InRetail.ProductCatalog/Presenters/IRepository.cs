@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data.Services.Client;
 using System.Linq;
 using System.Reflection;
 using InRetail.UiCore.Extensions;
@@ -7,6 +8,7 @@ using ProductCatalogModel;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Collections;
+using System.Diagnostics;
 
 
 namespace InRetail.ProductCatalog.Presenters
@@ -33,15 +35,21 @@ namespace InRetail.ProductCatalog.Presenters
         {
             get
             {
-                var task = Task.Factory.StartNew(() =>
-                {
-                    var container = new ProductCatalogContainer(new Uri(@"http://localhost:2691/ProductCatalog.svc/"));
-                    var list = (IEnumerable<T>)container.ProductDetailViewModels.Take(10);
+                //var task = Task.Factory.StartNew(() =>
+                //{
+                //    var container = new ProductCatalogContainer(new Uri(@"http://localhost:2691/ProductCatalog.svc/"));
+                //    var list = (IEnumerable<T>)container.ProductDetailViewModels.Take(10);
                     
-                    return list.ToList();
-                });
-                
-                return task.ToObservable().SelectMany(x => x);
+                //    return list.ToList();
+                //});
+                //return task.ToObservable().SelectMany(x => x);
+
+                DataServiceQuery<ProductDetailViewModel> models = (DataServiceQuery<ProductDetailViewModel>)_container.ProductDetailViewModels.Take(1000);
+                Func<IObservable<IEnumerable<ProductDetailViewModel>>> pattern = Observable.FromAsyncPattern(models.BeginExecute,
+                                                           r => models.EndExecute(r));
+
+                IObservable<ProductDetailViewModel> observable = pattern().SelectMany(x=>x);
+                return (IObservable<T>)observable;
             }
         }
 
@@ -66,6 +74,4 @@ namespace InRetail.ProductCatalog.Presenters
             var models2 = repository.Models.OrderByDescending(x => x.Description).Take(1).ToList();
         }
     }
-
-
 }

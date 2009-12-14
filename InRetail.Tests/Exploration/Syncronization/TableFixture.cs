@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using NUnit.Framework;
+using Moq;
 
 namespace Tests.InRetail.Exploration
 {
@@ -8,7 +9,7 @@ namespace Tests.InRetail.Exploration
     public class TableFixture
 
     {
-        
+
         [Test]
         public void GetRevisionReturnsRevision()
         {

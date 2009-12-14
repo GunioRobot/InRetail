@@ -157,7 +157,7 @@ namespace Tests.InRetail.Exploration
 
             pattern.Subscribe(Console.WriteLine);    
             Thread.Sleep(1000);
-            CreateRandomEnumerable("aa").Run();
+            
         }
         
         IEnumerable<T> CreateRandomEnumerable<T>(T value)
@@ -238,5 +238,6 @@ namespace Tests.InRetail.Exploration
     public class Foo
     {
         public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

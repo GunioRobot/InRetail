@@ -12,5 +12,13 @@ namespace Exploration
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {   
+            string setting = ConfigurationManager.AppSettings["License"];
+            Xceed.Wpf.Controls.Licenser.LicenseKey = setting;
+            base.OnStartup(e);
+        
+
+        }
     }
 }

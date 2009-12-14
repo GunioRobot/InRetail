@@ -1,21 +1,9 @@
 ﻿<Window x:Class="Exploration.Window1"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:Controls="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit"
     xmlns:Exploration="clr-namespace:Exploration"
     Title="Window1" Height="540" Width="720">
     <Grid>
-    <DockPanel LastChildFill="True">
-        <Border DockPanel.Dock="Top">
-            <StackPanel Orientation="Horizontal" >
-                <Button Content="Hide/Show" Click="onHideShowClick" />
-                <Button Content="Set/Unset DataContext" Click="onSetUnsetDataContext"/>
-                <Button Content="Clear " Click="onClear"/>
-            </StackPanel>
-        </Border>
-        <ListBox DockPanel.Dock="Right"  x:Name="list" Width="417" />
-        <Controls:DataGrid x:Name="grid"/>
-    </DockPanel>
-    <Exploration:CanvasDraw/>
-        </Grid>
+        <Exploration:XceedDataGrid/>
+    </Grid>
 </Window>

@@ -9,6 +9,7 @@ namespace Tests.InRetail.Exploration
     [TestFixture]
     public class TaskFixture
     {
+
         [Test]
         public void ProcessTreeByThreadPool()
         {

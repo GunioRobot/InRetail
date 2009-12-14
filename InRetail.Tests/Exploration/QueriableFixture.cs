@@ -17,32 +17,21 @@ namespace Tests.InRetail.Exploration
         [Test]
         public void QueriableTest()
         {
-            var context = new ProductCatalogContainer(new Uri("http://localhost:2691/ProductCatalog.svc/"));
-            var queryable = context.ProductDetailViewModels.Where(x => x.Description.StartsWith("a")).Take(100);
-            var observable = queryable.ToObservable();
-            var loop = SynchronizationContexts.ReactiveEventLoop;
+            var query = new Query<Foo>(new MyProvider());
+            IOrderedQueryable<Foo> queryable = query.Where(x=>x.Id>1).Where(x=>x.Name.Contains("acho")).OrderBy(x=>x);
+        }
+    }
 
-            var observable2 = Observable
-                .Create<ProductDetailViewModel>((o) =>
-                                                    {
-                                                        foreach (var p in context.ProductDetailViewModels.Take(100))
-                                                        {
-                                                            o.OnNext(p);
-                                                        }
-                                                        o.OnCompleted();
-                                                        return null;
-                                                    });
-            var b = true;
+    public class MyProvider : QueryProvider
+    {
+        public override string GetQueryText(Expression expression)
+        {
+            return "Expression Processed";
+        }
 
-            observable.Subscribe(
-                v =>
-                    {
-                        Debug.WriteLine(v.Description + Thread.CurrentThread.Name);
-                        Thread.Sleep(20);
-                    },
-                _ => { b = false; });
-
-            Thread.Sleep(5000);
+        public override object Execute(Expression expression)
+        {
+            return new object();
         }
     }
 
