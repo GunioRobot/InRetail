@@ -4,7 +4,7 @@ namespace InRetail.UiCore.Actions
 {
     public interface IScreenObjectRegistry
     {
-        IEnumerable<ScreenAction> Actions { get; }
+        IEnumerable<IScreenAction> Actions { get; }
         void ClearTransient();
         IActionExpression Action(string name);
         IActionExpression PermanentAction(string name);

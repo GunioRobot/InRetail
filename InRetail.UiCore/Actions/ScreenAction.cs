@@ -1,3 +1,4 @@
+using System;
 using System.Windows.Input;
 using InRetail.UiCore.Controls;
 using InRetail.UiCore.Extensions;
@@ -32,6 +33,7 @@ namespace InRetail.UiCore.Actions
         }
 
         public bool ShortcutOnly { get; set; }
+        public string Icon { get; set; }
 
         public void BuildButton(ICommandBar bar)
         {

@@ -1,4 +1,5 @@
 using System.Windows;
+using InRetail.UiCore.Dialogs;
 
 namespace InRetail.Shell.Dialogs
 {

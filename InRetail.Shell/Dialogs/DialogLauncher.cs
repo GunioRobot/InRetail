@@ -1,3 +1,4 @@
+using InRetail.UiCore.Dialogs;
 using StructureMap;
 
 namespace InRetail.Shell.Dialogs

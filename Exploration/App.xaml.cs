@@ -16,6 +16,7 @@ namespace Exploration
         {   
             string setting = ConfigurationManager.AppSettings["License"];
             Xceed.Wpf.Controls.Licenser.LicenseKey = setting;
+            Xceed.Wpf.DataGrid.Licenser.LicenseKey = setting;
             base.OnStartup(e);
         
 

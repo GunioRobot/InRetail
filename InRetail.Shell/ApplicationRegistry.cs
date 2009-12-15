@@ -1,3 +1,4 @@
+using InRetail.Shell.Actions;
 using InRetail.UiCore;
 using InRetail.UiCore.Actions;
 using Microsoft.Practices.Composite.Regions;

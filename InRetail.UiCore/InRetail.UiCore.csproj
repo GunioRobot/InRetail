@@ -73,6 +73,8 @@
     <Compile Include="Actions\IScreenObjectRegistry.cs" />
     <Compile Include="Actions\IActionExpression.cs" />
     <Compile Include="Actions\ScreenAction.cs" />
+    <Compile Include="Dialogs\ICommandDialog.cs" />
+    <Compile Include="Dialogs\IDialogLauncher.cs" />
     <Compile Include="IShellService.cs" />
     <Compile Include="INeedBuildUp.cs" />
     <Compile Include="IScreenCollection.cs" />

@@ -3,8 +3,7 @@ using System.Linq;
 using System.Windows;
 using InRetail.Configuration;
 using InRetail.Services;
-using InRetail.UserInterface;
-using InRetail.UserInterface.Extensions;
+
 using StructureMap;
 
 
@@ -23,7 +22,6 @@ namespace InRetail
                 x.AddRegistry<DomainRegistry>();
                 x.AddRegistry<ReportingRegistry>();
                 x.AddRegistry<ServicesRegister>();
-                x.AddRegistry<UserInterfaceRegistry>();
             });
             ObjectFactory.AssertConfigurationIsValid();
 

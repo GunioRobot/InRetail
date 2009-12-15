@@ -121,6 +121,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateProductDialog.cs" />
     <Compile Include="IProductCatalogRepositoryService.cs" />
     <Compile Include="PersistenceViewModel\ProductDetailViewModel.cs" />
     <Compile Include="Presenters\IRepository.cs" />

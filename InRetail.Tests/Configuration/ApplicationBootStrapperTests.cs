@@ -1,4 +1,5 @@
 using InRetail;
+using InRetail.Shell;
 using NUnit.Framework;
 
 namespace Tests.InRetail.Configuration
@@ -9,7 +10,8 @@ namespace Tests.InRetail.Configuration
         [Test]
         public void Will_be_able_to_call_the_application_boot_strapper()
         {
-            ApplicationBootStrapper.BootStrap();
+            //new InRetailBootstrapper().Run();
+            //ApplicationBootStrapper.BootStrap();
         }
     }
 }

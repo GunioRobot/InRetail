@@ -3,12 +3,20 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid">
     <Grid>
-        <xcdg:DataGridControl Name="dataGridControl1" ReadOnly="True">
+        <xcdg:DataGridControl Name="dataGridControl1" ReadOnly="True" NavigationBehavior="RowOnly">
+            <xcdg:DataGridControl.Resources>
+                <Style x:Key="{x:Type xcdg:ScrollTip}" TargetType="xcdg:ScrollTip">
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                </Style>
+            </xcdg:DataGridControl.Resources>
             <xcdg:DataGridControl.View>
-                <xcdg:TableflowView>
-                    <xcdg:TableflowView.Theme>
-                        <xcdg:AeroNormalColorTheme />
-                    </xcdg:TableflowView.Theme>
+                <xcdg:TableflowView ColumnStretchMode="All" UseDefaultHeadersFooters="False" ShowScrollTip="True">
+                    <xcdg:TableflowView.FixedHeaders>
+                        <DataTemplate>
+                            <xcdg:ColumnManagerRow AllowSort="False" AllowAutoFilter="False" />
+                        </DataTemplate>
+                    </xcdg:TableflowView.FixedHeaders>
                 </xcdg:TableflowView>
             </xcdg:DataGridControl.View>
         </xcdg:DataGridControl>

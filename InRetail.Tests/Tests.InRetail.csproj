@@ -83,6 +83,7 @@
     </Reference>
     <Reference Include="System.CoreEx, Version=1.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Reactive, Version=1.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Threading, Version=1.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -118,6 +119,7 @@
     <Compile Include="Exploration\ExpressionFixture.cs" />
     <Compile Include="Exploration\QueriableFixture.cs" />
     <Compile Include="Exploration\RXfixture.cs" />
+    <Compile Include="Exploration\SerializationFixture.cs" />
     <Compile Include="Exploration\Syncronization\ChangeSet.cs" />
     <Compile Include="Exploration\Syncronization\Integration\IntegrationFixture.cs" />
     <Compile Include="Exploration\Syncronization\ITable.cs" />

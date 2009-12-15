@@ -75,6 +75,10 @@
     </Reference>
     <Reference Include="System.CoreEx, Version=1.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Reactive, Version=1.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Threading, Version=1.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files\Microsoft Reactive Extensions\redist\desktopV2\System.Threading.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -123,15 +127,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actions\ActionCommand.cs" />
+    <Compile Include="Actions\Command.cs" />
     <Compile Include="ApplicationRegistry.cs" />
     <Compile Include="Dialogs\Dialog.cs" />
     <Compile Include="Dialogs\DialogLauncher.cs" />
-    <Compile Include="Dialogs\ICommandDialog.cs" />
-    <Compile Include="Dialogs\IDialogLauncher.cs" />
     <Compile Include="ScreenCollection.cs" />
     <Compile Include="ScreenConductor.cs" />
     <Compile Include="ScreenFactory.cs" />
-    <Compile Include="ScreenObjectRegistry.cs" />
+    <Compile Include="Actions\ScreenObjectRegistry.cs" />
     <Compile Include="StructureMap\StructureMapExtensions.cs" />
     <Compile Include="StructureMap\StructureMapServiceLocator.cs" />
     <Compile Include="InRetailBootstrapper.cs" />
