@@ -5,8 +5,10 @@ using System.Data;
 using System.Linq;
 using System.Threading;
 using System.Windows;
+using System.Windows.Navigation;
 using InRetail.Shell.StructureMap;
 using InRetail.UiCore;
+using InRetail.UiCore.Actions;
 using InRetail.UiCore.Extensions;
 using StructureMap;
 
@@ -20,14 +22,14 @@ namespace InRetail.Shell
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            
             Observable.Context = SynchronizationContexts.CurrentDispatcher;
 
             var bootstrapper = new InRetailBootstrapper();
             bootstrapper.Run();
-
             StartupShell(bootstrapper.Container);
             this.ShutdownMode = ShutdownMode.OnMainWindowClose;
+            var registry = bootstrapper.Container.GetInstance<IScreenObjectRegistry>();
+            registry.Actions.First().Command.Execute(null);
         }
 
         private static void StartupShell(IContainer container)

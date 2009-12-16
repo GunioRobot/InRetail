@@ -47,14 +47,14 @@ namespace InRetail.Shell.Actions
             throw new NotImplementedException();
         }
 
-        public ICommand CommandForDialog<T>()
-        {
-            return command<IDialogLauncher>(x => x.Launch<T>());
-        }
-
         private ICommand command<T>(Action<T> action)
         {
             return new Command<T>(_container, action);
+        }
+
+        public ICommand CommandForDialog<T>()
+        {
+            return command<IDialogLauncher>(x => x.Launch<T>());
         }
 
         private ICommand CommandForEvent<T>()
@@ -80,6 +80,7 @@ namespace InRetail.Shell.Actions
 
             public BindingExpression(string name, ScreenObjectRegistry registry)
             {
+                _screenAction = new ScreenAction();
                 _screenAction.Name = name;
                 _registry = registry;
             }
@@ -87,7 +88,6 @@ namespace InRetail.Shell.Actions
             public BindingExpression(string name, ScreenObjectRegistry registry, Action<ScreenAction> configure)
                 : this(name, registry)
             {
-                _screenAction = new ScreenAction();
                 configure(_screenAction);
             }
 

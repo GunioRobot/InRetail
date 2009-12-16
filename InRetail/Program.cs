@@ -7,11 +7,9 @@ namespace InRetail
         [System.STAThreadAttribute()]
         public static void Main()
         {
-            var shell= ApplicationBootStrapper.BootStrapShell();
-            shell.Title = "In Retail";
-
+            
             var application = new App();
-            application.Run(shell);
+            application.Run();
         }
     }
 }

@@ -80,7 +80,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationBootStrapper.cs" />
     <Compile Include="ApplicationRegistry.cs" />
     <Compile Include="SystemTimer.cs" />
     <Compile Include="Program.cs" />

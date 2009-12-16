@@ -14,6 +14,7 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
+    <ExpressionBlendVersion>3.0.1927.0</ExpressionBlendVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -111,6 +112,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Commands\CreateProduct\CreateProductCommandDialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResourceDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\ModelSearchView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -121,8 +130,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateProductDialog.cs" />
-    <Compile Include="IProductCatalogRepositoryService.cs" />
+    <Compile Include="Commands\CreateProduct\CreateProductCommand.cs" />
+    <Compile Include="Commands\CreateProduct\CreateProductCommandDialog.cs" />
+    <Compile Include="Commands\CreateProduct\CreateProductCommandDialogView.xaml.cs">
+      <DependentUpon>CreateProductCommandDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Commands\CreateProduct\ICreateProductCommandDialogView.cs" />
     <Compile Include="PersistenceViewModel\ProductDetailViewModel.cs" />
     <Compile Include="Presenters\IRepository.cs" />
     <Compile Include="Presenters\ModelSearchPresenter.cs" />

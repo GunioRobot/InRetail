@@ -1,6 +1,8 @@
 using InRetail.Shell.Actions;
+using InRetail.Shell.Dialogs;
 using InRetail.UiCore;
 using InRetail.UiCore.Actions;
+using InRetail.UiCore.Dialogs;
 using Microsoft.Practices.Composite.Regions;
 using StructureMap.Configuration.DSL;
 
@@ -20,10 +22,11 @@ namespace InRetail.Shell
             ForSingletonOf<IScreenConductor>().TheDefaultIsConcreteType<ScreenConductor>();
             ForSingletonOf<IScreenFactory>().TheDefaultIsConcreteType<ScreenFactory>();
             ForSingletonOf<IScreenObjectRegistry>().TheDefaultIsConcreteType<ScreenObjectRegistry>();
-
+            
+            
 
             ForSingletonOf<IShellView>().TheDefaultIsConcreteType<Window1>();
-          
+            ForRequestedType<IDialogLauncher>().TheDefaultIsConcreteType<DialogLauncher>();
         }
     }
 }
