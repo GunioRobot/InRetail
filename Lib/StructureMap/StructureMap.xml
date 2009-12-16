@@ -43,14 +43,6 @@
             <param name="name"></param>
             <returns></returns>
         </member>
-        <member name="M:StructureMap.IContext.All``1">
-            <summary>
-            Gets all objects in the current object graph that can be cast
-            to T
-            </summary>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
         <member name="P:StructureMap.IContext.BuildStack">
             <summary>
             Gets a reference to the <see cref="P:StructureMap.IContext.BuildStack">BuildStack</see> for this build session
@@ -304,19 +296,6 @@
             </summary>
             <param name="path"></param>
             <param name="assemblyFilter"></param>
-        </member>
-        <member name="M:StructureMap.Graph.IAssemblyScanner.AssembliesFromApplicationBaseDirectory">
-            <summary>
-            Sweep the application base directory of current app domain and add any Assembly's 
-            found to the scanning operation.
-            </summary>
-        </member>
-        <member name="M:StructureMap.Graph.IAssemblyScanner.AssembliesFromApplicationBaseDirectory(System.Predicate{System.Reflection.Assembly})">
-            <summary>
-            Sweep the application base directory of current app domain and add any Assembly's 
-            found to the scanning operation. The assemblyFilter can be used to filter or limit the 
-            Assembly's that are picked up.
-            </summary>
         </member>
         <member name="M:StructureMap.Graph.IAssemblyScanner.With(StructureMap.Graph.ITypeScanner)">
             <summary>
@@ -599,13 +578,6 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:StructureMap.Pipeline.ConfiguredInstance.ChildInstanceExpression.IsConcreteType(System.Type)">
-            <summary>
-            Start the definition of a child instance by defining the concrete type
-            </summary>
-            <param name="pluggedType"></param>
-            <returns></returns>
-        </member>
         <member name="M:StructureMap.Pipeline.ConfiguredInstance.ChildInstanceExpression.Is(StructureMap.Pipeline.Instance)">
             <summary>
             Registers a configured instance to use as the argument to the parent's
@@ -687,6 +659,13 @@
             <summary>
             Used to implicitly mark a class as a Plugin candidate for StructureMap
             </summary>
+        </member>
+        <member name="M:StructureMap.PluggableAttribute.InstanceOf(System.Type)">
+            <summary>
+            Gets an instance of PluggableAttribute from a Type object 
+            </summary>
+            <param name="objectType"></param>
+            <returns></returns>
         </member>
         <member name="M:StructureMap.PluggableAttribute.MarkedAsPluggable(System.Type)">
             <summary>
@@ -794,13 +773,6 @@
             Shorthand to say TheDefault.Is.ConstructedBy(func)
             </summary>
             <param name="func"></param>
-            <returns></returns>
-        </member>
-        <member name="M:StructureMap.Configuration.DSL.Expressions.CreatePluginFamilyExpression`1.Use(`0)">
-            <summary>
-            Shorthand to say TheDefault.IsThis(@object)
-            </summary>
-            <param name="object"></param>
             <returns></returns>
         </member>
         <member name="M:StructureMap.Configuration.DSL.Expressions.CreatePluginFamilyExpression`1.CacheBy(StructureMap.Attributes.InstanceScope)">
@@ -1001,15 +973,6 @@
             <typeparam name="T"></typeparam>
             <param name="expression"></param>
         </member>
-        <member name="M:StructureMap.Configuration.DSL.IRegistry.Forward``2">
-            <summary>
-            Use to "forward" the request for FROM to the default of TO
-            Useful for singleton services that implement multiple
-            interface roles
-            </summary>
-            <typeparam name="FROM"></typeparam>
-            <typeparam name="TO"></typeparam>
-        </member>
         <member name="T:StructureMap.Configuration.DSL.Registry">
             <summary>
             A Registry class provides methods and grammars for configuring a Container or ObjectFactory.
@@ -1183,7 +1146,6 @@
             <param name="pluginType"></param>
             <returns></returns>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:StructureMap.Configuration.DSL.Registry.Redirect``2" -->
         <member name="T:StructureMap.Configuration.DSL.Registry.BuildWithExpression`1">
             <summary>
             Define the constructor and setter arguments for the default T
