@@ -26,10 +26,12 @@ namespace InRetail.Shell
 
             var bootstrapper = new InRetailBootstrapper();
             bootstrapper.Run();
+
             StartupShell(bootstrapper.Container);
-            this.ShutdownMode = ShutdownMode.OnMainWindowClose;
+            string have = ObjectFactory.Container.WhatDoIHave();
             var registry = bootstrapper.Container.GetInstance<IScreenObjectRegistry>();
             registry.Actions.First().Command.Execute(null);
+            this.ShutdownMode = ShutdownMode.OnMainWindowClose;
         }
 
         private static void StartupShell(IContainer container)

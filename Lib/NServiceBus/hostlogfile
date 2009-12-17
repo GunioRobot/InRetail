@@ -1,0 +1,119 @@
+2009-12-17 11:54:00,686 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - NServiceBus Host - assembly load failure - ignoring System.Data.SQLite.DLL because of error: System.BadImageFormatException: Could not load file or assembly 'file:///D:\Projects\InRetail\Lib\NServiceBus\System.Data.SQLite.DLL' or one of its dependencies. An attempt was made to load a program with an incorrect format.
+File name: 'file:///D:\Projects\InRetail\Lib\NServiceBus\System.Data.SQLite.DLL'
+   at System.Reflection.Assembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, Assembly locationHint, StackCrawlMark& stackMark, Boolean throwOnFileNotFound, Boolean forIntrospection)
+   at System.Reflection.Assembly.InternalLoad(AssemblyName assemblyRef, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   at System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   at NServiceBus.Hosting.Helpers.AssemblyScanner.<GetScannableAssemblies>d__0.MoveNext() in d:\Projects\NServiceBus\src\hosting\NServiceBus.Hosting\Helpers\AssemblyScanner.cs:line 36
+
+=== Pre-bind state information ===
+LOG: User = Floreal-PC\Floreal
+LOG: Where-ref bind. Location = D:\Projects\InRetail\Lib\NServiceBus\System.Data.SQLite.DLL
+LOG: Appbase = file:///D:/Projects/InRetail/Lib/NServiceBus/
+LOG: Initial PrivatePath = NULL
+Calling assembly : (Unknown).
+===
+LOG: This bind starts in LoadFrom load context.
+WRN: Native image will not be probed in LoadFrom context. Native image will only be probed in default load context, like with Assembly.Load().
+LOG: No application configuration file found.
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework64\v2.0.50727\config\machine.config.
+LOG: Attempting download of new URL file:///D:/Projects/InRetail/Lib/NServiceBus/System.Data.SQLite.DLL.
+ERR: Failed to complete setup of assembly (hr = 0x8007000b). Probing terminated.
+
+2009-12-17 11:54:00,951 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - Problem with loading D:\Projects\InRetail\Lib\NServiceBus\containers\NServiceBus.ObjectBuilder.Unity.dll, reason: Could not load file or assembly 'Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+2009-12-17 11:54:00,951 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - Problem with loading D:\Projects\InRetail\Lib\NServiceBus\containers\NServiceBus.ObjectBuilder.Unity.dll, reason: Could not load file or assembly 'Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+2009-12-17 11:54:00,951 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - Problem with loading D:\Projects\InRetail\Lib\NServiceBus\containers\NServiceBus.ObjectBuilder.Unity.dll, reason: Could not load file or assembly 'Microsoft.Practices.ObjectBuilder2, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+2009-12-17 11:54:00,951 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - Problem with loading D:\Projects\InRetail\Lib\NServiceBus\containers\NServiceBus.ObjectBuilder.Unity.dll, reason: Could not load file or assembly 'Microsoft.Practices.ObjectBuilder2, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+2009-12-17 11:54:00,951 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - Problem with loading D:\Projects\InRetail\Lib\NServiceBus\containers\NServiceBus.ObjectBuilder.Unity.dll, reason: Could not load file or assembly 'Microsoft.Practices.ObjectBuilder2, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+2009-12-17 11:54:01,045 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - Problem with loading D:\Projects\InRetail\Lib\NServiceBus\containers\unity\NServiceBus.ObjectBuilder.Unity.dll, reason: Could not load file or assembly 'Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+2009-12-17 11:54:01,045 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - Problem with loading D:\Projects\InRetail\Lib\NServiceBus\containers\unity\NServiceBus.ObjectBuilder.Unity.dll, reason: Could not load file or assembly 'Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+2009-12-17 11:54:01,513 [1] FATAL NServiceBus.Host.Program [(null)] <(null)> - System.InvalidOperationException: No endpoint configuration found in scanned assemlies. This usually happens when NServiceBus fails to load your assembly contaning IConfigureThisEndpoint. Loader exceptions are logged to the hostlogfile in the current working directory, Scanned path: D:\Projects\InRetail\Lib\NServiceBus\
+   at NServiceBus.Host.Program.ValidateEndpoints(IEnumerable`1 endpointConfigurationTypes) in d:\Projects\NServiceBus\src\host\NServiceBus.Host\Program.cs:line 208
+   at NServiceBus.Host.Program.GetEndpointConfigurationType() in d:\Projects\NServiceBus\src\host\NServiceBus.Host\Program.cs:line 186
+   at NServiceBus.Host.Program.Main(String[] args) in d:\Projects\NServiceBus\src\host\NServiceBus.Host\Program.cs:line 38
+2009-12-17 11:57:42,768 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - NServiceBus Host - assembly load failure - ignoring System.Data.SQLite.DLL because of error: System.BadImageFormatException: Could not load file or assembly 'file:///D:\Projects\InRetail\Lib\NServiceBus\System.Data.SQLite.DLL' or one of its dependencies. An attempt was made to load a program with an incorrect format.
+File name: 'file:///D:\Projects\InRetail\Lib\NServiceBus\System.Data.SQLite.DLL'
+   at System.Reflection.Assembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, Assembly locationHint, StackCrawlMark& stackMark, Boolean throwOnFileNotFound, Boolean forIntrospection)
+   at System.Reflection.Assembly.InternalLoad(AssemblyName assemblyRef, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   at System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   at NServiceBus.Hosting.Helpers.AssemblyScanner.<GetScannableAssemblies>d__0.MoveNext() in d:\Projects\NServiceBus\src\hosting\NServiceBus.Hosting\Helpers\AssemblyScanner.cs:line 36
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+2009-12-17 11:57:42,877 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - Problem with loading D:\Projects\InRetail\Lib\NServiceBus\containers\NServiceBus.ObjectBuilder.Unity.dll, reason: Could not load file or assembly 'Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+2009-12-17 11:57:42,877 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - Problem with loading D:\Projects\InRetail\Lib\NServiceBus\containers\NServiceBus.ObjectBuilder.Unity.dll, reason: Could not load file or assembly 'Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+2009-12-17 11:57:42,877 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - Problem with loading D:\Projects\InRetail\Lib\NServiceBus\containers\NServiceBus.ObjectBuilder.Unity.dll, reason: Could not load file or assembly 'Microsoft.Practices.ObjectBuilder2, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+2009-12-17 11:57:42,877 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - Problem with loading D:\Projects\InRetail\Lib\NServiceBus\containers\NServiceBus.ObjectBuilder.Unity.dll, reason: Could not load file or assembly 'Microsoft.Practices.ObjectBuilder2, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+2009-12-17 11:57:42,877 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - Problem with loading D:\Projects\InRetail\Lib\NServiceBus\containers\NServiceBus.ObjectBuilder.Unity.dll, reason: Could not load file or assembly 'Microsoft.Practices.ObjectBuilder2, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+2009-12-17 11:57:42,908 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - Problem with loading D:\Projects\InRetail\Lib\NServiceBus\containers\unity\NServiceBus.ObjectBuilder.Unity.dll, reason: Could not load file or assembly 'Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+2009-12-17 11:57:42,908 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - Problem with loading D:\Projects\InRetail\Lib\NServiceBus\containers\unity\NServiceBus.ObjectBuilder.Unity.dll, reason: Could not load file or assembly 'Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+2009-12-17 11:57:43,033 [1] FATAL NServiceBus.Host.Program [(null)] <(null)> - System.InvalidOperationException: No endpoint configuration found in scanned assemlies. This usually happens when NServiceBus fails to load your assembly contaning IConfigureThisEndpoint. Loader exceptions are logged to the hostlogfile in the current working directory, Scanned path: D:\Projects\InRetail\Lib\NServiceBus\
+   at NServiceBus.Host.Program.ValidateEndpoints(IEnumerable`1 endpointConfigurationTypes) in d:\Projects\NServiceBus\src\host\NServiceBus.Host\Program.cs:line 210
+   at NServiceBus.Host.Program.GetEndpointConfigurationType() in d:\Projects\NServiceBus\src\host\NServiceBus.Host\Program.cs:line 186
+   at NServiceBus.Host.Program.Main(String[] args) in d:\Projects\NServiceBus\src\host\NServiceBus.Host\Program.cs:line 38
+2009-12-17 11:58:05,638 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - NServiceBus Host - assembly load failure - ignoring System.Data.SQLite.DLL because of error: System.BadImageFormatException: Could not load file or assembly 'file:///D:\Projects\InRetail\Lib\NServiceBus\System.Data.SQLite.DLL' or one of its dependencies. An attempt was made to load a program with an incorrect format.
+File name: 'file:///D:\Projects\InRetail\Lib\NServiceBus\System.Data.SQLite.DLL'
+   at System.Reflection.Assembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, Assembly locationHint, StackCrawlMark& stackMark, Boolean throwOnFileNotFound, Boolean forIntrospection)
+   at System.Reflection.Assembly.InternalLoad(AssemblyName assemblyRef, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   at System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   at NServiceBus.Hosting.Helpers.AssemblyScanner.<GetScannableAssemblies>d__0.MoveNext() in d:\Projects\NServiceBus\src\hosting\NServiceBus.Hosting\Helpers\AssemblyScanner.cs:line 36
+
+=== Pre-bind state information ===
+LOG: User = Floreal-PC\Floreal
+LOG: Where-ref bind. Location = D:\Projects\InRetail\Lib\NServiceBus\System.Data.SQLite.DLL
+LOG: Appbase = file:///D:/Projects/InRetail/Lib/NServiceBus/
+LOG: Initial PrivatePath = NULL
+Calling assembly : (Unknown).
+===
+LOG: This bind starts in LoadFrom load context.
+WRN: Native image will not be probed in LoadFrom context. Native image will only be probed in default load context, like with Assembly.Load().
+LOG: No application configuration file found.
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework64\v2.0.50727\config\machine.config.
+LOG: Attempting download of new URL file:///D:/Projects/InRetail/Lib/NServiceBus/System.Data.SQLite.DLL.
+ERR: Failed to complete setup of assembly (hr = 0x8007000b). Probing terminated.
+
+2009-12-17 11:58:05,778 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - Problem with loading D:\Projects\InRetail\Lib\NServiceBus\containers\NServiceBus.ObjectBuilder.Unity.dll, reason: Could not load file or assembly 'Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+2009-12-17 11:58:05,778 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - Problem with loading D:\Projects\InRetail\Lib\NServiceBus\containers\NServiceBus.ObjectBuilder.Unity.dll, reason: Could not load file or assembly 'Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+2009-12-17 11:58:05,778 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - Problem with loading D:\Projects\InRetail\Lib\NServiceBus\containers\NServiceBus.ObjectBuilder.Unity.dll, reason: Could not load file or assembly 'Microsoft.Practices.ObjectBuilder2, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+2009-12-17 11:58:05,778 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - Problem with loading D:\Projects\InRetail\Lib\NServiceBus\containers\NServiceBus.ObjectBuilder.Unity.dll, reason: Could not load file or assembly 'Microsoft.Practices.ObjectBuilder2, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+2009-12-17 11:58:05,778 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - Problem with loading D:\Projects\InRetail\Lib\NServiceBus\containers\NServiceBus.ObjectBuilder.Unity.dll, reason: Could not load file or assembly 'Microsoft.Practices.ObjectBuilder2, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+2009-12-17 11:58:05,825 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - Problem with loading D:\Projects\InRetail\Lib\NServiceBus\containers\unity\NServiceBus.ObjectBuilder.Unity.dll, reason: Could not load file or assembly 'Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+2009-12-17 11:58:05,825 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - Problem with loading D:\Projects\InRetail\Lib\NServiceBus\containers\unity\NServiceBus.ObjectBuilder.Unity.dll, reason: Could not load file or assembly 'Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+2009-12-17 11:58:06,012 [1] FATAL NServiceBus.Host.Program [(null)] <(null)> - System.InvalidOperationException: No endpoint configuration found in scanned assemlies. This usually happens when NServiceBus fails to load your assembly contaning IConfigureThisEndpoint. Loader exceptions are logged to the hostlogfile in the current working directory, Scanned path: D:\Projects\InRetail\Lib\NServiceBus\
+   at NServiceBus.Host.Program.ValidateEndpoints(IEnumerable`1 endpointConfigurationTypes) in d:\Projects\NServiceBus\src\host\NServiceBus.Host\Program.cs:line 208
+   at NServiceBus.Host.Program.GetEndpointConfigurationType() in d:\Projects\NServiceBus\src\host\NServiceBus.Host\Program.cs:line 186
+   at NServiceBus.Host.Program.Main(String[] args) in d:\Projects\NServiceBus\src\host\NServiceBus.Host\Program.cs:line 38
+2009-12-17 11:58:57,055 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - NServiceBus Host - assembly load failure - ignoring System.Data.SQLite.DLL because of error: System.BadImageFormatException: Could not load file or assembly 'file:///D:\Projects\InRetail\Lib\NServiceBus\System.Data.SQLite.DLL' or one of its dependencies. An attempt was made to load a program with an incorrect format.
+File name: 'file:///D:\Projects\InRetail\Lib\NServiceBus\System.Data.SQLite.DLL'
+   at System.Reflection.Assembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, Assembly locationHint, StackCrawlMark& stackMark, Boolean throwOnFileNotFound, Boolean forIntrospection)
+   at System.Reflection.Assembly.InternalLoad(AssemblyName assemblyRef, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)
+   at System.Reflection.Assembly.LoadFrom(String assemblyFile)
+   at NServiceBus.Hosting.Helpers.AssemblyScanner.<GetScannableAssemblies>d__0.MoveNext() in d:\Projects\NServiceBus\src\hosting\NServiceBus.Hosting\Helpers\AssemblyScanner.cs:line 36
+
+=== Pre-bind state information ===
+LOG: User = Floreal-PC\Floreal
+LOG: Where-ref bind. Location = D:\Projects\InRetail\Lib\NServiceBus\System.Data.SQLite.DLL
+LOG: Appbase = file:///D:/Projects/InRetail/Lib/NServiceBus/
+LOG: Initial PrivatePath = NULL
+Calling assembly : (Unknown).
+===
+LOG: This bind starts in LoadFrom load context.
+WRN: Native image will not be probed in LoadFrom context. Native image will only be probed in default load context, like with Assembly.Load().
+LOG: No application configuration file found.
+LOG: Using machine configuration file from C:\Windows\Microsoft.NET\Framework64\v2.0.50727\config\machine.config.
+LOG: Attempting download of new URL file:///D:/Projects/InRetail/Lib/NServiceBus/System.Data.SQLite.DLL.
+ERR: Failed to complete setup of assembly (hr = 0x8007000b). Probing terminated.
+
+2009-12-17 11:58:57,196 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - Problem with loading D:\Projects\InRetail\Lib\NServiceBus\containers\NServiceBus.ObjectBuilder.Unity.dll, reason: Could not load file or assembly 'Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+2009-12-17 11:58:57,196 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - Problem with loading D:\Projects\InRetail\Lib\NServiceBus\containers\NServiceBus.ObjectBuilder.Unity.dll, reason: Could not load file or assembly 'Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+2009-12-17 11:58:57,196 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - Problem with loading D:\Projects\InRetail\Lib\NServiceBus\containers\NServiceBus.ObjectBuilder.Unity.dll, reason: Could not load file or assembly 'Microsoft.Practices.ObjectBuilder2, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+2009-12-17 11:58:57,196 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - Problem with loading D:\Projects\InRetail\Lib\NServiceBus\containers\NServiceBus.ObjectBuilder.Unity.dll, reason: Could not load file or assembly 'Microsoft.Practices.ObjectBuilder2, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+2009-12-17 11:58:57,196 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - Problem with loading D:\Projects\InRetail\Lib\NServiceBus\containers\NServiceBus.ObjectBuilder.Unity.dll, reason: Could not load file or assembly 'Microsoft.Practices.ObjectBuilder2, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+2009-12-17 11:58:57,243 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - Problem with loading D:\Projects\InRetail\Lib\NServiceBus\containers\unity\NServiceBus.ObjectBuilder.Unity.dll, reason: Could not load file or assembly 'Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+2009-12-17 11:58:57,243 [1] WARN  NServiceBus.Hosting.Helpers.AssemblyScanner [(null)] <(null)> - Problem with loading D:\Projects\InRetail\Lib\NServiceBus\containers\unity\NServiceBus.ObjectBuilder.Unity.dll, reason: Could not load file or assembly 'Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.
+2009-12-17 11:58:57,430 [1] FATAL NServiceBus.Host.Program [(null)] <(null)> - System.InvalidOperationException: No endpoint configuration found in scanned assemlies. This usually happens when NServiceBus fails to load your assembly contaning IConfigureThisEndpoint. Loader exceptions are logged to the hostlogfile in the current working directory, Scanned path: D:\Projects\InRetail\Lib\NServiceBus\
+   at NServiceBus.Host.Program.ValidateEndpoints(IEnumerable`1 endpointConfigurationTypes) in d:\Projects\NServiceBus\src\host\NServiceBus.Host\Program.cs:line 208
+   at NServiceBus.Host.Program.GetEndpointConfigurationType() in d:\Projects\NServiceBus\src\host\NServiceBus.Host\Program.cs:line 186
+   at NServiceBus.Host.Program.Main(String[] args) in d:\Projects\NServiceBus\src\host\NServiceBus.Host\Program.cs:line 38

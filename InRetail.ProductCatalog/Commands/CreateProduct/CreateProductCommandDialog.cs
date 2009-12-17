@@ -1,24 +1,28 @@
 using InRetail.UiCore.Dialogs;
+using Microsoft.Practices.Composite.Presentation.Commands;
+using NServiceBus;
+using ProductCatalogContracts;
 
 namespace InRetail.ProductCatalog.Commands.CreateProduct
 {
-    public class CreateProductCommandDialog : ICommandDialog<CreateProductCommand>
+    public class CreateProductCommandDialog : ICommandDialog<CreateProductMessage>
     {
-        private readonly CreateProductCommand _command;
+        private readonly IBus _bus;
+        private readonly CreateProductMessage _message;
 
-        public CreateProductCommandDialog()
+        public CreateProductCommandDialog(CreateProductMessage message, IBus bus)
         {
-            
-        }
-        public CreateProductCommandDialog(CreateProductCommand command):this()
-        {
-            _command = command;
+            _message = message;
+            _bus = bus;
+            SendCommand = new DelegateCommand<object>(_ => _bus.Send(_message));
         }
 
-        public CreateProductCommand Command
+        public CreateProductMessage Message
         {
-            get { return _command; }
+            get { return _message; }
         }
+
+        public DelegateCommand<object> SendCommand { get; set; }
 
         public string Title
         {

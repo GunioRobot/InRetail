@@ -1,4 +1,6 @@
-using InRetail.UserInterface;
+
+
+using InRetail.Shell;
 
 namespace InRetail
 {
@@ -7,8 +9,10 @@ namespace InRetail
         [System.STAThreadAttribute()]
         public static void Main()
         {
-            
-            var application = new App();
+            Bootstrapper.Bootstrap();
+
+            var application = new InRetail.Shell.App();
+            application.InitializeComponent();
             application.Run();
         }
     }

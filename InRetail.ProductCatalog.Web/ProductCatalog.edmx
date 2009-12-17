@@ -4,16 +4,16 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ProductCatalogModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+      <Schema Namespace="ProductCatalogModel.Store" Alias="Self" Provider="System.Data.SQLite" ProviderManifestToken="ISO8601" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
         <EntityContainer Name="ProductCatalogModelStoreContainer">
-          <EntitySet Name="ProductDetailViewModels" EntityType="ProductCatalogModel.Store.ProductDetailViewModels" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProductDetailViewModels" EntityType="ProductCatalogModel.Store.ProductDetailViewModels" store:Type="Tables" />
         </EntityContainer>
         <EntityType Name="ProductDetailViewModels">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" />
         </EntityType>
       </Schema>
     </edmx:StorageModels>
@@ -28,7 +28,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="2147483647" Unicode="true" FixedLength="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -63,6 +63,6 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram Name="ProductCatalog">
-        <EntityTypeShape EntityType="ProductCatalogModel.ProductDetailViewModel" Width="2" PointX="0.75" PointY="0.75" Height="1.4033821614583331" IsExpanded="true" /></Diagram></edmx:Diagrams>
+        <EntityTypeShape EntityType="ProductCatalogModel.ProductDetailViewModel" Width="3.25" PointX="1.875" PointY="2" Height="1.4033821614583331" IsExpanded="true" /></Diagram></edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

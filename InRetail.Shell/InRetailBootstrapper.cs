@@ -10,10 +10,9 @@ namespace InRetail.Shell
 {
     public class InRetailBootstrapper : StructureMapBootstrapper
     {
-        protected override void ConfigureContainer()
+        protected override IContainer CreateContainer()
         {
-            Container.Configure(x => x.AddRegistry<ApplicationRegistry>());
-            base.ConfigureContainer();
+            return ObjectFactory.Container;
         }
 
         protected override DependencyObject CreateShell()

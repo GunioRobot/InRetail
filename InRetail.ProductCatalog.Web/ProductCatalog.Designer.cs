@@ -11,7 +11,7 @@
 [assembly: global::System.Data.Objects.DataClasses.EdmSchemaAttribute()]
 
 // Original file name:
-// Generation date: 12/7/2009 2:33:43 PM
+// Generation date: 12/17/2009 11:29:32 PM
 namespace InRetail.ProductCatalog.Web
 {
     
@@ -83,12 +83,10 @@ namespace InRetail.ProductCatalog.Web
         /// Create a new ProductDetailViewModel object.
         /// </summary>
         /// <param name="id">Initial value of Id.</param>
-        /// <param name="description">Initial value of Description.</param>
-        public static ProductDetailViewModel CreateProductDetailViewModel(global::System.Guid id, string description)
+        public static ProductDetailViewModel CreateProductDetailViewModel(global::System.Guid id)
         {
             ProductDetailViewModel productDetailViewModel = new ProductDetailViewModel();
             productDetailViewModel.Id = id;
-            productDetailViewModel.Description = description;
             return productDetailViewModel;
         }
         /// <summary>
@@ -117,7 +115,7 @@ namespace InRetail.ProductCatalog.Web
         /// <summary>
         /// There are no comments for Property Description in the schema.
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
         public string Description
         {
@@ -129,7 +127,7 @@ namespace InRetail.ProductCatalog.Web
             {
                 this.OnDescriptionChanging(value);
                 this.ReportPropertyChanging("Description");
-                this._Description = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this._Description = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
                 this.ReportPropertyChanged("Description");
                 this.OnDescriptionChanged();
             }

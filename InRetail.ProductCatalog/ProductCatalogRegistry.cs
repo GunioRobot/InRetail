@@ -1,22 +1,27 @@
 using System;
 using InRetail.ProductCatalog.Views;
 using InRetail.UiCore.Dialogs;
+using ProductCatalogContracts;
 using StructureMap;
 using StructureMap.Configuration.DSL;
 using StructureMap.Graph;
+using NServiceBus;
+using System.Diagnostics;
 
 namespace InRetail.ProductCatalog
 {
-    public class ProductCatalogRegistry:Registry
+    public class ProductCatalogRegistry : Registry
     {
         public ProductCatalogRegistry()
         {
             Scan(x =>
-                     {
-                         x.AssemblyContainingType<ProductCatalogRegistry>();
-                         x.WithDefaultConventions();
-                         x.With(new GenericConnectionScanner(typeof (ICommandDialog<>)));
-                     });
+                         {
+                             x.AssemblyContainingType<ProductCatalogRegistry>();
+                             x.WithDefaultConventions();
+                             x.With(new GenericConnectionScanner(typeof(ICommandDialog<>)));
+                         });
+
+
             
             ForRequestedType<IProductDetailView>().TheDefaultIsConcreteType<ProductDetailView>();
         }

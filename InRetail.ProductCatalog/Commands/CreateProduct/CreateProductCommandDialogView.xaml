@@ -13,7 +13,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Product Description:" Grid.Column="0" Grid.Row="0"/>
-        <TextBox Text="{Binding Command.Description}" Grid.Column="1" Grid.Row="0"/>
-        <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Create" Grid.Column="1" Grid.Row="1"/>
+        <TextBox Text="{Binding Message.Description,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="0"/>
+        <Button Command="{Binding SendCommand}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Create" Grid.Column="1" Grid.Row="1"/>
     </Grid>
 </UserControl>

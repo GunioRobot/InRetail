@@ -6,6 +6,7 @@ using Microsoft.Practices.Composite.Modularity;
 using ProductCatalogModel;
 using System.Windows.Input;
 using StructureMap;
+using ProductCatalogContracts;
 
 namespace InRetail.ProductCatalog
 {
@@ -15,7 +16,7 @@ namespace InRetail.ProductCatalog
         private readonly IScreenConductor _screenConductor;
         private readonly IScreenObjectRegistry _screenObjectRegistry;
 
-        public ProductCatalogModule(IContainer container,IScreenConductor screenConductor, IScreenObjectRegistry actionRegistry)
+        public ProductCatalogModule(IContainer container, IScreenConductor screenConductor, IScreenObjectRegistry actionRegistry)
         {
             _container = container;
             _screenConductor = screenConductor;
@@ -24,9 +25,15 @@ namespace InRetail.ProductCatalog
 
         public void Initialize()
         {
-            _container.Configure(x => x.AddRegistry<ProductCatalogRegistry>());
+            _container.Configure(x =>
+            {
+                x.AddRegistry<ProductCatalogRegistry>();
+                x.AddRegistry<ProductCatalogContractsRegistry>();
+            });
             var subject = new SingletonScreenSubject<ModelSearchPresenter<ProductDetailViewModel>>();
-            _screenObjectRegistry.PermanentAction("Create Product").Bind(Key.F2).ToDialog<CreateProductCommand>();
+            
+            
+            _screenObjectRegistry.PermanentAction("Create Product").Bind(Key.F2).ToDialog<CreateProductMessage>();
             _screenConductor.OpenScreen(subject);
         }
     }
