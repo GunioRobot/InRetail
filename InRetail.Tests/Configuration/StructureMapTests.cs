@@ -3,6 +3,7 @@ using InRetail.Services;
 using InRetail.Shell;
 using Moq;
 using Moq.Language.Flow;
+using NServiceBus;
 using NUnit.Framework;
 using StructureMap;
 using InRetail.ProductCatalog;
@@ -26,11 +27,13 @@ namespace Tests.InRetail.Configuration
                                              x.AddRegistry<ServicesRegister>();
                                          });
 
-            var mock = new Mock<IRegionManager>();
-            var mock1 = new Mock<IRegion>(MockBehavior.Loose);
-            mock.Setup(x => x.Regions["mainRegion"]).Returns(mock1.Object);
+            var mockRegionManager = new Mock<IRegionManager>();
+            var mockRegion = new Mock<IRegion>(MockBehavior.Loose);
+            mockRegionManager.Setup(x => x.Regions["mainRegion"]).Returns(mockRegion.Object);
+            var mockBus = new Mock<IBus>();
 
-            ObjectFactory.Inject<IRegionManager>(mock.Object);
+            ObjectFactory.Inject(mockRegionManager.Object);
+            ObjectFactory.Inject(mockBus.Object);
             ObjectFactory.AssertConfigurationIsValid();
 
             ObjectFactory.ResetDefaults();
