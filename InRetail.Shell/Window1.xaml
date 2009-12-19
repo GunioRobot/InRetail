@@ -23,7 +23,9 @@
     </Window.Resources>
     <Grid>
         <DockPanel LastChildFill="True">
-            
+            <Menu DockPanel.Dock="Top">
+                <MenuItem ItemsSource="{Binding Source={StaticResource MyList}}" Header="My Soccer Leagues"/>
+            </Menu>
             <TreeView DockPanel.Dock="Left" >
                 <TreeViewItem ItemsSource="{Binding Source={StaticResource MyList}}" Header="My Soccer Leagues" />
             </TreeView>

@@ -132,6 +132,11 @@
     <Compile Include="ApplicationRegistry.cs" />
     <Compile Include="Dialogs\Dialog.cs" />
     <Compile Include="Dialogs\DialogLauncher.cs" />
+    <Compile Include="Menus\SgMenuItem.cs" />
+    <Compile Include="Menus\MenuExpression.cs" />
+    <Compile Include="Menus\MenuRegistry.cs" />
+    <Compile Include="Menus\MenuRegistryBase.cs" />
+    <Compile Include="Menus\SgMenuAction.cs" />
     <Compile Include="ScreenCollection.cs" />
     <Compile Include="ScreenConductor.cs" />
     <Compile Include="ScreenFactory.cs" />
