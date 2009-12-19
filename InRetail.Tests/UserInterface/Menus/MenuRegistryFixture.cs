@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using InRetail.Shell.Menus;
+using InRetail.UiCore.Menus;
 using NUnit.Framework;
 
 namespace Tests.InRetail.UserInterface.Menus
@@ -45,107 +47,7 @@ namespace Tests.InRetail.UserInterface.Menus
             prod_cat_menu.Menus.First(x => x.Name == "Add Product Wizard");
         }
     }
-
-    public interface IMenuItem
-    {
-        string Name { get; }
-    }
-
-    public abstract class MenuRegistryBase : IMenuRegistry
-    {
-        private IList<IMenuItem> _menus;
-
-        protected MenuRegistryBase()
-        {
-            _menus = new List<IMenuItem>();
-        }
-
-        public IEnumerable<IMenuItem> Menus
-        {
-            get { return _menus; }
-            
-        }
-        public IMenuExpression Register(string menuTitle)
-        {
-            return new MenuExpression(this, menuTitle);
-        }
-        public void AddMenu(IMenuItem item)
-        {
-            _menus.Add(item);
-        }
-    }
-
-    public class MenuRegistry : MenuRegistryBase
-    {
-        public MenuRegistry() : base()
-        {
-        }
-    }
-    public class SgMenuAction : IMenuItem
-    {
-        private string _title;
-
-        public string Name
-        {
-            get { return _title; }
-            set { _title = value; }
-        }
-    }
-    public class SgMenuItem :MenuRegistryBase, IMenuItem
-    {
-        private string _title;
-
-        public string Name
-        {
-            get { return _title; }
-            set { _title = value; }
-        }
-    }
-
-    class MenuExpression : IMenuExpression
-    {
-        private readonly IMenuRegistry _registry;
-        private readonly string _title;
-
-        public MenuExpression(IMenuRegistry registry, string title)
-        {
-            _registry = registry;
-            _title = title;
-        }
-
-        public IMenuRegistry ToMenu()
-        {
-            var item = new SgMenuItem() { Name = _title };
-            _registry.AddMenu(item);
-            return item;
-        }
-
-        public void ToScreen<T>()
-        {
-            var item = new SgMenuAction() { Name = _title };
-            _registry.AddMenu(item);
-        }
-
-        public void ToWizard<T>()
-        {
-            var item = new SgMenuAction() { Name = _title };
-            _registry.AddMenu(item);
-        }
-    }
-
-    public interface IMenuRegistry
-    {
-        IMenuExpression Register(string s);
-        void AddMenu(IMenuItem item);
-    }
-
-    public interface IMenuExpression
-    {
-        IMenuRegistry ToMenu();
-        void ToScreen<T>();
-        void ToWizard<T>();
-    }
-
+ 
     public class TestWizard
     {
     }

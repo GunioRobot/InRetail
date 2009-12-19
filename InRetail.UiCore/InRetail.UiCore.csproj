@@ -87,6 +87,10 @@
     <Compile Include="Extensions\SharedExtensions.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="IScreen.cs" />
+    <Compile Include="Menus\IMenuExpression.cs" />
+    <Compile Include="Menus\IMenuItem.cs" />
+    <Compile Include="Menus\IMenuRegistry.cs" />
+    <Compile Include="Menus\MenuRegistryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
