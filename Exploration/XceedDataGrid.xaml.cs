@@ -22,7 +22,7 @@ namespace Exploration
             _ModelColView = new DataGridVirtualizingCollectionView(typeof(Product));
 
             var queryItems = _ModelColView.GetQueryItems();
-            var queryItemCount = _ModelColView.GetQueryItemCount().Until(queryItems);
+            var queryItemCount = _ModelColView.GetQueryItemCount().SkipUntil(queryItems);
 
             queryItemCount.Subscribe(v =>
                                      {

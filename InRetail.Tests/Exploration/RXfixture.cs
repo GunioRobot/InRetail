@@ -27,7 +27,7 @@ namespace Tests.InRetail.Exploration
             
 
             Thread.Sleep(9000);
-            var subject = observable.Record();
+            //var subject = observable.Record();
             Debug.WriteLine("");
             IDisposable subscribe2 = observable.Subscribe(print);
             IDisposable subscribe3 = observable.Subscribe(print);
@@ -38,7 +38,7 @@ namespace Tests.InRetail.Exploration
             Thread.Sleep(1000);
 
 
-            subject.Subscribe((v) => Debug.WriteLine("Recorded" +v));
+            //subject.Subscribe((v) => Debug.WriteLine("Recorded" +v));
 
 
             Thread.Sleep(1000);

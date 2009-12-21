@@ -58,7 +58,7 @@ namespace InRetail.ProductCatalog.Presenters
 
             _view.As<FrameworkElement>().DataContext = collection;
             var q = from r in _view.As<ModelSearchView>().RefreshList
-                    from d in new Repository<T>().ObservableModels.Until(_view.As<ModelSearchView>().RefreshList.Skip(1))
+                    from d in new Repository<T>().ObservableModels.SkipUntil(_view.As<ModelSearchView>().RefreshList.Skip(1))
                     select d;
             _view.As<ModelSearchView>().RefreshList.Subscribe(_ => collection.Clear());
             q.Subscribe(v => collection.Add(v));

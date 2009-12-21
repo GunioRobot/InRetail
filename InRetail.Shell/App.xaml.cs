@@ -22,7 +22,7 @@ namespace InRetail.Shell
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            Observable.Context = SynchronizationContexts.CurrentDispatcher;
+            //Observable.Context = SynchronizationContexts.CurrentDispatcher;
 
             var bootstrapper = new InRetailBootstrapper();
             bootstrapper.Run();
