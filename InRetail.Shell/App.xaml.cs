@@ -24,34 +24,9 @@ namespace InRetail.Shell
             base.OnStartup(e);
             //Observable.Context = SynchronizationContexts.CurrentDispatcher;
 
-            var bootstrapper = new InRetailBootstrapper();
-            bootstrapper.Run();
 
-            StartupShell(bootstrapper.Container);
-            string have = ObjectFactory.Container.WhatDoIHave();
-            var registry = bootstrapper.Container.GetInstance<IScreenObjectRegistry>();
-            registry.Actions.First().Command.Execute(null);
-            this.ShutdownMode = ShutdownMode.OnMainWindowClose;
         }
 
-        private static void StartupShell(IContainer container)
-        {
-            //container.GetInstance<SystemActions>().Register();
-
-            // Find all the possible services in the main application
-            // IoC Container that implement an "IStartable" interface
-            List<IStartable> startables = container.Model.PluginTypes
-                .Where(p => p.Implements<IStartable>())
-                .Select(x => x.To<IStartable>(container)).ToList();
-
-            // Tell each "IStartable" to Start()
-            startables.Each(x => x.Start());
-
-            // Build up
-            container.Model.PluginTypes
-                .Where(p => p.Implements<INeedBuildUp>())
-                .Select(x => x.To<INeedBuildUp>(container))
-                .Each(container.BuildUp);
-        }
+       
     }
 }

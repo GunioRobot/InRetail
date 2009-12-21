@@ -132,6 +132,10 @@
       <Project>{AC66D0F6-1387-468B-B7E9-3BCE098B98D1}</Project>
       <Name>InRetail.Shell</Name>
     </ProjectReference>
+    <ProjectReference Include="..\InRetail.UiCore\InRetail.UiCore.csproj">
+      <Project>{3B0DFD2C-9731-4D1A-BB3B-9A760430E9EF}</Project>
+      <Name>InRetail.UiCore</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProductCatalogContracts\ProductCatalogContracts.csproj">
       <Project>{E7D722DC-E81E-4FDB-8FAD-912805B39472}</Project>
       <Name>ProductCatalogContracts</Name>

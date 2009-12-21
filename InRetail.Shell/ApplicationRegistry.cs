@@ -13,7 +13,13 @@ namespace InRetail.Shell
         public ApplicationRegistry()
         {
             ForRequestedType<IRegion>()
-                .AddInstances(x => x.ConstructedBy((c) => c.GetInstance<IRegionManager>().Regions["mainRegion"]).WithName("mainRegion"));
+                .AddInstances(x => x.ConstructedBy((c) =>
+                                                       {
+                                                           var instance = c.GetInstance<IRegionManager>();
+                                                           IRegion region = instance.Regions["mainRegion"];
+                                                           return                                          region;
+                                                       }
+                                       ).WithName("mainRegion"));
 
             ForSingletonOf<IScreenCollection>().TheDefault.Is.OfConcreteType<ScreenCollection>()
                 .CtorDependency<IRegion>("mainRegion")

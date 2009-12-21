@@ -10,7 +10,7 @@ namespace Tests.InRetail.Configuration
         [Test]
         public void Will_be_able_to_call_the_application_boot_strapper()
         {
-            //new InRetailBootstrapper().Run();
+            //new ShellBootstrapper().Run();
             //ApplicationBootStrapper.BootStrap();
         }
     }

@@ -5,7 +5,8 @@
          
     	<ResourceDictionary>
     		<ResourceDictionary.MergedDictionaries>
-    			<ResourceDictionary Source="/InRetail.ProductCatalog;Component/ResourceDictionary.xaml"/>
+                
+    			<ResourceDictionary Source="pack://application:,,,/InRetail.ProductCatalog;Component/ResourceDictionary.xaml"/>
     		</ResourceDictionary.MergedDictionaries>
     	</ResourceDictionary>
          

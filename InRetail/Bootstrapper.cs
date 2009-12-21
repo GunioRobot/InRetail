@@ -11,13 +11,8 @@ namespace InRetail
 
         public static void Bootstrap()
         {
-            BootstrapStructureMap();
+            ShellBootstrapper.BootStrap();
             BootstrapNServiceBus();
-        }
-
-        private static void BootstrapStructureMap()
-        {
-            ObjectFactory.Initialize(x => x.AddRegistry<ApplicationRegistry>());
         }
 
         private static void BootstrapNServiceBus()
