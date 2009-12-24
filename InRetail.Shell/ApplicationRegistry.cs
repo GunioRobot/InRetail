@@ -31,7 +31,7 @@ namespace InRetail.Shell
             
             
 
-            ForSingletonOf<IShellView>().TheDefaultIsConcreteType<Window1>();
+            ForSingletonOf<IShellView>().TheDefaultIsConcreteType<ShellView>();
             ForRequestedType<IDialogLauncher>().TheDefaultIsConcreteType<DialogLauncher>();
         }
     }

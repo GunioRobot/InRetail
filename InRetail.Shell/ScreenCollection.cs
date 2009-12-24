@@ -65,7 +65,8 @@ namespace InRetail.Shell
 
         public void Show(IScreen screen)
         {
-            _mainRegion.Activate(_screens.Find(x => x == screen).View);
+            IScreen find = _screens.Find(x => x == screen);
+            _mainRegion.Activate(find.View);
         }
     }
 }

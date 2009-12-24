@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="InRetail.Shell.Menus.MenuView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Menus="clr-namespace:InRetail.Shell.Menus">
+    <UserControl.Resources>
+        <HierarchicalDataTemplate DataType = "{x:Type Menus:MenuItemViewModel}"
+                                ItemsSource = "{Binding Path=Menus}">
+            
+            <DockPanel>
+            <TextBlock Text="{Binding Path=Name}"/>
+            <Button  DockPanel.Dock="Right" Content="{Binding Name}" Command="{Binding ActionCommand}"/>
+                </DockPanel>
+        
+        </HierarchicalDataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <TreeView ItemsSource="{Binding Menus}">
+        </TreeView>
+    </Grid>
+</UserControl>

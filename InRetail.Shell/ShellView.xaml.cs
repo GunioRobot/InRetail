@@ -11,15 +11,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InRetail.Shell.Menus;
 
 namespace InRetail.Shell
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for ShellView.xaml
     /// </summary>
-    public partial class Window1 : Window,IShellView
+    public partial class ShellView : Window,IShellView
     {
-        public Window1()
+        public ShellView()
         {
             InitializeComponent();
             
@@ -28,6 +29,11 @@ namespace InRetail.Shell
         public void ShowView()
         {
             Show();
+        }
+
+        public void ShowMenu(MenuViewModel model)
+        {
+            leftRegion.Content = model;
         }
     }
 }
