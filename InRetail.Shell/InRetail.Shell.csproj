@@ -133,11 +133,7 @@
       <DependentUpon>MenuView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Menus\MenuViewModel.cs" />
-    <Compile Include="Menus\SgMenuItem.cs" />
-    <Compile Include="Menus\MenuExpression.cs" />
-    <Compile Include="Menus\MenuRegistry.cs" />
-    <Compile Include="Menus\MenuRegistryBase.cs" />
-    <Compile Include="Menus\SgMenuAction.cs" />
+    <Compile Include="ScreenContainer.cs" />
     <Compile Include="ScreenCollection.cs" />
     <Compile Include="ScreenConductor.cs" />
     <Compile Include="ScreenFactory.cs" />

@@ -2,7 +2,7 @@ namespace InRetail.UiCore.Menus
 {
     public interface IMenuExpression
     {
-        IMenuRegistry ToMenu();
+        IMenuContainer ToContainer();
         void ToScreen<T>();
         void ToWizard<T>();
     }

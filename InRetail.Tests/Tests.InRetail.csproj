@@ -125,23 +125,6 @@
     <Compile Include="Events\All_domain_events_must_be_Serializable.cs" />
     <Compile Include="Events\All_domain_events_must_have_a_handler.cs" />
     <Compile Include="EventTestFixture.cs" />
-    <Compile Include="Exploration\Class1.cs" />
-    <Compile Include="Exploration\ContraVariantsTests.cs" />
-    <Compile Include="Exploration\ExpressionFixture.cs" />
-    <Compile Include="Exploration\QueriableFixture.cs" />
-    <Compile Include="Exploration\RXfixture.cs" />
-    <Compile Include="Exploration\SerializationFixture.cs" />
-    <Compile Include="Exploration\Syncronization\ChangeSet.cs" />
-    <Compile Include="Exploration\Syncronization\Integration\IntegrationFixture.cs" />
-    <Compile Include="Exploration\Syncronization\ITable.cs" />
-    <Compile Include="Exploration\Syncronization\Revision.cs" />
-    <Compile Include="Exploration\Syncronization\SynchronizationFixture.cs" />
-    <Compile Include="Exploration\Syncronization\Syncronizator.cs" />
-    <Compile Include="Exploration\Syncronization\Table.cs" />
-    <Compile Include="Exploration\Syncronization\TableFixture.cs" />
-    <Compile Include="Exploration\TaskFixture.cs" />
-    <Compile Include="Exploration\ThreadingFixture.cs" />
-    <Compile Include="Exploration\WebClientFixture.cs" />
     <Compile Include="Queuing\InMemoryQueueTests.cs" />
     <Compile Include="Reporting\Infrastructure\RepositoryTests.cs" />
     <Compile Include="Reporting\Infrastructure\SqlCreateBuilderTest.cs" />
@@ -157,10 +140,17 @@
     <Compile Include="TestExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserInterface\Actions\Class1.cs" />
-    <Compile Include="UserInterface\ApplicationShell\FackeClasses.cs" />
-    <Compile Include="UserInterface\ApplicationShell\When_opening_screen_using_screen_subject.cs" />
-    <Compile Include="UserInterface\Menus\Class1.cs" />
-    <Compile Include="UserInterface\Menus\MenuRegistryFixture.cs" />
+    <Compile Include="UserInterface\ApplicationShell\TestScreen3.cs" />
+    <Compile Include="UserInterface\ApplicationShell\When_Opening_Screen_Witch_Is_Already_Opened_And_Is_Active.cs" />
+    <Compile Include="UserInterface\ApplicationShell\When_Opening_Screen_Witch_Is_Already_Opened_But_It_Is_Not_Active.cs" />
+    <Compile Include="UserInterface\ApplicationShell\With_Emty_Conductor.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="UserInterface\ApplicationShell\With_Open_Screens.cs" />
+    <Compile Include="Helpers\ObservableCollectionSynchronizerTests.cs" />
+    <Compile Include="UserInterface\Menus\fakes.cs" />
+    <Compile Include="UserInterface\ApplicationShell\TestScreen2.cs" />
+    <Compile Include="UserInterface\ApplicationShell\When_Opening_Screen_Using_Subject.cs" />
+    <Compile Include="UserInterface\Menus\When_registering_menus.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\InRetail.Bus\InRetail.Bus.csproj">
@@ -223,9 +213,6 @@
       <Project>{8F6F0466-CA1A-4E90-8B5E-9E7C90E8EB07}</Project>
       <Name>InRetail</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Exploration\Syncronization\ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Scenarios\NewFolder1\" />

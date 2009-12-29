@@ -1,60 +1,51 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Windows.Controls;
-using InRetail.Shell.Actions;
+using System.Windows.Threading;
 using InRetail.UiCore;
 using InRetail.UiCore.Actions;
-using StructureMap;
+using InRetail.UiCore.Helpers;
+using InRetail.UiCore.Menus;
 
 namespace InRetail.Shell.Menus
 {
     public class MenuViewModel
     {
+
         public MenuViewModel()
         {
+            var registry = new MenuRegistry();
+
+            IMenuContainer container = registry.Register("Product Catalog").ToContainer();
+            IMenuContainer menuContainer = container.Register("Menu Item").ToContainer();
+            menuContainer.Register("MenuItem2").ToScreen<TestScreen>();
+
             Menus = new ObservableCollection<MenuItemViewModel>();
 
-            var subject = new SingletonScreenSubject<TestScreen>();
-            var prodCatalog = new MenuItemViewModel() { Name = "Product Catalog" };
-            prodCatalog.Menus.Add(new MenuItemViewModel() { Name = "Products", 
-                ActionCommand = new Command<IScreenConductor>(ObjectFactory.Container, x => x.OpenScreen(subject)) });
-            prodCatalog.Menus.Add(new MenuItemViewModel() { Name = "Create new product" });
-            
-            
-            var inventory = new MenuItemViewModel() { Name = "Inventory" };
-            var purchaseManagment = new MenuItemViewModel() { Name = "Purchase Management" };
-
-            
-            
-            Menus.Add(prodCatalog);
-            Menus.Add(inventory);
-            Menus.Add(purchaseManagment);
+            new ObservableCollectionSynchronizer<IMenuItem, MenuItemViewModel>(registry, Menus,
+                                                                               (x) => new MenuItemViewModel(x));
         }
 
-        public ObservableCollection<MenuItemViewModel> Menus { get; set; }
+        public ObservableCollection<MenuItemViewModel> Menus { get; private set; }
     }
 
-    public class TestScreen:IScreen
+    public class TestScreen : IScreen
 
     {
-        private Button _button;
+        private readonly Button _button;
 
         public TestScreen()
         {
-            _button = new Button() { Content = "Ok" };
+            _button = new Button() {Content = "Ok"};
         }
+
         public void Dispose()
         {
-            
         }
 
         public object View
         {
-            get
-            {
-                
-                return _button;
-            }
+            get { return _button; }
         }
 
         public string Title
@@ -64,7 +55,6 @@ namespace InRetail.Shell.Menus
 
         public void Activate(IScreenObjectRegistry screenObjects)
         {
-            
         }
 
         public bool CanClose()

@@ -75,6 +75,7 @@
     <Compile Include="Actions\ScreenAction.cs" />
     <Compile Include="Dialogs\ICommandDialog.cs" />
     <Compile Include="Dialogs\IDialogLauncher.cs" />
+    <Compile Include="Helpers\ObservableCollectionSynchronizer.cs" />
     <Compile Include="IShellService.cs" />
     <Compile Include="INeedBuildUp.cs" />
     <Compile Include="IScreenCollection.cs" />
@@ -87,10 +88,15 @@
     <Compile Include="Extensions\SharedExtensions.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="IScreen.cs" />
+    <Compile Include="Menus\Internal\MenuContainer.cs" />
+    <Compile Include="Menus\Internal\MenuExpression.cs" />
+    <Compile Include="Menus\Internal\MenuItem.cs" />
+    <Compile Include="Menus\IMenuContainer.cs" />
     <Compile Include="Menus\IMenuExpression.cs" />
     <Compile Include="Menus\IMenuItem.cs" />
-    <Compile Include="Menus\IMenuRegistry.cs" />
-    <Compile Include="Menus\MenuRegistryBase.cs" />
+    <Compile Include="Menus\MenuContainerBase.cs" />
+    <Compile Include="Menus\MenuContainerExtensions.cs" />
+    <Compile Include="Menus\MenuRegistry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
