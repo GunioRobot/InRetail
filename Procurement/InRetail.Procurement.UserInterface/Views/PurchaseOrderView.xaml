@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="InRetail.Procurement.UserInterface.Views.PurchaseOrderView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" Grid.Row="0">
+            <ComboBox SelectedItem="{Binding Subject.Supplier}" ItemsSource="{Binding Suppliers}"/>
+            <ComboBox SelectedItem="{Binding Subject.WhereHouse}" ItemsSource="{Binding WhereHouses}"/>
+        </StackPanel>
+        <ListBox Grid.Row="1" ItemsSource="{Binding Subject.Lines}"/>
+    </Grid>
+</UserControl>

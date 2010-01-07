@@ -19,6 +19,9 @@ namespace InRetail.Shell.Menus
             if(item is IMenuContainer)
                 new ObservableCollectionSynchronizer<IMenuItem, MenuItemViewModel>(item.As<IMenuContainer>(), Menus,
                                                                               (x) => new MenuItemViewModel(x));
+
+            if (item is IMenuAction)
+                ActionCommand = item.As<IMenuAction>().Command;
             
         }
         public string Name { get; private set; }

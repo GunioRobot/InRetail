@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using InRetail.UiCore;
 using InRetail.UiCore.Actions;
+using InRetail.UiCore.Screens;
 
 namespace Tests.InRetail.UserInterface.Menus
 {

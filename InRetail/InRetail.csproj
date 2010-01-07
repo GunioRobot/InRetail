@@ -67,7 +67,7 @@
     </Reference>
     <Reference Include="NServiceBus.ObjectBuilder.StructureMap, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Lib\NServiceBus\containers\NServiceBus.ObjectBuilder.StructureMap.dll</HintPath>
+      <HintPath>..\Lib\NServiceBus\containers\structuremap\NServiceBus.ObjectBuilder.StructureMap.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>

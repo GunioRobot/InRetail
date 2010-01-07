@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using InRetail.UiCore;
+using InRetail.UiCore.Screens;
 using Moq;
 
 namespace Tests.InRetail.UserInterface.ApplicationShell

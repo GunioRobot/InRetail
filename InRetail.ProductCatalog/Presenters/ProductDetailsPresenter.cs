@@ -1,7 +1,7 @@
 using InRetail.ProductCatalog.PersistenceViewModel;
 using InRetail.ProductCatalog.Views;
-using InRetail.UiCore;
 using InRetail.UiCore.Actions;
+using InRetail.UiCore.Screens;
 
 namespace InRetail.ProductCatalog.Presenters
 {

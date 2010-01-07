@@ -1,5 +1,5 @@
 using System;
-using InRetail.UiCore;
+using InRetail.UiCore.Screens;
 using StructureMap;
 
 namespace InRetail.Shell

@@ -3,6 +3,8 @@ using InRetail.Shell.Dialogs;
 using InRetail.UiCore;
 using InRetail.UiCore.Actions;
 using InRetail.UiCore.Dialogs;
+using InRetail.UiCore.Menus;
+using InRetail.UiCore.Screens;
 using Microsoft.Practices.Composite.Regions;
 using StructureMap.Configuration.DSL;
 
@@ -12,6 +14,13 @@ namespace InRetail.Shell
     {
         public ApplicationRegistry()
         {
+            Scan(x =>
+                     {
+                         x.TheCallingAssembly();
+                         x.ConnectImplementationsToTypesClosing(typeof (IScreen<>));
+                     });
+            For(typeof(IScreenSubject<>)).Use(typeof(ScreenSubject<>));
+
             ForRequestedType<IRegion>()
                 .AddInstances(x => x.ConstructedBy((c) =>
                                                        {
@@ -20,6 +29,7 @@ namespace InRetail.Shell
                                                            return                                          region;
                                                        }
                                        ).WithName("mainRegion"));
+            
 
             ForSingletonOf<IScreenCollection>().TheDefault.Is.OfConcreteType<ScreenCollection>()
                 .CtorDependency<IRegion>("mainRegion")
@@ -28,6 +38,7 @@ namespace InRetail.Shell
             ForSingletonOf<IScreenConductor>().TheDefaultIsConcreteType<ScreenConductor>();
             ForSingletonOf<IScreenFactory>().TheDefaultIsConcreteType<ScreenFactory>();
             ForSingletonOf<IScreenObjectRegistry>().TheDefaultIsConcreteType<ScreenObjectRegistry>();
+            ForSingletonOf<IMenuRegistry>().TheDefaultIsConcreteType<MenuRegistry>();
             
             
 

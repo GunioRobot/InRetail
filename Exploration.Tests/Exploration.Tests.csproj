@@ -45,11 +45,16 @@
     <Reference Include="PresentationFramework">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="StructureMap, Version=2.5.4.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\StructureMap\StructureMap.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.CoreEx, Version=1.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Interactive, Version=1.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Reactive, Version=1.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\Microsoft Reactive Extensions\redist\desktopV2\System.Reactive.dll</HintPath>
@@ -76,7 +81,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aspect.Security\ContextBoundObjectFixture.cs" />
     <Compile Include="Exploration\ContraVariantsTests.cs" />
+    <Compile Include="Exploration\EnumerableFixture.cs" />
     <Compile Include="Exploration\ExpressionFixture.cs" />
     <Compile Include="Exploration\QueriableFixture.cs" />
     <Compile Include="Exploration\RXfixture.cs" />
@@ -91,8 +98,11 @@
     <Compile Include="Exploration\Syncronization\TableFixture.cs" />
     <Compile Include="Exploration\TaskFixture.cs" />
     <Compile Include="Exploration\ThreadingFixture.cs" />
+    <Compile Include="Exploration\TPLvsThreadPool.cs" />
     <Compile Include="Exploration\WebClientFixture.cs" />
+    <Compile Include="LambdaExpressions\ExpressionFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StructureMap\StructureMapFixture.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Exploration\Syncronization\ClassDiagram1.cd" />

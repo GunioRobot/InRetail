@@ -59,6 +59,10 @@
     <Reference Include="PresentationFramework">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="StructureMap, Version=2.5.4.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\StructureMap\StructureMap.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -68,6 +72,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actions\Command.cs" />
     <Compile Include="Actions\IBindingExpression.cs" />
     <Compile Include="Actions\IScreenAction.cs" />
     <Compile Include="Actions\IScreenObjectRegistry.cs" />
@@ -79,18 +84,19 @@
     <Compile Include="IShellService.cs" />
     <Compile Include="INeedBuildUp.cs" />
     <Compile Include="IScreenCollection.cs" />
-    <Compile Include="IScreenConductor.cs" />
-    <Compile Include="IScreenFactory.cs" />
-    <Compile Include="IScreenSubject.cs" />
+    <Compile Include="Screens\IScreenConductor.cs" />
+    <Compile Include="Screens\IScreenFactory.cs" />
+    <Compile Include="Screens\IScreenSubject.cs" />
     <Compile Include="IStartable.cs" />
     <Compile Include="Controls\ICommandBar.cs" />
     <Compile Include="Extensions\ListExtensions.cs" />
     <Compile Include="Extensions\SharedExtensions.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
-    <Compile Include="IScreen.cs" />
+    <Compile Include="Screens\IScreen.cs" />
+    <Compile Include="Menus\IMenuAction.cs" />
     <Compile Include="Menus\Internal\MenuContainer.cs" />
     <Compile Include="Menus\Internal\MenuExpression.cs" />
-    <Compile Include="Menus\Internal\MenuItem.cs" />
+    <Compile Include="Menus\Internal\MenuAction.cs" />
     <Compile Include="Menus\IMenuContainer.cs" />
     <Compile Include="Menus\IMenuExpression.cs" />
     <Compile Include="Menus\IMenuItem.cs" />

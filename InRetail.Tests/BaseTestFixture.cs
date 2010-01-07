@@ -36,10 +36,10 @@ namespace Tests.InRetail
             {
                 When();
             }
-            catch (Exception exception)
-            {
-                CaughtException = exception;
-            }
+            //catch (Exception exception)
+            //{
+            //    CaughtException = exception;
+            //}
             finally
             {
                 Finally();

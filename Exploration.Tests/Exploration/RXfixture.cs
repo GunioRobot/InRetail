@@ -14,16 +14,17 @@ namespace Tests.InRetail.Exploration
     [TestFixture]
     public class RXfixture
     {
+        
         [Test]
         public void ObservableImplementation()
         {
             var observable = new MyObservable();
-            
+
             Action<string> print = (v) => Debug.WriteLine(v);
 
             IDisposable subscribe1 = observable.Subscribe(print);
-            
-            
+
+
 
             Thread.Sleep(9000);
             //var subject = observable.Record();
@@ -94,8 +95,8 @@ namespace Tests.InRetail.Exploration
         [Test]
         public void Test()
         {
-            var ints = new[] {1, 2, 3, 4, 5};
-            IObservable<int> enumerable = ints.SelectMany(x => x%2 != 0 ? new[] {x} : new int[] {}).ToObservable();
+            var ints = new[] { 1, 2, 3, 4, 5 };
+            IObservable<int> enumerable = ints.SelectMany(x => x % 2 != 0 ? new[] { x } : new int[] { }).ToObservable();
 
             IObservable<int> observable = ints.ToObservable();
             IDisposable subscribe = observable.Subscribe(x => Debug.WriteLine(x.ToString()));
@@ -152,13 +153,13 @@ namespace Tests.InRetail.Exploration
             var enumerable1 = CreateRandomEnumerable("foo").ToObservable();
             var enumerable2 = CreateRandomEnumerable("bar").ToObservable();
 
-            var pattern = Observable.Amb(enumerable0, enumerable1, enumerable2 );
+            var pattern = Observable.Amb(enumerable0, enumerable1, enumerable2);
 
-            pattern.Subscribe(Console.WriteLine);    
+            pattern.Subscribe(Console.WriteLine);
             Thread.Sleep(1000);
-            
+
         }
-        
+
         IEnumerable<T> CreateRandomEnumerable<T>(T value)
         {
             var random = new Random();

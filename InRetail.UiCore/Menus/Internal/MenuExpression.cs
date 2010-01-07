@@ -1,33 +1,47 @@
+using System;
+using InRetail.UiCore.Actions;
+using InRetail.UiCore.Screens;
+using StructureMap;
+
 namespace InRetail.UiCore.Menus.Internal
 {
     internal class MenuExpression : IMenuExpression
     {
-        private readonly IMenuContainer _container;
+        private readonly IMenuContainer _menuContainer;
         private readonly string _name;
+        private IContainer _container;
 
-        public MenuExpression(IMenuContainer container, string name)
+        public MenuExpression(IMenuContainer menuContainer, string name)
         {
-            _container = container;
+            _menuContainer = menuContainer;
+            _container = ObjectFactory.GetInstance<IContainer>();
             _name = name;
         }
 
         public IMenuContainer ToContainer()
         {
-            var container = new MenuContainer(){Name = _name};
-            _container.Add(container);
+            var container = new MenuContainer() { Name = _name };
+            _menuContainer.Add(container);
             return container;
         }
 
-        public void ToScreen<T>()
+        public void ToScreen<T>() where T : IScreen
         {
-            var item = new MenuItem() { Name = _name };
-            _container.Add(item);
+            Func<IScreenSubject> subject = () => _container.GetInstance<SingletonScreenSubject<T>>();
+            
+            var item = new MenuAction
+                           {
+                               Name = _name,
+                               Command = new Command<IScreenConductor>(_container, x => x.OpenScreen(subject()))
+                           };
+
+            _menuContainer.Add(item);
         }
 
         public void ToWizard<T>()
         {
-            var item = new MenuItem() { Name = _name };
-            _container.Add(item);
+            var item = new MenuAction() { Name = _name };
+            _menuContainer.Add(item);
         }
     }
 }

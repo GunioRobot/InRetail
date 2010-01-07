@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using InRetail.Procurement.UserInterface;
 using InRetail.ProductCatalog;
 using InRetail.Shell.StructureMap;
 using InRetail.UiCore;
@@ -40,7 +41,9 @@ namespace InRetail.Shell
 
         protected override IModuleCatalog GetModuleCatalog()
         {
-            return new ModuleCatalog().AddModule(typeof (ProductCatalogModule));
+            return new ModuleCatalog()
+                .AddModule(typeof(ProductCatalogModule))
+                .AddModule(typeof(ProcurementModule));
         }
 
         private void StartupShell()

@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using InRetail.UiCore.Screens;
 
 namespace InRetail.UiCore.Menus
 {

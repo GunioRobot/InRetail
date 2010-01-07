@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using InRetail.UiCore;
+using InRetail.UiCore.Screens;
 using Microsoft.Practices.Composite.Regions;
 
 namespace InRetail.Shell

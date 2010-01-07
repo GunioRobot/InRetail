@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using InRetail.UiCore;
 using InRetail.UiCore.Actions;
+using InRetail.UiCore.Screens;
 
 namespace InRetail.Shell
 {

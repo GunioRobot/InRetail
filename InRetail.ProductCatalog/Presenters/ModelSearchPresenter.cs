@@ -13,9 +13,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using InRetail.ProductCatalog.Views;
-using InRetail.UiCore;
 using InRetail.UiCore.Actions;
 using InRetail.UiCore.Extensions;
+using InRetail.UiCore.Screens;
 using ProductCatalogModel;
 
 namespace InRetail.ProductCatalog.Presenters

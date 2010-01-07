@@ -1,5 +1,5 @@
-using InRetail.UiCore;
 using InRetail.UiCore.Actions;
+using InRetail.UiCore.Screens;
 
 namespace Tests.InRetail.UserInterface.ApplicationShell
 {

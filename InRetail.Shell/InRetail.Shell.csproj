@@ -124,7 +124,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions\ActionCommand.cs" />
-    <Compile Include="Actions\Command.cs" />
     <Compile Include="ApplicationRegistry.cs" />
     <Compile Include="Dialogs\Dialog.cs" />
     <Compile Include="Dialogs\DialogLauncher.cs" />
@@ -191,6 +190,10 @@
     <ProjectReference Include="..\InRetail.UiCore\InRetail.UiCore.csproj">
       <Project>{3B0DFD2C-9731-4D1A-BB3B-9A760430E9EF}</Project>
       <Name>InRetail.UiCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Procurement\InRetail.Procurement.UserInterface\InRetail.Procurement.UserInterface.csproj">
+      <Project>{9279AABF-E0E8-4EC4-9149-053F2B84C09C}</Project>
+      <Name>InRetail.Procurement.UserInterface</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

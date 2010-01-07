@@ -2,23 +2,24 @@ using System;
 using System.Collections.ObjectModel;
 using System.Windows.Controls;
 using System.Windows.Threading;
-using InRetail.UiCore;
 using InRetail.UiCore.Actions;
 using InRetail.UiCore.Helpers;
 using InRetail.UiCore.Menus;
+using InRetail.UiCore.Screens;
 
 namespace InRetail.Shell.Menus
 {
     public class MenuViewModel
     {
 
-        public MenuViewModel()
+        public MenuViewModel(IMenuRegistry registry)
         {
-            var registry = new MenuRegistry();
+            
 
             IMenuContainer container = registry.Register("Product Catalog").ToContainer();
             IMenuContainer menuContainer = container.Register("Menu Item").ToContainer();
             menuContainer.Register("MenuItem2").ToScreen<TestScreen>();
+            menuContainer.Register("MenuItem2").ToScreen<TestScreen2>();
 
             Menus = new ObservableCollection<MenuItemViewModel>();
 
@@ -62,4 +63,37 @@ namespace InRetail.Shell.Menus
             return true;
         }
     }
+    public class TestScreen2 : IScreen
+    {
+        private readonly Button _button;
+
+        public TestScreen2()
+        {
+            _button = new Button() { Content = "Ok2" };
+        }
+
+        public void Dispose()
+        {
+        }
+
+        public object View
+        {
+            get { return _button; }
+        }
+
+        public string Title
+        {
+            get { return "Test"; }
+        }
+
+        public void Activate(IScreenObjectRegistry screenObjects)
+        {
+        }
+
+        public bool CanClose()
+        {
+            return true;
+        }
+    }
+
 }

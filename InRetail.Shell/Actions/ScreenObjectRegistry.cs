@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Input;
-using InRetail.UiCore;
 using InRetail.UiCore.Actions;
 using InRetail.UiCore.Dialogs;
+using InRetail.UiCore.Screens;
 using StructureMap;
 
 namespace InRetail.Shell.Actions

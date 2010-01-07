@@ -22,4 +22,5 @@ namespace InRetail.ProductCatalog
         {
         }
     }
+  
 }
