@@ -1,0 +1,481 @@
+<!-- =======================================================================
+  Xceed DataGrid for WPF - CUSTOMIZATION CODE - Default Styles and Templates
+  Copyright (c) 2007-2009 Xceed Software Inc.
+
+  [classic.xaml]
+
+  This file is part of the Xceed DataGrid for WPF product. The use and
+  distribution of this Customization Code is subject to the terms
+  and conditions refering to "Customization Code" that are specified in
+  the XCEED SOFTWARE LICENSE AGREEMENT accompanying this product.
+======================================================================= -->
+
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:xcdp="clr-namespace:Xceed.Wpf.Controls;assembly=Xceed.Wpf.Controls"
+                    xmlns:local="clr-namespace:Xceed.Wpf.DataGrid"
+                    xmlns:markup="clr-namespace:Xceed.Wpf.DataGrid.Markup"
+                    xmlns:views="clr-namespace:Xceed.Wpf.DataGrid.Views">
+
+   <ResourceDictionary.MergedDictionaries>
+      <!-- Style definitions for specific controls (things that are not grid elements) -->
+
+      <ResourceDictionary Source="/Xceed.Wpf.DataGrid;;;component\themes/Controls/FixedColumnSplitter.generic.xaml"/>
+      <ResourceDictionary Source="/Xceed.Wpf.DataGrid;;;component\themes/Controls/TableViewScrollViewer.generic.xaml"/>
+      <ResourceDictionary Source="/Xceed.Wpf.DataGrid;;;component\themes/Controls/CardViewScrollViewer.generic.xaml"/>
+
+      <!-- For each specific systeme theme ResourceDictionary, we only need to include 
+           the xaml associated to the theme (to make the "BasedOn" work). However, here 
+           we have include all xaml theme files of the product to make the forcing of a 
+           theme work. And it works because, when the DefaultStyleKey is not found in the 
+           specific ResourceDictionary, WPF looks in the generic.xaml ResourceDictionary. 
+           That way, we don't have to maintain this list in all the xaml files. -->
+
+      <ResourceDictionary Source="/Xceed.Wpf.DataGrid;;;component\themes/Classic/TableflowView.Classic.systemcolor.xaml" />
+      <ResourceDictionary Source="/Xceed.Wpf.DataGrid;;;component\themes/Classic/TableView.Classic.systemcolor.xaml"/>
+      <ResourceDictionary Source="/Xceed.Wpf.DataGrid;;;component\themes/Classic/CardView.Classic.systemcolor.xaml"/>
+      <ResourceDictionary Source="/Xceed.Wpf.DataGrid;;;component\themes/Classic/CompactCardView.Classic.systemcolor.xaml"/>
+
+   </ResourceDictionary.MergedDictionaries>
+
+   <!-- Generic theme for TableView -->
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView}"
+          TargetType="views:TableView"
+          BasedOn="{StaticResource tableViewClassicSystemColorDefaultValues}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView, TargetElementType=local:DataGridControl}"
+          TargetType="local:DataGridControl"
+          BasedOn="{StaticResource tableViewClassicSystemColorGridControlStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView, TargetElementType=local:RowSelectorPane}"
+          TargetType="local:RowSelectorPane"
+          BasedOn="{StaticResource tableViewClassicSystemColorRowSelectorPaneStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView, TargetElementType=local:RowSelector}"
+          TargetType="local:RowSelector"
+          BasedOn="{StaticResource tableViewClassicSystemColorRowSelectorStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView, TargetElementType=local:Row}"
+          TargetType="local:Row"
+          BasedOn="{StaticResource tableViewClassicSystemColorRowStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView, TargetElementType=local:DataRow}"
+          TargetType="local:DataRow"
+          BasedOn="{StaticResource tableViewClassicSystemColorDataRowStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView, TargetElementType=local:InsertionRow}"
+          TargetType="local:InsertionRow"
+          BasedOn="{StaticResource tableViewClassicSystemColorInsertionRowStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView, TargetElementType=local:ColumnManagerRow}"
+          TargetType="local:ColumnManagerRow"
+          BasedOn="{StaticResource tableViewClassicSystemColorColumnManagerRowStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView, TargetElementType=local:StatRow}"
+          TargetType="local:StatRow"
+          BasedOn="{StaticResource tableViewClassicSystemColorStatRowStyle}"/>
+   
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView, TargetElementType=local:FilterRow}"
+          TargetType="local:FilterRow"
+          BasedOn="{StaticResource tableViewClassicSystemColorFilterRowStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView, TargetElementType=local:Cell}"
+          TargetType="local:Cell"
+          BasedOn="{StaticResource tableViewClassicSystemColorCellStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView, TargetElementType=local:DataCell}"
+          TargetType="local:DataCell"
+          BasedOn="{StaticResource tableViewClassicSystemColorDataCellStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView, TargetElementType=local:InsertionCell}"
+          TargetType="local:InsertionCell"
+          BasedOn="{StaticResource tableViewClassicSystemColorInsertionCellStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView, TargetElementType=local:ColumnManagerCell}"
+          TargetType="local:ColumnManagerCell"
+          BasedOn="{StaticResource tableViewClassicSystemColorColumnManagerCellStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView, TargetElementType=local:StatCell}"
+          TargetType="local:StatCell"
+          BasedOn="{StaticResource tableViewClassicSystemColorStatCellStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView, TargetElementType=local:FilterCell}"
+          TargetType="local:FilterCell"
+          BasedOn="{StaticResource tableViewClassicSystemColorFilterCellStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView, TargetElementType=local:GroupByControl}"
+          TargetType="local:GroupByControl"
+          BasedOn="{StaticResource tableViewClassicSystemColorGroupByControlStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView, TargetElementType=local:GroupByItem}"
+          TargetType="local:GroupByItem"
+          BasedOn="{StaticResource tableViewClassicSystemColorGroupByItemStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView, TargetElementType=local:GroupHeaderControl}"
+          TargetType="local:GroupHeaderControl"
+          BasedOn="{StaticResource tableViewClassicSystemColorGroupHeaderControlStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView, TargetElementType=local:GroupLevelIndicator}"
+          TargetType="local:GroupLevelIndicator"
+          BasedOn="{StaticResource tableViewClassicSystemColorGroupLevelIndicatorStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView, TargetElementType=local:DetailIndicator}"
+          TargetType="local:DetailIndicator"
+          BasedOn="{StaticResource tableViewClassicSystemColorDetailIndicatorStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView, TargetElementType=local:HierarchicalGroupLevelIndicatorPane}"
+          TargetType="local:HierarchicalGroupLevelIndicatorPane"
+          BasedOn="{StaticResource tableViewClassicSystemColorHierarchicalGroupLevelIndicatorPaneStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView, TargetElementType=local:GroupLevelIndicatorPane}"
+          TargetType="local:GroupLevelIndicatorPane"
+          BasedOn="{StaticResource tableViewClassicSystemColorGroupLevelIndicatorPaneStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView, TargetElementType=local:AutoFilterControl}"
+          TargetType="local:AutoFilterControl"
+          BasedOn="{StaticResource tableViewClassicSystemColorAutoFilterControlStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView, TargetElementType=local:ScrollTip}"
+          TargetType="local:ScrollTip"
+          BasedOn="{StaticResource tableViewClassicSystemColorScrollTipStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView, TargetElementType=local:HierarchicalGroupByControlNode}"
+          TargetType="local:HierarchicalGroupByControlNode"
+          BasedOn="{StaticResource tableViewClassicSystemColorHierarchicalGroupByControlNodeStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView, TargetElementType=local:HierarchicalGroupByControl}"
+          TargetType="local:HierarchicalGroupByControl"
+          BasedOn="{StaticResource tableViewClassicSystemColorHierarchicalGroupByControlStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView, TargetElementType=local:HierarchicalGroupByItem}"
+          TargetType="local:HierarchicalGroupByItem"
+          BasedOn="{StaticResource tableViewClassicSystemColorHierarchicalGroupByItemStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableView, TargetElementType=local:ColumnChooserContextMenu}"
+          TargetType="{x:Type local:ColumnChooserContextMenu}"
+          BasedOn="{StaticResource tableViewClassicSystemColorColumnChooserContextMenuStyle}" />
+
+   <!-- Generic theme for TableflowView -->
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView}"
+          TargetType="views:TableflowView"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorDefaultValues}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:DataGridControl}"
+          TargetType="local:DataGridControl"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorGridControlStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:RowSelectorPane}"
+          TargetType="local:RowSelectorPane"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorRowSelectorPaneStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:RowSelector}"
+          TargetType="local:RowSelector"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorRowSelectorStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:Row}"
+          TargetType="local:Row"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorRowStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:DataRow}"
+          TargetType="local:DataRow"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorDataRowStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:InsertionRow}"
+          TargetType="local:InsertionRow"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorInsertionRowStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:ColumnManagerRow}"
+          TargetType="local:ColumnManagerRow"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorColumnManagerRowStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:StatRow}"
+          TargetType="local:StatRow"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorStatRowStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:FilterRow}"
+          TargetType="local:FilterRow"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorFilterRowStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:Cell}"
+          TargetType="local:Cell"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorCellStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:DataCell}"
+          TargetType="local:DataCell"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorDataCellStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:InsertionCell}"
+          TargetType="local:InsertionCell"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorInsertionCellStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:ColumnManagerCell}"
+          TargetType="local:ColumnManagerCell"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorColumnManagerCellStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:StatCell}"
+          TargetType="local:StatCell"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorStatCellStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:FilterCell}"
+          TargetType="local:FilterCell"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorFilterCellStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:GroupByControl}"
+          TargetType="local:GroupByControl"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorGroupByControlStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:GroupByItem}"
+          TargetType="local:GroupByItem"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorGroupByItemStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:GroupHeaderControl}"
+          TargetType="local:GroupHeaderControl"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorGroupHeaderControlStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:GroupLevelIndicator}"
+          TargetType="local:GroupLevelIndicator"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorGroupLevelIndicatorStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:DetailIndicator}"
+          TargetType="local:DetailIndicator"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorDetailIndicatorStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:HierarchicalGroupLevelIndicatorPane}"
+          TargetType="local:HierarchicalGroupLevelIndicatorPane"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorHierarchicalGroupLevelIndicatorPaneStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:GroupLevelIndicatorPane}"
+          TargetType="local:GroupLevelIndicatorPane"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorGroupLevelIndicatorPaneStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:AutoFilterControl}"
+          TargetType="local:AutoFilterControl"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorAutoFilterControlStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:ScrollTip}"
+          TargetType="local:ScrollTip"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorScrollTipStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:HierarchicalGroupByControlNode}"
+          TargetType="local:HierarchicalGroupByControlNode"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorHierarchicalGroupByControlNodeStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:HierarchicalGroupByControl}"
+          TargetType="local:HierarchicalGroupByControl"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorHierarchicalGroupByControlStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:HierarchicalGroupByItem}"
+          TargetType="local:HierarchicalGroupByItem"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorHierarchicalGroupByItemStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:ColumnChooserContextMenu}"
+          TargetType="{x:Type local:ColumnChooserContextMenu}"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorColumnChooserContextMenuStyle}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:TableflowView, TargetElementType=local:GroupNavigationButton}"
+          TargetType="{x:Type local:GroupNavigationButton}"
+          BasedOn="{StaticResource tableflowViewClassicSystemColorGroupNavigationButtonStyle}" />
+
+   <!-- Generic theme for CardView -->
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CardView}"
+          TargetType="views:CardView"
+          BasedOn="{StaticResource cardViewClassicSystemColorDefaultValues}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, TargetElementType=local:DataGridControl}"
+          TargetType="local:DataGridControl"
+          BasedOn="{StaticResource cardViewClassicSystemColorGridControlStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, TargetElementType=local:Row}"
+          TargetType="local:Row"
+          BasedOn="{StaticResource cardViewClassicSystemColorRowStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, TargetElementType=local:DataRow}"
+          TargetType="local:DataRow"
+          BasedOn="{StaticResource cardViewClassicSystemColorDataRowStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, TargetElementType=local:InsertionRow}"
+          TargetType="local:InsertionRow"
+          BasedOn="{StaticResource cardViewClassicSystemColorInsertionRowStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, TargetElementType=local:ColumnManagerRow}"
+          TargetType="local:ColumnManagerRow"
+          BasedOn="{StaticResource cardViewClassicSystemColorColumnManagerRowStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, TargetElementType=local:StatRow}"
+          TargetType="local:StatRow"
+          BasedOn="{StaticResource cardViewClassicSystemColorStatRowStyle}"/>
+   
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, TargetElementType=local:FilterRow}"
+          TargetType="local:FilterRow"
+          BasedOn="{StaticResource cardViewClassicSystemColorFilterRowStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, TargetElementType=local:Cell}"
+          TargetType="local:Cell"
+          BasedOn="{StaticResource cardViewClassicSystemColorCellStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, TargetElementType=local:DataCell}"
+          TargetType="local:DataCell"
+          BasedOn="{StaticResource cardViewClassicSystemColorDataCellStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, TargetElementType=local:InsertionCell}"
+          TargetType="local:InsertionCell"
+          BasedOn="{StaticResource cardViewClassicSystemColorInsertionCellStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, TargetElementType=local:ColumnManagerCell}"
+          TargetType="local:ColumnManagerCell"
+          BasedOn="{StaticResource cardViewClassicSystemColorColumnManagerCellStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, TargetElementType=local:StatCell}"
+          TargetType="local:StatCell"
+          BasedOn="{StaticResource cardViewClassicSystemColorStatCellStyle}"/>
+   
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, TargetElementType=local:FilterCell}"
+          TargetType="local:FilterCell"
+          BasedOn="{StaticResource cardViewClassicSystemColorFilterCellStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, TargetElementType=local:GroupByControl}"
+          TargetType="local:GroupByControl"
+          BasedOn="{StaticResource cardViewClassicSystemColorGroupByControlStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, TargetElementType=local:GroupByItem}"
+          TargetType="local:GroupByItem"
+          BasedOn="{StaticResource cardViewClassicSystemColorGroupByItemStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, TargetElementType=local:GroupHeaderControl}"
+          TargetType="local:GroupHeaderControl"
+          BasedOn="{StaticResource cardViewClassicSystemColorGroupHeaderControlStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, TargetElementType=local:GroupLevelIndicator}"
+          TargetType="local:GroupLevelIndicator"
+          BasedOn="{StaticResource cardViewClassicSystemColorGroupLevelIndicatorStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, TargetElementType=local:DetailIndicator}"
+          TargetType="local:DetailIndicator"
+          BasedOn="{StaticResource cardViewClassicSystemColorDetailIndicatorStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, TargetElementType=local:GroupLevelIndicatorPane}"
+          TargetType="local:GroupLevelIndicatorPane"
+          BasedOn="{StaticResource cardViewClassicSystemColorGroupLevelIndicatorPaneStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, TargetElementType=local:HierarchicalGroupLevelIndicatorPane}"
+          TargetType="local:HierarchicalGroupLevelIndicatorPane"
+          BasedOn="{StaticResource cardViewClassicSystemColorHierarchicalGroupLevelIndicatorPaneStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, TargetElementType=local:AutoFilterControl}"
+          TargetType="local:AutoFilterControl"
+          BasedOn="{StaticResource cardViewClassicSystemColorAutoFilterControlStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, TargetElementType=local:ScrollTip}"
+          TargetType="local:ScrollTip"
+          BasedOn="{StaticResource cardViewClassicSystemColorScrollTipStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, TargetElementType=local:ColumnChooserContextMenu}"
+          TargetType="{x:Type local:ColumnChooserContextMenu}"
+          BasedOn="{StaticResource cardViewClassicSystemColorColumnChooserContextMenuStyle}" />
+
+   <!-- Generic theme for CompactCardView -->
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView}"
+          TargetType="views:CompactCardView"
+          BasedOn="{StaticResource compactCardViewClassicSystemColorDefaultValues}" />
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, TargetElementType=local:DataGridControl}"
+          TargetType="local:DataGridControl"
+          BasedOn="{StaticResource compactCardViewClassicSystemColorGridControlStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, TargetElementType=local:Row}"
+          TargetType="local:Row"
+          BasedOn="{StaticResource compactCardViewClassicSystemColorRowStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, TargetElementType=local:DataRow}"
+          TargetType="local:DataRow"
+          BasedOn="{StaticResource compactCardViewClassicSystemColorDataRowStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, TargetElementType=local:InsertionRow}"
+          TargetType="local:InsertionRow"
+          BasedOn="{StaticResource compactCardViewClassicSystemColorInsertionRowStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, TargetElementType=local:ColumnManagerRow}"
+          TargetType="local:ColumnManagerRow"
+          BasedOn="{StaticResource compactCardViewClassicSystemColorColumnManagerRowStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, TargetElementType=local:StatRow}"
+          TargetType="local:StatRow"
+          BasedOn="{StaticResource compactCardViewClassicSystemColorStatRowStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, TargetElementType=local:FilterRow}"
+          TargetType="local:FilterRow"
+          BasedOn="{StaticResource compactCardViewClassicSystemColorFilterRowStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, TargetElementType=local:Cell}"
+          TargetType="local:Cell"
+          BasedOn="{StaticResource compactCardViewClassicSystemColorCellStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, TargetElementType=local:DataCell}"
+          TargetType="local:DataCell"
+          BasedOn="{StaticResource compactCardViewClassicSystemColorDataCellStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, TargetElementType=local:InsertionCell}"
+          TargetType="local:InsertionCell"
+          BasedOn="{StaticResource compactCardViewClassicSystemColorInsertionCellStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, TargetElementType=local:ColumnManagerCell}"
+          TargetType="local:ColumnManagerCell"
+          BasedOn="{StaticResource compactCardViewClassicSystemColorColumnManagerCellStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, TargetElementType=local:StatCell}"
+          TargetType="local:StatCell"
+          BasedOn="{StaticResource compactCardViewClassicSystemColorStatCellStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, TargetElementType=local:FilterCell}"
+          TargetType="local:FilterCell"
+          BasedOn="{StaticResource compactCardViewClassicSystemColorFilterCellStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, TargetElementType=local:GroupByControl}"
+          TargetType="local:GroupByControl"
+          BasedOn="{StaticResource compactCardViewClassicSystemColorGroupByControlStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, TargetElementType=local:GroupByItem}"
+          TargetType="local:GroupByItem"
+          BasedOn="{StaticResource compactCardViewClassicSystemColorGroupByItemStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, TargetElementType=local:GroupHeaderControl}"
+          TargetType="local:GroupHeaderControl"
+          BasedOn="{StaticResource compactCardViewClassicSystemColorGroupHeaderControlStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, TargetElementType=local:GroupLevelIndicator}"
+          TargetType="local:GroupLevelIndicator"
+          BasedOn="{StaticResource compactCardViewClassicSystemColorGroupLevelIndicatorStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, TargetElementType=local:DetailIndicator}"
+          TargetType="local:DetailIndicator"
+          BasedOn="{StaticResource compactCardViewClassicSystemColorDetailIndicatorStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, TargetElementType=local:GroupLevelIndicatorPane}"
+          TargetType="local:GroupLevelIndicatorPane"
+          BasedOn="{StaticResource compactCardViewClassicSystemColorGroupLevelIndicatorPaneStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, TargetElementType=local:HierarchicalGroupLevelIndicatorPane}"
+          TargetType="local:HierarchicalGroupLevelIndicatorPane"
+          BasedOn="{StaticResource compactCardViewClassicSystemColorHierarchicalGroupLevelIndicatorPaneStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, TargetElementType=local:AutoFilterControl}"
+          TargetType="local:AutoFilterControl"
+          BasedOn="{StaticResource compactCardViewClassicSystemColorAutoFilterControlStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, TargetElementType=local:ScrollTip}"
+          TargetType="local:ScrollTip"
+          BasedOn="{StaticResource compactCardViewClassicSystemColorScrollTipStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, TargetElementType=local:ColumnChooserContextMenu}"
+          TargetType="{x:Type local:ColumnChooserContextMenu}"
+          BasedOn="{StaticResource compactCardViewClassicSystemColorColumnChooserContextMenuStyle}" />
+
+   <!-- Implicit Style for AutoFilterControl in case it is used outside the DataGridControl -->
+   <Style TargetType="local:AutoFilterControl"
+          BasedOn="{StaticResource tableViewClassicSystemColorAutoFilterControlStyle}"/>
+
+</ResourceDictionary>

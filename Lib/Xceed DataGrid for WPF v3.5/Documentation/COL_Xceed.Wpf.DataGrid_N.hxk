@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE HelpIndex SYSTEM "MS-Help://Hx/Resources/HelpIndex.DTD">
+<HelpIndex
+   Visible="Yes"
+   Name="NamedUrlIndex"
+   DTDVersion="1.0"
+   FileVersion="1.0"
+   LangId="1033">
+
+   <Keyword Term="HomePage">
+      <Jump Url="index2.html"/>
+   </Keyword>
+   <Keyword Term="DefaultPage">
+      <Jump Url="index2.html"/>
+   </Keyword>
+
+   <Keyword Term="SamplesPage">
+      <Jump Url="Sample_applications.html"/>
+   </Keyword>
+   
+   <Keyword Term="LicensingPage">
+      <Jump Url="Licensing.html"/>
+  </Keyword>
+
+<!-- DATAGRID-SPECIFIC KEYWORDS -->   
+   <Keyword Term="ProvidingDataPage">
+      <Jump Url="Providing_Data.html"/>
+  </Keyword>
+ 
+  <Keyword Term="ObjectModelOverviewPage">
+      <Jump Url="Object_Model_Overview.html"/>
+  </Keyword>
+ 
+  <Keyword Term="InstallationInstructionsPage">
+      <Jump Url="Creating_your_first_DataGrid_Project.html"/>
+  </Keyword>
+  
+  <Keyword Term="WPFEditorsWelcome">
+      <Jump Url="Welcome_EditorsWPF.html"/>
+  </Keyword>
+  
+  <Keyword Term="Views3DWelcome">
+      <Jump Url="Welcome_3DViews.html"/>
+  </Keyword>
+  
+<!-- DATAGRID-SPECIFIC KEYWORDS -->   
+
+<!-- UPLOAD SILVERLIGHT-SPECIFIC KEYWORDS -->
+
+<Keyword Term="CreatingFirstProject">
+      <Jump Url="Creating_your_first_Upload_Project.html"/>
+  </Keyword>
+  
+<!-- UPLOAD SILVERLIGHT-SPECIFIC KEYWORDS -->
+
+<!-- RT SILVERLIGHT-SPECIFIC KEYWORDS -->
+<Keyword Term="CreatingFirstProject2">
+      <Jump Url="Creating_your_first_Project.html"/>
+  </Keyword>
+<!-- RT SILVERLIGHT-SPECIFIC KEYWORDS -->
+
+<!-- SILVERLIGHT-SPECIFIC KEYWORDS -->
+
+<Keyword Term="WhatIsSilverlight">
+      <Jump Url="What_Is_Silverlight.html"/>
+  </Keyword>
+  
+<!-- SILVERLIGHT-SPECIFIC KEYWORDS -->
+
+
+
+   <Keyword Term="NavFailPage"><Jump Url="_topic_not_found.html"/></Keyword>
+   <Keyword Term="EmptyIndexTerm"><Jump Url="_index_entry_not_found.html"/></Keyword>
+   
+</HelpIndex>

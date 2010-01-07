@@ -1,0 +1,115 @@
+<!-- =======================================================================
+  Xceed DataGrid for WPF - CUSTOMIZATION CODE - Default Styles and Templates
+  Copyright (c) 2007-2009 Xceed Software Inc.
+
+  [Luna.normalcolor.Resources.xaml]
+
+  This file is part of the Xceed DataGrid for WPF product. The use and
+  distribution of this Customization Code is subject to the terms
+  and conditions refering to "Customization Code" that are specified in
+  the XCEED SOFTWARE LICENSE AGREEMENT accompanying this product.
+======================================================================= -->
+
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Xceed.Wpf.DataGrid">
+
+   <SolidColorBrush x:Key="gridControlBorderBrush"
+                    Color="#7F9DB9" />
+
+   <SolidColorBrush x:Key="errorBackgroundBrush"
+                    Color="Red" />
+
+   <SolidColorBrush x:Key="errorForegroundBrush"
+                    Color="White" />
+
+   <!-- Pen that is used to draw the drop mark when a ColumnHeader is dragged over another one. -->
+   <!-- We do not use a DynamicResource since this instance of a Pen could be reused via multiple threads. See case: 113402. -->
+   <Pen x:Key="dropMarkPen"
+        Brush="{x:Static SystemColors.HighlightBrush}"
+        Thickness="7" />
+
+   <!--**************************
+    * TEMPLATE: ScrollTip
+    ************************** -->
+   <ControlTemplate x:Key="scrollTipTemplate"
+                    TargetType="{x:Type local:ScrollTip}">
+
+      <Grid VerticalAlignment="{TemplateBinding VerticalAlignment}"
+            HorizontalAlignment="{TemplateBinding HorizontalAlignment}">
+
+         <Border BorderThickness="1,1,1,1"
+                 BorderBrush="{TemplateBinding BorderBrush}"
+                 Background="{TemplateBinding Background}"/>
+
+         <Border BorderThickness="1,1,1,1"
+                 Margin="1,1,1,1"
+                 BorderBrush="#4CFFFFFF">
+
+            <ContentPresenter VerticalAlignment="Center"
+                              HorizontalAlignment="Right"
+                              Margin="5"
+                              TextElement.Foreground="{TemplateBinding TextElement.Foreground}"
+                              Content="{TemplateBinding Content}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"/>
+
+         </Border>
+
+      </Grid>
+
+   </ControlTemplate>
+
+  <DataTemplate x:Key="autoFilterGlyph">
+    <Grid Width="11"
+          Height="9">
+      <Path Stretch="Fill"
+            Data="M64.133,235.13263 L64.350203,238.7367 65.855009,238.74891 66.100509,235.16181 69.042509,232.28811 69.050509,231.03788 61.5,231.125 61.474998,232.25889 z"
+            HorizontalAlignment="Left"
+            Width="9.758">
+        <Path.Fill>
+          <LinearGradientBrush EndPoint="0.82,0.697"
+                               StartPoint="0.119,0.167">
+            <GradientStop Color="#FFFFFFFF"
+                          Offset="0"/>
+            <GradientStop Color="#FF505050"
+                          Offset="1"/>
+          </LinearGradientBrush>
+        </Path.Fill>
+        <Path.Stroke>
+          <LinearGradientBrush EndPoint="1,0.5"
+                               StartPoint="0,0.5">
+            <GradientStop Color="#FF272727"
+                          Offset="1"/>
+            <GradientStop Color="#FF8B8B8B"
+                          Offset="0"/>
+          </LinearGradientBrush>
+        </Path.Stroke>
+      </Path>
+      <Path HorizontalAlignment="Right"
+            Margin="0,0,-0.125,0"
+            VerticalAlignment="Bottom"
+            Width="3.875"
+            Height="2.375"
+            Fill="White"
+            Stretch="Fill"
+            Stroke="{x:Null}"
+            Data="M33.25,228.40948 L36.35,228.40948 34.725,230.12931 z"/>
+    </Grid>
+  </DataTemplate>
+
+  <DataTemplate x:Key="autoFilterDropDownGlyph">
+    <Canvas Width="7.69"
+            Height="3.9729">
+
+      <Path Fill="{Binding Path=(TextElement.Foreground), RelativeSource={RelativeSource Self}}"
+            Stretch="Fill"
+            Data="M312.81432,221.49666 L319.57009,221.49336 316.21963,224.62833 z"
+            Width="7.69"
+            Height="3.97299999999998"/>
+
+    </Canvas>
+  </DataTemplate>
+
+
+</ResourceDictionary>

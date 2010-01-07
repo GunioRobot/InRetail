@@ -1,0 +1,76 @@
+<!-- =======================================================================
+  Xceed DataGrid for WPF - CUSTOMIZATION CODE - Default Styles and Templates
+  Copyright (c) 2007-2009 Xceed Software Inc.
+
+  [FixedColumnSplitter.generic.xaml]
+
+  This file is part of the Xceed DataGrid for WPF product. The use and
+  distribution of this Customization Code is subject to the terms
+  and conditions refering to "Customization Code" that are specified in
+  the XCEED SOFTWARE LICENSE AGREEMENT accompanying this product.
+======================================================================= -->
+
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Xceed.Wpf.DataGrid"
+                    xmlns:views="clr-namespace:Xceed.Wpf.DataGrid.Views"
+                    xmlns:converters="clr-namespace:Xceed.Wpf.DataGrid.Converters">
+
+   <converters:ThicknessConverter x:Key="thicknessConverter" />
+   <converters:ThicknessConverter x:Key="inverseThicknessConverter"
+                                  InverseValue="True" />
+
+   <Style TargetType="{x:Type views:FixedColumnSplitter}">
+      <Setter Property="Background"
+              Value="Gray" />
+
+      <Setter Property="BorderThickness"
+              Value="{Binding RelativeSource={RelativeSource Self},Path=(local:DataGridControl.DataGridContext).VerticalGridLineThickness,Converter={StaticResource thicknessConverter},ConverterParameter='Right'}" />
+
+      <Setter Property="BorderBrush"
+              Value="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).VerticalGridLineBrush}" />
+
+      <Setter Property="Template">
+         <Setter.Value>
+            <ControlTemplate TargetType="views:FixedColumnSplitter">
+               <Grid>
+                  <Border x:Name="gridLinesBorder" />
+
+                  <Border Background="{TemplateBinding Background}"
+                          BorderBrush="{TemplateBinding BorderBrush}"
+                          BorderThickness="{TemplateBinding BorderThickness}" />
+
+               </Grid>
+
+               <ControlTemplate.Triggers>
+                  <!-- To display the left vertical grid line when doing animated Column reordering -->
+                  <MultiDataTrigger>
+                     <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).DataGridControl.View, Converter={x:Static converters:TypeToBooleanConverter.Singleton}, ConverterParameter={x:Type views:TableflowView}}"
+                                   Value="True" />
+                        
+                        <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).AreColumnsBeingReordered}"
+                                   Value="True" />
+                     </MultiDataTrigger.Conditions>
+
+                     <Setter TargetName="gridLinesBorder"
+                             Property="BorderBrush"
+                             Value="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).VerticalGridLineBrush}" />
+
+                     <Setter TargetName="gridLinesBorder"
+                             Property="BorderThickness"
+                             Value="{Binding RelativeSource={RelativeSource Self},Path=(local:DataGridControl.DataGridContext).VerticalGridLineThickness,Converter={StaticResource thicknessConverter},ConverterParameter='Left'}" />
+
+                     <Setter TargetName="gridLinesBorder"
+                             Property="Margin"
+                             Value="{Binding RelativeSource={RelativeSource Self},Path=(local:DataGridControl.DataGridContext).VerticalGridLineThickness,Converter={StaticResource inverseThicknessConverter},ConverterParameter='Left'}" />
+
+                  </MultiDataTrigger>
+               </ControlTemplate.Triggers>
+            </ControlTemplate>
+         </Setter.Value>
+      </Setter>
+
+   </Style>
+
+</ResourceDictionary>

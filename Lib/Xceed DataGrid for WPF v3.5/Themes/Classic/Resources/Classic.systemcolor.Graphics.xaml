@@ -1,0 +1,116 @@
+<!-- =======================================================================
+  Xceed DataGrid for WPF - CUSTOMIZATION CODE - Default Styles and Templates
+  Copyright (c) 2007-2009 Xceed Software Inc.
+
+  [Classic.systemcolor.Graphics.xaml]
+
+  This file is part of the Xceed DataGrid for WPF product. The use and
+  distribution of this Customization Code is subject to the terms
+  and conditions refering to "Customization Code" that are specified in
+  the XCEED SOFTWARE LICENSE AGREEMENT accompanying this product.
+======================================================================= -->
+
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    >
+   <ResourceDictionary.MergedDictionaries>
+
+      <!-- Include the standard graphics -->
+      <ResourceDictionary Source="../../Common/Graphics.xaml" />
+
+   </ResourceDictionary.MergedDictionaries>
+
+   <!-- =================================================================== -->
+   <!-- Glyphs                                                              -->
+   <!-- (Override some resources defined in the common resources).           -->
+   <!-- =================================================================== -->
+
+   <!-- Glyph that is displayed in the RowSelector for a Row that has a validation error. -->
+   <DataTemplate x:Key="validationErrorGlyph">
+      <Grid
+         Height="14"
+         Width="14">
+         <Path
+            Margin="0,0,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="14"
+            Width="14"
+            Stretch="Fill"
+            Opacity="1"
+            Data="M 0,7 C0,3.13397216796875 3.1339569091796875,0 7,0 10.866043090820312,0 14,3.13397216796875 14,7 14,10.866058349609375 10.866043090820312,14 7,14 3.1339569091796875,14 0,10.866058349609375 0,7 z"
+            Stroke="#990000"
+            StrokeThickness="1">
+            <Path.Fill>
+               <LinearGradientBrush
+                  StartPoint="0.14285714285714285,0.14285714285714285"
+                  EndPoint="0.8392857142857143,0.8839285714285714">
+                  <LinearGradientBrush.GradientStops>
+                     <GradientStopCollection>
+                        <GradientStop
+                           Color="#FF990000"
+                           Offset="0" />
+                        <GradientStop
+                           Color="#FFff0000"
+                           Offset="0.9944440126419067" />
+                     </GradientStopCollection>
+                  </LinearGradientBrush.GradientStops>
+               </LinearGradientBrush>
+            </Path.Fill>
+         </Path>
+         <Path
+            Margin="1,1,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="12"
+            Width="12"
+            Stretch="Fill"
+            Opacity="0.5019607843137255"
+            Data="M 1,7 C1,3.686248779296875 3.686249017715454,1 7,1 10.313751220703125,1 13,3.686248779296875 13,7 13,10.313751220703125 10.313751220703125,13 7,13 3.686249017715454,13 1,10.313751220703125 1,7 z"
+            Stroke="#ffffff"
+            StrokeThickness="1" />
+         <Path
+            Margin="5,1.125,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="7.875"
+            Width="3.8125"
+            Stretch="Fill"
+            Opacity="1"
+            Data="M 5,1.125 C5,1.125 8.8125,1.1875 8.8125,1.1875 8.8125,1.1875 8,9 8,9 8,9 6,9 6,9 6,9 5,1.125 5,1.125 z"
+            Fill="#ffffff" />
+         <Path
+            Margin="5.5,10,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="3"
+            Width="3"
+            Stretch="Fill"
+            Opacity="1"
+            Data="M 5.5,11.5 C5.5,10.671562194824219 6.171562194824219,10 7,10 7.828437805175781,10 8.5,10.671562194824219 8.5,11.5 8.5,12.328437805175781 7.828437805175781,13 7,13 6.171562194824219,13 5.5,12.328437805175781 5.5,11.5 z"
+            Stroke="#ffffff"
+            StrokeThickness="1"
+            Fill="#ffffff" />
+      </Grid>
+   </DataTemplate>
+
+   <!-- Disabled filter cell patern-->
+   <SolidColorBrush x:Key="classicFilterDisableDarkBackgroundBrush" 
+                          Color="#E5E5E5"/>
+   <SolidColorBrush x:Key="classicFilterDisableLightBackgroundBrush" 
+                          Color="#EDEDED"/>
+   <Canvas x:Key="patternFilteringDisabled"
+                 Width="31"
+                 Height="79"
+                 SnapsToDevicePixels="False">
+      <Path Data="F1 M 0.000,0.021 L 0.000,19.820 L 19.820,0.000 L 0.021,0.000 L 0.000,0.021 Z" Fill="{StaticResource classicFilterDisableDarkBackgroundBrush}"/>
+      <Path Data="F1 M 31.000,18.519 L 31.000,0.000 L 29.720,0.000 L 0.000,29.720 L 0.000,49.520 L 31.000,18.519 Z" Fill="{StaticResource classicFilterDisableDarkBackgroundBrush}"/>
+      <Path Data="F1 M 19.820,0.000 L 0.000,19.820 L 0.000,29.719 L 29.719,0.000 L 19.820,0.000 Z" Fill="{StaticResource classicFilterDisableLightBackgroundBrush}"/>
+      <Path Data="F1 M 0.217,79.000 L 31.000,48.217 L 31.000,28.418 L 0.000,59.418 L 0.000,79.000 L 0.217,79.000 Z" Fill="{StaticResource classicFilterDisableDarkBackgroundBrush}"/>
+      <Path Data="F1 M 31.000,18.520 L 0.000,49.520 L 0.000,59.417 L 31.000,28.417 L 31.000,18.520 Z" Fill="{StaticResource classicFilterDisableLightBackgroundBrush}"/>
+      <Path Data="F1 M 31.000,58.116 L 10.117,79.000 L 29.915,79.000 L 31.000,77.915 L 31.000,58.116 Z" Fill="{StaticResource classicFilterDisableDarkBackgroundBrush}"/>
+      <Path Data="F1 M 31.000,48.218 L 0.217,79.000 L 10.115,79.000 L 31.000,58.115 L 31.000,48.218 Z" Fill="{StaticResource classicFilterDisableLightBackgroundBrush}"/>
+      <Path Data="F1 M 31.000,77.916 L 29.916,79.000 L 31.000,79.000 L 31.000,77.916 Z" Fill="{StaticResource classicFilterDisableDarkBackgroundBrush}"/>
+   </Canvas>
+
+</ResourceDictionary>

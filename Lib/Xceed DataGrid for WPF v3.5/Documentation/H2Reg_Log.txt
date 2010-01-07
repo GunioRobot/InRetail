@@ -1,0 +1,115 @@
+===============================================================================
+Log File:             	C:\Program Files (x86)\Xceed\Xceed DataGrid for WPF v3.5\Documentation\H2Reg_Log.txt
+Date:                 	12/14/2009 2:25:33 AM
+Operating System:      	Windows NT 6.1 (Build 7600) No Service Pack
+SysLocale.DefaultLCID: 	0x0409 (1033)
+SysLocale.PriLangID:   	0x0009 (9)
+SysLocale.SubLangID:   	0x0001 (1)
+DecimalSeparator:      	.
+-------------------------------------------------------------------------------
+EXE Path =          	C:\Program Files (x86)\Xceed\Xceed DataGrid for WPF v3.5\Documentation\H2Reg.exe
+EXE Version =       	1.6.0.0
+Cmdline Param(s) =  	-r | -q | -a | cmdfile=C:\Program Files (x86)\Xceed\Xceed DataGrid for WPF v3.5\Documentation\Xceed.Wpf.DataGrid.ini
+Actual CmdLine =  	"C:\Program Files (x86)\Xceed\Xceed DataGrid for WPF v3.5\Documentation\H2Reg.exe" -r -q -a "cmdfile=C:\Program Files (x86)\Xceed\Xceed DataGrid for WPF v3.5\Documentation\Xceed.Wpf.DataGrid.ini"
+_RunDir =           	C:\Program Files (x86)\Xceed\Xceed DataGrid for WPF v3.5\Documentation
+_ModuleName =       	H2Reg.exe
+_ModuleDir =        	C:\Program Files (x86)\Xceed\Xceed DataGrid for WPF v3.5\Documentation
+_ModulePath =        	C:\Program Files (x86)\Xceed\Xceed DataGrid for WPF v3.5\Documentation\H2Reg.exe
+Module Version =       	1.6.0.0
+-------------------------------------------------------------------------------
+_hhInstalled =      	YES
+_hhVerStr =         	6.1.7600.16385
+_hhFriendlyVerStr = 	> 1.4a
+-------------------------------------------------------------------------------
+_ieInstalled =      	YES
+_ieVerStr =         	6.1.7600.16385
+_ieFriendlyVerStr = 	Internet Explorer 6 (Windows Server 2003)
+===============================================================================
+MS Help 2.x Runtime Found: YES
+    2.7.61224.0, C:\Program Files (x86)\Common Files\Microsoft Shared\Help\hxds.dll
+    2.7.61224.0, C:\Program Files (x86)\Common Files\microsoft shared\Help\hxvz.dll
+NT Admin Log On: YES
+PC Language ID = en
+-------------------------------------------------------------------------------
+Quiet Mode (-Q): Yes
+Registration Mode (-R): Yes
+UnRegistration Mode (-U): No
+Append Log Mode (-A): Yes
+No NT Admin Check (-N): No
+Merge Indexes Mode (-M): No
+Cmd Script File (CmdFile=): C:\Program Files (x86)\Xceed\Xceed DataGrid for WPF v3.5\Documentation\Xceed.Wpf.DataGrid.ini
+User Dir 1 (UserDir1=): 
+User Dir 2 (UserDir2=): 
+User Dir 3 (UserDir3=): 
+User Dir 4 (UserDir4=): 
+===============================================================================
+CmdFile = C:\Program Files (x86)\Xceed\Xceed DataGrid for WPF v3.5\Documentation\Xceed.Wpf.DataGrid.ini
+<windir> = C:\Windows
+<winsysdir> = C:\Windows\system32
+<programfilesdir> = C:\Program Files (x86)
+<exedir> = C:\Program Files (x86)\Xceed\Xceed DataGrid for WPF v3.5\Documentation
+<exedirparent> = C:\Program Files (x86)\Xceed\Xceed DataGrid for WPF v3.5
+<cmdfiledir> = C:\Program Files (x86)\Xceed\Xceed DataGrid for WPF v3.5\Documentation
+<cmdfiledirparent> = C:\Program Files (x86)\Xceed\Xceed DataGrid for WPF v3.5
+<userdir1> = 
+<userdir1parent> = 
+<userdir2> = 
+<userdir2parent> = 
+<userdir3> = 
+<userdir3parent> = 
+<userdir4> = 
+<userdir4parent> = 
+-------------------------------------------------------------------------------
+[Reg_Namespace]
+Xceed.Wpf.DataGrid|COL_Xceed.Wpf.DataGrid.HxC|Xceed DataGrid for WPF Documentation
+
+[Reg_Title]
+Xceed.Wpf.DataGrid|Documentation|1033|Xceed.Wpf.DataGrid.HxS|Xceed.Wpf.DataGrid.HxS||||||
+
+[Reg_Plugin]
+MS.VSIPCC.v90|_DEFAULT|Xceed.Wpf.DataGrid|COL_Xceed.Wpf.DataGrid.hxt|
+
+[UnReg_Namespace]
+Xceed.Wpf.DataGrid
+
+[UnReg_Title]
+Xceed.Wpf.DataGrid|Documentation|1033
+
+[UnReg_Plugin]
+MS.VSIPCC.v90|_DEFAULT|Xceed.Wpf.DataGrid|COL_Xceed.Wpf.DataGrid.hxt|
+-------------------------------------------------------------------------------
+2:25:33 AM   [Reg_Namespace] - Lines To Process = 1
+2:25:33 AM     <nsName>="Xceed.Wpf.DataGrid"
+2:25:33 AM     <nsColfile>="C:\Program Files (x86)\Xceed\Xceed DataGrid for WPF v3.5\Documentation\COL_Xceed.Wpf.DataGrid.HxC"
+2:25:33 AM     <nsDesc>="Xceed DataGrid for WPF Documentation"
+2:25:33 AM     +Mode = Not Enabled
+2:25:33 AM    -->Registered OK
+-------------------------------------------------------------------------------
+2:25:33 AM   [Reg_Title] - Lines To Process = 1
+2:25:33 AM     <nsName>="Xceed.Wpf.DataGrid"
+2:25:33 AM     <TitleID>="Documentation"
+2:25:33 AM     <LangID>="1033"
+2:25:33 AM     <HxS_HelpFile>="C:\Program Files (x86)\Xceed\Xceed DataGrid for WPF v3.5\Documentation\Xceed.Wpf.DataGrid.HxS"
+2:25:33 AM     <HxI_IndexFile>="C:\Program Files (x86)\Xceed\Xceed DataGrid for WPF v3.5\Documentation\Xceed.Wpf.DataGrid.HxS"
+2:25:33 AM     <HxQ_QueryFile>=""
+2:25:33 AM     <HxR_AttrQueryFile>=""
+2:25:33 AM     <HxsMediaLoc>=""
+2:25:33 AM     <HxqMediaLoc>=""
+2:25:33 AM     <HxrMediaLoc>=""
+2:25:33 AM     <SampleMediaLoc>=""
+2:25:33 AM    -->Registered OK
+-------------------------------------------------------------------------------
+2:25:33 AM   [Reg_Plugin] - Lines To Process = 1
+2:25:33 AM     <nsName_Parent>="MS.VSIPCC.v90"
+2:25:33 AM     <HxT_Parent>="_DEFAULT"
+2:25:33 AM     <nsName_Child>="Xceed.Wpf.DataGrid"
+2:25:33 AM     <HxT_Child>="COL_Xceed.Wpf.DataGrid.hxt"
+2:25:33 AM     <HxA_Child>=""
+2:25:33 AM   Plug Child "Xceed.Wpf.DataGrid" into "MS.VSIPCC.v90"
+2:25:33 AM    -->Registered OK
+-------------------------------------------------------------------------------
+2:25:33 AM   [Reg_Filter] - Lines To Process = 0
+===============================================================================
+
+--END OF FILE--
+

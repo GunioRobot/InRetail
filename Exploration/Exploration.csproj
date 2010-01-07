@@ -117,11 +117,21 @@
     <Reference Include="PresentationFramework">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="Xceed.Wpf.Controls, Version=3.5.9505.16400, Culture=neutral, PublicKeyToken=ba83ff368b7563c6" />
-    <Reference Include="Xceed.Wpf.DataGrid, Version=3.5.9505.16400, Culture=neutral, PublicKeyToken=ba83ff368b7563c6" />
-    <Reference Include="Xceed.Wpf.DataGrid.ThemePack.1, Version=3.5.9505.16400, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL" />
-    <Reference Include="Xceed.Wpf.DataGrid.ThemePack.2, Version=3.5.9505.16400, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL" />
-    <Reference Include="Xceed.Wpf.DataGrid.Views3D, Version=3.5.9505.16400, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL" />
+    <Reference Include="Xceed.Wpf.Controls, Version=3.5.9505.16400, Culture=neutral, PublicKeyToken=ba83ff368b7563c6">
+      <HintPath>..\Lib\Xceed DataGrid for WPF v3.5\Bin\Xceed.Wpf.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid, Version=3.5.9505.16400, Culture=neutral, PublicKeyToken=ba83ff368b7563c6">
+      <HintPath>..\Lib\Xceed DataGrid for WPF v3.5\Bin\Xceed.Wpf.DataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid.ThemePack.1, Version=3.5.9505.16400, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
+      <HintPath>..\Lib\Xceed DataGrid for WPF v3.5\Bin\Xceed.Wpf.DataGrid.ThemePack.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid.ThemePack.2, Version=3.5.9505.16400, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
+      <HintPath>..\Lib\Xceed DataGrid for WPF v3.5\Bin\Xceed.Wpf.DataGrid.ThemePack.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid.Views3D, Version=3.5.9505.16400, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
+      <HintPath>..\Lib\Xceed DataGrid for WPF v3.5\Bin\Xceed.Wpf.DataGrid.Views3D.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

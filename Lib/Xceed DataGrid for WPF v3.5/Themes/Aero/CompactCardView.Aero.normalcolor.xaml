@@ -1,0 +1,2174 @@
+<!-- =======================================================================
+  Xceed DataGrid for WPF - CUSTOMIZATION CODE - Default Styles and Templates
+  Copyright (c) 2007-2009 Xceed Software Inc.
+
+  [CompactCardView.Aero.normalcolor.xaml]
+
+  This file is part of the Xceed DataGrid for WPF product. The use and
+  distribution of this Customization Code is subject to the terms
+  and conditions refering to "Customization Code" that are specified in
+  the XCEED SOFTWARE LICENSE AGREEMENT accompanying this product.
+======================================================================= -->
+
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:xcdp="clr-namespace:Xceed.Wpf.Controls;assembly=Xceed.Wpf.Controls"
+                    xmlns:local="clr-namespace:Xceed.Wpf.DataGrid"
+                    xmlns:conv="clr-namespace:Xceed.Wpf.DataGrid.Converters"
+                    xmlns:markup="clr-namespace:Xceed.Wpf.DataGrid.Markup"
+                    xmlns:views="clr-namespace:Xceed.Wpf.DataGrid.Views"
+                    xmlns:utils="clr-namespace:Xceed.Utils.Wpf.Markup">
+
+  <ResourceDictionary.MergedDictionaries>
+
+    <!-- Include the view independant and color-scheme independant theme resources -->
+    <ResourceDictionary Source="Resources/Aero.Resources.xaml" />
+
+    <!-- Include the view dependant and color-scheme independant theme graphics -->
+    <ResourceDictionary Source="Resources/CardView.Aero.Graphics.xaml" />
+
+    <!-- Include the view independant and color-scheme dependant theme resources -->
+    <ResourceDictionary Source="Resources/Aero.normalcolor.Resources.xaml" />
+
+    <!-- Include the standard grid element templates -->
+    <ResourceDictionary Source="../Common/CompactCardView.GridElementTemplates.xaml" />
+
+  </ResourceDictionary.MergedDictionaries>
+
+  <!-- =================================================================== -->
+  <!-- Resources specific to this View/Theme/ColorScheme                   -->
+  <!-- =================================================================== -->
+
+    <SolidColorBrush x:Key="warningBackgroundBrush"
+                     Color="#FFC400" />
+
+    <SolidColorBrush x:Key="warningForegroundBrush"
+                     Color="Black" />
+
+    <LinearGradientBrush x:Key="selectionBackgroundBrush"
+                       StartPoint="0.5,1"
+                       EndPoint="0.5,0" >
+
+    <GradientStop Offset="0"
+                  Color="#BAE6FD" />
+
+    <GradientStop Offset="0.6"
+                  Color="#BAE6FD" />
+
+    <GradientStop Offset="0.62"
+                  Color="#E3F7FF" />
+
+    <GradientStop Offset="1"
+                  Color="#E3F7FF" />
+
+  </LinearGradientBrush>
+
+  <SolidColorBrush x:Key="selectionForegroundBrush"
+                   Color="#333333" />
+
+  <LinearGradientBrush x:Key="inactiveSelectionBackgroundBrush"
+                       StartPoint="0.494,1"
+                       EndPoint="0.494,0.032">
+
+    <GradientStop Color="#FF8eb1c1"
+                  Offset="0" />
+
+    <GradientStop Color="#FF8eb1c1"
+                  Offset="0.594" />
+
+    <GradientStop Color="#FFadbcc2"
+                  Offset="0.622" />
+
+    <GradientStop Color="#FFadbcc2"
+                  Offset="0.956" />
+
+  </LinearGradientBrush>
+
+  <SolidColorBrush x:Key="inactiveSelectionForegroundBrush"
+                   Color="#333333" />
+
+  <SolidColorBrush x:Key="cardBorderBrush"
+                   Color="#D5D5D5" />
+
+  <SolidColorBrush x:Key="groupHeaderBackgroundBrush"
+                   Color="#BAE6FD" />
+
+  <SolidColorBrush x:Key="groupHeaderForegroundBrush"
+                   Color="#045082" />
+
+  <SolidColorBrush x:Key="groupHeaderBorderBrush"
+                   Color="White" />
+
+  <LinearGradientBrush x:Key="cardTitleBackgroundBrush"
+                       StartPoint="0.5,1"
+                       EndPoint="0.5,0">
+
+    <GradientStop Offset="0"
+                  Color="#F1F2F4" />
+
+    <GradientStop Offset="1"
+                  Color="#FFFFFF" />
+
+    <GradientStop Offset="0.6"
+                  Color="#F1F2F4" />
+
+    <GradientStop Offset="0.62"
+                  Color="#FFFFFF" />
+
+  </LinearGradientBrush>
+
+  <SolidColorBrush x:Key="cardTitleForegroundBrush"
+                   Color="#333333" />
+
+  <LinearGradientBrush x:Key="cardTitleErrorBackgroundBrush"
+                       StartPoint="0.5,1"
+                       EndPoint="0.5,0">
+
+    <GradientStop Offset="0"
+                  Color="#990000" />
+
+    <GradientStop Offset="0.9"
+                  Color="#FD0000" />
+
+    <GradientStop Offset="1"
+                  Color="#FF0000" />
+
+  </LinearGradientBrush>
+
+  <SolidColorBrush x:Key="cardTitleErrorForegroundBrush"
+                   Color="White" />
+
+  <SolidColorBrush x:Key="columnManagerRowBackgroundBrush"
+                   Color="#106284" />
+
+  <SolidColorBrush x:Key="columnManagerRowForegroundBrush"
+                   Color="White" />
+
+  <SolidColorBrush x:Key="columnManagerCellHotBorderBrush"
+                   Color="#95B3C4" />
+
+  <LinearGradientBrush x:Key="columnManagerCellHotBackgroundBrush"
+                       StartPoint="0,1"
+                       EndPoint="0,0">
+
+    <GradientStop	Offset="0"
+                  Color="#33FFFFFF" />
+
+    <GradientStop	Offset="0.2"
+                  Color="#00FFFFFF" />
+
+    <GradientStop	Offset="1"
+                  Color="#33FFFFFF" />
+
+  </LinearGradientBrush>
+
+  <SolidColorBrush x:Key="columnManagerCellPressedBorderBrush"
+                   Color="#D7E2E8" />
+
+  <LinearGradientBrush x:Key="columnManagerCellPressedBackgroundBrush"
+                       StartPoint="0,1"
+                       EndPoint="0,0">
+
+    <GradientStop	Offset="0"
+                  Color="#66FFFFFF" />
+
+    <GradientStop	Offset="0.2"
+                  Color="#33FFFFFF" />
+
+    <GradientStop	Offset="1"
+                  Color="#66FFFFFF" />
+
+  </LinearGradientBrush>
+
+  <SolidColorBrush x:Key="groupByControlForegroundBrush"
+                   Color="White" />
+
+  <Pen x:Key="cardSeparatorLinePen"
+       Thickness="1"
+       Brush="#D5D5D5" />
+
+  <DataTemplate x:Key="insertionRowGlyph">
+    <Canvas
+      Height="29"
+      Width="41"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+      <Path
+        Canvas.Left="9"
+        Canvas.Top="7"
+        Height="22"
+        Width="32"
+        Stretch="Fill"
+        Opacity="0.5803921568627451"
+        Data="M 9,7 C9,7 41,7 41,7 41,7 41,29 41,29 41,29 9,29 9,29 9,29 9,7 9,7 z">
+        <Path.Fill>
+          <LinearGradientBrush
+            StartPoint="0,0.5"
+            EndPoint="1,0.5">
+            <LinearGradientBrush.GradientStops>
+              <GradientStopCollection>
+                <GradientStop
+                  Color="#FF333333"
+                  Offset="0" />
+                <GradientStop
+                  Color="#FF999999"
+                  Offset="0.9944444298744202" />
+              </GradientStopCollection>
+            </LinearGradientBrush.GradientStops>
+          </LinearGradientBrush>
+        </Path.Fill>
+      </Path>
+      <Grid
+        Width="38.3711793422699"
+        Height="25.935275554656982"
+        Opacity="1"
+        Canvas.Left="1.8021070957183838"
+        Canvas.Top="1.4380249977111816">
+        <Grid
+          Width="31.999696731567383"
+          Height="21.540440559387207"
+          Opacity="1"
+          Margin="6.371482610702515,4.394834995269775,0,0"
+          HorizontalAlignment="Left"
+          VerticalAlignment="Top">
+          <Path
+            Margin="0.1440143585205078,0.20514678955078125,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="21.335293769836426"
+            Width="31.792495727539062"
+            Stretch="Fill"
+            Opacity="1"
+            Data="M 0.1440143585205078,0.20514678955078125 C0.1440143585205078,0.20514678955078125 31.93651008605957,0.615440845489502 31.93651008605957,0.615440845489502 31.93651008605957,0.615440845489502 31.7340145111084,21.540440559387207 31.7340145111084,21.540440559387207 31.7340145111084,21.540440559387207 0.1440143585205078,21.540440559387207 0.1440143585205078,21.540440559387207 0.1440143585205078,21.540440559387207 0.1440143585205078,0.20514678955078125 0.1440143585205078,0.20514678955078125 z">
+            <Path.Fill>
+              <RadialGradientBrush
+                Center="0.9467852509631385,0.932715728016277"
+                GradientOrigin="0.9467852509631385,0.932715728016277"
+                RadiusX="0.8519521950255028"
+                RadiusY="1.4495842857767849">
+                <RadialGradientBrush.GradientStops>
+                  <GradientStopCollection>
+                    <GradientStop
+                      Color="#FFffffff"
+                      Offset="0" />
+                    <GradientStop
+                      Color="#FFE3F7FF"
+                      Offset="0.9666669964790344" />
+                    <GradientStop
+                      Color="#FFe3f7ff"
+                      Offset="0.9777780175209045" />
+                  </GradientStopCollection>
+                </RadialGradientBrush.GradientStops>
+              </RadialGradientBrush>
+            </Path.Fill>
+          </Path>
+          <Path
+            Margin="2.472764015197754,9.334189414978027,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="1"
+            Width="27.13499927520752"
+            Stretch="Fill"
+            Opacity="1"
+            Data="M 2.472764015197754,9.334189414978027 C2.472764015197754,9.334189414978027 29.607763290405273,9.334189414978027 29.607763290405273,9.334189414978027 "
+            Stroke="#cccccc"
+            StrokeThickness="1" />
+          <Path
+            Margin="2.472764015197754,13.43713092803955,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="1"
+            Width="27.13499927520752"
+            Stretch="Fill"
+            Opacity="1"
+            Data="M 2.472764015197754,13.43713092803955 C2.472764015197754,13.43713092803955 29.607763290405273,13.43713092803955 29.607763290405273,13.43713092803955 "
+            Stroke="#cccccc"
+            StrokeThickness="1" />
+          <Path
+            Margin="2.472764015197754,17.334925651550293,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="1"
+            Width="27.13499927520752"
+            Stretch="Fill"
+            Opacity="1"
+            Data="M 2.472764015197754,17.334925651550293 C2.472764015197754,17.334925651550293 29.607763290405273,17.334925651550293 29.607763290405273,17.334925651550293 "
+            Stroke="#cccccc"
+            StrokeThickness="1" />
+          <Path
+            Margin="0,0,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="5.333823204040527"
+            Width="31.999696731567383"
+            Stretch="Fill"
+            Opacity="1"
+            Data="M 0,5.333823204040527 C0,5.333823204040527 0.1440143585205078,0 0.1440143585205078,0 0.1440143585205078,0 31.93651008605957,0.4102940559387207 31.93651008605957,0.4102940559387207 31.93651008605957,0.4102940559387207 31.999696731567383,5.060811996459961 31.999696731567383,5.060811996459961 31.999696731567383,5.060811996459961 0,5.333823204040527 0,5.333823204040527 z">
+            <Path.Fill>
+              <LinearGradientBrush
+                StartPoint="0.5170834193386837,1"
+                EndPoint="0.5170834193386837,-0.15384631889001074">
+                <LinearGradientBrush.GradientStops>
+                  <GradientStopCollection>
+                    <GradientStop
+                      Color="#FFbbe8fd"
+                      Offset="0" />
+                    <GradientStop
+                      Color="#FFe3f7ff"
+                      Offset="0.9833329916000366" />
+                  </GradientStopCollection>
+                </LinearGradientBrush.GradientStops>
+              </LinearGradientBrush>
+            </Path.Fill>
+          </Path>
+        </Grid>
+        <Grid
+          Width="15.04845404624939"
+          Height="15.280250072479248"
+          Opacity="1"
+          Margin="0,0,0,0"
+          HorizontalAlignment="Left"
+          VerticalAlignment="Top">
+          <Path
+            Margin="0,0,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="15.280250072479248"
+            Width="15.04845404624939"
+            Stretch="Fill"
+            Opacity="1"
+            Data="M 9.3103768825531,0 C9.3103768825531,0 9.789016485214233,4.447423934936523 9.789016485214233,4.447423934936523 9.789016485214233,4.447423934936523 13.96478819847107,4.092772960662842 13.96478819847107,4.092772960662842 13.96478819847107,4.092772960662842 11.341729879379272,6.99082612991333 11.341729879379272,6.99082612991333 11.341729879379272,6.99082612991333 15.04845404624939,9.399150371551514 15.04845404624939,9.399150371551514 15.04845404624939,9.399150371551514 10.658193349838257,9.91457223892212 10.658193349838257,9.91457223892212 10.658193349838257,9.91457223892212 11.122618436813354,13.534395694732666 11.122618436813354,13.534395694732666 11.122618436813354,13.534395694732666 8.13883376121521,11.505964756011963 8.13883376121521,11.505964756011963 8.13883376121521,11.505964756011963 5.73807692527771,15.280250072479248 5.73807692527771,15.280250072479248 5.73807692527771,15.280250072479248 5.2594382762908936,10.832826137542725 5.2594382762908936,10.832826137542725 5.2594382762908936,10.832826137542725 1.6856300830841064,11.32816457748413 1.6856300830841064,11.32816457748413 1.6856300830841064,11.32816457748413 3.706723928451538,8.28942346572876 3.706723928451538,8.28942346572876 3.706723928451538,8.28942346572876 0,5.881048679351807 0,5.881048679351807 0,5.881048679351807 4.390260934829712,5.3656768798828125 4.390260934829712,5.3656768798828125 4.390260934829712,5.3656768798828125 3.9258358478546143,1.745802879333496 3.9258358478546143,1.745802879333496 3.9258358478546143,1.745802879333496 6.909621000289917,3.7742347717285156 6.909621000289917,3.7742347717285156 6.909621000289917,3.7742347717285156 9.3103768825531,0 9.3103768825531,0 z"
+            Stroke="#ff9900"
+            StrokeThickness="1">
+            <Path.Fill>
+              <RadialGradientBrush
+                Center="0.7067652129967603,0.6952551141586581"
+                GradientOrigin="0.7067652129967603,0.6952551141586581"
+                RadiusX="0.7427323821103405"
+                RadiusY="1.4000532972703157">
+                <RadialGradientBrush.GradientStops>
+                  <GradientStopCollection>
+                    <GradientStop
+                      Color="#FFffff00"
+                      Offset="0" />
+                    <GradientStop
+                      Color="#FFffcc00"
+                      Offset="0.48888900876045227" />
+                    <GradientStop
+                      Color="#FFff9900"
+                      Offset="0.9777780175209045" />
+                  </GradientStopCollection>
+                </RadialGradientBrush.GradientStops>
+              </RadialGradientBrush>
+            </Path.Fill>
+          </Path>
+          <Path
+            Margin="0.4514729976654053,0.47901010513305664,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="11.231339454650879"
+            Width="13.485404968261719"
+            Stretch="Fill"
+            Opacity="1"
+            Data="M 1.1099188327789307,11.69368314743042 C1.9093139171600342,11.121764659881592 3.8831450939178467,8.27955675125122 3.8831450939178467,8.27955675125122 3.8831450939178467,8.27955675125122 0.4514729976654053,5.986578464508057 0.4514729976654053,5.986578464508057 0.4514729976654053,5.986578464508057 4.402446985244751,5.379350185394287 4.402446985244751,5.379350185394287 4.402446985244751,5.379350185394287 4.057564973831177,2.1025071144104004 4.057564973831177,2.1025071144104004 4.057564973831177,2.1025071144104004 6.909225225448608,3.991201877593994 6.909225225448608,3.991201877593994 6.909225225448608,3.991201877593994 9.119050741195679,0.47901010513305664 9.119050741195679,0.47901010513305664 9.119050741195679,0.47901010513305664 9.795244932174683,4.545039176940918 9.795244932174683,4.545039176940918 9.795244932174683,4.545039176940918 13.936877965927124,4.197250843048096 13.936877965927124,4.197250843048096 13.936877965927124,4.197250843048096 11.873886823654175,5.8367743492126465 11.873886823654175,5.8367743492126465 11.873886823654175,5.8367743492126465 10.829794645309448,5.691528797149658 7.953439474105835,6.652703762054443 3.959453821182251,7.9873127937316895 0.6810648441314697,12.000451564788818 1.1099188327789307,11.69368314743042 z">
+            <Path.Fill>
+              <RadialGradientBrush
+                Center="0.4895544505162204,0.5642400517011547"
+                GradientOrigin="0.4895544505162204,0.5642400517011547"
+                RadiusX="0.18471063610761393"
+                RadiusY="1.4564942789734265">
+                <RadialGradientBrush.GradientStops>
+                  <GradientStopCollection>
+                    <GradientStop
+                      Color="#3affffff"
+                      Offset="0" />
+                    <GradientStop
+                      Color="#7Dffffff"
+                      Offset="0.9555559754371643" />
+                    <GradientStop
+                      Color="#7fffffff"
+                      Offset="0.9777780175209045" />
+                  </GradientStopCollection>
+                </RadialGradientBrush.GradientStops>
+              </RadialGradientBrush>
+            </Path.Fill>
+          </Path>
+          <Path
+            Margin="0.9951033592224121,0.6253013610839844,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="13.50903844833374"
+            Width="13.023992776870728"
+            Stretch="Fill"
+            Opacity="1"
+            Data="M 9.03537631034851,1.2233688831329346 C9.366885900497437,1.300900936126709 9.34392237663269,4.907051086425781 9.548399686813354,5.091712951660156 9.752876043319702,5.2763261795043945 12.606094121932983,4.618612766265869 12.641690015792847,4.928536891937256 12.6772620677948,5.238461971282959 10.847098112106323,6.324549198150635 10.654585599899292,6.639532566070557 10.462071180343628,6.954566478729248 13.401658773422241,8.827784061431885 13.092148542404175,8.941826343536377 12.964943647384644,8.988706111907959 9.841346502304077,9.269581317901611 9.841346502304077,9.269581317901611 9.841346502304077,9.269581317901611 10.287429571151733,12.113542079925537 10.287429571151733,12.113542079925537 10.287429571151733,12.113542079925537 8.016894102096558,10.454636096954346 8.016894102096558,10.454636096954346 8.016894102096558,10.454636096954346 6.168439626693726,13.368966579437256 6.109360456466675,13.352638721466064 6.040220022201538,13.333457469940186 5.761510610580444,10.08851671218872 5.761510610580444,10.08851671218872 5.761510610580444,10.08851671218872 3.2771780490875244,10.192593097686768 3.2771780490875244,10.192593097686768 3.2771780490875244,10.192593097686768 4.733783960342407,8.035244464874268 4.733783960342407,8.035244464874268 4.733783960342407,8.035244464874268 1.943302869796753,6.369776248931885 1.8523857593536377,6.273863315582275 1.625488042831421,6.034408092498779 4.98708176612854,5.813684940338135 4.9954869747161865,5.558252811431885 5.003865957260132,5.302871227264404 4.618492841720581,3.314157009124756 4.787820100784302,3.05206298828125 4.957096815109253,2.7901201248168945 6.659338712692261,4.614457130432129 6.961456060409546,4.446621894836426 7.26360011100769,4.278838157653809 8.703841924667358,1.145888090133667 9.03537631034851,1.2233688831329346 zM 9.174792051315308,0.6269609928131104 C8.807465314865112,0.541064977645874 7.122206449508667,3.817108154296875 6.787432432174683,4.003022193908691 6.4526355266571045,4.189036846160889 4.299566030502319,1.9188461303710938 4.111972093582153,2.2091870307922363 3.9243767261505127,2.499527931213379 4.644546747207642,4.949223041534424 4.635204076766968,5.232301235198975 4.625933885574341,5.515279769897461 0.7554450035095215,5.891416072845459 1.0068399906158447,6.1567158699035645 1.1096718311309814,6.265248775482178 4.162818670272827,7.972086429595947 4.067426919937134,8.0003342628479 4.036280870437622,8.009499073028564 2.356980085372925,10.904146671295166 2.356980085372925,10.904146671295166 2.356980085372925,10.904146671295166 5.373121976852417,10.561718463897705 5.373121976852417,10.561718463897705 5.373121976852417,10.561718463897705 5.921814680099487,14.1108717918396 6.00598406791687,14.13426160812378 6.06924033164978,14.15169095993042 8.110530614852905,11.242018222808838 8.110530614852905,11.242018222808838 8.110530614852905,11.242018222808838 10.690995931625366,12.933080196380615 10.690995931625366,12.933080196380615 10.690995931625366,12.933080196380615 10.343147039413452,9.668957233428955 10.343147039413452,9.668957233428955 10.343147039413452,9.668957233428955 13.846481084823608,9.20762586593628 13.9950692653656,9.152884006500244 14.338023900985718,9.026569843292236 10.89270567893982,7.094101428985596 11.106056928634644,6.745110034942627 11.319359540939331,6.395969867706299 13.492278814315796,4.857266902923584 13.452852010726929,4.513835906982422 13.413448095321655,4.170454978942871 9.955475568771362,4.693789958953857 9.728923559188843,4.48929500579834 9.50232195854187,4.284698009490967 9.542144536972046,0.712805986404419 9.174792051315308,0.6269609928131104 z">
+            <Path.Fill>
+              <LinearGradientBrush
+                StartPoint="0.6306782860396637,-0.03166897083769098"
+                EndPoint="0.366326267695482,1.0584688442038823">
+                <LinearGradientBrush.GradientStops>
+                  <GradientStopCollection>
+                    <GradientStop
+                      Color="#99ffffff"
+                      Offset="0" />
+                    <GradientStop
+                      Color="#00ffffff"
+                      Offset="0.9833329916000366" />
+                  </GradientStopCollection>
+                </LinearGradientBrush.GradientStops>
+              </LinearGradientBrush>
+            </Path.Fill>
+          </Path>
+        </Grid>
+      </Grid>
+
+      <Canvas.RenderTransform>
+        <TranslateTransform X="-6"
+                            Y="-12" />
+      </Canvas.RenderTransform>
+    </Canvas>
+  </DataTemplate>
+
+  <!-- =================================================================== -->
+  <!-- Templates specific to this View/Theme/ColorScheme                   -->
+  <!-- =================================================================== -->
+
+   <!--**************************
+    * TEMPLATE: Row 
+    ************************** -->
+  <ControlTemplate x:Key="compactCardViewRowTemplate"
+                   TargetType="local:Row">
+
+    <Grid>
+
+      <Border x:Name="rootBorder"
+              Background="{TemplateBinding Background}"
+              BorderBrush="{TemplateBinding BorderBrush}"
+              BorderThickness="{TemplateBinding BorderThickness}"
+              Padding="{TemplateBinding Padding}">
+
+        <!-- In CardView, a Row is represented as a card with a Title at the top and the Cells
+              are aligned vertically in the remaining part of the template. This DockPanel is used
+              to layout the Title and the Cells in this manner. -->
+        <DockPanel>
+
+          <!-- Border that contains the Title of the Card. -->
+          <Border x:Name="cardTitleBorder"
+                  DockPanel.Dock="Top"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="1"
+                  Padding="3,1,3,3"
+                  Background="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).CardTitleBackground}"
+                  TextElement.Foreground="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).CardTitleForeground}"
+                  TextElement.FontWeight="Bold">
+
+
+            <!-- ContentPresenter in charge of displaying the Card Title. -->
+            <ContentPresenter x:Name="cardTitlePresenter"
+                              Content="{Binding}"
+                              ContentTemplate="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).CardTitleTemplate}"
+                              MinHeight="15"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Center" />
+
+          </Border>
+
+          <!-- Border that contains the Cells. -->
+          <Border x:Name="cellsHostBorder"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="1,0,1,1"
+                  Padding="3">
+
+            <!-- The PART_CellsHost part designates the Panel to which this Row's Cells should be added.
+                       It is set as a Grid.IsSharedSizeScope because the Cell template will use a 
+                       SharedSizeGroup to layout the field names. -->
+            <StackPanel x:Name="PART_CellsHost"
+                        Orientation="Vertical"
+                        Grid.IsSharedSizeScope="True" />
+
+          </Border>
+        </DockPanel>
+      </Border>
+
+      <!-- ContentPresenter in charge of displaying the glyph that represents
+              the state of the row (like IsBeingEdited) -->
+      <ContentPresenter x:Name="glyphPresenter"
+                        Content="{x:Null}"
+                        ContentTemplate="{x:Null}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top" />
+    </Grid>
+
+    <ControlTemplate.Triggers>
+
+      <!-- When the Row is Selected, we want to change the background/foreground of the Title to the appropriate brushes. -->
+      <MultiDataTrigger>
+        <MultiDataTrigger.Conditions>
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=IsSelected}"
+                     Value="True"/>
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=local:DataGridControl},Path=IsKeyboardFocusWithin}"
+                     Value="True"/>
+
+        </MultiDataTrigger.Conditions>
+
+        <Setter TargetName="cardTitleBorder"
+                Property="Background"
+                Value="{Binding RelativeSource={RelativeSource TemplatedParent},Path=SelectionBackground}" />
+
+        <Setter TargetName="cardTitleBorder"
+                Property="TextElement.Foreground"
+                Value="{Binding RelativeSource={RelativeSource TemplatedParent},Path=SelectionForeground}" />
+
+      </MultiDataTrigger>
+
+      <!-- When the Row is Selected but the parent DataGridControl is not focused, we want to change
+              the Row's background/foreground to the appropriate brushes. -->
+      <MultiDataTrigger>
+        <MultiDataTrigger.Conditions>
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=IsSelected}"
+                     Value="True"/>
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=local:DataGridControl},Path=IsKeyboardFocusWithin}"
+                     Value="False"/>
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=local:DataGridControl},Path=HideSelection}"
+                     Value="False" />
+
+        </MultiDataTrigger.Conditions>
+
+        <Setter TargetName="cardTitleBorder"
+                Property="Background"
+                Value="{Binding RelativeSource={RelativeSource TemplatedParent},Path=InactiveSelectionBackground}" />
+
+        <Setter TargetName="cardTitleBorder"
+                Property="TextElement.Foreground"
+                Value="{Binding RelativeSource={RelativeSource TemplatedParent},Path=InactiveSelectionForeground}" />
+
+      </MultiDataTrigger>
+
+      <Trigger Property="IsCurrent"
+               Value="False">
+
+        <Setter TargetName="cellsHostBorder"
+                Property="BorderBrush"
+                Value="Transparent" />
+
+      </Trigger>
+
+      <MultiTrigger>
+        <MultiTrigger.Conditions>
+
+          <Condition Property="IsCurrent"
+                     Value="True" />
+
+          <Condition Property="IsBeingEdited"
+                     Value="False" />
+
+        </MultiTrigger.Conditions>
+
+        <Setter TargetName="glyphPresenter"
+                Property="ContentTemplate"
+                Value="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).CurrentItemGlyph}" />
+
+      </MultiTrigger>
+
+      <Trigger Property="IsBeingEdited"
+               Value="True">
+
+        <Setter TargetName="glyphPresenter"
+                Property="ContentTemplate"
+                Value="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).EditingRowGlyph}" />
+
+      </Trigger>
+
+      <Trigger Property="HasValidationError"
+               Value="True">
+
+        <Setter TargetName="glyphPresenter"
+                Property="ContentTemplate"
+                Value="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).ValidationErrorGlyph}" />
+
+        <Setter TargetName="cardTitleBorder"
+                Property="Background"
+                Value="{StaticResource cardTitleErrorBackgroundBrush}" />
+
+        <Setter TargetName="cardTitleBorder"
+                Property="TextElement.Foreground"
+                Value="{StaticResource cardTitleErrorForegroundBrush}" />
+
+      </Trigger>
+
+    </ControlTemplate.Triggers>
+
+  </ControlTemplate>
+
+  <!--**************************
+     * TEMPLATE: FilterToggleButton
+      **************************-->
+  <ControlTemplate TargetType="{x:Type ToggleButton}"
+                   x:Key="filterToggleButton">
+
+    <Grid Background="Transparent"
+          VerticalAlignment="Stretch"
+          HorizontalAlignment="Stretch">
+
+      <Grid Width="20"
+            Background="Transparent"
+            HorizontalAlignment="Center">
+
+        <ContentPresenter x:Name="glyphPresenter"
+                          ContentTemplate="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).AutoFilterDropDownGlyph}"
+                          Content="{TemplateBinding Content}"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Center"
+                          Margin="0,0,0,0"
+                          Opacity="{TemplateBinding Opacity}"/>
+
+        <ContentPresenter x:Name="filterActivatedGlyphPresenter"
+                          ContentTemplate="{x:Null}"
+                          Content="{TemplateBinding Content}"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Center"
+                          Margin="0,0,2,0"
+                          Opacity="{TemplateBinding Opacity}">
+
+        </ContentPresenter>
+      </Grid>
+    </Grid>
+
+    <ControlTemplate.Triggers>
+
+      <!-- Display AutoFilterGlyph when there are AutoFilterValues -->
+      <DataTrigger Binding="{Binding ElementName=autoFilterControl, Path=HasAutoFilterValues}"
+                   Value="True">
+
+        <Setter TargetName="glyphPresenter"
+                Property="ContentTemplate"
+                Value="{x:Null}"/>
+
+        <Setter TargetName="filterActivatedGlyphPresenter"
+                Property="ContentTemplate"
+                Value="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).AutoFilterGlyph}"/>
+
+      </DataTrigger>
+
+      <!-- Restore DropDownGlyph when there are no AutoFilterValues -->
+      <DataTrigger Binding="{Binding ElementName=autoFilterControl, Path=HasAutoFilterValues}"
+                   Value="False">
+
+        <Setter TargetName="glyphPresenter"
+                Property="ContentTemplate"
+                Value="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).AutoFilterDropDownGlyph}"/>
+
+      </DataTrigger>
+
+    </ControlTemplate.Triggers>
+
+  </ControlTemplate>
+
+  <!--**************************
+    * TEMPLATE: ColumnManagerCell 
+    ************************** -->
+  <ControlTemplate x:Key="compactCardViewColumnManagerCellTemplate"
+                   TargetType="local:ColumnManagerCell">
+      <ControlTemplate.Resources>
+         <Style TargetType="ToggleButton">
+            <Setter Property="Template"
+                    Value="{StaticResource filterToggleButton}"/>
+         </Style>
+      </ControlTemplate.Resources>
+
+      <Border BorderBrush="{TemplateBinding BorderBrush}"
+            BorderThickness="{TemplateBinding BorderThickness}">
+
+      <!-- This Grid is used to layout the ContentPresenter and the Sort Glyph (when present). -->
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto"/>
+          <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Border x:Name="toggleButtonBorder"
+                Grid.Column="0"
+                Background="Transparent"
+                Margin="0,0,0,0"
+                IsHitTestVisible="True">
+
+          <ToggleButton x:Name="toggleButton"                        
+                        TextElement.Foreground="{TemplateBinding TextElement.Foreground}"
+                        Focusable="False"
+                        Visibility="Hidden"
+                        Margin="0,0,0,0"
+                        Opacity="0.5"/>
+
+        </Border>
+
+        <local:AutoFilterPopup x:Name="filterOptions"
+                               PopupAnimation="Slide"
+                               IsOpen="{Binding ElementName=toggleButton,
+                                                Path=IsChecked,
+                                                Mode=TwoWay,
+                                                UpdateSourceTrigger=PropertyChanged}"
+                               StaysOpen="False"
+                               AllowsTransparency="True"
+                               PlacementTarget="{Binding ElementName=toggleButton}" >
+
+          <local:AutoFilterControl x:Name="autoFilterControl"
+                                   Background="White"
+                                   BorderBrush="Black"
+                                   BorderThickness="1"
+                                   AutoFilterColumn="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=local:ColumnManagerCell},
+                                                            Path=ParentColumn}"
+                                   Style="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=local:ColumnManagerCell}, 
+                                                 Path=ParentColumn.AutoFilterControlStyle}"
+                                   Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}"/>
+        </local:AutoFilterPopup>
+
+
+        <Grid x:Name="cellPartGrid"
+              Grid.Column="1">
+
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+          </Grid.ColumnDefinitions>
+
+          <Border x:Name="separationLine"
+                  Width="2"
+                  BorderThickness="1,0,0,0"
+                  Background="White"
+                  Margin="0,0,0,0"
+                  HorizontalAlignment="Left"
+                  BorderBrush="Black"
+                  Opacity="0.2"
+                  Grid.Column="0"/>
+
+          <Border x:Name="cellBorder"
+                  HorizontalAlignment="Stretch"
+                  Grid.Column="1"
+                  Padding="{TemplateBinding Padding}"
+                  Background="{TemplateBinding Background}">
+
+            <StackPanel Orientation="Horizontal">
+
+
+              <!-- Same ContentPresenter as in the base Cell Template. -->
+                     <local:CellContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                 Margin="3,0,0,0" />
+
+                     <!-- ContentPresenter that is used to display the sort glyph.
+                 We explicitely set its Content property to Null to prevent the XAML parser
+                 from implicitely setting it to its TemplatedParent's Content. -->
+              <ContentPresenter x:Name="sortGlyphPresenter"
+                                Content="{x:Null}"
+                                ContentTemplate="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).AscendingSortGlyph}"
+                                Margin="6,0,0,0"
+                                Visibility="Hidden" />
+
+            </StackPanel>
+          </Border>
+        </Grid>
+      </Grid>
+    </Border>
+
+    <ControlTemplate.Triggers>
+      <!-- Trigger related to the filteringToggleButton-->
+      <Trigger SourceName="toggleButton"
+               Property="IsMouseOver"
+               Value="True">
+
+        <Setter TargetName="toggleButton"
+                Property="Opacity"
+                Value="1"/>
+        
+      </Trigger>
+      
+      <!-- Do not change toggleButton Background on MouseOver if filterOptions is opened -->
+      <MultiTrigger>
+        <MultiTrigger.Conditions>
+
+          <Condition SourceName="toggleButton"
+                     Property="IsMouseOver"
+                     Value="True"/>
+
+          <Condition  SourceName="filterOptions"
+               Property="IsOpen"
+               Value="False"/>
+
+        </MultiTrigger.Conditions>
+
+        <Setter TargetName="toggleButtonBorder"
+                Property="Background"
+                Value="{StaticResource columnManagerCellPressedBackgroundBrush}" />
+
+      </MultiTrigger>
+      
+
+      <!-- Always visible if filterOptions popup IsOpen -->
+      <Trigger SourceName="filterOptions"
+               Property="IsOpen"
+               Value="True">
+
+        <Setter TargetName="toggleButton"
+                Property="Visibility"
+                Value="Visible"/>
+
+        <Setter TargetName="toggleButton"
+                Property="Opacity"
+                Value="1"/>
+
+        <Setter TargetName="toggleButtonBorder"
+                Property="Background"
+                Value="{StaticResource columnManagerCellPressedBackgroundBrush}" />
+
+      </Trigger>
+
+      <!-- Display FilterToggleButton Trigger on MouseOver -->
+      <MultiDataTrigger>
+        <MultiDataTrigger.Conditions>
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=ParentRow.AllowAutoFilter}"
+                     Value="True"/>
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=ParentColumn.AllowAutoFilter}"
+                     Value="True" />
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}"
+                     Value="True"/>
+
+          <Condition Value="True"
+                     Binding="{Binding ElementName=autoFilterControl, Path=HasDistinctValues}"/>
+
+        </MultiDataTrigger.Conditions>
+
+        <Setter TargetName="toggleButton"
+                Property="Visibility"
+                Value="Visible"/>
+
+      </MultiDataTrigger>
+
+      <!-- Display FilterToggleButton Trigger to display AutoFilterGlyph -->
+      <MultiDataTrigger >
+        <MultiDataTrigger.Conditions>
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=ParentRow.AllowAutoFilter}"
+                     Value="True"/>
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=ParentColumn.AllowAutoFilter}"
+                     Value="True" />
+
+          <Condition Value="True"
+                     Binding="{Binding ElementName=autoFilterControl, Path=HasDistinctValues}"/>
+
+          <Condition Value="True"
+                     Binding="{Binding ElementName=autoFilterControl, Path=HasAutoFilterValues}"/>
+
+        </MultiDataTrigger.Conditions>
+
+        <Setter TargetName="toggleButton"
+                Property="Visibility"
+                Value="Visible"/>
+
+        <Setter TargetName="toggleButton"
+                Property="Opacity"
+                Value="1"/>
+
+      </MultiDataTrigger>
+
+      <!-- DataTrigger to disable HitTesting on filtering ToggleButton 
+             when there are no DistinctValues-->
+      <DataTrigger Binding="{Binding ElementName=autoFilterControl, Path=HasDistinctValues}"
+                   Value="False">
+        <Setter TargetName="toggleButtonBorder"
+                Property="IsHitTestVisible"
+                Value="False"/>
+
+      </DataTrigger>
+
+      <!-- The following 2 triggers allow to display the appropriate Sort Glyph
+              depending on the ParentColumn's SortDirection. -->
+
+      <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=ParentColumn.SortDirection}"
+                   Value="Ascending">
+
+        <Setter TargetName="sortGlyphPresenter"
+                Property="Visibility"
+                Value="Visible"/>
+
+      </DataTrigger>
+
+      <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=ParentColumn.SortDirection}"
+                   Value="Descending">
+
+        <Setter TargetName="sortGlyphPresenter"
+                Property="ContentPresenter.ContentTemplate"
+                Value="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).DescendingSortGlyph}"/>
+
+        <Setter TargetName="sortGlyphPresenter"
+                Property="Visibility"
+                Value="Visible"/>
+
+      </DataTrigger>
+
+      <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=ParentColumn.Visible}"
+                   Value="False">
+
+        <Setter Property="Visibility"
+                Value="Collapsed"/>
+
+      </DataTrigger>
+
+      <Trigger SourceName="cellPartGrid"
+               Property="IsMouseOver"
+               Value="True">
+
+        <Setter TargetName="cellBorder"
+                Property="Background"
+                Value="{StaticResource columnManagerCellHotBackgroundBrush}"/>
+
+      </Trigger>
+
+      <Trigger SourceName="toggleButton"
+               Property="IsPressed"
+               Value="True">
+
+        <Setter TargetName="toggleButtonBorder"
+                Property="Background"
+                Value="{StaticResource columnManagerCellPressedBackgroundBrush}" />
+
+      </Trigger>
+
+      <Trigger Property="IsBeingDragged"
+               Value="True">
+
+        <Setter TargetName="cellBorder"
+                Property="Background"
+                Value="{StaticResource columnManagerCellPressedBackgroundBrush}"/>
+
+        <Setter TargetName="toggleButtonBorder"
+                Property="Visibility"
+                Value="Hidden"/>
+
+      </Trigger>
+
+    </ControlTemplate.Triggers>
+
+  </ControlTemplate>
+
+
+  <!--**************************
+    * TEMPLATE: InsertionRow 
+    ************************** -->
+  <ControlTemplate x:Key="compactCardViewInsertionRowTemplate"
+                   TargetType="local:InsertionRow">
+
+    <Grid>
+
+      <Border x:Name="rootBorder"
+              Background="{TemplateBinding Background}"
+              BorderBrush="{TemplateBinding BorderBrush}"
+              BorderThickness="{TemplateBinding BorderThickness}"
+              Padding="{TemplateBinding Padding}">
+
+        <!-- In CardView, a Row is represented as a card with a Title at the top and the Cells
+              are aligned vertically in the remaining part of the template. This DockPanel is used
+              to layout the Title and the Cells in this manner. -->
+        <DockPanel x:Name="PART_RowFocusRoot">
+
+          <!-- Border that contains the Title of the Card. -->
+          <Border x:Name="cardTitleBorder"
+                  DockPanel.Dock="Top"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="1"
+                  Padding="3,1,3,3"
+                  Background="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).CardTitleBackground}"
+                  TextElement.Foreground="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).CardTitleForeground}"
+                  TextElement.FontWeight="Bold">
+
+            <!-- ContentPresenter in charge of displaying the Card Title. -->
+            <ContentPresenter x:Name="cardTitlePresenter"
+                              ContentTemplate="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).InsertionCardTitleTemplate}"
+                              MinHeight="15"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Center" />
+
+          </Border>
+
+          <!-- Border that contains the Cells. -->
+          <Border x:Name="cellsHostBorder"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="1,0,1,1"
+                  Padding="3">
+
+            <!-- The PART_CellsHost part designates the Panel to which this Row's Cells should be added.
+                       It is set as a Grid.IsSharedSizeScope because the Cell template will use a 
+                       SharedSizeGroup to layout the field names. -->
+            <StackPanel x:Name="PART_CellsHost"
+                        Orientation="Vertical"
+                        Visibility="Collapsed"
+                        Grid.IsSharedSizeScope="True" />
+
+          </Border>
+        </DockPanel>
+      </Border>
+
+      <!-- ContentPresenter in charge of displaying the glyph that represents
+              the state of the row (like IsBeingEdited) -->
+      <ContentPresenter x:Name="glyphPresenter"
+                        Content="{x:Null}"
+                        ContentTemplate="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).InsertionRowGlyph}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top" />
+    </Grid>
+
+    <ControlTemplate.Triggers>
+
+      <!-- When the Row is Selected, we want to change the background/foreground of the Title to the appropriate brushes. -->
+      <MultiDataTrigger>
+        <MultiDataTrigger.Conditions>
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=IsCurrent}"
+                     Value="True"/>
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=local:DataGridControl},Path=IsKeyboardFocusWithin}"
+                     Value="True"/>
+
+        </MultiDataTrigger.Conditions>
+
+        <Setter TargetName="cardTitleBorder"
+                Property="Background"
+                Value="{Binding RelativeSource={RelativeSource TemplatedParent},Path=SelectionBackground}" />
+
+        <Setter TargetName="cardTitleBorder"
+                Property="TextElement.Foreground"
+                Value="{Binding RelativeSource={RelativeSource TemplatedParent},Path=SelectionForeground}" />
+
+      </MultiDataTrigger>
+
+      <!-- When the Row is Selected but the parent DataGridControl is not focused, we want to change
+              the Row's background/foreground to the appropriate brushes. -->
+      <MultiDataTrigger>
+        <MultiDataTrigger.Conditions>
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=IsCurrent}"
+                     Value="True"/>
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=local:DataGridControl},Path=IsKeyboardFocusWithin}"
+                     Value="False"/>
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=local:DataGridControl},Path=HideSelection}"
+                     Value="False" />
+
+        </MultiDataTrigger.Conditions>
+
+        <Setter TargetName="cardTitleBorder"
+                Property="Background"
+                Value="{Binding RelativeSource={RelativeSource TemplatedParent},Path=InactiveSelectionBackground}" />
+
+        <Setter TargetName="cardTitleBorder"
+                Property="TextElement.Foreground"
+                Value="{Binding RelativeSource={RelativeSource TemplatedParent},Path=InactiveSelectionForeground}" />
+
+      </MultiDataTrigger>
+
+      <Trigger Property="IsCurrent"
+               Value="False">
+
+        <Setter TargetName="cellsHostBorder"
+                Property="BorderBrush"
+                Value="Transparent" />
+
+      </Trigger>
+
+      <Trigger Property="IsCurrent"
+               Value="True">
+
+        <Setter TargetName="PART_CellsHost"
+                Property="Visibility"
+                Value="Visible" />
+
+        <Setter TargetName="cardTitleBorder"
+                Property="KeyboardNavigation.IsTabStop"
+                Value="False"/>
+
+      </Trigger>
+
+      <MultiTrigger>
+        <MultiTrigger.Conditions>
+
+          <Condition Property="IsCurrent"
+                     Value="True" />
+
+          <Condition Property="IsBeingEdited"
+                     Value="False" />
+
+        </MultiTrigger.Conditions>
+
+        <Setter TargetName="glyphPresenter"
+                Property="ContentTemplate"
+                Value="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).CurrentItemGlyph}" />
+
+      </MultiTrigger>
+
+      <Trigger Property="IsBeingEdited"
+               Value="True">
+
+        <Setter TargetName="glyphPresenter"
+                Property="ContentTemplate"
+                Value="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).EditingRowGlyph}" />
+
+        <Setter TargetName="PART_CellsHost"
+                Property="Visibility"
+                Value="Visible" />
+
+      </Trigger>
+
+      <Trigger Property="HasValidationError"
+               Value="True">
+
+        <Setter TargetName="glyphPresenter"
+                Property="ContentTemplate"
+                Value="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).ValidationErrorGlyph}" />
+
+        <Setter TargetName="cardTitleBorder"
+                Property="Background"
+                Value="{StaticResource cardTitleErrorBackgroundBrush}" />
+
+        <Setter TargetName="cardTitleBorder"
+                Property="TextElement.Foreground"
+                Value="{StaticResource cardTitleErrorForegroundBrush}" />
+
+      </Trigger>
+
+      <Trigger Property="NavigationBehavior"
+               Value="CellOnly">
+
+        <Setter TargetName="cardTitleBorder"
+                Property="Focusable"
+                    
+                Value="True"/>
+      </Trigger>
+
+    </ControlTemplate.Triggers>
+
+  </ControlTemplate>
+
+   <!--**************************
+    * TEMPLATE: FilterRow 
+    ************************** -->
+   <ControlTemplate x:Key="compactCardViewFilterRowTemplate"
+                   TargetType="local:FilterRow">
+
+      <Grid>
+
+         <Border x:Name="rootBorder"
+              Background="{TemplateBinding Background}"
+              BorderBrush="{TemplateBinding BorderBrush}"
+              BorderThickness="{TemplateBinding BorderThickness}"
+              Padding="{TemplateBinding Padding}">
+
+            <!-- In CardView, a Row is represented as a card with a Title at the top and the Cells
+              are aligned vertically in the remaining part of the template. This DockPanel is used
+              to layout the Title and the Cells in this manner. -->
+            <DockPanel x:Name="PART_RowFocusRoot">
+
+               <!-- Border that contains the Title of the Card. -->
+               <Border x:Name="cardTitleBorder"
+                  DockPanel.Dock="Top"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="1"
+                  Padding="3,1,3,3"
+                  Background="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).CardTitleBackground}"
+                  TextElement.Foreground="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).CardTitleForeground}"
+                  TextElement.FontWeight="Bold">
+
+                  <!-- ContentPresenter in charge of displaying the Card Title. -->
+                  <ContentPresenter x:Name="cardTitlePresenter"
+                              ContentTemplate="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).FilterCardTitleTemplate}"
+                              MinHeight="15"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Center" />
+
+               </Border>
+
+               <!-- Border that contains the Cells. -->
+               <Border x:Name="cellsHostBorder"
+                       BorderThickness="1,0,1,1"
+                       BorderBrush="{TemplateBinding BorderBrush}"                  
+                       Padding="3">
+
+                  <!-- The PART_CellsHost part designates the Panel to which this Row's Cells should be added.
+                       It is set as a Grid.IsSharedSizeScope because the Cell template will use a 
+                       SharedSizeGroup to layout the field names. -->
+                  <StackPanel x:Name="PART_CellsHost"
+                        Orientation="Vertical"
+                        Visibility="Visible"
+                        Grid.IsSharedSizeScope="True" />
+
+               </Border>
+            </DockPanel>
+         </Border>
+
+         <!-- ContentPresenter in charge of displaying the glyph that represents
+              the state of the row (like IsBeingEdited) -->
+         <ContentPresenter x:Name="glyphPresenter"
+                        Content="{x:Null}"
+                        ContentTemplate="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).FilterRowGlyph}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top" />
+      </Grid>
+
+      <ControlTemplate.Triggers>
+
+         <!-- When the Row is Selected, we want to change the background/foreground of the Title to the appropriate brushes. -->
+         <MultiDataTrigger>
+            <MultiDataTrigger.Conditions>
+
+               <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=IsCurrent}"
+                     Value="True"/>
+
+               <Condition Binding="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=local:DataGridControl},Path=IsKeyboardFocusWithin}"
+                     Value="True"/>
+
+            </MultiDataTrigger.Conditions>
+
+            <Setter TargetName="cardTitleBorder"
+                Property="Background"
+                Value="{Binding RelativeSource={RelativeSource TemplatedParent},Path=SelectionBackground}" />
+
+            <Setter TargetName="cardTitleBorder"
+                Property="TextElement.Foreground"
+                Value="{Binding RelativeSource={RelativeSource TemplatedParent},Path=SelectionForeground}" />
+
+         </MultiDataTrigger>
+
+         <!-- When the Row is Selected but the parent DataGridControl is not focused, we want to change
+              the Row's background/foreground to the appropriate brushes. -->
+         <MultiDataTrigger>
+            <MultiDataTrigger.Conditions>
+
+               <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=IsCurrent}"
+                     Value="True"/>
+
+               <Condition Binding="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=local:DataGridControl},Path=IsKeyboardFocusWithin}"
+                     Value="False"/>
+
+               <Condition Binding="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=local:DataGridControl},Path=HideSelection}"
+                     Value="False" />
+
+            </MultiDataTrigger.Conditions>
+
+            <Setter TargetName="cardTitleBorder"
+                Property="Background"
+                Value="{Binding RelativeSource={RelativeSource TemplatedParent},Path=InactiveSelectionBackground}" />
+
+            <Setter TargetName="cardTitleBorder"
+                Property="TextElement.Foreground"
+                Value="{Binding RelativeSource={RelativeSource TemplatedParent},Path=InactiveSelectionForeground}" />
+
+         </MultiDataTrigger>
+
+         <Trigger Property="IsCurrent"
+               Value="False">
+
+            <Setter TargetName="cellsHostBorder"
+                Property="BorderBrush"
+                Value="Transparent" />
+
+         </Trigger>
+
+         <Trigger Property="NavigationBehavior"
+                  Value="CellOnly">
+            <Setter TargetName="cardTitleBorder"
+                    Property="Focusable"
+                    Value="True" />
+         </Trigger>
+
+    </ControlTemplate.Triggers>
+
+   </ControlTemplate>
+
+   <!--**************************
+    * TEMPLATE: GroupHeaderControl
+    ************************** -->
+  <ControlTemplate x:Key="compactCardViewGroupHeaderControlTemplate"
+                   TargetType="local:GroupHeaderControl">
+
+    <!-- We use an ItemsControl inside the GroupHeaderControl to represent the
+           ancestors (ParentGroups) of the Group, and each item in this ItemsControl
+           is a Group templated to look like a single, stand-alone GroupHeaderControl. -->
+
+    <ControlTemplate.Resources>
+
+      <DataTemplate x:Key="parentGroupItemTemplate">
+
+        <Grid Margin="0,0,0,1"
+              local:GroupLevelIndicatorPane.ShowIndicators="False"
+              local:GroupLevelIndicatorPane.ShowVerticalBorder="False"
+              local:GroupLevelIndicatorPane.GroupLevel="{Binding Path=Level}">
+
+          <Border Background="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=local:GroupHeaderControl},Path=Background}"
+                  BorderBrush="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=local:GroupHeaderControl},Path=BorderBrush}"
+                  BorderThickness="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=local:GroupHeaderControl},Path=BorderThickness}"
+                  CornerRadius="10"                  
+                  Opacity="{Binding Path=Level, Converter={StaticResource levelToOpacityConverter}, ConverterParameter=0.20}" />
+
+          <!-- This Border is Focusable to make the InputBindings work. -->
+          <Border BorderThickness="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=local:GroupHeaderControl},Path=BorderThickness}"
+                  CornerRadius="10"
+                  Padding="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=local:GroupHeaderControl},Path=Padding}"
+                  Background="Transparent"
+                  Focusable="True"
+                  FocusVisualStyle="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=local:GroupHeaderControl},Path=FocusVisualStyle}">
+
+            <!-- Define all the standard InputBindings for a GroupHeaderControl. -->
+            <Border.InputBindings>
+
+              <KeyBinding Command="{x:Static local:DataGridCommands.ToggleGroupExpansion}"
+                          Key="Space" />
+
+              <MouseBinding Command="{x:Static local:DataGridCommands.ToggleGroupExpansion}"
+                            MouseAction="LeftDoubleClick" />
+
+            </Border.InputBindings>
+
+            <DockPanel VerticalAlignment="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=local:GroupHeaderControl},Path=VerticalContentAlignment}">
+
+              <local:GroupLevelIndicatorPane DockPanel.Dock="Left"
+                                             Indented="False"/>
+
+              <!-- ToggleButton that is used to expand/collapse the group. -->
+              <ToggleButton DockPanel.Dock="Left"                            
+                            OverridesDefaultStyle="True"
+                            Focusable="False" 
+                            Template="{StaticResource groupExpanderToggleButtonTemplate}"
+                            IsChecked="{Binding IsExpanded}"  />
+
+              <ContentPresenter Margin="3,0,0,0"
+                                Content="{Binding}"                                
+                                ContentTemplate="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=local:GroupHeaderControl},Path=ContentTemplate}"
+                                ContentTemplateSelector="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=local:GroupHeaderControl},Path=ContentTemplateSelector}"
+                                HorizontalAlignment="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=local:GroupHeaderControl},Path=HorizontalContentAlignment}" />
+
+            </DockPanel>
+          </Border>
+        </Grid>
+
+      </DataTemplate>
+
+    </ControlTemplate.Resources>
+
+     <Border x:Name="mainBorder"
+             Focusable="False" >
+
+        <StackPanel Orientation="Vertical"
+                    Focusable="False" >
+
+           <ItemsControl ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent},Path=Content.ParentGroups}"                         
+                         ItemTemplate="{StaticResource parentGroupItemTemplate}" />
+
+           <ContentControl Content="{TemplateBinding Content}"
+                           Focusable="False"
+                           ContentTemplate="{StaticResource parentGroupItemTemplate}"
+                           HorizontalAlignment="Stretch"/>
+        </StackPanel>
+     </Border>
+
+    <ControlTemplate.Triggers>
+      <Trigger Property="local:DataGridControl.NavigationBehavior"
+               Value="None">
+        <Setter TargetName="mainBorder"
+                Property="Focusable"
+                Value="False"/>
+      </Trigger>
+    </ControlTemplate.Triggers>
+
+  </ControlTemplate>
+
+  <!-- =================================================================== -->
+  <!-- Styles required by some grid elements                               -->
+  <!-- =================================================================== -->
+
+  <!--**************************
+    * STYLE: CellErrorStyle 
+    ************************** -->
+  <Style x:Key="cellErrorStyle"
+         TargetType="local:Cell">
+
+        <Setter Property="Background"
+                Value="{StaticResource errorBackgroundBrush}" />
+
+        <Setter Property="Foreground"
+                Value="{StaticResource errorForegroundBrush}" />
+
+        <Setter Property="ToolTip"
+                Value="{Binding RelativeSource={RelativeSource Self},Path=ValidationError.ErrorContent}" />
+
+        <Style.Triggers>
+            <Trigger Property="IsValidationErrorRestrictive"
+                     Value="True">
+                <Setter Property="Background"
+                        Value="{StaticResource errorBackgroundBrush}" />
+
+            </Trigger>
+
+            <Trigger Property="IsValidationErrorRestrictive"
+                     Value="False">
+
+                <Setter Property="Foreground"
+                        Value="{StaticResource warningForegroundBrush}" />
+
+                <Setter Property="Background"
+                        Value="{StaticResource warningBackgroundBrush}" />
+
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+  <!-- =================================================================== -->
+  <!-- Keyed Styles of grid elements                                       -->
+  <!-- =================================================================== -->
+
+  <!--**************************
+    * STYLE: DataGridControl 
+    ************************** -->
+  <Style x:Key="compactCardViewAeroNormalColorGridControlStyle"
+         TargetType="local:DataGridControl">
+
+    <Setter Property="BorderBrush"
+            Value="{StaticResource gridControlBorderBrush}" />
+
+    <Setter Property="BorderThickness"
+            Value="1" />
+
+    <Setter Property="Background"
+            Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" />
+
+    <Setter Property="Foreground"
+            Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" />
+
+    <!-- In CardView, it is more convenient to use Row/Explicit navigation than Cell navigation. -->
+    <Setter Property="NavigationBehavior"
+            Value="RowOrCell"/>
+
+    <!-- For the horizontal scrolling of the CompactCardView, PagingBehavior.LeftToRight is better suited 
+           than the default TopToBottom. -->
+    <Setter Property="PagingBehavior"
+            Value="LeftToRight"/>
+
+    <!-- This is required to display gridlines of uniform thickness -->
+    <Setter Property="SnapsToDevicePixels"
+            Value="True" />
+
+    <Setter Property="CellErrorStyle"
+            Value="{StaticResource cellErrorStyle}" />
+
+    <Setter Property="Template"
+            Value="{StaticResource compactCardViewDataGridControlTemplate}" />
+
+  </Style>
+
+   <!--**************************
+    * STYLE: DataGridControl (with hosted controls theming)
+    ************************** -->
+   <Style x:Key="compactCardViewForcedAeroNormalColorGridControlStyle"
+          BasedOn="{StaticResource compactCardViewAeroNormalColorGridControlStyle}"
+          TargetType="local:DataGridControl">
+
+      <Style.Resources>
+         <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+               <ResourceDictionary Source="/PresentationFramework.Aero;V3.0.0.0;31bf3856ad364e35;component\themes/aero.normalcolor.xaml" />
+               <utils:XceedResourceDictionary XceedSource="/Xceed.Wpf.Controls;component\themes/aero.normalcolor.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--**************************
+             * STYLE: NavigableComboBox
+             ************************** -->
+            <Style TargetType="{x:Type xcdp:NavigableComboBox}"
+                   BasedOn="{StaticResource {x:Type ComboBox}}" />
+         </ResourceDictionary>
+      </Style.Resources>
+
+   </Style>
+
+   <!--**************************
+    * STYLE: Row Style
+    ************************** -->
+  <Style x:Key="compactCardViewAeroNormalColorRowStyle"
+         TargetType="local:Row">
+
+    <Setter Property="SelectionBackground"
+            Value="{StaticResource selectionBackgroundBrush}" />
+
+    <Setter Property="SelectionForeground"
+            Value="{StaticResource selectionForegroundBrush}" />
+
+    <Setter Property="InactiveSelectionBackground"
+            Value="{StaticResource inactiveSelectionBackgroundBrush}" />
+
+    <Setter Property="InactiveSelectionForeground"
+            Value="{StaticResource inactiveSelectionForegroundBrush}" />
+
+    <Setter Property="Margin"
+            Value="5,0,5,5" />
+
+    <Setter Property="BorderBrush"
+            Value="{StaticResource cardBorderBrush}" />
+
+    <!-- Set the Row's background to Transparent to make it hit-testable
+           while preserving the background drawn by the underlying DataGridControl. -->
+    <Setter Property="Background"
+            Value="Transparent" />
+
+    <Setter Property="Template"
+            Value="{StaticResource compactCardViewRowTemplate}" />
+  </Style>
+
+  <!--**************************
+    * STYLE: DataRow 
+    ************************** -->
+  <Style x:Key="compactCardViewAeroNormalColorDataRowStyle"
+         TargetType="local:DataRow"
+         BasedOn="{StaticResource compactCardViewAeroNormalColorRowStyle}" />
+
+  <!--**************************
+    * STYLE: InsertionRow 
+    ************************** -->
+  <Style x:Key="compactCardViewAeroNormalColorInsertionRowStyle"
+         TargetType="local:InsertionRow"
+         BasedOn="{StaticResource compactCardViewAeroNormalColorDataRowStyle}">
+
+    <Setter Property="Template"
+            Value="{StaticResource compactCardViewInsertionRowTemplate}" />
+
+  </Style>
+
+  <!--**************************
+    * STYLE: ColumnManagerRow 
+    ************************** -->
+  <Style x:Key="compactCardViewAeroNormalColorColumnManagerRowStyle"
+         TargetType="local:ColumnManagerRow">
+
+    <Setter Property="Background"
+            Value="{StaticResource columnManagerRowBackgroundBrush}" />
+
+    <Setter Property="Foreground"
+            Value="{StaticResource columnManagerRowForegroundBrush}" />
+
+    <Setter Property="views:UIViewBase.DropMarkOrientation"
+            Value="Horizontal" />
+
+    <Setter Property="Template"
+            Value="{StaticResource compactCardViewColumnManagerRowTemplate}" />
+
+  </Style>
+
+  <!--**************************
+    * STYLE: StatRow 
+    ************************** -->
+  <Style x:Key="compactCardViewAeroNormalColorStatRowStyle"
+         TargetType="local:StatRow"
+         BasedOn="{StaticResource compactCardViewAeroNormalColorRowStyle}">
+
+    <Setter Property="BorderThickness"
+            Value="1" />
+
+    <Setter Property="Template"
+            Value="{StaticResource compactCardViewStatRowTemplate}"/>
+
+  </Style>
+
+   <!--**************************
+    * STYLE: FilterRow 
+    ************************** -->
+   <Style x:Key="compactCardViewAeroNormalColorFilterRowStyle"
+         TargetType="local:FilterRow"
+         BasedOn="{StaticResource compactCardViewAeroNormalColorRowStyle}">
+      
+      <Setter Property="Template"
+            Value="{StaticResource compactCardViewFilterRowTemplate}"/>
+
+   </Style>
+
+   <!--**************************
+    * STYLE: Cell Style
+    ************************** -->
+  <Style x:Key="compactCardViewAeroNormalColorCellStyle"
+         TargetType="local:Cell">
+
+    <Setter Property="CurrentBackground"
+            Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+
+    <Setter Property="CurrentForeground"
+            Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" />
+
+    <!-- Set the Cell's background to Transparent to make it hit-testable
+           while preserving the background drawn by the underlying Row. -->
+    <Setter Property="Background"
+            Value="Transparent" />
+
+    <!-- A basic Cell Template requires at least a ContentPresenter that is used to display the Cell's Content.
+           This ContentPresenter is usually placed inside a Border that is responsible for painting the gridlines. -->
+    <Setter Property="Template"
+            Value="{StaticResource compactCardViewCellTemplate}" />
+
+  </Style>
+
+  <!--**************************
+    * STYLE: DataCell
+    ************************** -->
+  <Style x:Key="compactCardViewAeroNormalColorDataCellStyle"
+         TargetType="local:DataCell"
+         BasedOn="{StaticResource compactCardViewAeroNormalColorCellStyle}" >
+
+    <Style.Triggers>
+
+      <MultiDataTrigger>
+
+        <MultiDataTrigger.Conditions>
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=(local:DataGridControl.DataGridContext).HideEmptyCells}"
+                     Value="True"/>
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=ParentRow.IsBeingEdited}"
+                     Value="False"/>
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=Content, Mode=OneWay, Converter={StaticResource nullToBooleanConverter}}"
+                     Value="True"/>
+
+        </MultiDataTrigger.Conditions>
+
+        <Setter Property="Visibility"
+                Value="Collapsed"/>
+
+      </MultiDataTrigger>
+
+    </Style.Triggers>
+
+  </Style>
+
+  <!--**************************
+    * STYLE: InsertionCell
+   ************************** -->
+  <Style x:Key="compactCardViewAeroNormalColorInsertionCellStyle"
+         TargetType="local:InsertionCell"
+         BasedOn="{StaticResource compactCardViewAeroNormalColorCellStyle}" />
+
+  <!--**************************
+    * STYLE: ColumnManagerCell 
+    ************************** -->
+  <Style x:Key="compactCardViewAeroNormalColorColumnManagerCellStyle"
+         TargetType="local:ColumnManagerCell">
+
+    <!-- Set the Cell's background to Transparent to make it hit-testable
+           while preserving the background drawn by the underlying Row. -->
+    <Setter Property="Background"
+            Value="Transparent"/>
+
+    <Setter Property="Padding"
+            Value="{StaticResource cellPadding}" />
+
+    <!-- We don't use the base Cell Template for the ColumnManagerCell because it need more elements
+           to function properly, like a glyph that represents the Column's SortDirection. -->
+    <Setter Property="Template"
+            Value="{StaticResource compactCardViewColumnManagerCellTemplate}" />
+
+    <Style.Triggers>
+
+      <Trigger Property="IsPressed"
+               Value="True">
+
+        <Setter Property="Background"
+                Value="{StaticResource columnManagerCellPressedBackgroundBrush}"/>
+
+      </Trigger>
+    </Style.Triggers>
+
+  </Style>
+
+  <!--**************************
+    * STYLE: StatCell
+    ************************** -->
+  <Style x:Key="compactCardViewAeroNormalColorStatCellStyle"
+         TargetType="local:StatCell">
+
+    <!-- Set the Cell's background to Transparent to make it hit-testable
+           while preserving the background drawn by the underlying Row. -->
+    <Setter Property="Background"
+            Value="Transparent" />
+
+    <!-- A basic Cell Template requires at least a ContentPresenter, which is used to display the Cell's Content.
+           This ContentPresenter is usually placed inside a Border that is responsible for painting the gridlines. -->
+    <Setter Property="Template"
+            Value="{StaticResource compactCardViewStatCellTemplate}" />
+
+    <Style.Triggers>
+
+      <!-- Collapse the cell when HideEmptyCells is true and the StatFunction returns null. -->
+      <MultiDataTrigger>
+
+        <MultiDataTrigger.Conditions>
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=(local:DataGridControl.DataGridContext).HideEmptyCells}"
+                     Value="True"/>
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=Content, Mode=OneWay, Converter={StaticResource nullToBooleanConverter}}"
+                     Value="True"/>
+
+        </MultiDataTrigger.Conditions>
+
+        <Setter Property="Visibility"
+                Value="Collapsed"/>
+
+      </MultiDataTrigger>
+
+      <!-- Collapse the cell when HideEmptyCells is true and no StatFunction is defined for the cell. -->
+      <MultiDataTrigger>
+
+        <MultiDataTrigger.Conditions>
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=(local:DataGridControl.DataGridContext).HideEmptyCells}"
+                     Value="True"/>
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=HasContent}"
+                     Value="False"/>
+
+        </MultiDataTrigger.Conditions>
+
+        <Setter Property="Visibility"
+                Value="Collapsed"/>
+
+      </MultiDataTrigger>
+
+      <!-- Hide the cell when when HideEmptyCells is false and no StatFunction is defined for the cell. -->
+      <MultiDataTrigger>
+
+        <MultiDataTrigger.Conditions>
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=(local:DataGridControl.DataGridContext).HideEmptyCells}"
+                     Value="False"/>
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=HasContent}"
+                     Value="False"/>
+
+        </MultiDataTrigger.Conditions>
+
+        <Setter Property="Visibility"
+                Value="Hidden"/>
+
+      </MultiDataTrigger>
+
+    </Style.Triggers>
+
+  </Style>
+
+   <!--**************************
+    * STYLE: FilterCell
+    ************************** -->
+  <Style x:Key="compactCardViewAeroNormalColorFilterCellStyle"
+   		 TargetType="local:FilterCell">
+      <Setter Property="CurrentBackground"
+              Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+
+      <Setter Property="CurrentForeground"
+              Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" />
+     
+      <Setter Property="Template"
+              Value="{StaticResource compactCardViewFilterCellTemplate}"/>
+
+      <!-- Set the Cell's background to Transparent to make it hit-testable
+           while preserving the background drawn by the underlying Row. -->
+      <Setter Property="Background"
+				  Value="Transparent" />
+   </Style>
+   <!--**************************
+    * STYLE: GroupByControl 
+    ************************** -->
+  <Style x:Key="compactCardViewAeroNormalColorGroupByControlStyle"
+         TargetType="local:GroupByControl">
+
+    <Setter Property="Foreground"
+            Value="{StaticResource groupByControlForegroundBrush}" />
+
+    <!-- If we don't specify a MinHeight, the default "size-to-content" behavior will arrange 
+           the control with a Height of 0, which makes it invisible and unusable.
+           In a typical CardView, a height of at least 50 is appropriate for the GroupByControl. -->
+    <Setter Property="MinHeight"
+            Value="50" />
+
+    <Setter Property="Padding"
+            Value="8"/>
+
+    <Setter Property="Template"
+            Value="{StaticResource aeroNormalColorGroupByControlTemplate}" />
+
+  </Style>
+
+  <!--**************************
+    * STYLE: GroupByItem
+    ************************** -->
+  <Style x:Key="compactCardViewAeroNormalColorGroupByItemStyle"
+         TargetType="local:GroupByItem">
+
+    <Setter Property="Padding"
+            Value="{StaticResource cellPadding}" />
+
+    <Setter Property="Template"
+            Value="{StaticResource aeroNormalColorGroupByItemTemplate}" />
+
+  </Style>
+
+  <!--**************************
+    * STYLE: GroupHeaderControl
+    ************************** -->
+  <Style x:Key="compactCardViewAeroNormalColorGroupHeaderControlStyle"
+         TargetType="local:GroupHeaderControl">
+
+    <Setter Property="Background"
+            Value="{StaticResource groupHeaderBackgroundBrush}" />
+
+    <Setter Property="Foreground"
+            Value="{StaticResource groupHeaderForegroundBrush}" />
+
+    <Setter Property="BorderBrush"
+            Value="{StaticResource groupHeaderBorderBrush}" />
+
+    <Setter Property="BorderThickness"
+            Value="1" />
+
+    <Setter Property="Margin"
+            Value="5,0,5,5" />
+
+    <Setter Property="Padding"
+            Value="{StaticResource groupHeaderPadding}" />
+
+    <Setter Property="VerticalContentAlignment"
+            Value="Center" />
+
+    <!-- The GroupHeaderControl itself must not be focusable. The main Border inside its Template will
+           be made Focusable because it holds the various InputBindings that make the
+           GroupHeaderControl work. -->
+    <Setter Property="Focusable"
+            Value="False" />
+
+    <Setter Property="Template"
+            Value="{StaticResource compactCardViewGroupHeaderControlTemplate}" />
+
+    <Style.Triggers>
+      <MultiDataTrigger>
+        <MultiDataTrigger.Conditions>
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=Content.IsBottomLevel}"
+                     Value="False" />
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=Content.IsExpanded}"
+                     Value="True" />
+
+        </MultiDataTrigger.Conditions>
+
+        <Setter Property="Visibility"
+                Value="Collapsed" />
+
+      </MultiDataTrigger>
+    </Style.Triggers>
+
+  </Style>
+
+  <!--**************************
+    * STYLE: GroupLevelIndicator
+    ************************** -->
+  <Style x:Key="compactCardViewAeroNormalColorGroupLevelIndicatorStyle"
+         TargetType="local:GroupLevelIndicator">
+
+    <Setter Property="Width"
+            Value="12" />
+
+  </Style>
+
+	<!--**************************
+    * STYLE: DetailIndicator
+    ************************** -->
+	<Style x:Key="compactCardViewAeroNormalColorDetailIndicatorStyle"
+		   TargetType="local:DetailIndicator">
+
+		<Setter Property="Width"
+				Value="12" />
+
+	</Style>
+
+  <!--**************************
+    * STYLE: GroupLevelIndicatorPane
+    ************************** -->
+  <Style x:Key="compactCardViewAeroNormalColorGroupLevelIndicatorPaneStyle"
+         TargetType="local:GroupLevelIndicatorPane">
+
+    <Setter Property="Template"
+            Value="{StaticResource compactCardViewGroupLevelIndicatorPaneTemplate}"/>
+  </Style>
+
+  <!--**************************
+    * STYLE: HierarchicalGroupLevelIndicatorPane
+    ************************** -->
+  <Style x:Key="compactCardViewAeroNormalColorHierarchicalGroupLevelIndicatorPaneStyle"
+         TargetType="local:HierarchicalGroupLevelIndicatorPane">
+
+    <Setter Property="Template"
+            Value="{StaticResource compactCardViewHierarchicalGroupLevelIndicatorPaneTemplate}"/>
+  </Style>
+
+   <!--**************************
+    * STYLE: AutoFilterControl
+    ************************** -->
+  <Style x:Key="compactCardViewAeroNormalColorAutoFilterControlStyle"
+         TargetType="local:AutoFilterControl">
+
+    <Setter Property="Template"
+            Value="{StaticResource compactCardViewAutoFilterControlTemplate}"/>
+      <Setter Property="DistinctValueItemContainerStyle"
+              Value="{StaticResource defaultAutoFilteringCheckBoxItemStyle}" />
+   </Style>
+
+   <!--**************************
+    * STYLE: MenuItem (for the ColumnChooserContextMenu)
+    ************************** -->
+   <Style x:Key="compactCardViewAeroNormalColorColumnChooserContextMenuMenuItemStyle"
+          TargetType="{x:Type MenuItem}">
+      <Setter Property="IsCheckable"
+              Value="True" />
+      <Setter Property="IsChecked"
+              Value="{Binding Path=Visible}" />
+      <Setter Property="StaysOpenOnClick"
+              Value="True" />
+   </Style>
+   
+   <!--**************************
+    * STYLE: ColumnChooserContextMenu
+    ************************** -->
+   <Style x:Key="compactCardViewAeroNormalColorColumnChooserContextMenuStyle"
+          TargetType="{x:Type local:ColumnChooserContextMenu}"
+          BasedOn="{StaticResource {x:Type ContextMenu}}">
+      <Setter Property="ItemContainerStyle"
+              Value="{StaticResource compactCardViewAeroNormalColorColumnChooserContextMenuMenuItemStyle}" />
+      <Setter Property="DisplayMemberPath"
+              Value="Title" />
+      <Setter Property="SortOrder"
+              Value="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).ColumnChooserSortOrder}" />
+   </Style>
+
+   <!--**************************
+    * STYLE: ScrollTip
+    ************************** -->
+  <Style x:Key="compactCardViewAeroNormalColorScrollTipStyle"
+         TargetType="local:ScrollTip">
+
+    <Setter Property="Template"
+            Value="{StaticResource scrollTipTemplate}"/>
+
+    <Setter Property="Background">
+      <Setter.Value>
+        <LinearGradientBrush StartPoint="0.5,1"
+                             EndPoint="0.5,0">
+          <GradientStop Color="#FFA9DAF6"
+                        Offset="0" />
+
+          <GradientStop Color="#FFD9F0FC"
+                        Offset="0.5" />
+
+          <GradientStop Color="#FFE8F5FD"
+                        Offset="1" />
+        </LinearGradientBrush>
+      </Setter.Value>
+    </Setter>
+
+    <Setter Property="BorderBrush"
+            Value="#FF3C7FB1"/>
+
+    <Setter Property="TextElement.Foreground"
+            Value="Black"/>
+
+    <Setter Property="VerticalAlignment"
+            Value="Bottom"/>
+
+    <Setter Property="HorizontalAlignment"
+            Value="Center"/>
+
+  </Style>
+
+  <!-- =================================================================== -->
+  <!-- Default values for the View                                         -->
+  <!-- =================================================================== -->
+
+  <Style x:Key="compactCardViewAeroNormalColorDefaultValues"
+         TargetType="views:CompactCardView">
+
+    <Setter Property="DefaultDropMarkPen"
+            Value="{StaticResource dropMarkPen}" />
+
+    <Setter Property="SeparatorLinePen"
+            Value="{StaticResource cardSeparatorLinePen}" />
+
+    <Setter Property="CardWidth"
+            Value="250" />
+
+    <Setter Property="CardTitleBackground"
+            Value="{StaticResource cardTitleBackgroundBrush}" />
+
+    <Setter Property="CardTitleForeground"
+            Value="{StaticResource cardTitleForegroundBrush}" />
+
+    <Setter Property="AutoFilterDropDownGlyph"
+            Value="{StaticResource autoFilterDropDownGlyph}"/>
+
+    <Setter Property="AutoFilterGlyph"
+            Value="{StaticResource autoFilterGlyph}"/>
+
+    <!-- Those glyphs are null by default on ViewBase, so every Theme should define
+           and set their own custom glyphs. -->
+
+    <Setter Property="AscendingSortGlyph"
+            Value="{StaticResource ascendingSortGlyph}" />
+
+    <Setter Property="DescendingSortGlyph"
+            Value="{StaticResource descendingSortGlyph}" />
+
+    <Setter Property="ExpandGroupGlyph"
+            Value="{StaticResource expandGroupGlyph}" />
+
+    <Setter Property="CollapseGroupGlyph"
+            Value="{StaticResource collapseGroupGlyph}" />
+
+    <Setter Property="CurrentItemGlyph"
+            Value="{StaticResource currentItemGlyph}" />
+
+    <Setter Property="EditingRowGlyph"
+            Value="{StaticResource editingRowGlyph}" />
+
+    <Setter Property="ValidationErrorGlyph"
+            Value="{StaticResource validationErrorGlyph}" />
+
+    <Setter Property="InsertionRowGlyph"
+            Value="{StaticResource insertionRowGlyph}" />
+     
+    <Setter Property="FilterRowGlyph"
+            Value="{StaticResource filterRowGlyph}" />
+
+    <Setter Property="ClearFilterButtonGlyph"
+            Value="{StaticResource clearFilterButtonGlyph}" />
+
+    <Setter Property="ConnectionStateLoadingGlyph"
+            Value="{StaticResource connectionStateLoadingGlyph}"/>
+
+    <Setter Property="ConnectionStateCommittingGlyph"
+            Value="{StaticResource connectionStateLoadingGlyph}"/>
+
+    <Setter Property="ConnectionStateErrorGlyph"
+             Value="{StaticResource connectionStateErrorGlyph}"/>
+     
+   </Style>
+
+
+  <!-- =================================================================== -->
+  <!-- DefaultStyleKey declarations                                        -->
+  <!-- =================================================================== -->
+
+  <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, ThemeType=views:AeroNormalColorTheme}"
+         TargetType="views:CompactCardView"
+         BasedOn="{StaticResource compactCardViewAeroNormalColorDefaultValues}" />
+
+  <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, ThemeType=views:AeroNormalColorTheme, TargetElementType=local:DataGridControl}"
+         TargetType="local:DataGridControl"
+         BasedOn="{StaticResource compactCardViewForcedAeroNormalColorGridControlStyle}"/>
+
+  <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, ThemeType=views:AeroNormalColorTheme, TargetElementType=local:Row}"
+         TargetType="local:Row"
+         BasedOn="{StaticResource compactCardViewAeroNormalColorRowStyle}"/>
+
+  <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, ThemeType=views:AeroNormalColorTheme, TargetElementType=local:DataRow}"
+         TargetType="local:DataRow"
+         BasedOn="{StaticResource compactCardViewAeroNormalColorDataRowStyle}"/>
+
+  <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, ThemeType=views:AeroNormalColorTheme, TargetElementType=local:InsertionRow}"
+         TargetType="local:InsertionRow"
+         BasedOn="{StaticResource compactCardViewAeroNormalColorInsertionRowStyle}"/>
+
+  <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, ThemeType=views:AeroNormalColorTheme, TargetElementType=local:ColumnManagerRow}"
+         TargetType="local:ColumnManagerRow"
+         BasedOn="{StaticResource compactCardViewAeroNormalColorColumnManagerRowStyle}"/>
+
+  <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, ThemeType=views:AeroNormalColorTheme, TargetElementType=local:StatRow}"
+         TargetType="local:StatRow"
+         BasedOn="{StaticResource compactCardViewAeroNormalColorStatRowStyle}"/>
+   
+  <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, ThemeType=views:AeroNormalColorTheme, TargetElementType=local:FilterRow}"
+         TargetType="local:FilterRow"
+         BasedOn="{StaticResource compactCardViewAeroNormalColorFilterRowStyle}"/>
+
+  <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, ThemeType=views:AeroNormalColorTheme, TargetElementType=local:Cell}"
+         TargetType="local:Cell"
+         BasedOn="{StaticResource compactCardViewAeroNormalColorCellStyle}"/>
+
+  <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, ThemeType=views:AeroNormalColorTheme, TargetElementType=local:DataCell}"
+         TargetType="local:DataCell"
+         BasedOn="{StaticResource compactCardViewAeroNormalColorDataCellStyle}"/>
+
+  <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, ThemeType=views:AeroNormalColorTheme, TargetElementType=local:InsertionCell}"
+         TargetType="local:InsertionCell"
+         BasedOn="{StaticResource compactCardViewAeroNormalColorInsertionCellStyle}"/>
+
+  <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, ThemeType=views:AeroNormalColorTheme, TargetElementType=local:ColumnManagerCell}"
+         TargetType="local:ColumnManagerCell"
+         BasedOn="{StaticResource compactCardViewAeroNormalColorColumnManagerCellStyle}"/>
+
+  <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, ThemeType=views:AeroNormalColorTheme, TargetElementType=local:StatCell}"
+         TargetType="local:StatCell"
+         BasedOn="{StaticResource compactCardViewAeroNormalColorStatCellStyle}"/>
+   
+  <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, ThemeType=views:AeroNormalColorTheme, TargetElementType=local:FilterCell}"
+         TargetType="local:FilterCell"
+         BasedOn="{StaticResource compactCardViewAeroNormalColorFilterCellStyle}"/>   
+
+  <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, ThemeType=views:AeroNormalColorTheme, TargetElementType=local:GroupByControl}"
+         TargetType="local:GroupByControl"
+         BasedOn="{StaticResource compactCardViewAeroNormalColorGroupByControlStyle}"/>
+
+  <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, ThemeType=views:AeroNormalColorTheme, TargetElementType=local:GroupByItem}"
+         TargetType="local:GroupByItem"
+         BasedOn="{StaticResource compactCardViewAeroNormalColorGroupByItemStyle}"/>
+
+  <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, ThemeType=views:AeroNormalColorTheme, TargetElementType=local:GroupHeaderControl}"
+         TargetType="local:GroupHeaderControl"
+         BasedOn="{StaticResource compactCardViewAeroNormalColorGroupHeaderControlStyle}"/>
+
+  <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, ThemeType=views:AeroNormalColorTheme, TargetElementType=local:GroupLevelIndicator}"
+         TargetType="local:GroupLevelIndicator"
+         BasedOn="{StaticResource compactCardViewAeroNormalColorGroupLevelIndicatorStyle}"/>
+
+	<Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, ThemeType=views:AeroNormalColorTheme, TargetElementType=local:DetailIndicator}"
+         TargetType="local:DetailIndicator"
+         BasedOn="{StaticResource compactCardViewAeroNormalColorDetailIndicatorStyle}"/>
+
+  <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, ThemeType=views:AeroNormalColorTheme, TargetElementType=local:GroupLevelIndicatorPane}"
+         TargetType="local:GroupLevelIndicatorPane"
+         BasedOn="{StaticResource compactCardViewAeroNormalColorGroupLevelIndicatorPaneStyle}"/>
+
+  <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, ThemeType=views:AeroNormalColorTheme, TargetElementType=local:HierarchicalGroupLevelIndicatorPane}"
+         TargetType="local:HierarchicalGroupLevelIndicatorPane"
+         BasedOn="{StaticResource compactCardViewAeroNormalColorHierarchicalGroupLevelIndicatorPaneStyle}"/>
+
+  <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, ThemeType=views:AeroNormalColorTheme, TargetElementType=local:AutoFilterControl}"
+         TargetType="local:AutoFilterControl"
+         BasedOn="{StaticResource compactCardViewAeroNormalColorAutoFilterControlStyle}"/>
+
+  <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, ThemeType=views:AeroNormalColorTheme, TargetElementType=local:ScrollTip}"
+         TargetType="local:ScrollTip"
+         BasedOn="{StaticResource compactCardViewAeroNormalColorScrollTipStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CompactCardView, ThemeType=views:AeroNormalColorTheme, TargetElementType=local:ColumnChooserContextMenu}"
+			 TargetType="local:ColumnChooserContextMenu"
+			 BasedOn="{StaticResource compactCardViewAeroNormalColorColumnChooserContextMenuStyle}"/>
+</ResourceDictionary>

@@ -1,0 +1,1387 @@
+<!-- =======================================================================
+  Xceed DataGrid for WPF - CUSTOMIZATION CODE - Default Styles and Templates
+  Copyright (c) 2007-2009 Xceed Software Inc.
+
+  [CardView.Classic.systemcolor.xaml]
+
+  This file is part of the Xceed DataGrid for WPF product. The use and
+  distribution of this Customization Code is subject to the terms
+  and conditions refering to "Customization Code" that are specified in
+  the XCEED SOFTWARE LICENSE AGREEMENT accompanying this product.
+======================================================================= -->
+
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:xcdp="clr-namespace:Xceed.Wpf.Controls;assembly=Xceed.Wpf.Controls"
+                    xmlns:local="clr-namespace:Xceed.Wpf.DataGrid"
+                    xmlns:conv="clr-namespace:Xceed.Wpf.DataGrid.Converters"
+                    xmlns:markup="clr-namespace:Xceed.Wpf.DataGrid.Markup"
+                    xmlns:views="clr-namespace:Xceed.Wpf.DataGrid.Views"
+                    xmlns:utils="clr-namespace:Xceed.Utils.Wpf.Markup">
+
+	<ResourceDictionary.MergedDictionaries>
+
+		<!-- Include the view independant and color-scheme independant theme resources -->
+		<ResourceDictionary Source="Resources/Classic.Resources.xaml" />
+
+		<!-- Include the view independant and color-scheme dependant theme resources -->
+		<ResourceDictionary Source="Resources/Classic.systemcolor.Resources.xaml" />
+
+		<!-- Include the standard grid element templates -->
+		<ResourceDictionary Source="../Common/CardView.GridElementTemplates.xaml" />
+
+	</ResourceDictionary.MergedDictionaries>
+
+	<!-- =================================================================== -->
+	<!-- Resources specific to this View/Theme/ColorScheme                   -->
+	<!-- =================================================================== -->
+    <SolidColorBrush x:Key="warningBackgroundBrush"
+                     Color="#FFC400" />
+
+    <SolidColorBrush x:Key="warningForegroundBrush"
+                     Color="Black" />
+	<!-- Override some resources defined in the common resouces to make them fit in the CardView. -->
+
+	<!-- Glyph that is displayed for a Row that is current. -->
+	<DataTemplate x:Key="currentItemGlyph">
+		<Canvas Height="11"
+				  Width="10">
+			<Path Canvas.Left="0.2550048828125"
+					Canvas.Top="0.18000030517578125"
+					Height="10.639999389648438"
+					Width="9.739990234375"
+					Stretch="Fill"
+					Opacity="1"
+					Data="M 6.70391845703125,0.18000030517578125 C6.70391845703125,0.18000030517578125 6.70391845703125,3.2488861083984375 6.70391845703125,3.2488861083984375 6.70391845703125,3.2488861083984375 9.9949951171875,3.2488861083984375 9.9949951171875,3.2488861083984375 9.9949951171875,3.2488861083984375 9.9949951171875,7.7511138916015625 9.9949951171875,7.7511138916015625 9.9949951171875,7.7511138916015625 6.70391845703125,7.7511138916015625 6.70391845703125,7.7511138916015625 6.70391845703125,7.7511138916015625 6.70391845703125,10.819999694824219 6.70391845703125,10.819999694824219 6.70391845703125,10.819999694824219 0.2550048828125,5.219997406005859 0.2550048828125,5.219997406005859 0.2550048828125,5.219997406005859 6.70391845703125,0.18000030517578125 6.70391845703125,0.18000030517578125 z"
+					Fill="White" />
+		</Canvas>
+	</DataTemplate>
+
+	<!-- =================================================================== -->
+	<!-- Templates specific to this View/Theme/ColorScheme                   -->
+	<!-- =================================================================== -->
+
+   <!--**************************
+     * TEMPLATE: FilterToggleButton
+      **************************-->
+	<ControlTemplate TargetType="{x:Type ToggleButton}"
+						  x:Key="filterToggleButton">
+
+		<Grid Background="Transparent"
+				VerticalAlignment="Stretch"
+				HorizontalAlignment="Stretch">
+
+			<Grid Width="20"
+					Background="Transparent"
+					HorizontalAlignment="Center">
+
+				<ContentPresenter x:Name="glyphPresenter"
+										ContentTemplate="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).AutoFilterDropDownGlyph}"
+										Content="{TemplateBinding Content}"
+										VerticalAlignment="Center"
+										HorizontalAlignment="Center"
+										Margin="0,0,0,0"
+										Opacity="{TemplateBinding Opacity}"/>
+
+				<ContentPresenter x:Name="filterActivatedGlyphPresenter"
+										ContentTemplate="{x:Null}"
+										Content="{TemplateBinding Content}"
+										VerticalAlignment="Center"
+										HorizontalAlignment="Center"
+										Margin="0,0,2,0"
+										Opacity="{TemplateBinding Opacity}">
+
+				</ContentPresenter>
+			</Grid>
+		</Grid>
+
+		<ControlTemplate.Triggers>
+
+			<!-- Display AutoFilterGlyph when there are AutoFilterValues -->
+			<DataTrigger Binding="{Binding ElementName=autoFilterControl, Path=HasAutoFilterValues}"
+							 Value="True">
+
+				<Setter TargetName="glyphPresenter"
+						  Property="ContentTemplate"
+						  Value="{x:Null}"/>
+
+				<Setter TargetName="filterActivatedGlyphPresenter"
+						  Property="ContentTemplate"
+						  Value="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).AutoFilterGlyph}"/>
+
+			</DataTrigger>
+
+			<!-- Restore DropDownGlyph when there are no AutoFilterValues -->
+			<DataTrigger Binding="{Binding ElementName=autoFilterControl, Path=HasAutoFilterValues}"
+							 Value="False">
+
+				<Setter TargetName="glyphPresenter"
+						  Property="ContentTemplate"
+						  Value="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).AutoFilterDropDownGlyph}"/>
+
+			</DataTrigger>
+
+		</ControlTemplate.Triggers>
+
+	</ControlTemplate>
+
+	<!--**************************
+    * TEMPLATE: ColumnManagerCell 
+    ************************** -->
+	<ControlTemplate x:Key="cardViewColumnManagerCellTemplate"
+						  TargetType="local:ColumnManagerCell">
+      <ControlTemplate.Resources>
+         <Style TargetType="ToggleButton">
+            <Setter Property="Template"
+                    Value="{StaticResource filterToggleButton}"/>
+         </Style>
+      </ControlTemplate.Resources>
+
+
+      <Border BorderBrush="{TemplateBinding BorderBrush}"
+				  BorderThickness="{TemplateBinding BorderThickness}">
+
+			<!-- This Grid is used to layout the ContentPresenter and the Sort Glyph (when present). -->
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition />
+				</Grid.ColumnDefinitions>
+
+				<Border x:Name="toggleButtonBorder"
+						  Grid.Column="0"
+						  Background="Transparent"
+						  Margin="0,0,0,0"
+						  IsHitTestVisible="True">
+					<ToggleButton x:Name="toggleButton"									  
+									  TextElement.Foreground="{TemplateBinding TextElement.Foreground}"
+									  Focusable="False"
+									  Visibility="Hidden"
+									  Margin="0,0,0,0"
+									  Opacity="0.5"/>
+				</Border>
+				<local:AutoFilterPopup x:Name="filterOptions"
+											  PopupAnimation="Slide"
+											  IsOpen="{Binding ElementName=toggleButton,
+                                                Path=IsChecked,
+                                                Mode=TwoWay,
+                                                UpdateSourceTrigger=PropertyChanged}"
+											  StaysOpen="False"
+											  AllowsTransparency="True">
+
+					<local:AutoFilterControl x:Name="autoFilterControl"
+													 Background="White"
+													 BorderBrush="Black"
+													 BorderThickness="1"
+													 AutoFilterColumn="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=local:ColumnManagerCell},
+                                                            Path=ParentColumn}"
+													 Style="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=local:ColumnManagerCell}, 
+                                                 Path=ParentColumn.AutoFilterControlStyle}"
+													 TextElement.Foreground="{TemplateBinding TextElement.Foreground}"/>
+				</local:AutoFilterPopup>
+
+
+				<Grid x:Name="cellPartGrid"
+						Grid.Column="1">
+
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition/>
+					</Grid.ColumnDefinitions>
+
+					<Border x:Name="separationLine"
+							  Width="2"
+							  BorderThickness="1,0,0,0"
+							  Background="White"
+							  Margin="0,0,0,0"
+							  HorizontalAlignment="Left"
+							  BorderBrush="Black"
+							  Opacity="0.2"
+							  Grid.Column="0"/>
+
+					<Border x:Name="cellBorder"
+							  HorizontalAlignment="Stretch"
+							  Grid.Column="1"
+							  Padding="{TemplateBinding Padding}"
+							  Background="{TemplateBinding Background}">
+
+						<StackPanel Orientation="Horizontal">
+
+
+							<!-- Same ContentPresenter as in the base Cell Template. -->
+                     <local:CellContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                 Margin="3,0,0,0" />
+
+                     <!-- ContentPresenter that is used to display the sort glyph.
+                 We explicitely set its Content property to Null to prevent the XAML parser
+                 from implicitely setting it to its TemplatedParent's Content. -->
+							<ContentPresenter x:Name="sortGlyphPresenter"
+													Content="{x:Null}"
+													ContentTemplate="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).AscendingSortGlyph}"
+													Margin="6,0,0,0"
+													Visibility="Hidden" />
+
+						</StackPanel>
+					</Border>
+				</Grid>
+			</Grid>
+		</Border>
+
+		<ControlTemplate.Triggers>
+			<!-- Trigger related to the filteringToggleButton-->
+			<Trigger SourceName="toggleButton"
+						Property="IsMouseOver"
+						Value="True">
+
+				<Setter TargetName="toggleButton"
+						  Property="Opacity"
+						  Value="1"/>
+			</Trigger>
+
+			<!-- Always visible if filterOptions popup IsOpen -->
+			<Trigger SourceName="filterOptions"
+						Property="IsOpen"
+						Value="True">
+
+				<Setter TargetName="toggleButton"
+						  Property="Visibility"
+						  Value="Visible"/>
+
+				<Setter TargetName="toggleButton"
+						  Property="Opacity"
+						  Value="1"/>
+
+			</Trigger>
+
+			<!-- Display FilterToggleButton Trigger on MouseOver -->
+			<MultiDataTrigger>
+				<MultiDataTrigger.Conditions>
+
+					<Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=ParentRow.AllowAutoFilter}"
+								  Value="True"/>
+
+               <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=ParentColumn.AllowAutoFilter}"
+                          Value="True" />
+
+               <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}"
+								  Value="True"/>
+
+					<Condition Value="True"
+								  Binding="{Binding ElementName=autoFilterControl, Path=HasDistinctValues}"/>
+
+				</MultiDataTrigger.Conditions>
+
+				<Setter TargetName="toggleButton"
+						  Property="Visibility"
+						  Value="Visible"/>
+
+				<Setter TargetName="toggleButton"
+						  Property="Opacity"
+						  Value="1"/>
+
+			</MultiDataTrigger>
+
+			<!-- Display FilterToggleButton Trigger to display AutoFilterGlyph -->
+			<MultiDataTrigger >
+				<MultiDataTrigger.Conditions>
+
+					<Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=ParentRow.AllowAutoFilter}"
+								  Value="True"/>
+
+               <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=ParentColumn.AllowAutoFilter}"
+                          Value="True" />
+
+               <Condition Value="True"
+								  Binding="{Binding ElementName=autoFilterControl, Path=HasDistinctValues}"/>
+
+					<Condition Value="True"
+								  Binding="{Binding ElementName=autoFilterControl, Path=HasAutoFilterValues}"/>
+
+				</MultiDataTrigger.Conditions>
+
+				<Setter TargetName="toggleButton"
+						  Property="Visibility"
+						  Value="Visible"/>
+
+				<Setter TargetName="toggleButton"
+						  Property="Opacity"
+						  Value="1"/>
+
+			</MultiDataTrigger>
+
+
+			<!-- DataTrigger to disable HitTesting on filtering ToggleButton 
+             when there are no DistinctValues-->
+			<DataTrigger Binding="{Binding ElementName=autoFilterControl, Path=HasDistinctValues}"
+							 Value="False">
+				<Setter TargetName="toggleButtonBorder"
+						  Property="IsHitTestVisible"
+						  Value="False"/>
+
+			</DataTrigger>
+
+			<!-- The following 2 triggers allow to display the appropriate Sort Glyph
+              depending on the ParentColumn's SortDirection. -->
+
+			<DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=ParentColumn.SortDirection}"
+							 Value="Ascending">
+
+				<Setter TargetName="sortGlyphPresenter"
+						  Property="Visibility"
+						  Value="Visible"/>
+
+			</DataTrigger>
+
+			<DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=ParentColumn.SortDirection}"
+							 Value="Descending">
+
+				<Setter TargetName="sortGlyphPresenter"
+						  Property="ContentPresenter.ContentTemplate"
+						  Value="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).DescendingSortGlyph}"/>
+
+				<Setter TargetName="sortGlyphPresenter"
+						  Property="Visibility"
+						  Value="Visible"/>
+
+			</DataTrigger>
+
+			<DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=ParentColumn.Visible}"
+							 Value="False">
+
+				<Setter Property="Visibility"
+						  Value="Collapsed"/>
+
+			</DataTrigger>
+
+
+			<Trigger Property="IsBeingDragged"
+						Value="True">
+
+				<Setter TargetName="toggleButtonBorder"
+						  Property="Visibility"
+						  Value="Hidden"/>
+
+			</Trigger>
+
+		</ControlTemplate.Triggers>
+
+	</ControlTemplate>
+
+	<!--**************************
+    * TEMPLATE: GroupByItem
+    ************************** -->
+	<ControlTemplate x:Key="cardViewGroupByItemTemplate"
+						  TargetType="local:GroupByItem">
+
+		<Border x:Name="outerBorder"
+				  BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}"
+				  Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"
+				  BorderThickness="0,0,1,1"
+				  Padding="1,1,0,0">
+
+			<Border x:Name="innerBorder"
+					  BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}"
+					  BorderThickness="0,0,1,1"
+					  Margin="1,1,0,0"
+					  Background="{TemplateBinding Background}"
+					  Padding="{TemplateBinding Padding}">
+
+				<!-- This StackPanel is used to layout the ContentPresenter and the Sort Glyph (when present). -->
+				<StackPanel x:Name="contentPanel"
+								Orientation="Horizontal">
+
+					<!-- Same ContentPresenter as in the base Cell Template. -->
+					<ContentPresenter Content="{TemplateBinding Content}"
+											ContentTemplate="{TemplateBinding ContentTemplate}"
+											ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+											HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+											VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+
+					<!-- ContentPresenter that is used to display the sort glyph.
+                    We explicitly set its Content property to Null to prevent the XAML parser
+                    from implicitly setting it to its TemplatedParent's Content. -->
+					<ContentPresenter x:Name="sortGlyphPresenter"
+											Content="{x:Null}"
+											ContentTemplate="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).AscendingSortGlyph}"
+											Margin="6,0,0,0"
+											Visibility="Hidden" />
+
+				</StackPanel>
+
+			</Border>
+
+		</Border>
+
+		<ControlTemplate.Triggers>
+
+			<Trigger Property="IsPressed"
+						Value="True">
+
+				<Setter TargetName="outerBorder"
+						  Property="BorderBrush"
+						  Value="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" />
+
+				<Setter TargetName="outerBorder"
+						  Property="BorderThickness"
+						  Value="1" />
+
+				<Setter TargetName="outerBorder"
+						  Property="Padding"
+						  Value="0" />
+
+				<Setter TargetName="innerBorder"
+						  Property="BorderThickness"
+						  Value="1" />
+
+				<Setter TargetName="innerBorder"
+						  Property="Margin"
+						  Value="0" />
+
+				<Setter TargetName="contentPanel"
+						  Property="Margin"
+						  Value="1,1,-1,-1" />
+
+			</Trigger>
+
+			<!-- The following 2 triggers allow the appropriate Sort Glyph to be displayed
+              depending on the ParentColumn's SortDirection. -->
+			<DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=SortDirection}"
+							 Value="Ascending">
+
+				<Setter TargetName="sortGlyphPresenter"
+						  Property="Visibility"
+						  Value="Visible"/>
+
+			</DataTrigger>
+
+			<DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=SortDirection}"
+							 Value="Descending">
+
+				<Setter TargetName="sortGlyphPresenter"
+						  Property="ContentPresenter.ContentTemplate"
+						  Value="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).DescendingSortGlyph}"/>
+
+				<Setter TargetName="sortGlyphPresenter"
+						  Property="Visibility"
+						  Value="Visible"/>
+
+			</DataTrigger>
+		</ControlTemplate.Triggers>
+
+	</ControlTemplate>
+
+  <!--**************************
+    * TEMPLATE: FilterRow 
+    ************************** -->
+  <ControlTemplate x:Key="cardViewFilterRowTemplate"
+                   TargetType="local:FilterRow">
+
+    <Grid>
+
+      <Border x:Name="rootBorder"
+              Background="{TemplateBinding Background}"
+              BorderBrush="{TemplateBinding BorderBrush}"
+              BorderThickness="{TemplateBinding BorderThickness}"
+              Padding="{TemplateBinding Padding}">
+
+        <!-- In CardView, a Row is represented as a card with a Title at the top and the Cells
+              aligned vertically in the remaining part of the template. This DockPanel is used
+              to layout the Title and the Cells in this manner. -->
+        <DockPanel x:Name="PART_RowFocusRoot">
+
+          <!-- Border that contains the Title of the Card. -->
+          <Border x:Name="cardTitleBorder"
+                  DockPanel.Dock="Top"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="0,0,0,1"
+                  Padding="3,1,3,3"
+                  Background="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).CardTitleBackground}"
+                  TextElement.Foreground="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).CardTitleForeground}"
+                  TextElement.FontWeight="Bold">
+
+            <!-- ContentPresenter in charge of displaying the Card Title. -->
+            <ContentPresenter x:Name="cardTitlePresenter"
+                              ContentTemplate="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).FilterCardTitleTemplate}"
+                              MinHeight="15"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Center" />
+
+          </Border>
+
+          <!-- The PART_CellsHost part designates the Panel to which this Row's Cells should be added.
+                    It is set as a Grid.IsSharedSizeScope because the Cell template will use a 
+                    SharedSizeGroup to layout the field names. -->
+          <StackPanel x:Name="PART_CellsHost"
+                      Orientation="Vertical"
+                      Visibility="Visible"
+                      Margin="3"
+                      Grid.IsSharedSizeScope="True" />
+
+        </DockPanel>
+      </Border>
+
+      <!-- ContentPresenter in charge of displaying the glyph that represents
+              the state of the row (like IsBeingEdited) -->
+      <ContentPresenter x:Name="glyphPresenter"
+                        Content="{x:Null}"
+                        ContentTemplate="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).FilterRowGlyph}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top" />
+    </Grid>
+
+    <ControlTemplate.Triggers>
+
+      <!-- When the Row is Selected, we want to change the background/foreground of the Title to the appropriate brushes. -->
+      <MultiDataTrigger>
+        <MultiDataTrigger.Conditions>
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=IsCurrent}"
+                     Value="True" />
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=local:DataGridControl},Path=IsKeyboardFocusWithin}"
+                     Value="True" />
+
+        </MultiDataTrigger.Conditions>
+
+        <Setter TargetName="cardTitleBorder"
+                Property="Background"
+                Value="{Binding RelativeSource={RelativeSource TemplatedParent},Path=SelectionBackground}" />
+
+        <Setter TargetName="cardTitleBorder"
+                Property="TextElement.Foreground"
+                Value="{Binding RelativeSource={RelativeSource TemplatedParent},Path=SelectionForeground}" />
+
+      </MultiDataTrigger>
+
+      <!-- When the Row is Selected but the parent DataGridControl is not focused, we want to change
+              the Row's background/foreground to the appropriate brushes. -->
+      <MultiDataTrigger>
+        <MultiDataTrigger.Conditions>
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=IsCurrent}"
+                     Value="True" />
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=local:DataGridControl},Path=IsKeyboardFocusWithin}"
+                     Value="False" />
+
+          <Condition Binding="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=local:DataGridControl},Path=HideSelection}"
+                     Value="False" />
+
+        </MultiDataTrigger.Conditions>
+
+        <Setter TargetName="cardTitleBorder"
+                Property="Background"
+                Value="{Binding RelativeSource={RelativeSource TemplatedParent},Path=InactiveSelectionBackground}" />
+
+        <Setter TargetName="cardTitleBorder"
+                Property="TextElement.Foreground"
+                Value="{Binding RelativeSource={RelativeSource TemplatedParent},Path=InactiveSelectionForeground}" />
+
+      </MultiDataTrigger>
+
+      <Trigger Property="NavigationBehavior"
+               Value="CellOnly">
+        <Setter TargetName="cardTitleBorder"
+                Property="Focusable"
+                Value="True" />
+      </Trigger>
+
+    </ControlTemplate.Triggers>
+
+  </ControlTemplate>
+
+  <!-- =================================================================== -->
+	<!-- Styles required by some grid elements                               -->
+	<!-- =================================================================== -->
+
+	<!--**************************
+    * STYLE: CellErrorStyle 
+    ************************** -->
+	<Style x:Key="cellErrorStyle"
+			 TargetType="local:Cell">
+
+		<Setter Property="Background"
+				  Value="{StaticResource errorBackgroundBrush}"/>
+
+		<Setter Property="Foreground"
+				  Value="{StaticResource errorForegroundBrush}"/>
+
+		<Setter Property="ToolTip"
+				  Value="{Binding RelativeSource={RelativeSource Self},Path=ValidationError.ErrorContent}"/>
+
+        <Style.Triggers>
+            <Trigger Property="IsValidationErrorRestrictive"
+                     Value="True">
+                <Setter Property="Background"
+                        Value="{StaticResource errorBackgroundBrush}" />
+
+            </Trigger>
+
+            <Trigger Property="IsValidationErrorRestrictive"
+                     Value="False">
+
+                <Setter Property="Foreground"
+                        Value="{StaticResource warningForegroundBrush}" />
+
+                <Setter Property="Background"
+                        Value="{StaticResource warningBackgroundBrush}" />
+
+            </Trigger>
+        </Style.Triggers>
+
+    </Style>
+
+	<!-- =================================================================== -->
+	<!-- Keyed Styles of grid elements                                       -->
+	<!-- =================================================================== -->
+
+	<!--**************************
+    * STYLE: DataGridControl 
+    ************************** -->
+	<Style x:Key="cardViewClassicSystemColorGridControlStyle"
+			 TargetType="local:DataGridControl">
+
+		<Setter Property="BorderBrush"
+				  Value="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" />
+
+		<Setter Property="BorderThickness"
+				  Value="1" />
+
+		<Setter Property="Background"
+				  Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" />
+
+		<Setter Property="Foreground"
+				  Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" />
+
+		<!-- In CardView, it is more convenient to use Row/Explicit navigation than Cell navigation. -->
+		<Setter Property="NavigationBehavior"
+				  Value="RowOrCell"/>
+
+		<!-- For the horizontal scrolling of the CardView, PagingBehavior.LeftToRight is better suited 
+           than the default TopToBottom. -->
+		<Setter Property="PagingBehavior"
+				  Value="LeftToRight"/>
+
+		<!-- This is required to display gridlines of uniform thickness -->
+		<Setter Property="SnapsToDevicePixels"
+				  Value="True" />
+
+		<Setter Property="CellErrorStyle"
+				  Value="{StaticResource cellErrorStyle}" />
+
+		<Setter Property="Template"
+				  Value="{StaticResource cardViewDataGridControlTemplate}" />
+
+	</Style>
+
+   <!--**************************
+    * STYLE: DataGridControl (with hosted controls theming)
+    ************************** -->
+   <Style x:Key="cardViewForcedClassicSystemColorGridControlStyle"
+          BasedOn="{StaticResource cardViewClassicSystemColorGridControlStyle}"
+          TargetType="local:DataGridControl">
+
+      <Style.Resources>
+         <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+               <ResourceDictionary Source="/PresentationFramework.Classic;V3.0.0.0;31bf3856ad364e35;component\themes/classic.xaml" />
+               <utils:XceedResourceDictionary XceedSource="/Xceed.Wpf.Controls;component\themes/generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--**************************
+             * STYLE: NavigableComboBox
+             ************************** -->
+            <Style TargetType="{x:Type xcdp:NavigableComboBox}"
+                   BasedOn="{StaticResource {x:Type ComboBox}}" />
+         </ResourceDictionary>
+      </Style.Resources>
+
+   </Style>
+
+   <!--**************************
+    * STYLE: Row Style
+    ************************** -->
+	<Style x:Key="cardViewClassicSystemColorRowStyle"
+			 TargetType="local:Row">
+
+		<Setter Property="SelectionBackground"
+				  Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+
+		<Setter Property="SelectionForeground"
+				  Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" />
+
+		<Setter Property="InactiveSelectionBackground"
+				  Value="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}" />
+
+		<Setter Property="InactiveSelectionForeground"
+				  Value="{DynamicResource {x:Static SystemColors.InactiveCaptionTextBrushKey}}" />
+
+		<Setter Property="Margin"
+				  Value="5" />
+
+		<Setter Property="BorderBrush"
+				  Value="{StaticResource gridLineBrush}" />
+
+		<Setter Property="BorderThickness"
+				  Value="1" />
+
+		<!-- Set the Row's background to Transparent to make it hit-testable
+           while preserving the background drawn by the underlying DataGridControl. -->
+		<Setter Property="Background"
+				  Value="Transparent" />
+
+		<!-- A basic Row Template requires at least a Panel named "PART_CellsHost" to which the Row's cells will be added. -->
+		<Setter Property="Template"
+				  Value="{StaticResource cardViewRowTemplate}" />
+	</Style>
+
+	<!--**************************
+    * STYLE: DataRow 
+    ************************** -->
+	<Style x:Key="cardViewClassicSystemColorDataRowStyle"
+			 TargetType="local:DataRow"
+			 BasedOn="{StaticResource cardViewClassicSystemColorRowStyle}" />
+
+	<!--**************************
+    * STYLE: InsertionRow 
+    ************************** -->
+	<Style x:Key="cardViewClassicSystemColorInsertionRowStyle"
+			 TargetType="local:InsertionRow"
+			 BasedOn="{StaticResource cardViewClassicSystemColorDataRowStyle}">
+
+		<Setter Property="Template"
+				  Value="{StaticResource cardViewInsertionRowTemplate}" />
+
+	</Style> 
+
+   <!--**************************
+    * STYLE: ColumnManagerRow 
+    ************************** -->
+	<Style x:Key="cardViewClassicSystemColorColumnManagerRowStyle"
+			 TargetType="local:ColumnManagerRow">
+
+		<Setter Property="BorderBrush"
+				  Value="{StaticResource gridLineBrush}" />
+
+		<Setter Property="BorderThickness"
+				  Value="1" />
+
+		<Setter Property="Background"
+				  Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" />
+
+		<Setter Property="Foreground"
+				  Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+
+		<Setter Property="views:UIViewBase.DropMarkOrientation"
+				  Value="Horizontal" />
+
+		<Setter Property="Template"
+				  Value="{StaticResource cardViewColumnManagerRowTemplate}" />
+
+	</Style>
+
+	<!--**************************
+    * STYLE: StatRow 
+    ************************** -->
+	<Style x:Key="cardViewClassicSystemColorStatRowStyle"
+			 TargetType="local:StatRow"
+			 BasedOn="{StaticResource cardViewClassicSystemColorRowStyle}">
+
+		<Setter Property="Template"
+				  Value="{StaticResource cardViewStatRowTemplate}"/>
+
+	</Style>
+
+   <!--**************************
+    * STYLE: FilterRow 
+    ************************** -->
+   <Style x:Key="cardViewClassicSystemColorFilterRowStyle"
+			 TargetType="local:FilterRow"
+			 BasedOn="{StaticResource cardViewClassicSystemColorRowStyle}">
+      
+      <Setter Property="BorderThickness"
+              Value="1"/>
+
+      <Setter Property="Template"
+				  Value="{StaticResource cardViewFilterRowTemplate}"/>      
+      
+   </Style>
+
+   <!--**************************
+    * STYLE: Cell Style
+    ************************** -->
+	<Style x:Key="cardViewClassicSystemColorCellStyle"
+			 TargetType="local:Cell">
+
+		<Setter Property="CurrentBackground"
+				  Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+
+		<Setter Property="CurrentForeground"
+				  Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" />
+
+		<!-- Set the Cell's background to Transparent to make it hit-testable
+           while preserving the background drawn by the underlying Row. -->
+		<Setter Property="Background"
+				  Value="Transparent" />
+
+		<!-- A basic Cell Template requires at least a ContentPresenter, which is used to display the Cell's Content.
+           This ContentPresenter is usually placed inside a Border that is responsible for painting the gridlines. -->
+		<Setter Property="Template"
+				  Value="{StaticResource cardViewCellTemplate}" />
+
+	</Style>
+
+	<!--**************************
+    * STYLE: DataCell
+    ************************** -->
+	<Style x:Key="cardViewClassicSystemColorDataCellStyle"
+			 TargetType="local:DataCell"
+			 BasedOn="{StaticResource cardViewClassicSystemColorCellStyle}" >
+
+		<Style.Triggers>
+
+			<MultiDataTrigger>
+
+				<MultiDataTrigger.Conditions>
+
+					<Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=(local:DataGridControl.DataGridContext).HideEmptyCells}"
+								  Value="True"/>
+
+					<Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=ParentRow.IsBeingEdited}"
+								  Value="False"/>
+
+					<Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=Content, Mode=OneWay, Converter={StaticResource nullToBooleanConverter}}"
+								  Value="True"/>
+
+				</MultiDataTrigger.Conditions>
+
+				<Setter Property="Visibility"
+						  Value="Collapsed"/>
+
+			</MultiDataTrigger>
+
+		</Style.Triggers>
+
+	</Style>
+
+	<!--**************************
+    * STYLE: InsertionCell
+   ************************** -->
+	<Style x:Key="cardViewClassicSystemColorInsertionCellStyle"
+			 TargetType="local:InsertionCell"
+			 BasedOn="{StaticResource cardViewClassicSystemColorCellStyle}" />
+
+	<!--**************************
+    * STYLE: ColumnManagerCell 
+    ************************** -->
+	<Style x:Key="cardViewClassicSystemColorColumnManagerCellStyle"
+			 TargetType="local:ColumnManagerCell">
+
+		<Setter Property="BorderBrush"
+				  Value="{StaticResource gridLineBrush}" />
+
+		<Setter Property="BorderThickness"
+				  Value="0,0,0,1" />
+
+		<!-- Set the Cell's background to Transparent to make it hit-testable
+           while preserving the background drawn by the underlying Row. -->
+		<Setter Property="Background"
+				  Value="Transparent" />
+
+		<Setter Property="Padding"
+				  Value="{StaticResource cellPadding}" />
+
+		<!-- We don't use the base Cell Template for the ColumnManagerCell because it needs more elements
+           to function properly, like a glyph that represents the Column's SortDirection. -->
+		<Setter Property="Template"
+				  Value="{StaticResource cardViewColumnManagerCellTemplate}" />
+
+		<Style.Triggers>
+
+			<Trigger Property="IsBeingDragged"
+						Value="True">
+
+				<Setter Property="Background"
+						  Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" />
+
+			</Trigger>
+
+		</Style.Triggers>
+
+	</Style>
+
+	<!--**************************
+    * STYLE: StatCell Style
+    ************************** -->
+	<Style x:Key="cardViewClassicSystemColorStatCellStyle"
+			 TargetType="local:StatCell">
+
+		<!-- Set the Cell's background to Transparent to make it hit-testable
+           while preserving the background drawn by the underlying Row. -->
+		<Setter Property="Background"
+				  Value="Transparent" />
+
+		<!-- A basic Cell Template requires at least a ContentPresenter, which is used to display the Cell's Content.
+           This ContentPresenter is usually placed inside a Border that is responsible for painting the gridlines. -->
+		<Setter Property="Template"
+				  Value="{StaticResource cardViewStatCellTemplate}" />
+
+		<Style.Triggers>
+
+			<!-- Collapse the cell when HideEmptyCells is true and the StatFunction returns null. -->
+			<MultiDataTrigger>
+
+				<MultiDataTrigger.Conditions>
+
+					<Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=(local:DataGridControl.DataGridContext).HideEmptyCells}"
+								  Value="True"/>
+
+					<Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=Content, Mode=OneWay, Converter={StaticResource nullToBooleanConverter}}"
+								  Value="True"/>
+
+				</MultiDataTrigger.Conditions>
+
+				<Setter Property="Visibility"
+						  Value="Collapsed"/>
+
+			</MultiDataTrigger>
+
+			<!-- Collapse the cell when HideEmptyCells is true and no StatFunction is defined for the cell. -->
+			<MultiDataTrigger>
+
+				<MultiDataTrigger.Conditions>
+
+					<Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=(local:DataGridControl.DataGridContext).HideEmptyCells}"
+								  Value="True"/>
+
+					<Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=HasContent}"
+								  Value="False"/>
+
+				</MultiDataTrigger.Conditions>
+
+				<Setter Property="Visibility"
+						  Value="Collapsed"/>
+
+			</MultiDataTrigger>
+
+			<!-- Hide the cell when HideEmptyCells is false and no StatFunction is defined for the cell. -->
+			<MultiDataTrigger>
+
+				<MultiDataTrigger.Conditions>
+
+					<Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=(local:DataGridControl.DataGridContext).HideEmptyCells}"
+								  Value="False"/>
+
+					<Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=HasContent}"
+								  Value="False"/>
+
+				</MultiDataTrigger.Conditions>
+
+				<Setter Property="Visibility"
+						  Value="Hidden"/>
+
+			</MultiDataTrigger>
+
+		</Style.Triggers>
+
+	</Style>
+
+   <!--**************************
+    * STYLE: FilterCell
+   ************************** -->
+   <Style x:Key="cardViewClassicSystemColorFilterCellStyle"
+			 TargetType="local:FilterCell"
+          BasedOn="{StaticResource cardViewClassicSystemColorCellStyle}" >
+      <!-- Set the Cell's background to Transparent to make it hit-testable
+           while preserving the background drawn by the underlying Row. -->
+      <Setter Property="Background"
+				  Value="Transparent" />
+      
+      <Setter Property="Template"
+              Value="{StaticResource cardViewFilterCellTemplate}"/>
+   </Style>
+
+   <!--**************************
+    * STYLE: GroupByControl 
+    ************************** -->
+	<Style x:Key="cardViewClassicSystemColorGroupByControlStyle"
+			 TargetType="local:GroupByControl">
+
+		<!-- If we don't specify a MinHeight, the default "size-to-content" behavior will arrange 
+           the control with a Height of 0, which makes it invisible and unusable.
+           In a typical CardView, a height of at least 50 is appropriate for the GroupByControl. -->
+		<Setter Property="MinHeight"
+				  Value="50" />
+
+		<Setter Property="Background"
+				  Value="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" />
+
+		<Setter Property="Foreground"
+				  Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+
+		<Setter Property="Padding"
+				  Value="8"/>
+
+		<Setter Property="BorderBrush"
+				  Value="{StaticResource gridLineBrush}" />
+
+		<Setter Property="BorderThickness"
+				  Value="1,1,0,1" />
+
+		<Setter Property="Template"
+				  Value="{StaticResource cardViewGroupByControlTemplate}" />
+
+	</Style>
+
+	<!--**************************
+    * STYLE: GroupByItem
+    ************************** -->
+	<Style x:Key="cardViewClassicSystemColorGroupByItemStyle"
+			 TargetType="local:GroupByItem">
+
+		<Setter Property="Background"
+				  Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" />
+
+		<Setter Property="Foreground"
+				  Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+
+		<Setter Property="Padding"
+				  Value="{StaticResource cellPadding}" />
+
+		<Setter Property="BorderBrush"
+				  Value="{StaticResource gridLineBrush}" />
+
+		<Setter Property="BorderThickness"
+				  Value="1" />
+
+		<Setter Property="Template"
+				  Value="{StaticResource cardViewGroupByItemTemplate}" />
+
+	</Style>
+
+	<!--**************************
+    * STYLE: GroupHeaderControl
+    ************************** -->
+	<Style x:Key="cardViewClassicSystemColorGroupHeaderControlStyle"
+			 TargetType="local:GroupHeaderControl">
+
+		<Setter Property="Background"
+				  Value="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" />
+
+		<Setter Property="Foreground"
+				  Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+
+		<Setter Property="Margin"
+				  Value="5,0,5,5" />
+
+		<Setter Property="Padding"
+				  Value="{StaticResource cellPadding}" />
+
+		<Setter Property="VerticalContentAlignment"
+				  Value="Center" />
+
+		<!-- The GroupHeaderControl itself must not holds the various InputBindings that make the
+           GroupHeaderControl work. -->
+		<Setter Property="Focusable"
+				  Value="False" />
+
+		<Setter Property="Template"
+				  Value="{StaticResource cardViewGroupHeaderControlTemplate}" />
+
+		<Style.Triggers>
+			<MultiDataTrigger>
+				<MultiDataTrigger.Conditions>
+
+					<Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=Content.IsBottomLevel}"
+								  Value="False" />
+
+					<Condition Binding="{Binding RelativeSource={RelativeSource Self},Path=Content.IsExpanded}"
+								  Value="True" />
+
+				</MultiDataTrigger.Conditions>
+
+				<Setter Property="Visibility"
+						  Value="Collapsed" />
+
+			</MultiDataTrigger>
+		</Style.Triggers>
+
+	</Style>
+
+	<!--**************************
+    * STYLE: GroupLevelIndicator
+    ************************** -->
+	<Style x:Key="cardViewClassicSystemColorGroupLevelIndicatorStyle"
+			 TargetType="local:GroupLevelIndicator">
+
+		<Setter Property="Width"
+				  Value="12" />
+
+	</Style>
+
+	<!--**************************
+    * STYLE: DetailIndicator
+    ************************** -->
+	<Style x:Key="cardViewClassicSystemColorDetailIndicatorStyle"
+		   TargetType="local:DetailIndicator">
+
+		<Setter Property="Width"
+				Value="12" />
+
+	</Style>
+
+	<!--**************************
+    * STYLE: GroupLevelIndicatorPane
+    ************************** -->
+	<Style x:Key="cardViewClassicSystemColorGroupLevelIndicatorPaneStyle"
+			 TargetType="local:GroupLevelIndicatorPane">
+
+		<Setter Property="Template"
+				  Value="{StaticResource cardViewGroupLevelIndicatorPaneTemplate}" />
+
+	</Style>
+
+	<!--**************************
+    * STYLE: HierarchicalGroupLevelIndicatorPane
+    ************************** -->
+	<Style x:Key="cardViewClassicSystemColorHierarchicalGroupLevelIndicatorPaneStyle"
+			 TargetType="local:HierarchicalGroupLevelIndicatorPane">
+
+		<Setter Property="Template"
+				  Value="{StaticResource cardViewHierarchicalGroupLevelIndicatorPaneTemplate}" />
+
+	</Style>
+
+	<!--**************************
+    * STYLE: AutoFilterControl
+    ************************** -->
+	<Style x:Key="cardViewClassicSystemColorAutoFilterControlStyle"
+			 TargetType="local:AutoFilterControl">
+
+		<Setter Property="Template"
+				  Value="{StaticResource cardViewAutoFilterControlTemplate}"/>
+      <Setter Property="DistinctValueItemContainerStyle"
+              Value="{StaticResource defaultAutoFilteringCheckBoxItemStyle}" />
+   </Style>
+
+   <!--**************************
+    * STYLE: MenuItem (for the ColumnChooserContextMenu)
+    ************************** -->
+   <Style x:Key="cardViewClassicSystemColorColumnChooserContextMenuMenuItemStyle"
+          TargetType="{x:Type MenuItem}">
+      <Setter Property="IsCheckable"
+              Value="True" />
+      <Setter Property="IsChecked"
+              Value="{Binding Path=Visible}" />
+      <Setter Property="StaysOpenOnClick"
+              Value="True" />
+   </Style>
+   
+   <!--**************************
+    * STYLE: ColumnChooserContextMenu
+    ************************** -->
+   <Style x:Key="cardViewClassicSystemColorColumnChooserContextMenuStyle"
+          TargetType="{x:Type local:ColumnChooserContextMenu}"
+          BasedOn="{StaticResource {x:Type ContextMenu}}">
+      <Setter Property="ItemContainerStyle"
+              Value="{StaticResource cardViewClassicSystemColorColumnChooserContextMenuMenuItemStyle}" />
+      <Setter Property="DisplayMemberPath"
+              Value="Title" />
+      <Setter Property="SortOrder"
+              Value="{Binding RelativeSource={RelativeSource Self}, Path=(local:DataGridControl.DataGridContext).ColumnChooserSortOrder}" />
+   </Style>
+
+   <!--**************************
+    * STYLE: ScrollTip
+    ************************** -->
+	<Style x:Key="cardViewClassicSystemColorScrollTipStyle"
+			 TargetType="local:ScrollTip">
+
+		<Setter Property="Template"
+				  Value="{StaticResource scrollTipTemplate}"/>
+
+		<Setter Property="VerticalAlignment"
+				  Value="Bottom"/>
+
+		<Setter Property="HorizontalAlignment"
+				  Value="Center"/>
+
+		<Setter Property="Background"
+				  Value="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+
+		<Setter Property="Foreground"
+				  Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}"/>
+
+		<Setter Property="BorderBrush"
+				  Value="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}"/>
+
+	</Style>
+
+   <!-- =================================================================== -->
+	<!-- Default values for the View                                         -->
+	<!-- =================================================================== -->
+
+	<Style x:Key="cardViewClassicSystemColorDefaultValues"
+			 TargetType="views:CardView">
+
+		<Setter Property="DefaultDropMarkPen"
+				  Value="{StaticResource dropMarkPen}" />
+
+		<Setter Property="CardTitleBackground"
+				  Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" />
+
+		<Setter Property="CardTitleForeground"
+				  Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+
+		<Setter Property="AutoFilterDropDownGlyph"
+				  Value="{StaticResource autoFilterDropDownGlyph}"/>
+
+		<Setter Property="AutoFilterGlyph"
+				  Value="{StaticResource autoFilterGlyph}"/>
+
+		<!-- Those glyphs are null by default on ViewBase, so every Theme should define
+           and set their own custom glyphs. -->
+
+		<Setter Property="AscendingSortGlyph"
+				  Value="{StaticResource ascendingSortGlyph}" />
+
+		<Setter Property="DescendingSortGlyph"
+				  Value="{StaticResource descendingSortGlyph}" />
+
+		<Setter Property="ExpandGroupGlyph"
+				  Value="{StaticResource expandGroupGlyph}" />
+
+		<Setter Property="CollapseGroupGlyph"
+				  Value="{StaticResource collapseGroupGlyph}" />
+
+		<Setter Property="CurrentItemGlyph"
+				  Value="{StaticResource currentItemGlyph}" />
+
+		<Setter Property="EditingRowGlyph"
+				  Value="{StaticResource editingRowGlyph}" />
+
+		<Setter Property="ValidationErrorGlyph"
+				  Value="{StaticResource validationErrorGlyph}" />
+
+		<Setter Property="InsertionRowGlyph"
+				  Value="{StaticResource insertionRowGlyph}" />
+      
+      <Setter Property="FilterRowGlyph"
+              Value="{StaticResource filterRowGlyph}" />
+
+      <Setter Property="ClearFilterButtonGlyph"
+              Value="{StaticResource clearFilterButtonGlyph}" />
+
+      <Setter Property="ConnectionStateLoadingGlyph"
+              Value="{StaticResource connectionStateLoadingGlyph}"/>
+
+      <Setter Property="ConnectionStateCommittingGlyph"
+              Value="{StaticResource connectionStateLoadingGlyph}"/>
+
+      <Setter Property="ConnectionStateErrorGlyph"
+              Value="{StaticResource connectionStateErrorGlyph}"/>
+
+   </Style>
+
+
+	<!-- =================================================================== -->
+	<!-- DefaultStyleKey declarations                                        -->
+	<!-- =================================================================== -->
+
+	<Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, ThemeType=views:ClassicSystemColorTheme}"
+			 TargetType="views:CardView"
+			 BasedOn="{StaticResource cardViewClassicSystemColorDefaultValues}" />
+
+	<Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, ThemeType=views:ClassicSystemColorTheme, TargetElementType=local:DataGridControl}"
+			 TargetType="local:DataGridControl"
+			 BasedOn="{StaticResource cardViewForcedClassicSystemColorGridControlStyle}"/>
+
+	<Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, ThemeType=views:ClassicSystemColorTheme, TargetElementType=local:Row}"
+			 TargetType="local:Row"
+			 BasedOn="{StaticResource cardViewClassicSystemColorRowStyle}"/>
+
+	<Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, ThemeType=views:ClassicSystemColorTheme, TargetElementType=local:DataRow}"
+			 TargetType="local:DataRow"
+			 BasedOn="{StaticResource cardViewClassicSystemColorDataRowStyle}"/>
+
+	<Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, ThemeType=views:ClassicSystemColorTheme, TargetElementType=local:InsertionRow}"
+			 TargetType="local:InsertionRow"
+			 BasedOn="{StaticResource cardViewClassicSystemColorInsertionRowStyle}"/>
+
+	<Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, ThemeType=views:ClassicSystemColorTheme, TargetElementType=local:ColumnManagerRow}"
+			 TargetType="local:ColumnManagerRow"
+			 BasedOn="{StaticResource cardViewClassicSystemColorColumnManagerRowStyle}"/>
+
+	<Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, ThemeType=views:ClassicSystemColorTheme, TargetElementType=local:StatRow}"
+			 TargetType="local:StatRow"
+			 BasedOn="{StaticResource cardViewClassicSystemColorStatRowStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, ThemeType=views:ClassicSystemColorTheme, TargetElementType=local:FilterRow}"
+			 TargetType="local:FilterRow"
+			 BasedOn="{StaticResource cardViewClassicSystemColorFilterRowStyle}"/>
+   
+	<Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, ThemeType=views:ClassicSystemColorTheme, TargetElementType=local:Cell}"
+			 TargetType="local:Cell"
+			 BasedOn="{StaticResource cardViewClassicSystemColorCellStyle}"/>
+
+	<Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, ThemeType=views:ClassicSystemColorTheme, TargetElementType=local:DataCell}"
+			 TargetType="local:DataCell"
+			 BasedOn="{StaticResource cardViewClassicSystemColorDataCellStyle}"/>
+
+	<Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, ThemeType=views:ClassicSystemColorTheme, TargetElementType=local:InsertionCell}"
+			 TargetType="local:InsertionCell"
+			 BasedOn="{StaticResource cardViewClassicSystemColorInsertionCellStyle}"/>
+
+	<Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, ThemeType=views:ClassicSystemColorTheme, TargetElementType=local:ColumnManagerCell}"
+			 TargetType="local:ColumnManagerCell"
+			 BasedOn="{StaticResource cardViewClassicSystemColorColumnManagerCellStyle}"/>
+
+	<Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, ThemeType=views:ClassicSystemColorTheme, TargetElementType=local:StatCell}"
+			 TargetType="local:StatCell"
+			 BasedOn="{StaticResource cardViewClassicSystemColorStatCellStyle}"/>
+   
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, ThemeType=views:ClassicSystemColorTheme, TargetElementType=local:FilterCell}"
+			 TargetType="local:FilterCell"
+			 BasedOn="{StaticResource cardViewClassicSystemColorFilterCellStyle}"/>
+
+	<Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, ThemeType=views:ClassicSystemColorTheme, TargetElementType=local:GroupByControl}"
+			 TargetType="local:GroupByControl"
+			 BasedOn="{StaticResource cardViewClassicSystemColorGroupByControlStyle}"/>
+
+	<Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, ThemeType=views:ClassicSystemColorTheme, TargetElementType=local:GroupByItem}"
+			 TargetType="local:GroupByItem"
+			 BasedOn="{StaticResource cardViewClassicSystemColorGroupByItemStyle}"/>
+
+	<Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, ThemeType=views:ClassicSystemColorTheme, TargetElementType=local:GroupHeaderControl}"
+			 TargetType="local:GroupHeaderControl"
+			 BasedOn="{StaticResource cardViewClassicSystemColorGroupHeaderControlStyle}"/>
+
+	<Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, ThemeType=views:ClassicSystemColorTheme, TargetElementType=local:GroupLevelIndicator}"
+			 TargetType="local:GroupLevelIndicator"
+			 BasedOn="{StaticResource cardViewClassicSystemColorGroupLevelIndicatorStyle}"/>
+
+	<Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, ThemeType=views:ClassicSystemColorTheme, TargetElementType=local:DetailIndicator}"
+         TargetType="local:DetailIndicator"
+         BasedOn="{StaticResource cardViewClassicSystemColorDetailIndicatorStyle}"/>
+
+	<Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, ThemeType=views:ClassicSystemColorTheme, TargetElementType=local:GroupLevelIndicatorPane}"
+			 TargetType="local:GroupLevelIndicatorPane"
+			 BasedOn="{StaticResource cardViewClassicSystemColorGroupLevelIndicatorPaneStyle}"/>
+
+	<Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, ThemeType=views:ClassicSystemColorTheme, TargetElementType=local:HierarchicalGroupLevelIndicatorPane}"
+			 TargetType="local:HierarchicalGroupLevelIndicatorPane"
+			 BasedOn="{StaticResource cardViewClassicSystemColorHierarchicalGroupLevelIndicatorPaneStyle}"/>
+
+	<Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, ThemeType=views:ClassicSystemColorTheme, TargetElementType=local:AutoFilterControl}"
+			 TargetType="local:AutoFilterControl"
+			 BasedOn="{StaticResource cardViewClassicSystemColorAutoFilterControlStyle}"/>
+
+	<Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, ThemeType=views:ClassicSystemColorTheme, TargetElementType=local:ScrollTip}"
+			 TargetType="local:ScrollTip"
+			 BasedOn="{StaticResource cardViewClassicSystemColorScrollTipStyle}"/>
+
+   <Style x:Key="{markup:ThemeKey TargetViewType=views:CardView, ThemeType=views:ClassicSystemColorTheme, TargetElementType=local:ColumnChooserContextMenu}"
+			 TargetType="local:ColumnChooserContextMenu"
+			 BasedOn="{StaticResource cardViewClassicSystemColorColumnChooserContextMenuStyle}"/>
+</ResourceDictionary>
