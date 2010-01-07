@@ -3,5 +3,6 @@
     public interface IPurchaseOrderView
     {
         void ShowDialog(IPart constructionPart);
+        void CloseDialog();
     }
 }

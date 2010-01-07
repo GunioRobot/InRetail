@@ -31,7 +31,7 @@ namespace Tests.InRetail.Procurement.UserInterface.EntityModel
         public override void Given()
         {
             constructionPart = new Mock<IPart>().Object;
-            constructionPart.Moq().SetupProperty(x=>x.Confirmed,new Mock<IObservable<Unit>>().Object);
+            constructionPart.Moq().SetupProperty(x => x.Confirmed, new Mock<IObservable<Unit>>().Object);
             entityPartProvider.Moq()
                 .Setup(x => x.GetEntityConstructionPart()).Returns(constructionPart);
         }
@@ -67,6 +67,12 @@ namespace Tests.InRetail.Procurement.UserInterface.EntityModel
         {
             presenter.Activate(new Mock<IScreenObjectRegistry>().Object);
             confirmedSubject.OnNext(new Unit());
+        }
+
+        [It]
+        public void Should_Hide_Dialog()
+        {
+            view.Moq().Verify(x => x.CloseDialog());
         }
 
         [It]

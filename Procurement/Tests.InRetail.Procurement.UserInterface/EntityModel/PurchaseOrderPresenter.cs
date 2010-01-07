@@ -44,7 +44,11 @@ namespace Tests.InRetail.Procurement.UserInterface.EntityModel
         public void Activate(IScreenObjectRegistry screenObjects)
         {
             var entityConstructionPart = _entityPartProvider.GetEntityConstructionPart();
-            _disposable = entityConstructionPart.Confirmed.Subscribe(_ => _bus.Send(entityConstructionPart.GetMessage()));
+            _disposable = entityConstructionPart.Confirmed.Subscribe(_ => {
+                                                                              _bus.Send(
+                                                                                  entityConstructionPart.GetMessage());
+                _purchaseOrderView.CloseDialog();
+            });
             _purchaseOrderView.As<IPurchaseOrderView>().ShowDialog(entityConstructionPart);
         }
 
