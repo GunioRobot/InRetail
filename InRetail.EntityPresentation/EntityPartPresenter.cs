@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace Tests.InRetail.Procurement.EntityPresentation
+namespace InRetail.EntityPresentation
 {
     public class EntityPartPresenter
     {

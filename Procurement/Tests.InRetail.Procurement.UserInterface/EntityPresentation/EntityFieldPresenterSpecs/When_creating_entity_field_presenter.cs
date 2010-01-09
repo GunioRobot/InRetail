@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using InRetail.EntityPresentation;
 using Tests.InRetail.Procurement.AssertHelpers;
 using Xunit.Extensions;
 

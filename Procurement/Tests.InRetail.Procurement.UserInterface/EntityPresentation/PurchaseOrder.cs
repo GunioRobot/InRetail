@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using InRetail.EntityPresentation;
 
 namespace Tests.InRetail.Procurement.EntityPresentation
 {
@@ -53,11 +54,5 @@ namespace Tests.InRetail.Procurement.EntityPresentation
             get { return _orderLines; }
             set { _orderLines = value; }
         }
-    }
-
-    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = false)]
-    public class EntityFieldAttribute : Attribute
-    {
-        public string PartName { get; set; }
     }
 }

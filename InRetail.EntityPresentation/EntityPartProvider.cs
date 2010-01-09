@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using InRetail.UiCore.Extensions;
 using StructureMap.Util;
 
-namespace Tests.InRetail.Procurement.EntityPresentation
+namespace InRetail.EntityPresentation
 {
     public class EntityPartProvider<T> : IEntityPartProvider<T> where T : IEntity
     {
@@ -20,7 +19,7 @@ namespace Tests.InRetail.Procurement.EntityPresentation
 
         private static string GetPartName(PropertyDescriptor property)
         {
-            return property.Attributes[typeof(EntityFieldAttribute)].As<EntityFieldAttribute>().PartName;
+            return ((EntityFieldAttribute)property.Attributes[typeof(EntityFieldAttribute)]).PartName;
         }
     }
 }

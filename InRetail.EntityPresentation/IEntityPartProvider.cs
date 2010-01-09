@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 
-
-namespace Tests.InRetail.Procurement.EntityPresentation
+namespace InRetail.EntityPresentation
 {
     public interface IEntityPartProvider<T>
     {

@@ -1,4 +1,5 @@
-﻿using Moq;
+﻿using InRetail.EntityPresentation;
+using Moq;
 using Tests.InRetail.Procurement.AssertHelpers;
 using Xunit.Extensions;
 

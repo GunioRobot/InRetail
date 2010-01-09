@@ -101,17 +101,10 @@
   <ItemGroup>
     <Compile Include="AssertHelpers\EnumerableEx.cs" />
     <Compile Include="AssertHelpers\TestEx.cs" />
-    <Compile Include="EntityPresentation\EntityFieldPresenter.cs" />
     <Compile Include="EntityPresentation\EntityFieldPresenterSpecs\When_creating_entity_field_presenter.cs" />
-    <Compile Include="EntityPresentation\EntityPartPresenter.cs" />
     <Compile Include="EntityPresentation\EntityPartPresenterSpecs\When_creating_entity_part_presenter.cs" />
-    <Compile Include="EntityPresentation\EntityPartProvider.cs" />
     <Compile Include="EntityPresentation\EntityPartProviderSpecs\When_Requesting_EntityParts.cs" />
-    <Compile Include="EntityPresentation\EntityPresenter.cs" />
     <Compile Include="EntityPresentation\EntityPresenterSpecs\When_Creating_Entity_Presenter.cs" />
-    <Compile Include="EntityPresentation\IEntity.cs" />
-    <Compile Include="EntityPresentation\IEntityFieldPresenter.cs" />
-    <Compile Include="EntityPresentation\IEntityMessagePresenter.cs" />
     <Compile Include="EntityPresentation\ObjectMother.cs" />
     <Compile Include="EntityPresentation\PurchaseOrderLine.cs" />
     <Compile Include="Trash\ChangeAddressMessage.cs" />
@@ -119,7 +112,6 @@
     <Compile Include="ItAttribute.cs" />
     <Compile Include="Trash\CreatePersonMessage.cs" />
     <Compile Include="Trash\ModelToMessageMap.cs" />
-    <Compile Include="EntityPresentation\IEntityPartProvider.cs" />
     <Compile Include="EntityPresentation\PurchaseOrder.cs" />
     <Compile Include="EntityPresentation\Supplier.cs" />
     <Compile Include="EntityPresentation\Warehouse.cs" />
@@ -127,7 +119,6 @@
     <Compile Include="Trash\MessageBuilder.cs" />
     <Compile Include="Trash\MessageBuilderTests.cs" />
     <Compile Include="Trash\MessageBuilderWithNewModelTests.cs" />
-    <Compile Include="EntityPresentation\EntityBase.cs" />
     <Compile Include="Trash\PersonModel.cs" />
     <Compile Include="Trash\PropertyChangeTrackerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -137,6 +128,10 @@
     <ProjectReference Include="..\..\InRetail.Commands\InRetail.Commands.csproj">
       <Project>{EEE86D36-72C0-4D9A-A388-E2AD42DF563D}</Project>
       <Name>InRetail.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\InRetail.EntityPresentation\InRetail.EntityPresentation.csproj">
+      <Project>{E16D93BF-CC54-4132-B127-606117DD3C7D}</Project>
+      <Name>InRetail.EntityPresentation</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\InRetail.UiCore\InRetail.UiCore.csproj">
       <Project>{3B0DFD2C-9731-4D1A-BB3B-9A760430E9EF}</Project>

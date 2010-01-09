@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace Tests.InRetail.Procurement.EntityPresentation
+namespace InRetail.EntityPresentation
 {
     public class EntityFieldPresenter<T> :IEntityFieldPresenter, INotifyPropertyChanged
     {

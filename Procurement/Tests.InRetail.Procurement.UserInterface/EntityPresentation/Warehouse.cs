@@ -1,4 +1,6 @@
-﻿namespace Tests.InRetail.Procurement.EntityPresentation
+﻿using InRetail.EntityPresentation;
+
+namespace Tests.InRetail.Procurement.EntityPresentation
 {
     public class Warehouse : EntityBase
     {

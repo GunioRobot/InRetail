@@ -52,56 +52,6 @@
       <FileName>EntityPresentation\PurchaseOrderLine.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Tests.InRetail.Procurement.EntityPresentation.EntityBase" Collapsed="true">
-    <Position X="3.25" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAIAAAAAAABAAgAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>EntityPresentation\EntityBase.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="Tests.InRetail.Procurement.EntityPresentation.EntityPartPresenter">
-    <Position X="8.5" Y="8.5" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAEAACAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>EntityPresentation\EntityPartPresenter.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Tests.InRetail.Procurement.EntityPresentation.EntityPartProvider&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="10.5" Y="0.5" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
-      <FileName>EntityPresentation\EntityPartProvider.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="Tests.InRetail.Procurement.EntityPresentation.EntityPresenter&lt;T&gt;">
-    <Position X="8.5" Y="2.75" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAEAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>EntityPresentation\EntityPresenter.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Tests.InRetail.Procurement.EntityPresentation.EntityFieldAttribute" Collapsed="true">
-    <Position X="4.25" Y="8.5" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
-      <FileName>EntityPresentation\PurchaseOrder.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Tests.InRetail.Procurement.EntityPresentation.EntityFieldPresenter&lt;T&gt;" BaseTypeListCollapsed="true">
-    <Position X="10.25" Y="5.75" Width="2" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-      <Compartment Name="Methods" Collapsed="true" />
-      <Compartment Name="Events" Collapsed="true" />
-    </Compartments>
-    <TypeIdentifier>
-      <HashCode>ABAAAAAAAIAAAEAAAAAAAAAAgAAAAAAAAAAgAAAAQAA=</HashCode>
-      <FileName>EntityPresentation\EntityFieldPresenter.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
   <Class Name="Tests.InRetail.Procurement.EntityPresentation.EntityFieldPresenterSpecs.When_creating_entity_field_presenter">
     <Position X="12.25" Y="5.75" Width="4" />
     <Compartments>
@@ -149,27 +99,6 @@
       <FileName>EntityPresentation\EntityPresenterSpecs\When_Creating_Entity_Presenter.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Interface Name="Tests.InRetail.Procurement.EntityPresentation.IEntity" Collapsed="true">
-    <Position X="5.25" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>EntityPresentation\IEntity.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="Tests.InRetail.Procurement.EntityPresentation.IEntityPartProvider&lt;T&gt;">
-    <Position X="8.5" Y="0.5" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>EntityPresentation\IEntityPartProvider.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="Tests.InRetail.Procurement.EntityPresentation.IEntityFieldPresenter" Collapsed="true">
-    <Position X="8.5" Y="5.75" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>EntityPresentation\IEntityFieldPresenter.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
   <Interface Name="Tests.InRetail.Procurement.EntityPresentation.IEntityMessagePresenter" Collapsed="true">
     <Position X="8.5" Y="11.75" Width="2" />
     <TypeIdentifier>

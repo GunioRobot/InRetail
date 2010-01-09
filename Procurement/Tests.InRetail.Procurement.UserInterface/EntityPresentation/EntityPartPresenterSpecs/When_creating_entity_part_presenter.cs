@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using InRetail.EntityPresentation;
 using Tests.InRetail.Procurement.AssertHelpers;
 using Xunit.Extensions;
 using Moq;

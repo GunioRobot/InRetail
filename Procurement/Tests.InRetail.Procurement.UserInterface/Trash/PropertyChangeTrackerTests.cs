@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using InRetail.EntityPresentation;
 using InRetail.UiCore.Extensions;
 using Tests.InRetail.Procurement.EntityPresentation;
 using Xunit;
@@ -130,10 +131,6 @@ namespace Tests.InRetail.Procurement
         }
 
 
-        public static string Property<T, TProperty>(this T notifier, Expression<Func<T, TProperty>> expression)
-            where T : INotifyPropertyChanged
-        {
-            return expression.Body.As<MemberExpression>().Member.Name;
-        }
+
     }
 }

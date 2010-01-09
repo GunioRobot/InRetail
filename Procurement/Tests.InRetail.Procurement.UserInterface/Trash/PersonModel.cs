@@ -1,3 +1,4 @@
+using InRetail.EntityPresentation;
 using Tests.InRetail.Procurement.EntityPresentation;
 
 namespace Tests.InRetail.Procurement

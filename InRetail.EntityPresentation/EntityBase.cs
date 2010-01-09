@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Tests.InRetail.Procurement.EntityPresentation
+namespace InRetail.EntityPresentation
 {
     public abstract class EntityBase : INotifyPropertyChanged,IEntity
     {
