@@ -112,6 +112,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\InRetail.EntityPresentation\InRetail.EntityPresentation.csproj">
+      <Project>{E16D93BF-CC54-4132-B127-606117DD3C7D}</Project>
+      <Name>InRetail.EntityPresentation</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\InRetail.UiCore\InRetail.UiCore.csproj">
       <Project>{3B0DFD2C-9731-4D1A-BB3B-9A760430E9EF}</Project>
       <Name>InRetail.UiCore</Name>
@@ -131,10 +135,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="EnityModel\" />
-    <Folder Include="ViewModel\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -157,6 +157,10 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="EnityModel\" />
+    <Folder Include="ViewModel\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,8 +1,9 @@
 using System;
+using InRetail.EntityPresentation;
 
 namespace InRetail.Procurement.UserInterface.Purchasing
 {
-    public class Supplier
+    public class Supplier:EntityBase
     {
         
         public Supplier()

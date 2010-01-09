@@ -79,7 +79,15 @@
     <Compile Include="IEntityFieldPresenter.cs" />
     <Compile Include="IEntityMessagePresenter.cs" />
     <Compile Include="IEntityPartProvider.cs" />
+    <Compile Include="IEntityView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registry.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InRetail.UiCore\InRetail.UiCore.csproj">
+      <Project>{3B0DFD2C-9731-4D1A-BB3B-9A760430E9EF}</Project>
+      <Name>InRetail.UiCore</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
