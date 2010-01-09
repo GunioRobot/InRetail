@@ -25,7 +25,7 @@ namespace Tests.InRetail.Procurement.EntityPresentation.EntityPartPresenterSpecs
         [It]
         public void Should_Have_Title_Property_Value()
         {
-            ObjectAssertExtensions.ShouldEqual(partPresenter.Title, "Title");
+            partPresenter.Title.ShouldEqual("Title");
         }
 
         [It]
@@ -37,7 +37,7 @@ namespace Tests.InRetail.Procurement.EntityPresentation.EntityPartPresenterSpecs
         [It]
         public void Should_Have_EntityMessages_Collection_Populated()
         {
-            EnumerableEx.ShouldContainEqualElements(partPresenter.EntityMessages, messagePresenters);
+            partPresenter.EntityMessages.ShouldContainEqualElements(messagePresenters);
         }
     }
 }
