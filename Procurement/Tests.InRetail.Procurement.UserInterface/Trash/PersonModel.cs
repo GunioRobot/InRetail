@@ -1,6 +1,8 @@
-namespace Tests.InRetail.Procurement.UserInterface
+using Tests.InRetail.Procurement.EntityPresentation;
+
+namespace Tests.InRetail.Procurement
 {
-    public class PersonModel : MyEntityBase, IModel
+    public class PersonModel : EntityBase, IModel
     {
         private string _firstName;
         private string _lastName;

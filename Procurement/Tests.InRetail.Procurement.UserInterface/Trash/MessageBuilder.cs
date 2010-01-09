@@ -1,9 +1,8 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using NServiceBus;
 
-namespace Tests.InRetail.Procurement.UserInterface
+namespace Tests.InRetail.Procurement
 {
     public class MessageBuilder<TModel> where TModel : IModel
     {
@@ -16,8 +15,8 @@ namespace Tests.InRetail.Procurement.UserInterface
             _model = model;
             _model.PropertyChanged += (s, e) => {
                                                     var x = e.PropertyName;
-                if (!_changedProps.Contains(x))
-                                       _changedProps.Add(x);};
+                                                    if (!_changedProps.Contains(x))
+                                                        _changedProps.Add(x);};
                 
         }
 

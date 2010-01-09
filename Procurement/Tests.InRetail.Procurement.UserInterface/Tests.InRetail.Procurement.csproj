@@ -8,8 +8,8 @@
     <ProjectGuid>{512432F3-5251-44F4-9CC2-6D5D2FE56A51}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tests.InRetail.Procurement.UserInterface</RootNamespace>
-    <AssemblyName>Tests.InRetail.Procurement.UserInterface</AssemblyName>
+    <RootNamespace>Tests.InRetail.Procurement</RootNamespace>
+    <AssemblyName>Tests.InRetail.Procurement</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
@@ -63,6 +63,7 @@
     <Reference Include="PresentationCore">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="StructureMap, Version=2.5.4.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -87,6 +88,7 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
     <Reference Include="xunit, Version=1.5.0.1479, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Lib\XUnit\xunit.dll</HintPath>
@@ -97,21 +99,39 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="CreatePersonMessageMap.cs" />
-    <Compile Include="EntityModel\EntityPresenterTests.cs" />
-    <Compile Include="EntityModel\IEntityPartProvider.cs" />
-    <Compile Include="EntityModel\IPurchaseOrderView.cs" />
-    <Compile Include="EntityModel\PurchaseOrder.cs" />
-    <Compile Include="EntityModel\PurchaseOrderPresenter.cs" />
-    <Compile Include="IModel.cs" />
-    <Compile Include="MessageBuilder.cs" />
-    <Compile Include="MessageBuilderTests.cs" />
-    <Compile Include="NotifyPropertyChangedEx.cs" />
-    <Compile Include="PersonModel.cs" />
-    <Compile Include="when_saving_purchase_order.cs" />
+    <Compile Include="AssertHelpers\EnumerableEx.cs" />
+    <Compile Include="AssertHelpers\TestEx.cs" />
+    <Compile Include="EntityPresentation\EntityFieldPresenter.cs" />
+    <Compile Include="EntityPresentation\EntityFieldPresenterSpecs\When_creating_entity_field_presenter.cs" />
+    <Compile Include="EntityPresentation\EntityPartPresenter.cs" />
+    <Compile Include="EntityPresentation\EntityPartPresenterSpecs\When_creating_entity_part_presenter.cs" />
+    <Compile Include="EntityPresentation\EntityPartProvider.cs" />
+    <Compile Include="EntityPresentation\EntityPartProviderSpecs\When_Requesting_EntityParts.cs" />
+    <Compile Include="EntityPresentation\EntityPresenter.cs" />
+    <Compile Include="EntityPresentation\EntityPresenterSpecs\When_Creating_Entity_Presenter.cs" />
+    <Compile Include="EntityPresentation\IEntity.cs" />
+    <Compile Include="EntityPresentation\IEntityFieldPresenter.cs" />
+    <Compile Include="EntityPresentation\IEntityMessagePresenter.cs" />
+    <Compile Include="EntityPresentation\ObjectMother.cs" />
+    <Compile Include="EntityPresentation\PurchaseOrderLine.cs" />
+    <Compile Include="Trash\ChangeAddressMessage.cs" />
+    <Compile Include="Trash\ChangeAddressMessageMap.cs" />
+    <Compile Include="ItAttribute.cs" />
+    <Compile Include="Trash\CreatePersonMessage.cs" />
+    <Compile Include="Trash\ModelToMessageMap.cs" />
+    <Compile Include="EntityPresentation\IEntityPartProvider.cs" />
+    <Compile Include="EntityPresentation\PurchaseOrder.cs" />
+    <Compile Include="EntityPresentation\Supplier.cs" />
+    <Compile Include="EntityPresentation\Warehouse.cs" />
+    <Compile Include="Trash\IModel.cs" />
+    <Compile Include="Trash\MessageBuilder.cs" />
+    <Compile Include="Trash\MessageBuilderTests.cs" />
+    <Compile Include="Trash\MessageBuilderWithNewModelTests.cs" />
+    <Compile Include="EntityPresentation\EntityBase.cs" />
+    <Compile Include="Trash\PersonModel.cs" />
+    <Compile Include="Trash\PropertyChangeTrackerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="BusMock.cs" />
+    <Compile Include="Trash\BusMock.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\InRetail.Commands\InRetail.Commands.csproj">
@@ -152,6 +172,13 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EntityPresentation\ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="EntityPresentation\MessagePresenterSpecs\" />
+    <Folder Include="Scenarios\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -3,21 +3,23 @@ using System.Collections.Generic;
 using InRetail.UiCore.Actions;
 using Moq;
 using NServiceBus;
+using Tests.InRetail.Procurement.EntityPresentation;
+using Tests.InRetail.Procurement.Scenarios.Working_With_Purchase_Order.Fakes;
 
-namespace Tests.InRetail.Procurement.UserInterface.EntityModel
+namespace Tests.InRetail.Procurement.Scenarios.Working_With_Purchase_Order
 {
     public class with_new_order : Specification
     {
-        protected PurchaseOrderPresenter presenter;
-        protected IPurchaseOrderView view;
-        protected PurchaseOrder purchaseOrder;
-        protected IEntityPartProvider entityPartProvider;
         protected IBus bus;
+        protected IEntityPartProvider<PurchaseOrder> entityPartProvider;
+        protected PurchaseOrderPresenter presenter;
+        protected PurchaseOrder purchaseOrder;
+        protected IPurchaseOrderView view;
 
         public with_new_order()
         {
             bus = new Mock<IBus>().Object;
-            entityPartProvider = new Mock<IEntityPartProvider>().Object;
+            entityPartProvider = new Mock<IEntityPartProvider<PurchaseOrder>>().Object;
             view = new Mock<IPurchaseOrderView>().Object;
             purchaseOrder = new PurchaseOrder();
             presenter = new PurchaseOrderPresenter(view, purchaseOrder, entityPartProvider, bus);
@@ -32,8 +34,7 @@ namespace Tests.InRetail.Procurement.UserInterface.EntityModel
         {
             constructionPart = new Mock<IPart>().Object;
             constructionPart.Moq().SetupProperty(x => x.Confirmed, new Mock<IObservable<Unit>>().Object);
-            entityPartProvider.Moq()
-                .Setup(x => x.GetEntityConstructionPart()).Returns(constructionPart);
+            entityPartProvider.Moq().Setup(x => x.GetEntityConstructionPart()).Returns(constructionPart);
         }
 
         public override void When()
@@ -44,42 +45,48 @@ namespace Tests.InRetail.Procurement.UserInterface.EntityModel
         [It]
         public void Should_Show_Dialog_With_Entity_Construction_Part()
         {
-            view.Moq().Verify(x => x.ShowDialog(constructionPart));
+            view.Verify(x => x.ShowDialog(constructionPart));
         }
     }
 
     public class When_user_confirms_new_purchase_order_creation_Gui : When_creating_new_purchase_order_Gui
     {
-        protected IMessage retrievedMessage;
         protected Subject<Unit> confirmedSubject;
+        protected IMessage retrievedMessage;
 
         public override void Given()
         {
             base.Given();
+
             retrievedMessage = new Mock<IMessage>().Object;
-            constructionPart.Moq().Setup(x => x.GetMessage()).Returns(retrievedMessage);
+            constructionPart.Setup(x => x.GetMessage()).Returns(retrievedMessage);
 
             confirmedSubject = new Subject<Unit>();
-            constructionPart.Moq().Setup(x => x.Confirmed).Returns(confirmedSubject);
+            constructionPart.Setup(x => x.Confirmed).Returns(confirmedSubject);
         }
 
         public override void When()
         {
-            presenter.Activate(new Mock<IScreenObjectRegistry>().Object);
+            base.When();
             confirmedSubject.OnNext(new Unit());
         }
 
         [It]
         public void Should_Hide_Dialog()
         {
-            view.Moq().Verify(x => x.CloseDialog());
+            view.Verify(x => x.CloseDialog());
         }
 
         [It]
-        public void Should_Send_Message_to_bus()
+        public void Should_Send_Message_To_Bus()
         {
-            bus.Moq().Verify(x => x.Send(retrievedMessage));
+            bus.Verify(x => x.Send(retrievedMessage));
         }
-
+      
+        [It]
+        public void Should_Change_View_State_To_Busy()
+        {
+            view.Verify(x => x.Busy());
+        }
     }
 }

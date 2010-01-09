@@ -4,17 +4,12 @@ using System.ComponentModel;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using InRetail.Procurement.Commands;
-using InRetail.Procurement.UserInterface.Purchasing;
-using InRetail.Procurement.UserInterface.Views;
-using InRetail.UiCore.Actions;
 using InRetail.UiCore.Extensions;
-using Moq;
+using Tests.InRetail.Procurement.EntityPresentation;
 using Xunit;
 using Xunit.Extensions;
-using System.Threading;
 
-namespace Tests.InRetail.Procurement.UserInterface
+namespace Tests.InRetail.Procurement
 {
  
 
@@ -23,7 +18,7 @@ namespace Tests.InRetail.Procurement.UserInterface
         [Fact]
         public void CanTrackChanged()
         {
-            var model = new MyModel();
+            var model = new Model();
             var tracker = new PropertyChangeTracker(model);
             model.Property1 = "Acho";
             model.Property1 = "Bacho";
@@ -39,16 +34,16 @@ namespace Tests.InRetail.Procurement.UserInterface
 
     public class PropertyChangeTracker
     {
-        private readonly MyModel _myModel;
+        private readonly Model _model;
 
         
         private readonly IList<string> _changedProperies;
 
-        public PropertyChangeTracker(MyModel myModel)
+        public PropertyChangeTracker(Model model)
         {
-            _myModel = myModel;
+            _model = model;
             _changedProperies = new List<string>();
-            _myModel.PropertyChanged += (s, e) => onPropertyChanged(e.PropertyName);
+            _model.PropertyChanged += (s, e) => onPropertyChanged(e.PropertyName);
             
         }
 
@@ -64,19 +59,7 @@ namespace Tests.InRetail.Procurement.UserInterface
         }
     }
 
-    public abstract class MyEntityBase : INotifyPropertyChanged
-    {
-        public virtual event PropertyChangedEventHandler PropertyChanged;
-
-        protected void NotifyPropertyChanged(string propertyName)
-        {
-            var e = new PropertyChangedEventArgs(propertyName);
-            var changed = PropertyChanged;
-            if (changed != null) changed(this, e);
-        }
-    }
-
-    public class MyModel : MyEntityBase
+    public class Model : EntityBase
     {
         private string _property1;
         private int _property2;
@@ -107,9 +90,14 @@ namespace Tests.InRetail.Procurement.UserInterface
 
     public static class ObservableEx
     {
-        public static IObservable<TResult> FromPropertyChanged<T, TResult>(T target, Expression<Func<T, TResult>> property)
+        public static IObservable<TResult> FromPropertyChanged<T, TResult>(this T target, Expression<Func<T, TResult>> property)
         {
-            if (default(T).Equals(target)) throw new ArgumentNullException("target");
+            return FromPropertyChangedCore(target, property);
+        }
+
+        private static IObservable<TResult> FromPropertyChangedCore<T, TResult>(T target, Expression<Func<T, TResult>> property)
+        {
+            if (target == null) throw new ArgumentNullException("target");
             if (property == null) throw new ArgumentNullException("property");
 
             var body = property.Body as MemberExpression;
@@ -127,7 +115,7 @@ namespace Tests.InRetail.Procurement.UserInterface
             var propertyDescriptor = (from p in TypeDescriptor.GetProperties(target).Cast<PropertyDescriptor>()
                                       where string.Equals(p.Name, propertyName, StringComparison.Ordinal)
                                       select p)
-                                      .Single();
+                .Single();
 
             if (!propertyDescriptor.SupportsChangeEvents)
                 throw new ArgumentException("The specified property does not support change events.", "property");
@@ -135,9 +123,9 @@ namespace Tests.InRetail.Procurement.UserInterface
             var getter = property.Compile();
 
             return from e in Observable.FromEvent<EventHandler, EventArgs>(
-                     d => d.Invoke,
-                     h => propertyDescriptor.AddValueChanged(target, h),
-                     h => propertyDescriptor.RemoveValueChanged(target, h))
+                       d => d.Invoke,
+                       h => propertyDescriptor.AddValueChanged(target, h),
+                       h => propertyDescriptor.RemoveValueChanged(target, h))
                    select getter(target);
         }
 

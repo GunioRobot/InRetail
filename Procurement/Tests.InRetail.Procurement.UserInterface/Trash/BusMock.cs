@@ -1,13 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using InRetail.Procurement.UserInterface;
-using InRetail.Procurement.UserInterface.Purchasing;
-using InRetail.Procurement.UserInterface.Views;
-using Moq;
 using NServiceBus;
 
-namespace Tests.InRetail.Procurement.UserInterface
+namespace Tests.InRetail.Procurement
 {
     
     public class BusMock : IBus

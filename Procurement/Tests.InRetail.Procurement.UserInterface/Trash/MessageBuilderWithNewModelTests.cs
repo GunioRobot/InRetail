@@ -1,12 +1,11 @@
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using InRetail.UiCore.Extensions;
 using NServiceBus;
 using Xunit;
 using Xunit.Extensions;
 
-namespace Tests.InRetail.Procurement.UserInterface
+namespace Tests.InRetail.Procurement
 {
     public class MessageBuilderWithNewModelTests
     {
@@ -49,34 +48,5 @@ namespace Tests.InRetail.Procurement.UserInterface
             list.ShouldBeEmpty();
         }
 
-    }
-
-    public class CreatePersonMessageMap : ModelToMessageMap<PersonModel, CreatePersonMessage>
-    {
-        public CreatePersonMessageMap()
-        {
-            Map(x => x.FName).To(x => x.FirstName);
-            Map(x => x.LName).To(x => x.LastName);
-        }
-    }
-    public class CreatePersonMessage : IMessage
-    {
-        public string FName { get; set; }
-        public string LName { get; set; }
-    }
-
-    public class ChangeAddressMessageMap : ModelToMessageMap<PersonModel, ChangeAddressMessage>
-    {
-        public ChangeAddressMessageMap()
-        {
-            Map(x => x.Address1).To(x => x.Address);
-            Map(x => x.City).To(x => x.City);
-        }
-    }
-
-    public class ChangeAddressMessage : IMessage
-    {
-        public string Address1 { get; set; }
-        public string City { get; set; }
     }
 }

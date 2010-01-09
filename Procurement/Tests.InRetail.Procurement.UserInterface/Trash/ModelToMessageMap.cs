@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using NServiceBus;
 
-namespace Tests.InRetail.Procurement.UserInterface
+namespace Tests.InRetail.Procurement
 {
     public interface IModelToMessageMap<TModel> where TModel : IModel
     {

@@ -147,10 +147,6 @@
       <Project>{7B484FA5-6CFF-465F-87E9-260E5DCFB0E8}</Project>
       <Name>InRetail.EventHandlers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\InRetail.Services\InRetail.Services.csproj">
-      <Project>{792DE687-6FE1-4BF7-A72E-499451FC2CB8}</Project>
-      <Name>InRetail.Services</Name>
-    </ProjectReference>
     <ProjectReference Include="..\InRetail.Shell\InRetail.Shell.csproj">
       <Project>{AC66D0F6-1387-468B-B7E9-3BCE098B98D1}</Project>
       <Name>InRetail.Shell</Name>

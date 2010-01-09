@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq.Expressions;
 using System.Xml;
 using Moq;
+using Moq.Language.Flow;
 using Xunit;
 using Xunit.Sdk;
 
-namespace Tests.InRetail.Procurement.UserInterface
+namespace Tests.InRetail.Procurement
 {
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
     public class ItAttribute : FactAttribute
@@ -36,7 +38,7 @@ namespace Tests.InRetail.Procurement.UserInterface
         {
             if (testClass is Specification)
             {
-                var specification = (Specification) testClass;
+                var specification = (Specification)testClass;
                 specification.Given();
                 specification.When();
             }
@@ -69,11 +71,30 @@ namespace Tests.InRetail.Procurement.UserInterface
         {
         }
 
-    
+
     }
 
     public static class MoqExtension
     {
+        [DebuggerNonUserCode]
+        public static void Verify<T>(this T o, Expression<Action<T>> a) where T : class
+        {
+            Mock.Get<T>(o).Verify(a);
+        }
+
+        [DebuggerNonUserCode]
+        public static ISetup<T> Setup<T>(this T o, Expression<Action<T>> a) where T : class
+        {
+            return Mock.Get<T>(o).Setup(a);
+        }
+
+        [DebuggerNonUserCode]
+        public static ISetup<T, TResult> Setup<T, TResult>(this T o, Expression<Func<T, TResult>> expression) where T : class
+        {
+            return Mock.Get<T>(o).Setup(expression);
+        }
+
+         
         [DebuggerNonUserCode]
         public static Mock<T> Moq<T>(this T o) where T : class
         {
