@@ -1,8 +1,14 @@
 ﻿<Window x:Class="Exploration.Shell"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="Shell" >
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:cal="http://www.codeplex.com/CompositeWPF" 
+        xmlns:Exploration="clr-namespace:Exploration" Title="Shell" >
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type Exploration:PartPresenter}" >
+            <ContentControl Content="{Binding View}" />
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
-        
+        <ListBox cal:RegionManager.RegionName="ListRegion"/>
     </Grid>
 </Window>

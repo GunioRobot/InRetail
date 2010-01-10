@@ -9,24 +9,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Exploration.Form;
-using Microsoft.Practices.Composite.Regions;
-using Microsoft.Practices.Unity;
 
 namespace Exploration
 {
     /// <summary>
-    /// Interaction logic for Shell.xaml
+    /// Interaction logic for PartView.xaml
     /// </summary>
-    public partial class Shell : Window
+    public partial class PartView : UserControl
     {
-       
-
-        public Shell()
+        public PartView()
         {
             InitializeComponent();
         }
-
     }
 }
