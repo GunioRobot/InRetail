@@ -163,16 +163,16 @@
     <Compile Include="TestExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserInterface\Actions\Class1.cs" />
-    <Compile Include="UserInterface\ApplicationShell\TestScreen3.cs" />
-    <Compile Include="UserInterface\ApplicationShell\When_Opening_Screen_Witch_Is_Already_Opened_And_Is_Active.cs" />
-    <Compile Include="UserInterface\ApplicationShell\When_Opening_Screen_Witch_Is_Already_Opened_But_It_Is_Not_Active.cs" />
-    <Compile Include="UserInterface\ApplicationShell\With_Emty_Conductor.cs" />
+    <Compile Include="UserInterface\ScreenManagement\TestScreen3.cs" />
+    <Compile Include="UserInterface\ScreenManagement\ScreenConductorSpecs\When_Opening_Screen_Witch_Is_Already_Opened_And_Is_Active.cs" />
+    <Compile Include="UserInterface\ScreenManagement\ScreenConductorSpecs\When_Opening_Screen_Witch_Is_Already_Opened_But_It_Is_Not_Active.cs" />
+    <Compile Include="UserInterface\ScreenManagement\ScreenConductorSpecs\With_Emty_Conductor.cs" />
     <Compile Include="Class1.cs" />
-    <Compile Include="UserInterface\ApplicationShell\With_Open_Screens.cs" />
+    <Compile Include="UserInterface\ScreenManagement\ScreenConductorSpecs\With_Open_Screens.cs" />
     <Compile Include="Helpers\ObservableCollectionSynchronizerTests.cs" />
     <Compile Include="UserInterface\Menus\fakes.cs" />
-    <Compile Include="UserInterface\ApplicationShell\TestScreen2.cs" />
-    <Compile Include="UserInterface\ApplicationShell\When_Opening_Screen_Using_Subject.cs" />
+    <Compile Include="UserInterface\ScreenManagement\TestScreen2.cs" />
+    <Compile Include="UserInterface\ScreenManagement\ScreenConductorSpecs\When_Opening_Screen_Using_Subject.cs" />
     <Compile Include="UserInterface\Menus\When_registering_menus.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -238,9 +238,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Scenarios\NewFolder1\" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
@@ -261,6 +258,10 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scenarios\NewFolder1\" />
+    <Folder Include="UserInterface\ApplicationShell\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,7 +1,7 @@
 using InRetail.UiCore;
 using Moq;
 
-namespace Tests.InRetail.UserInterface.ApplicationShell
+namespace Tests.InRetail.UserInterface.ScreenManagement.ScreenConductorSpecs
 {
     public class When_Opening_Screen_Using_Subject : With_Emty_Conductor
     {

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using InRetail.UiCore.Screens;
 using Moq;
 
-namespace Tests.InRetail.UserInterface.ApplicationShell
+namespace Tests.InRetail.UserInterface.ScreenManagement.ScreenConductorSpecs
 {
     public abstract class With_Open_Screens : With_Emty_Conductor
     {

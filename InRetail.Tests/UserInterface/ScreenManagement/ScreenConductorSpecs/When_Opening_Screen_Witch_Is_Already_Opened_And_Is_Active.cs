@@ -1,9 +1,9 @@
 using InRetail.UiCore;
 using Moq;
 
-namespace Tests.InRetail.UserInterface.ApplicationShell
+namespace Tests.InRetail.UserInterface.ScreenManagement.ScreenConductorSpecs
 {
-    public class When_Opening_Screen_Witch_Is_Already_Opened_And_Is_Active : With_Open_Screens
+    public class When_Opening_Screen_Witch_Is_Already_Opened_And_It_Is_Active : With_Open_Screens
     {
         protected TestScreen2 screenToOpen;
 

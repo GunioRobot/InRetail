@@ -1,7 +1,7 @@
 using InRetail.UiCore.Actions;
 using InRetail.UiCore.Screens;
 
-namespace Tests.InRetail.UserInterface.ApplicationShell
+namespace Tests.InRetail.UserInterface.ScreenManagement
 {
     public abstract class TestScreen2 : IScreen
     {

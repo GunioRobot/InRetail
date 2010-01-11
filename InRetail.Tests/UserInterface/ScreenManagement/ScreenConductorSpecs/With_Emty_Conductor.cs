@@ -5,7 +5,7 @@ using InRetail.UiCore.Actions;
 using InRetail.UiCore.Screens;
 using Moq;
 
-namespace Tests.InRetail.UserInterface.ApplicationShell
+namespace Tests.InRetail.UserInterface.ScreenManagement.ScreenConductorSpecs
 {
     public abstract class With_Emty_Conductor : Specification
     {
