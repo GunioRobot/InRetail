@@ -212,6 +212,7 @@
     </Compile>
     <Compile Include="Form\FormViewModel.cs" />
     <Compile Include="Module.cs" />
+    <Compile Include="PartPresenter.cs" />
     <Compile Include="PartPresenterView.xaml.cs">
       <DependentUpon>PartPresenterView.xaml</DependentUpon>
     </Compile>

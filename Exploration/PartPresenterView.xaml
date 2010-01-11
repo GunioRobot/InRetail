@@ -7,5 +7,16 @@
             <Button Content="Add Part" Command="{Binding AddPartCommand}" />
         </StackPanel>
         <TabControl cal:RegionManager.RegionName="TabRegion"/>
+        <TabControl >
+            <TabItem Header="Page1">
+                <ContentControl cal:RegionManager.RegionName="Page1Content1" />
+            </TabItem>
+            <TabItem Header="Page2">
+                <ContentControl cal:RegionManager.RegionName="Page1Content2"/>
+            </TabItem>
+            <TabItem Header="Page3">
+                <ContentControl cal:RegionManager.RegionName="Page1Content3"/>
+            </TabItem>
+        </TabControl>
     </DockPanel>
 </UserControl>
