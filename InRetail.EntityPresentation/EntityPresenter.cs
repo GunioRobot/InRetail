@@ -4,26 +4,25 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using InRetail.UiCore.Actions;
 using InRetail.UiCore.Screens;
+using Microsoft.Practices.Composite.Regions;
 
 namespace InRetail.EntityPresentation
 {
-    public class EntityPresenter<T> : IScreen<T> where T : IEntity
+    public class EntityPresenter<T> : IScreen<T>,INeedRegionManager where T : IEntity
     {
         private readonly IEntityView<T> _view;
         private readonly T _subject;
+        private readonly IEnumerable<IPartPresenter> _partPresenters;
 
-        public EntityPresenter(IEntityPartProvider<T> entityPartProvider,IEntityView<T> view, T subject)
+        public EntityPresenter(IEntityView<T> view, T subject, IEnumerable<IPartPresenter> partPresenters)
         {
             _view = view;
             _subject = subject;
-            EntityParts = new ObservableCollection<EntityPartPresenter>();
+            _partPresenters = partPresenters;
             Title = subject.GetEntityScreenName();
-            entityPartProvider.GetEntityParts().Run(x => EntityParts.Add(x));
+            _partPresenters.Run(view.Bind);
         }
 
-        public IList<EntityPartPresenter> EntityParts { get; set; }   
-        
-        
         public object View
         {
             get { return _view;}
@@ -38,7 +37,12 @@ namespace InRetail.EntityPresentation
 
         public bool CanClose()
         {
-            return true;
+            return !_partPresenters.Any(x => x.CanClose() == false);
+        }
+
+        public void Initialize(IRegionManager regionManager)
+        {
+            throw new NotImplementedException();
         }
 
         public void Dispose()

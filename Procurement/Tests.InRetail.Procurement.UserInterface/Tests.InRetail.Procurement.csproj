@@ -52,6 +52,14 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Practices.Composite, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\Cal\Microsoft.Practices.Composite.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Composite.Presentation, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\Cal\Microsoft.Practices.Composite.Presentation.dll</HintPath>
+    </Reference>
     <Reference Include="Moq, Version=3.1.416.3, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Lib\Moq\Moq.dll</HintPath>
@@ -102,15 +110,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssertHelpers\CommandAssertions.cs" />
     <Compile Include="AssertHelpers\EnumerableEx.cs" />
     <Compile Include="AssertHelpers\TestEx.cs" />
     <Compile Include="EntityPresentation\EntityFieldPresenterSpecs\When_creating_entity_field_presenter.cs" />
+    <Compile Include="EntityPresentation\EntityPartPresenterSpecs\SomeMessage1.cs" />
+    <Compile Include="EntityPresentation\EntityPartPresenterSpecs\When_Canceling_Message_Editing.cs" />
     <Compile Include="EntityPresentation\EntityPartPresenterSpecs\When_creating_entity_part_presenter.cs" />
+    <Compile Include="EntityPresentation\EntityPartPresenterSpecs\When_Creating_Part_Presenter.cs" />
+    <Compile Include="EntityPresentation\EntityPartPresenterSpecs\When_Executing_Message_Command.cs" />
+    <Compile Include="EntityPresentation\EntityPartPresenterSpecs\When_Sending_Message.cs" />
+    <Compile Include="EntityPresentation\EntityPartPresenterSpecs\With_Context.cs" />
     <Compile Include="EntityPresentation\EntityPartProviderSpecs\When_Requesting_EntityParts.cs" />
     <Compile Include="EntityPresentation\EntityPresenterSpecs\When_Creating_Entity_Presenter.cs" />
     <Compile Include="EntityPresentation\Integration\When_Activating_Screen_For_Entity.cs" />
     <Compile Include="EntityPresentation\ObjectMother.cs" />
     <Compile Include="EntityPresentation\PurchaseOrderLine.cs" />
+    <Compile Include="Moq.cs" />
     <Compile Include="Trash\ChangeAddressMessage.cs" />
     <Compile Include="Trash\ChangeAddressMessageMap.cs" />
     <Compile Include="ItAttribute.cs" />
@@ -174,6 +190,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="EntityPresentation\ClassDiagram1.cd" />
+    <None Include="EntityPresentation\EntityPartPresenterSpecs\ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="EntityPresentation\MessagePresenterSpecs\" />

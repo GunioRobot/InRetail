@@ -8,10 +8,9 @@ namespace InRetail.EntityPresentation
         {
 
             ForRequestedType(typeof(IEntityPartProvider<>)).TheDefaultIsConcreteType(typeof(EntityPartProvider<>));
-            ForRequestedType(typeof(IEntityView<>)).TheDefaultIsConcreteType(typeof(DefaultEntityView));
+            //ForRequestedType(typeof(IEntityView<>)).TheDefaultIsConcreteType(typeof(DefaultEntityView));
         }
     }
 
-    public class DefaultEntityView : IEntityView<IEntity>
-    { }
+   
 }

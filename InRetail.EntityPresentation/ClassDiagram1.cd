@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="InRetail.EntityPresentation.EntityBase" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAABAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntityBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="InRetail.EntityPresentation.EntityBaseExtensions" Collapsed="true">
+    <Position X="11" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>EntityBaseExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InRetail.EntityPresentation.EntityFieldAttribute" Collapsed="true">
+    <Position X="12.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>EntityFieldAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InRetail.EntityPresentation.EntityFieldPresenter&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAIAAAEAAAAAAAAAAgAAAAAAAAAAgAAAAQAA=</HashCode>
+      <FileName>EntityFieldPresenter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="InRetail.EntityPresentation.EntityPart" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntityPart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InRetail.EntityPresentation.EntityPartPresenter" BaseTypeListCollapsed="true">
+    <Position X="2.75" Y="2.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAEAgEAIAAAAAAQAAAAwAACAAAAAAAIBA=</HashCode>
+      <FileName>EntityPartPresenter.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="MessageCommands" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="InRetail.EntityPresentation.EntityPartProvider&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>EntityPartProvider.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="InRetail.EntityPresentation.EntityPresenter&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAUBAAIAAAAAABCABAgAAACAAAAAAAAA=</HashCode>
+      <FileName>EntityPresenter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="InRetail.EntityPresentation.MessageCommandViewModel">
+    <Position X="1.75" Y="5.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MessageCommandViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InRetail.EntityPresentation.EntityPresentationRegistry" Collapsed="true">
+    <Position X="13" Y="4.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Registry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="InRetail.EntityPresentation.IEntity" Collapsed="true">
+    <Position X="14.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IEntity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="InRetail.EntityPresentation.IEntityFieldPresenter" Collapsed="true">
+    <Position X="11" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IEntityFieldPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="InRetail.EntityPresentation.IEntityMessagePresenter" Collapsed="true">
+    <Position X="12.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IEntityMessagePresenter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="InRetail.EntityPresentation.IEntityPartProvider&lt;T&gt;" Collapsed="true">
+    <Position X="14.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IEntityPartProvider.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="InRetail.EntityPresentation.IEntityPartView">
+    <Position X="1" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAABAA=</HashCode>
+      <FileName>IEntityPartView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="InRetail.EntityPresentation.IEntityView&lt;T&gt;" Collapsed="true">
+    <Position X="11" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IEntityView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="InRetail.EntityPresentation.IPart">
+    <Position X="7" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>IPart.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="InRetail.EntityPresentation.IMessageMap">
+    <Position X="7" Y="6" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>IPart.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="InRetail.EntityPresentation.IMessageView" Collapsed="true">
+    <Position X="14.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IPart.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="InRetail.EntityPresentation.IPartPresentersFactory" Collapsed="true">
+    <Position X="12.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>IPartPresentersFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="InRetail.EntityPresentation.IPartPresenter">
+    <Position X="2.75" Y="1" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>IPartPresentersFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

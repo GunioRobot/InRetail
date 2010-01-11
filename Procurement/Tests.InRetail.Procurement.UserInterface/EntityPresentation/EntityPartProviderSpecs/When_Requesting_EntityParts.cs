@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using InRetail.EntityPresentation;
+using Tests.InRetail.Procurement.EntityPresentation.EntityPartPresenterSpecs;
 using Xunit.Extensions;
 
 namespace Tests.InRetail.Procurement.EntityPresentation.EntityPartProviderSpecs
@@ -18,13 +19,13 @@ namespace Tests.InRetail.Procurement.EntityPresentation.EntityPartProviderSpecs
 
         public override void When()
         {
-            entityParts = provider.GetEntityParts();
+            //entityParts = provider.GetEntityParts();
         }
 
         [It]
         public void Should_Return_Five_Parts_According_Class_Attributes()
         {
-            entityParts.Count().ShouldEqual(5);
+//            entityParts.Count().ShouldEqual(5);
         }
     }
 }

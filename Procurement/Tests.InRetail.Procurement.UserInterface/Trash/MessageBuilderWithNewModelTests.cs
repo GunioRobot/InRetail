@@ -15,7 +15,9 @@ namespace Tests.InRetail.Procurement
         public MessageBuilderWithNewModelTests()
         {
             model = new PersonModel();
+
             bulder = new MessageBuilder<PersonModel>(model);
+
             bulder.Add(new CreatePersonMessageMap());
             bulder.Add(new ChangeAddressMessageMap());
         }

@@ -36,13 +36,17 @@ namespace Tests.InRetail.Procurement
         [DebuggerNonUserCode]
         public MethodResult Execute(object testClass)
         {
+            if (_methodInfo.MethodInfo.DeclaringType!=testClass.GetType())
+                return new PassedResult(_methodInfo,null);
+
             if (testClass is Specification)
             {
                 var specification = (Specification)testClass;
                 specification.Given();
                 specification.When();
             }
-            return _innerCommand.Execute(testClass);
+            var methodResult = _innerCommand.Execute(testClass);
+            return methodResult;
         }
 
         public XmlNode ToStartXml()
@@ -77,9 +81,15 @@ namespace Tests.InRetail.Procurement
     public static class MoqExtension
     {
         [DebuggerNonUserCode]
+
         public static void Verify<T>(this T o, Expression<Action<T>> a) where T : class
         {
             Mock.Get<T>(o).Verify(a);
+        }
+        [DebuggerNonUserCode]
+        public static void Verify<T>(this T o, Expression<Action<T>> a, Times times) where T : class
+        {
+            Mock.Get<T>(o).Verify(a, times);
         }
 
         [DebuggerNonUserCode]
@@ -94,7 +104,12 @@ namespace Tests.InRetail.Procurement
             return Mock.Get<T>(o).Setup(expression);
         }
 
-         
+        [DebuggerNonUserCode]
+        public static ISetupGetter<T, TProperty> SetupGet<T, TProperty>(this T o, Expression<Func<T, TProperty>> expression) where T : class
+        {
+            return Mock.Get<T>(o).SetupGet(expression);
+        }
+
         [DebuggerNonUserCode]
         public static Mock<T> Moq<T>(this T o) where T : class
         {
