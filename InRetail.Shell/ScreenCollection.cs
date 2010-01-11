@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using InRetail.UiCore;
+using InRetail.UiCore.Extensions;
 using InRetail.UiCore.Screens;
 using Microsoft.Practices.Composite.Regions;
 
@@ -44,7 +45,16 @@ namespace InRetail.Shell
         public void Add(IScreen screen)
         {
             _screens.Add(screen);
-            _mainRegion.Add(screen.View);
+            if (screen is INeedRegionManager)
+            {
+                var regionManager = _mainRegion.Add(screen.View, Guid.NewGuid().ToString(), true);
+                var needRegionManager = screen as INeedRegionManager;
+                needRegionManager.Initialize(regionManager);
+            }
+            else
+            {
+                _mainRegion.Add(screen.View);
+            }
         }
 
         public void ClearAll()

@@ -163,6 +163,9 @@
     <Compile Include="TestExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserInterface\Actions\Class1.cs" />
+    <Compile Include="UserInterface\ScreenManagement\ScreenCollectionSpecs\When_Adding_Screen.cs" />
+    <Compile Include="UserInterface\ScreenManagement\ScreenCollectionSpecs\When_Adding_Screen_Witch_Needs_Local_Scope_For_RegionManager.cs" />
+    <Compile Include="UserInterface\ScreenManagement\ScreenCollectionSpecs\With_Empty_Screens.cs" />
     <Compile Include="UserInterface\ScreenManagement\TestScreen3.cs" />
     <Compile Include="UserInterface\ScreenManagement\ScreenConductorSpecs\When_Opening_Screen_Witch_Is_Already_Opened_And_Is_Active.cs" />
     <Compile Include="UserInterface\ScreenManagement\ScreenConductorSpecs\When_Opening_Screen_Witch_Is_Already_Opened_But_It_Is_Not_Active.cs" />
