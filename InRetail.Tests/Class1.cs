@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq.Expressions;
 using System.Xml;
 using Moq;
+using Moq.Language.Flow;
 using Xunit;
 using Xunit.Sdk;
 
@@ -71,6 +73,43 @@ namespace Tests.InRetail
         public static Mock<T> Moq<T>(this T o) where T : class
         {
             return Mock.Get<T>(o);
+        }
+        [DebuggerNonUserCode]
+        public static void Verify<T>(this T o, Expression<Action<T>> a) where T : class
+        {
+            Mock.Get<T>(o).Verify(a);
+        }
+        [DebuggerNonUserCode]
+        public static void Verify<T>(this T o, Expression<Action<T>> a, Times times) where T : class
+        {
+            Mock.Get<T>(o).Verify(a, times);
+        }
+
+        [DebuggerNonUserCode]
+        public static ISetup<T> Setup<T>(this T o, Expression<Action<T>> a) where T : class
+        {
+            return Mock.Get<T>(o).Setup(a);
+        }
+
+        [DebuggerNonUserCode]
+        public static ISetup<T, TResult> Setup<T, TResult>(this T o, Expression<Func<T, TResult>> expression) where T : class
+        {
+            return Mock.Get<T>(o).Setup(expression);
+        }
+
+    }
+
+    public static class Moq
+    {
+        public static T Mock<T>() where T : class
+        {
+            T mock = new Mock<T>().Object;
+            return mock;
+        }
+        public static T Stub<T>() where T : class
+        {
+            T mock = new Mock<T>().Object;
+            return mock;
         }
     }
 }
