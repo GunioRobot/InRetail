@@ -1,8 +1,8 @@
 ﻿namespace Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs
 {
-    public abstract class MessageValueFieldViewModelBase
+    public abstract class FieldViewModelBase<T> : IFieldViewModel
     {
-        protected MessageValueFieldViewModelBase(IField_v2 field)
+        protected FieldViewModelBase(IField_v2<T> field)
         {
             Label = field.Label;
             NewValue = field.Value;
@@ -10,8 +10,8 @@
         }
 
         public string Label { get; set; }
-        public object NewValue { get; set; }
-        public object OldValue { get; set; }
+        public T NewValue { get; set; }
+        public T OldValue { get; set; }
 
     }
 }

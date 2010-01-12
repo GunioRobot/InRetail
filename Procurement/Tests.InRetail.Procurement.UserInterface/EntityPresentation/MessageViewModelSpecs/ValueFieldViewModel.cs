@@ -2,9 +2,9 @@
 
 namespace Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs
 {
-    public class MessageValueFieldViewModel : MessageValueFieldViewModelBase
+    public class ValueFieldViewModel<T> : FieldViewModelBase<T>
     {
-        public MessageValueFieldViewModel(IField_v2 field)
+        public ValueFieldViewModel(IField_v2<T> field)
             : base(field)
         { }
 
