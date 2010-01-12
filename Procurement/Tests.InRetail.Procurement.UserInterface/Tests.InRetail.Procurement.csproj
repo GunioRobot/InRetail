@@ -113,15 +113,16 @@
     <Compile Include="AssertHelpers\CommandAssertions.cs" />
     <Compile Include="AssertHelpers\EnumerableEx.cs" />
     <Compile Include="AssertHelpers\TestEx.cs" />
+    <Compile Include="EntityPresentation\EntityFieldPresenterSpecs\When_Creating_Collection_Field.cs" />
     <Compile Include="EntityPresentation\EntityFieldPresenterSpecs\When_creating_entity_field_presenter.cs" />
     <Compile Include="EntityPresentation\EntityPartPresenterSpecs\SomeMessage1.cs" />
     <Compile Include="EntityPresentation\EntityPartPresenterSpecs\When_Canceling_Message_Editing.cs" />
-    <Compile Include="EntityPresentation\EntityPartPresenterSpecs\When_creating_entity_part_presenter.cs" />
     <Compile Include="EntityPresentation\EntityPartPresenterSpecs\When_Creating_Part_Presenter.cs" />
     <Compile Include="EntityPresentation\EntityPartPresenterSpecs\When_Executing_Message_Command.cs" />
     <Compile Include="EntityPresentation\EntityPartPresenterSpecs\When_Sending_Message.cs" />
     <Compile Include="EntityPresentation\EntityPartPresenterSpecs\With_Context.cs" />
     <Compile Include="EntityPresentation\EntityPartProviderSpecs\When_Requesting_EntityParts.cs" />
+    <Compile Include="EntityPresentation\EntityPresentationModelBuilderSpecs\When_Building_Presentation_Model.cs" />
     <Compile Include="EntityPresentation\EntityPresenterSpecs\When_Creating_Entity_Presenter.cs" />
     <Compile Include="EntityPresentation\Integration\When_Activating_Screen_For_Entity.cs" />
     <Compile Include="EntityPresentation\ObjectMother.cs" />

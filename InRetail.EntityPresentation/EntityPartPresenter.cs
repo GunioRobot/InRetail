@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 using Microsoft.Practices.Composite.Presentation.Commands;
 
 namespace InRetail.EntityPresentation
 {
+    public interface IFieldView { }
     public class EntityPartPresenter : IPartPresenter
     {
         private readonly IPart _part;
@@ -14,7 +16,11 @@ namespace InRetail.EntityPresentation
         private readonly ICommand _cancelCommand;
         IList<MessageCommandViewModel> _messageCommands;
         private bool InEditingMode = false;
-
+        public IList<IFieldView> _fieldViews;
+        public IList<IFieldView> FieldViews
+        {
+            get { return _fieldViews; }
+        }
 
         public EntityPartPresenter()
         {
@@ -24,7 +30,8 @@ namespace InRetail.EntityPresentation
         {
             _part = part;
             _partView = partView;
-
+            _fieldViews= new ObservableCollection<IFieldView>();
+            part.Fields.Run(x => _fieldViews.Add(x.BuildFieldView()));
 
             _sendCommand = new DelegateCommand<object>(x => { _partView.SwitchToViewMode();
                                                                 InEditingMode = false; }, x => InEditingMode);
@@ -42,14 +49,13 @@ namespace InRetail.EntityPresentation
         {
             get { return _cancelCommand; }
         }
+
         public IList<MessageCommandViewModel> MessageCommands
         {
-            get
-            {
-                if (_messageCommands == null)
-                    _messageCommands = 
-                        new List<MessageCommandViewModel>(_part.MessageMaps.Select(x => buildEditMessageCommand(x)));
-                return _messageCommands;
+            get {
+                return _messageCommands ??
+                       (_messageCommands = new List<MessageCommandViewModel>(
+                           _part.MessageMaps.Select(x => buildEditMessageCommand(x))));
             }
         }
 

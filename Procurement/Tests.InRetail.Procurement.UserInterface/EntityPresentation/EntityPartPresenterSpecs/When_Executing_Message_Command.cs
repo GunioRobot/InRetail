@@ -1,17 +1,20 @@
 ﻿using InRetail.EntityPresentation;
 using Tests.InRetail.Procurement.AssertHelpers;
+using Moq;
 
 namespace Tests.InRetail.Procurement.EntityPresentation.EntityPartPresenterSpecs
 {
     public class When_Executing_Message_Command : When_Creating_Part_Presenter
     {
-        protected IMessageView messageView;
+        protected IMessageView m1MessageView;
+        protected IMessageView m2MessageView;
 
         public override void Given()
         {
-            base.Given();
-            messageView = Moq.Mock<IMessageView>();
-            messageMaps[0].Setup(x => x.BuildMessageView()).Returns(messageView);
+            m1MessageView = Moq.Mock<IMessageView>();
+            m2MessageView = Moq.Mock<IMessageView>();
+            part = New.Part().WithMessageMaps(x => x.WithName("m1").CanBuildMessageView(() => m1MessageView),
+                                              x => x.WithName("m2").CanBuildMessageView(() => m2MessageView)).Build();
         }
 
         public override void When()
@@ -23,7 +26,7 @@ namespace Tests.InRetail.Procurement.EntityPresentation.EntityPartPresenterSpecs
         [It]
         public void Should_Switch_To_MessageEditingView()
         {
-            partView.Verify(x => x.SwitchToEditMode(messageView));
+            partView.Verify(x => x.SwitchToEditMode(m1MessageView), Times.Once());
         }
 
         [It]

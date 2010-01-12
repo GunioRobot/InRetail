@@ -6,11 +6,16 @@ namespace InRetail.EntityPresentation
     public interface IPart
     {
         IEnumerable<IMessageMap> MessageMaps { get; }
+        IEnumerable<IField> Fields { get;  }
+    }
+
+    public interface IField {
+        IFieldView BuildFieldView();
     }
 
     public interface IMessageMap
     {
-        string Name { get; set; }
+        string Name { get; }
         IMessageView BuildMessageView();
     }
     public interface IMessageView { }

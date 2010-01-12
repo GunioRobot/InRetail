@@ -22,24 +22,17 @@
       <FileName>EntityPresentation\EntityPartPresenterSpecs\When_Sending_Message.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Tests.InRetail.Procurement.EntityPresentation.EntityPartPresenterSpecs.When_creating_entity_part_presenter" Collapsed="true">
-    <Position X="4.75" Y="0.75" Width="2.75" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-      <Compartment Name="Methods" Collapsed="true" />
-    </Compartments>
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAAAAACAAAAAAAAIAAAAAAAAAAAA=</HashCode>
-      <FileName>EntityPresentation\EntityPartPresenterSpecs\When_creating_entity_part_presenter.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Tests.InRetail.Procurement.EntityPresentation.EntityPartPresenterSpecs.When_Creating_Part_Presenter">
     <Position X="1.5" Y="0.5" Width="2.75" />
     <Members>
+      <Method Name="Given" Hidden="true" />
       <Method Name="When" Hidden="true" />
     </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAEAAAAAAAAAABAAAAAAAAAAAAAAAEA=</HashCode>
+      <HashCode>AAAAAAAAACAAAAEAAAAAAAABIBEAAAIAAAAAAAAAAEA=</HashCode>
       <FileName>EntityPresentation\EntityPartPresenterSpecs\When_Creating_Part_Presenter.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -47,11 +40,12 @@
     <Position X="1.5" Y="3" Width="3" />
     <Members>
       <Method Name="Given" Hidden="true" />
-      <Field Name="messageView" Hidden="true" />
+      <Field Name="m1MessageView" Hidden="true" />
+      <Field Name="m2MessageView" Hidden="true" />
       <Method Name="When" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAQCgAAAAAAAAAAAAAAAAgAAIAAAAAAAAAACA=</HashCode>
+      <HashCode>AAAAAAAAQCgAAAAAAAAAAAAAAAAAAAIAAAAAgEAAACA=</HashCode>
       <FileName>EntityPresentation\EntityPartPresenterSpecs\When_Executing_Message_Command.cs</FileName>
     </TypeIdentifier>
   </Class>
