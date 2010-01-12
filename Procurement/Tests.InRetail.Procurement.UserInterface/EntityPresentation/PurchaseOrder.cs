@@ -12,6 +12,12 @@ namespace Tests.InRetail.Procurement.EntityPresentation
         private Warehouse _whareHouse;
         private decimal _total;
         private IList<PurchaseOrderLine> _orderLines;
+        public string TitleToReturn;
+
+        public override string GetEntityScreenName()
+        {
+            return TitleToReturn;
+        }
 
         [EntityField(PartName = "Order Attributes")]
         public DateTime Date

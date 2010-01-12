@@ -122,9 +122,21 @@
     <Compile Include="EntityPresentation\EntityPartPresenterSpecs\When_Sending_Message.cs" />
     <Compile Include="EntityPresentation\EntityPartPresenterSpecs\With_Context.cs" />
     <Compile Include="EntityPresentation\EntityPartProviderSpecs\When_Requesting_EntityParts.cs" />
+    <Compile Include="EntityPresentation\EntityPresentationModelBuilderSpecs\EntityPresentationModelBuilder.cs" />
+    <Compile Include="EntityPresentation\EntityPresentationModelBuilderSpecs\Part.cs" />
+    <Compile Include="EntityPresentation\EntityPresentationModelBuilderSpecs\PresentationModel.cs" />
     <Compile Include="EntityPresentation\EntityPresentationModelBuilderSpecs\When_Building_Presentation_Model.cs" />
     <Compile Include="EntityPresentation\EntityPresenterSpecs\When_Creating_Entity_Presenter.cs" />
     <Compile Include="EntityPresentation\Integration\When_Activating_Screen_For_Entity.cs" />
+    <Compile Include="EntityPresentation\MessageViewModelSpecs\ILookUpDataProvider.cs" />
+    <Compile Include="EntityPresentation\MessageViewModelSpecs\MessageRefFieldViewModel.cs" />
+    <Compile Include="EntityPresentation\MessageViewModelSpecs\MessageValueFieldViewModel.cs" />
+    <Compile Include="EntityPresentation\MessageViewModelSpecs\IField_v2.cs" />
+    <Compile Include="EntityPresentation\MessageViewModelSpecs\IMessageMap_v2.cs" />
+    <Compile Include="EntityPresentation\MessageViewModelSpecs\MessageValueFieldViewModelBase.cs" />
+    <Compile Include="EntityPresentation\MessageViewModelSpecs\MessageViewModel.cs" />
+    <Compile Include="EntityPresentation\MessageViewModelSpecs\when_creating_message_view_model_for_change_order_attributes.cs" />
+    <Compile Include="EntityPresentation\MessageViewModelSpecs\when_creating_message_view_model_for_change_supplier.cs" />
     <Compile Include="EntityPresentation\ObjectMother.cs" />
     <Compile Include="EntityPresentation\PurchaseOrderLine.cs" />
     <Compile Include="Moq.cs" />
@@ -192,6 +204,7 @@
   <ItemGroup>
     <None Include="EntityPresentation\ClassDiagram1.cd" />
     <None Include="EntityPresentation\EntityPartPresenterSpecs\ClassDiagram1.cd" />
+    <None Include="EntityPresentation\MessageViewModelSpecs\ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="EntityPresentation\MessagePresenterSpecs\" />

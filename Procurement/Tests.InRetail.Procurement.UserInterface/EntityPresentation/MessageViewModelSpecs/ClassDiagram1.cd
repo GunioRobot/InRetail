@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs.MessageValueFieldViewModel">
+    <Position X="3.75" Y="5.75" Width="2" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntityPresentation\MessageViewModelSpecs\MessageValueFieldViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs.MessageViewModel">
+    <Position X="1.5" Y="3" Width="1.75" />
+    <AssociationLine Name="Fields" Type="Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs.MessageValueFieldViewModelBase" FixedFromPoint="true">
+      <Path>
+        <Point X="3.25" Y="3.688" />
+        <Point X="5.5" Y="3.688" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAACAAAAAAAgAA=</HashCode>
+      <FileName>EntityPresentation\MessageViewModelSpecs\MessageViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Fields" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs.MessageRefFieldViewModel">
+    <Position X="6.5" Y="5.75" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAEAA=</HashCode>
+      <FileName>EntityPresentation\MessageViewModelSpecs\MessageRefFieldViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs.MessageValueFieldViewModelBase">
+    <Position X="5.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAEAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntityPresentation\MessageViewModelSpecs\MessageValueFieldViewModelBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs.when_creating_message_view_model_for_change_order_attributes" Collapsed="true">
+    <Position X="1.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAEAAAAACAAAAAAAABQAAIAAAAAAAIAAAAAAAAABAA=</HashCode>
+      <FileName>EntityPresentation\MessageViewModelSpecs\when_creating_message_view_model_for_change_order_attributes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs.when_creating_message_view_model_for_change_supplier" Collapsed="true">
+    <Position X="9" Y="5.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAACAAAAAAAABQIAAAAAAAAAIAAAAAAAAABAA=</HashCode>
+      <FileName>EntityPresentation\MessageViewModelSpecs\when_creating_message_view_model_for_change_supplier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs.IMessageMap_v2">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>EntityPresentation\MessageViewModelSpecs\IMessageMap_v2.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs.ILookUpDataProvider">
+    <Position X="10.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntityPresentation\MessageViewModelSpecs\ILookUpDataProvider.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs.IField_v2">
+    <Position X="8.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>EntityPresentation\MessageViewModelSpecs\IField_v2.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
