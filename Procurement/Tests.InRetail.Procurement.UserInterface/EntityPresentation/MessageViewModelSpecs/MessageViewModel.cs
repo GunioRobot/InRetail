@@ -12,7 +12,7 @@ namespace Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs
         {
             Title = messageMap.Title;
             Fields = new List<IFieldViewModel>();
-            messageMap.Fields.Run(x => Fields.Add(x.BuildViewModel()));
+            //messageMap.Fields.Run(x => Fields.Add(x.BuildViewModel()));
 
             SendCommand = new DelegateCommand<object>(x => { }, x => false);
             CancelCommand = new DelegateCommand<object>(x => { }, x => true);

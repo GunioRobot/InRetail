@@ -5,14 +5,14 @@ using Xunit.Extensions;
 
 namespace Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs
 {
-    public class when_creating_message_view_model_for_change_supplier : Specification
+    public class when_creating_message_view_model_for_change_supplier : With_New_Context
     {
-        private IMessageMap_v2 messageMap;
-        private MessageViewModel viewModel;
+        
         private ILookUpDataProvider lookUpDataProvider;
 
         public override void Given()
         {
+            base.Given();
             lookUpDataProvider = Moq.Mock<ILookUpDataProvider>();
             lookUpDataProvider.Setup(x => x.GetLookupData<Supplier>()).Returns(new[]
                                                                         {
@@ -20,13 +20,13 @@ namespace Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs
                                                                             new Supplier() {Name = "Supplier2"},
                                                                             new Supplier() { Name = "Supplier3" }
                                                                         });
-            messageMap = Moq.Mock<IMessageMap_v2>();
+            
             messageMap.SetupGet(x => x.Title).Returns("Supplier");
 
             var field0 = Moq.Mock<IField_v2<Supplier>>();
             field0.SetupGet(x => x.Label).Returns("Supplier Name");
             field0.SetupGet(x => x.Value).Returns(new Supplier() { Name = "Elgar" });
-            field0.Setup(x => x.BuildViewModel()).Returns(new ReferenceFieldViewModel<Supplier>(field0, lookUpDataProvider));
+            //field0.Setup(x => x.BuildViewModel()).Returns(new ReferenceFieldViewModel<Supplier>(field0, lookUpDataProvider));
 
             messageMap.Setup(x => x.Fields).Returns(new[] { field0, });
 
@@ -35,7 +35,7 @@ namespace Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs
 
         public override void When()
         {
-            viewModel = new MessageViewModel(messageMap);
+            base.When();
         }
 
         [It]

@@ -34,14 +34,14 @@
   <Class Name="Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs.when_creating_message_view_model_for_change_order_attributes" Collapsed="true">
     <Position X="1.25" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABAEAAAAACAAAAAAAABQAAIAAAAAAAIAAAAAAAAABAA=</HashCode>
+      <HashCode>ABAEAAAAACAAAAAAAAAAAAIAAAAAAAIAAAAAAAAABAA=</HashCode>
       <FileName>EntityPresentation\MessageViewModelSpecs\when_creating_message_view_model_for_change_order_attributes.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs.when_creating_message_view_model_for_change_supplier">
     <Position X="8.75" Y="5.5" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>ABAAAAAAACAAAAAAAABQIAAAAAAAAAIAAAAAAAAABAA=</HashCode>
+      <HashCode>ABAAAAAAACAAAAAAAAAAIAAAAAAAAAIAAAAAAAAABAA=</HashCode>
       <FileName>EntityPresentation\MessageViewModelSpecs\when_creating_message_view_model_for_change_supplier.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -88,7 +88,7 @@
     <Position X="3" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>EntityPresentation\MessageViewModelSpecs\FieldViewModelBase.cs</FileName>
+      <FileName>EntityPresentation\MessageViewModelSpecs\IFieldViewModel.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />

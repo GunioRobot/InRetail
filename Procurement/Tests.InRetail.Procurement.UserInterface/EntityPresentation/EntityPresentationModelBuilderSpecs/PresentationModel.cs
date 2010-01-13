@@ -16,5 +16,7 @@ namespace Tests.InRetail.Procurement.EntityPresentation.EntityPresentationModelB
         {
             _parts.Add(part);
         }
+
+        
     }
 }

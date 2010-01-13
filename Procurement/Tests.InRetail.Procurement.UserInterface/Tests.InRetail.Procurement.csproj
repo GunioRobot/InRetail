@@ -128,6 +128,14 @@
     <Compile Include="EntityPresentation\EntityPresentationModelBuilderSpecs\When_Building_Presentation_Model.cs" />
     <Compile Include="EntityPresentation\EntityPresenterSpecs\When_Creating_Entity_Presenter.cs" />
     <Compile Include="EntityPresentation\Integration\When_Activating_Screen_For_Entity.cs" />
+    <Compile Include="EntityPresentation\MessageMapBuilderSpecs\ChangeOrderAttributesMap.cs" />
+    <Compile Include="EntityPresentation\MessageMapBuilderSpecs\EntityToMessageMap.cs" />
+    <Compile Include="EntityPresentation\MessageMapBuilderSpecs\FieldBase.cs" />
+    <Compile Include="EntityPresentation\MessageMapBuilderSpecs\IEntityMap.cs" />
+    <Compile Include="EntityPresentation\MessageMapBuilderSpecs\ValueField.cs" />
+    <Compile Include="EntityPresentation\MessageMapBuilderSpecs\WhenDiposingMessageMap.cs" />
+    <Compile Include="EntityPresentation\MessageMapBuilderSpecs\When_Building_Message_Map.cs" />
+    <Compile Include="EntityPresentation\MessageMapBuilderSpecs\When_Changing_Entity_Properties.cs" />
     <Compile Include="EntityPresentation\MessageViewModelSpecs\IFieldViewModel.cs" />
     <Compile Include="EntityPresentation\MessageViewModelSpecs\ILookUpDataProvider.cs" />
     <Compile Include="EntityPresentation\MessageViewModelSpecs\ReferenceFieldViewModel.cs" />
@@ -139,6 +147,7 @@
     <Compile Include="EntityPresentation\MessageViewModelSpecs\when_creating_message_view_model_for_Add_Supplier.cs" />
     <Compile Include="EntityPresentation\MessageViewModelSpecs\when_creating_message_view_model_for_change_order_attributes.cs" />
     <Compile Include="EntityPresentation\MessageViewModelSpecs\when_creating_message_view_model_for_change_supplier.cs" />
+    <Compile Include="EntityPresentation\MessageViewModelSpecs\With_New_Context.cs" />
     <Compile Include="EntityPresentation\ObjectMother.cs" />
     <Compile Include="EntityPresentation\PurchaseOrderLine.cs" />
     <Compile Include="Moq.cs" />

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using InRetail.EntityPresentation;
 using NServiceBus;
 using Xunit.Extensions;
@@ -40,7 +41,6 @@ namespace Tests.InRetail.Procurement.EntityPresentation.EntityPresentationModelB
             model = builder.Build(order);
         }
 
-
         [It]
         public void Should_Have_Model_Title()
         {
@@ -48,18 +48,45 @@ namespace Tests.InRetail.Procurement.EntityPresentation.EntityPresentationModelB
         }
 
         [It]
-        public void First_Part_Should_Be()
+        public void First_Part_Should_Be_OrderAttributes()
         {
-            Part part = model.Parts[0];
-            part.Title.ShouldEqual("Order Attributes");
-           
-            part.Fields[0].Label.ShouldEqual("Ref.");
-            part.Fields[0].Value.ShouldEqual("PO001");
-            
-            part.Fields[1].Label.ShouldEqual("Order Date");
-            part.Fields[1].Value.ShouldEqual(new DateTime(2010, 1, 12));
+            var part0 = model.Parts[0];
+            part0.Title.ShouldEqual("Order Attributes");
+            part0.Fields.Count.ShouldEqual(2);
 
-            //part.AssosiatedMessages[0]
+            var field0 = part0.Fields[0];
+            field0.Label.ShouldEqual("Ref.");
+            //field0.Value.ShouldEqual("PO001");
+
+            var field1 = part0.Fields[1];
+            field1.Label.ShouldEqual("Order Date");
+           // field1.Value.ShouldEqual(new DateTime(2010, 1, 12));
+
+            var messageMap0 = part0.MessageMaps[0];
+            messageMap0.Title.ShouldEqual("Change Order Attributes");
+            messageMap0.Fields[0].ShouldEqual(part0.Fields[0]);
+            messageMap0.Fields[1].ShouldEqual(part0.Fields[1]);
+        }
+
+        [It]
+        public void First_Part_Should_Be_ChangeSupplier()
+        {
+            var part1 = model.Parts[1];
+            part1.Title.ShouldEqual("Supplier");
+//            part1.Fields.Count.ShouldEqual(1);
+
+            var field0 = part1.Fields[0];
+            field0.Label.ShouldEqual("Supplier Name");
+           // field0.Value.ShouldEqual(new Supplier() { Name = "Elgar" });
+
+            var messageMap0 = part1.MessageMaps[0];
+            messageMap0.Title.ShouldEqual("Change Supplier And Update Supplier Prices");
+            messageMap0.Fields[0].ShouldEqual(part1.Fields[0]);
+
+            var messageMap1 = part1.MessageMaps[1];
+            messageMap1.Title.ShouldEqual("Change Supplier");
+//            messageMap1.Fields[0].ShouldEqual(part1.Fields[0]);
+            
         }
     }
 
@@ -92,7 +119,6 @@ namespace Tests.InRetail.Procurement.EntityPresentation.EntityPresentationModelB
         public Guid OrderId { get; set; }
         public Guid WareHouseId { get; set; }
     }
-
 
     public class AddOrderLine : IPurchaseOrderMessages
     {
