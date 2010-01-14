@@ -16,21 +16,7 @@ namespace Tests.InRetail.Procurement.EntityPresentation.MessageMapBuilderSpecs
 
         public override void Given()
         {
-            order = new PurchaseOrder
-            {
-                Ref = "PO001",
-                Date = new DateTime(2010, 1, 12),
-                Supplier = new Supplier() { Name = "Elgar" },
-                WhareHouse = new Warehouse() { Name = "Lutecia Stock" },
-                OrderLines = new List<PurchaseOrderLine>()
-                                             {
-                                                 new PurchaseOrderLine()
-                                                     {Product = new Product(), Quantity = 2, Price = 25},
-                                                 new PurchaseOrderLine()
-                                                     {Product = new Product(), Quantity = 1, Price = 50}
-                                             },
-                Total = 100,
-            };
+            order = PurchaseOrder.MakeValidOrder();
 
             map = new ChangeOrderAttributesMap();
         }

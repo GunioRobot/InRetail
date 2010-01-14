@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using InRetail.EntityPresentation;
+using Tests.InRetail.Procurement.EntityPresentation.EntityPresentationModelBuilderSpecs;
 
 namespace Tests.InRetail.Procurement.EntityPresentation
 {
@@ -59,6 +60,25 @@ namespace Tests.InRetail.Procurement.EntityPresentation
         {
             get { return _orderLines; }
             set { _orderLines = value; }
+        }
+
+        public static PurchaseOrder MakeValidOrder()
+        {
+            return new PurchaseOrder
+            {
+                Ref = "PO001",
+                Date = new DateTime(2010, 1, 12),
+                Supplier = new Supplier() { Name = "Elgar" },
+                WhareHouse = new Warehouse() { Name = "Lutecia Stock" },
+                OrderLines = new List<PurchaseOrderLine>()
+                                             {
+                                                 new PurchaseOrderLine()
+                                                     {Product = new Product(), Quantity = 2, Price = 25},
+                                                 new PurchaseOrderLine()
+                                                     {Product = new Product(), Quantity = 1, Price = 50}
+                                             },
+                Total = 100,
+            };
         }
     }
 }
