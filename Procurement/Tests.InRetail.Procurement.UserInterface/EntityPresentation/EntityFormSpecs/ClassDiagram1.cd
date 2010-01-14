@@ -1,13 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
-  <Class Name="Tests.InRetail.Procurement.EntityPresentation.EntityScreenSpecs.EntityScreen&lt;T&gt;">
+  <Class Name="Tests.InRetail.Procurement.EntityPresentation.EntityScreenSpecs.EntityForm&lt;T&gt;">
     <Position X="3.75" Y="2.5" Width="3" />
     <TypeIdentifier>
-      <HashCode>AEAAAAAABCAAAEBAAIAAAAAAACABAgAAACAAAAAAAAA=</HashCode>
-      <FileName>EntityPresentation\EntityScreenSpecs\EntityScreen.cs</FileName>
+      <HashCode>AAAAAAAABCAAAEBAAIAAAAAAACABAgAAACAAAAAAAAA=</HashCode>
+      <FileName>EntityPresentation\EntityFormSpecs\EntityForm.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="_modelBuilder" />
       <Field Name="_view" />
     </ShowAsAssociation>
     <Lollipop Position="0.2" />
@@ -18,54 +17,61 @@
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAABAQACAABAAAAAAAEARAAAQACAIACQAAAAAABAQ=</HashCode>
-      <FileName>EntityPresentation\EntityScreenSpecs\When_Opening_EntityScreen.cs</FileName>
+      <HashCode>AAAAAAAQACAAAAAAAEAAEAAAAAAAAAIAAQAAAAAABAA=</HashCode>
+      <FileName>EntityPresentation\EntityFormSpecs\When_Opening_EntityScreen.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="Tests.InRetail.Procurement.EntityPresentation.EntityScreenSpecs.IEntityView">
     <Position X="0.75" Y="2.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>EntityPresentation\EntityScreenSpecs\IEntityView.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>EntityPresentation\EntityFormSpecs\IEntityView.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Tests.InRetail.Procurement.EntityPresentation.EntityScreenSpecs.IModelBuilder">
     <Position X="9" Y="2.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
-      <FileName>EntityPresentation\EntityScreenSpecs\IModelBuilder.cs</FileName>
+      <FileName>EntityPresentation\EntityFormSpecs\IModelBuilder.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Tests.InRetail.Procurement.EntityPresentation.EntityScreenSpecs.IModelViewModelLocator">
     <Position X="8.25" Y="6.25" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>EntityPresentation\EntityScreenSpecs\IModelViewModelLocator.cs</FileName>
+      <FileName>EntityPresentation\EntityFormSpecs\IModelViewModelLocator.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Tests.InRetail.Procurement.EntityPresentation.EntityScreenSpecs.IPresentationModel">
     <Position X="12.25" Y="2.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>EntityPresentation\EntityScreenSpecs\IPresentationModel.cs</FileName>
+      <FileName>EntityPresentation\EntityFormSpecs\IPresentationModel.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Tests.InRetail.Procurement.EntityPresentation.EntityScreenSpecs.IPresentationView">
     <Position X="12.5" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>EntityPresentation\EntityScreenSpecs\IPresentationView.cs</FileName>
+      <FileName>EntityPresentation\EntityFormSpecs\IPresentationView.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Tests.InRetail.Procurement.EntityPresentation.EntityScreenSpecs.IPresentationViewModel">
     <Position X="9.5" Y="7.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>EntityPresentation\EntityScreenSpecs\IPresentationViewModel.cs</FileName>
+      <FileName>EntityPresentation\EntityFormSpecs\IPresentationViewModel.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="View" />
     </ShowAsAssociation>
+  </Interface>
+  <Interface Name="Tests.InRetail.Procurement.EntityPresentation.EntityScreenSpecs.IEntityForm&lt;T&gt;" Collapsed="true">
+    <Position X="7.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntityPresentation\EntityFormSpecs\EntityForm.cs</FileName>
+    </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

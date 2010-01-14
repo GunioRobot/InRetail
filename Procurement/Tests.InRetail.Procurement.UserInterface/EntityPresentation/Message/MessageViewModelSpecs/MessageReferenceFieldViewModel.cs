@@ -3,11 +3,11 @@ using System.Linq;
 
 namespace Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs
 {
-    public class ReferenceFieldViewModel<T> : FieldViewModelBase
+    public class MessageReferenceFieldViewModel<T> : MessageFieldViewModelBase
     {
         private readonly ILookUpDataProvider _lookUpDataProvider;
 
-        public ReferenceFieldViewModel(IField_v2 field, ILookUpDataProvider lookUpDataProvider)
+        public MessageReferenceFieldViewModel(IField_v2 field, ILookUpDataProvider lookUpDataProvider)
             : base(field)
         {
             LookUpData = new List<T>();

@@ -2,26 +2,24 @@
 using InRetail.UiCore.Actions;
 using InRetail.UiCore.Screens;
 
-namespace Tests.InRetail.Procurement.EntityPresentation.EntityScreenSpecs
+namespace Tests.InRetail.Procurement.EntityPresentation.EntityFormSpecs
 {
-    public class EntityScreen<T> : IScreen<T>
+    public class EntityForm<T> : IEntityForm<T>
     {
         private readonly T _subject;
         private readonly IEntityView _view;
-        private readonly IPresentationModel _presentationModel;
+        private IPresentationModel _presentationModel;
 
-        public EntityScreen()
+        public EntityForm()
         {
 
         }
 
-        public EntityScreen(T subject, IModelBuilder modelBuilder, IModelViewModelLocator viewModelLocator, IEntityView view)
+        public EntityForm(IPresentationModel subject, IEntityView view)
         {
-            _subject = subject;
+            _presentationModel = subject;
             _view = view;
-            _presentationModel = modelBuilder.Build(_subject);
-            var presentationViewModel = viewModelLocator.BuildViewModel(_presentationModel);
-            view.ShowModelView(presentationViewModel.View);
+
         }
 
         public void Dispose()
@@ -53,4 +51,6 @@ namespace Tests.InRetail.Procurement.EntityPresentation.EntityScreenSpecs
             get { return _subject; }
         }
     }
+
+    public interface IEntityForm<T> : IScreen<T> { }
 }

@@ -1,8 +1,8 @@
 ﻿namespace Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs
 {
-    public abstract class FieldViewModelBase : IFieldViewModel
+    public abstract class MessageFieldViewModelBase : IFieldViewModel
     {
-        protected FieldViewModelBase(IField_v2 field)
+        protected MessageFieldViewModelBase(IField_v2 field)
         {
             Label = field.Label;
             NewValue = field.Value;

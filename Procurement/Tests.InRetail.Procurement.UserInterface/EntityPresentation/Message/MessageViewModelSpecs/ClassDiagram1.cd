@@ -1,12 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs.ValueFieldViewModel&lt;T&gt;">
-    <Position X="2.75" Y="3.5" Width="2.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>EntityPresentation\MessageViewModelSpecs\ValueFieldViewModel.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs.MessageViewModel">
     <Position X="0.5" Y="2.5" Width="1.75" />
     <TypeIdentifier>
@@ -17,15 +10,15 @@
       <Property Name="Fields" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs.ReferenceFieldViewModel&lt;T&gt;">
-    <Position X="5.5" Y="3.5" Width="2.25" />
+  <Class Name="Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs.MessageReferenceFieldViewModel&lt;T&gt;">
+    <Position X="5.75" Y="3.5" Width="2.25" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAEAA=</HashCode>
-      <FileName>EntityPresentation\MessageViewModelSpecs\ReferenceFieldViewModel.cs</FileName>
+      <FileName>EntityPresentation\MessageViewModelSpecs\MessageReferenceFieldViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs.when_creating_message_view_model_for_change_order_attributes">
@@ -38,15 +31,15 @@
   <Class Name="Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs.when_creating_message_view_model_for_change_supplier">
     <Position X="5.25" Y="8.25" Width="4" />
     <TypeIdentifier>
-      <HashCode>ABAAAAAAACAAAAAAAAAAIAAAAAAAAAIAAAAAAAAABIA=</HashCode>
+      <HashCode>ABAAAAAAACAAAAAAAAAAAAAAAAAAAAIAAAAAAAAABIA=</HashCode>
       <FileName>EntityPresentation\MessageViewModelSpecs\when_creating_message_view_model_for_change_supplier.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs.FieldViewModelBase">
+  <Class Name="Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs.MessageFieldViewModelBase">
     <Position X="4.5" Y="0.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAEAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>EntityPresentation\MessageViewModelSpecs\FieldViewModelBase.cs</FileName>
+      <FileName>EntityPresentation\MessageViewModelSpecs\MessageFieldViewModelBase.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -64,10 +57,17 @@
       <FileName>EntityPresentation\MessageViewModelSpecs\With_New_Context.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs.MessageValueFieldViewModel&lt;T&gt;">
+    <Position X="2.75" Y="3.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntityPresentation\MessageViewModelSpecs\MessageValueFieldViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs.IMessageMap_v2">
     <Position X="8.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <HashCode>AAAAAAAAAAAEAEAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>EntityPresentation\MessageViewModelSpecs\IMessageMap_v2.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>

@@ -21,7 +21,7 @@ namespace InRetail.Procurement.UserInterface
 
         public void Initialize()
         {
-            _container.Configure(x => x.AddRegistry<ProcurementRegistry>());
+            _container.Configure(x => x.AddRegistry(new ProcurementRegistry()));
             _registry.Register("Procurement").ToScreen<PurchaseOrderScreen>();
         }
     }

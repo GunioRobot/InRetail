@@ -32,7 +32,7 @@ namespace Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs
 
             fieldViewModelLocator = Moq.Mock<IFieldViewModelLocator>();
             fieldViewModelLocator.Setup(x => x.GetViewModel(fieldV2s[0]))
-                .Returns((IField_v2 x) => new ReferenceFieldViewModel<Supplier>(x, lookUpDataProvider));
+                .Returns((IField_v2 x) => new MessageReferenceFieldViewModel<Supplier>(x, lookUpDataProvider));
         }
 
         public override void When()
@@ -50,7 +50,7 @@ namespace Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs
         [It]
         public void Should_Have_Fields_ViewModels()
         {
-            var fieldViewModel0 = viewModel.Fields[0].As<ReferenceFieldViewModel<Supplier>>();
+            var fieldViewModel0 = viewModel.Fields[0].As<MessageReferenceFieldViewModel<Supplier>>();
             fieldViewModel0.Label = "Supplier Name";
             fieldViewModel0.OldValue = new Supplier() { Name = "Elgar" };
             fieldViewModel0.NewValue = new Supplier() { Name = "Elgar" };

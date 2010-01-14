@@ -25,9 +25,9 @@ namespace Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs
 
             fieldViewModelLocator = Moq.Mock<IFieldViewModelLocator>();
             fieldViewModelLocator.Setup(x => x.GetViewModel(fieldV2s[0]))
-                .Returns((IField_v2 x) =>new ValueFieldViewModel<string>(x));
+                .Returns((IField_v2 x) =>new MessageValueFieldViewModel<string>(x));
             fieldViewModelLocator.Setup(x => x.GetViewModel(fieldV2s[1]))
-                .Returns((IField_v2 x) => new ValueFieldViewModel<DateTime>(x));
+                .Returns((IField_v2 x) => new MessageValueFieldViewModel<DateTime>(x));
         }
 
         public override void When()
@@ -45,12 +45,12 @@ namespace Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs
         [It]
         public void Should_Have_Fields_ViewModels()
         {
-            var fieldViewModel0 = viewModel.Fields[0].As<ValueFieldViewModel<String>>();
+            var fieldViewModel0 = viewModel.Fields[0].As<MessageValueFieldViewModel<String>>();
             fieldViewModel0.Label.ShouldEqual("Ref.");
             fieldViewModel0.OldValue.ShouldEqual("PO001");
             fieldViewModel0.NewValue.ShouldEqual("PO001");
 
-            var fieldViewModel1 = viewModel.Fields[1].As<ValueFieldViewModel<DateTime>>();
+            var fieldViewModel1 = viewModel.Fields[1].As<MessageValueFieldViewModel<DateTime>>();
             fieldViewModel1.Label.ShouldEqual("Order Date");
             fieldViewModel1.OldValue.ShouldEqual(new DateTime(2010, 1, 12));
             fieldViewModel1.NewValue.ShouldEqual(new DateTime(2010, 1, 12));

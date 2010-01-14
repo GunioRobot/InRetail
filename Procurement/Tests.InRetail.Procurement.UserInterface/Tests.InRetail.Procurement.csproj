@@ -111,10 +111,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssertHelpers\CommandAssertions.cs" />
+    <Compile Include="AssertHelpers\CommandExtensions.cs" />
     <Compile Include="AssertHelpers\EnumerableEx.cs" />
     <Compile Include="AssertHelpers\TestEx.cs" />
     <Compile Include="EntityPresentation\EntityFieldPresenterSpecs\When_Creating_Collection_Field.cs" />
     <Compile Include="EntityPresentation\EntityFieldPresenterSpecs\When_creating_entity_field_presenter.cs" />
+    <Compile Include="EntityPresentation\EntityFormScreenSubjectSpecs\When_Creating_Entity_Form.cs" />
+    <Compile Include="EntityPresentation\EntityFormSpecs\FieldsViewModelSpecs\FieldViewModelBase.cs" />
+    <Compile Include="EntityPresentation\EntityFormSpecs\FieldsViewModelSpecs\HelperExtensions.cs" />
+    <Compile Include="EntityPresentation\EntityFormSpecs\FieldsViewModelSpecs\IFieldView.cs" />
+    <Compile Include="EntityPresentation\EntityFormSpecs\FieldsViewModelSpecs\TestableFieldViewModelBase.cs" />
+    <Compile Include="EntityPresentation\EntityFormSpecs\FieldsViewModelSpecs\When_Creating_FieldViewModelSpecs.cs" />
+    <Compile Include="EntityPresentation\EntityFormSpecs\FieldsViewModelSpecs\When_Source_Field_Value_Changes.cs" />
+    <Compile Include="EntityPresentation\EntityFormSpecs\PartViewModelSpecs\IPartView.cs" />
+    <Compile Include="EntityPresentation\EntityFormSpecs\PartViewModelSpecs\PartViewModel.cs" />
     <Compile Include="EntityPresentation\EntityPartPresenterSpecs\SomeMessage1.cs" />
     <Compile Include="EntityPresentation\EntityPartPresenterSpecs\When_Canceling_Message_Editing.cs" />
     <Compile Include="EntityPresentation\EntityPartPresenterSpecs\When_Creating_Part_Presenter.cs" />
@@ -126,14 +136,14 @@
     <Compile Include="EntityPresentation\EntityPresentationModelBuilderSpecs\PresentationModel.cs" />
     <Compile Include="EntityPresentation\EntityPresentationModelBuilderSpecs\When_Building_Presentation_Model.cs" />
     <Compile Include="EntityPresentation\EntityPresenterSpecs\When_Creating_Entity_Presenter.cs" />
-    <Compile Include="EntityPresentation\EntityScreenSpecs\EntityScreen.cs" />
-    <Compile Include="EntityPresentation\EntityScreenSpecs\IEntityView.cs" />
-    <Compile Include="EntityPresentation\EntityScreenSpecs\IModelBuilder.cs" />
-    <Compile Include="EntityPresentation\EntityScreenSpecs\IModelViewModelLocator.cs" />
-    <Compile Include="EntityPresentation\EntityScreenSpecs\IPresentationModel.cs" />
-    <Compile Include="EntityPresentation\EntityScreenSpecs\IPresentationView.cs" />
-    <Compile Include="EntityPresentation\EntityScreenSpecs\IPresentationViewModel.cs" />
-    <Compile Include="EntityPresentation\EntityScreenSpecs\When_Opening_EntityScreen.cs" />
+    <Compile Include="EntityPresentation\EntityFormSpecs\EntityForm.cs" />
+    <Compile Include="EntityPresentation\EntityFormSpecs\IEntityView.cs" />
+    <Compile Include="EntityPresentation\EntityFormSpecs\IModelBuilder.cs" />
+    <Compile Include="EntityPresentation\EntityFormSpecs\IModelViewModelLocator.cs" />
+    <Compile Include="EntityPresentation\EntityFormSpecs\IPresentationModel.cs" />
+    <Compile Include="EntityPresentation\EntityFormSpecs\IPresentationView.cs" />
+    <Compile Include="EntityPresentation\EntityFormSpecs\IPresentationViewModel.cs" />
+    <Compile Include="EntityPresentation\EntityFormSpecs\When_Opening_EntityScreen.cs" />
     <Compile Include="EntityPresentation\Integration\When_Activating_Screen_For_Entity.cs" />
     <Compile Include="EntityPresentation\MessageMapBuilderSpecs\ChangeOrderAttributesMap.cs" />
     <Compile Include="EntityPresentation\MessageMapBuilderSpecs\EntityToMessageMap.cs" />
@@ -143,19 +153,24 @@
     <Compile Include="EntityPresentation\MessageMapBuilderSpecs\WhenDiposingMessageMap.cs" />
     <Compile Include="EntityPresentation\MessageMapBuilderSpecs\When_Building_Message_Map.cs" />
     <Compile Include="EntityPresentation\MessageMapBuilderSpecs\When_Changing_Entity_Properties.cs" />
-    <Compile Include="EntityPresentation\MessageViewModelSpecs\IFieldViewModel.cs" />
-    <Compile Include="EntityPresentation\MessageViewModelSpecs\ILookUpDataProvider.cs" />
-    <Compile Include="EntityPresentation\MessageViewModelSpecs\ReferenceFieldViewModel.cs" />
-    <Compile Include="EntityPresentation\MessageViewModelSpecs\ValueFieldViewModel.cs" />
-    <Compile Include="EntityPresentation\MessageViewModelSpecs\IField_v2.cs" />
-    <Compile Include="EntityPresentation\MessageViewModelSpecs\IMessageMap_v2.cs" />
-    <Compile Include="EntityPresentation\MessageViewModelSpecs\FieldViewModelBase.cs" />
-    <Compile Include="EntityPresentation\MessageViewModelSpecs\MessageViewModel.cs" />
-    <Compile Include="EntityPresentation\MessageViewModelSpecs\when_creating_message_view_model_for_Add_Supplier.cs" />
-    <Compile Include="EntityPresentation\MessageViewModelSpecs\when_creating_message_view_model_for_change_order_attributes.cs" />
-    <Compile Include="EntityPresentation\MessageViewModelSpecs\when_creating_message_view_model_for_change_supplier.cs" />
-    <Compile Include="EntityPresentation\MessageViewModelSpecs\With_New_Context.cs" />
-    <Compile Include="EntityPresentation\PresentationViewModel\When_Creating_Presentation_ViewModel.cs" />
+    <Compile Include="EntityPresentation\EntityFormSpecs\MessageMapViewModelSpecs\IMessageSender.cs" />
+    <Compile Include="EntityPresentation\EntityFormSpecs\MessageMapViewModelSpecs\MessageMapViewModel.cs" />
+    <Compile Include="EntityPresentation\Message\MessageViewModelSpecs\IFieldViewModel.cs" />
+    <Compile Include="EntityPresentation\Message\MessageViewModelSpecs\ILookUpDataProvider.cs" />
+    <Compile Include="EntityPresentation\Message\MessageViewModelSpecs\MessageReferenceFieldViewModel.cs" />
+    <Compile Include="EntityPresentation\Message\MessageViewModelSpecs\MessageValueFieldViewModel.cs" />
+    <Compile Include="EntityPresentation\Message\MessageViewModelSpecs\IField_v2.cs" />
+    <Compile Include="EntityPresentation\Message\MessageViewModelSpecs\IMessageMap_v2.cs" />
+    <Compile Include="EntityPresentation\Message\MessageViewModelSpecs\MessageFieldViewModelBase.cs" />
+    <Compile Include="EntityPresentation\Message\MessageViewModelSpecs\MessageViewModel.cs" />
+    <Compile Include="EntityPresentation\Message\MessageViewModelSpecs\when_creating_message_view_model_for_Add_Supplier.cs" />
+    <Compile Include="EntityPresentation\Message\MessageViewModelSpecs\when_creating_message_view_model_for_change_order_attributes.cs" />
+    <Compile Include="EntityPresentation\Message\MessageViewModelSpecs\when_creating_message_view_model_for_change_supplier.cs" />
+    <Compile Include="EntityPresentation\Message\MessageViewModelSpecs\With_New_Context.cs" />
+    <Compile Include="EntityPresentation\EntityFormSpecs\MessageMapViewModelSpecs\When_User_Clicks_Edit_Message_Button.cs" />
+    <Compile Include="EntityPresentation\EntityFormSpecs\PartViewModelSpecs\When_Creating_PartViewModel.cs" />
+    <Compile Include="EntityPresentation\EntityFormSpecs\PresentationViewModel\PresentationViewModel.cs" />
+    <Compile Include="EntityPresentation\EntityFormSpecs\PresentationViewModel\When_Creating_Presentation_ViewModel.cs" />
     <Compile Include="EntityPresentation\PurchaseOrderLine.cs" />
     <Compile Include="Moq.cs" />
     <Compile Include="Trash\ChangeAddressMessage.cs" />
@@ -222,11 +237,11 @@
   <ItemGroup>
     <None Include="EntityPresentation\ClassDiagram1.cd" />
     <None Include="EntityPresentation\EntityPartPresenterSpecs\ClassDiagram1.cd" />
-    <None Include="EntityPresentation\EntityScreenSpecs\ClassDiagram1.cd" />
-    <None Include="EntityPresentation\MessageViewModelSpecs\ClassDiagram1.cd" />
+    <None Include="EntityPresentation\EntityFormSpecs\ClassDiagram1.cd" />
+    <None Include="EntityPresentation\Message\MessageViewModelSpecs\ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="EntityPresentation\MessagePresenterSpecs\" />
+    <Folder Include="EntityPresentation\Message\MessagePresenterSpecs\" />
     <Folder Include="Scenarios\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
