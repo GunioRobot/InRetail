@@ -5,7 +5,7 @@ namespace Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs
 {
     public class when_creating_message_view_model_for_Add_OrderLine : With_New_Context
     {
-
+        private IFieldViewModelLocator fieldViewModelLocator;
         public override void Given()
         {
             base.Given();
@@ -15,6 +15,7 @@ namespace Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs
         public override void When()
         {
             base.When();
+            viewModel = new MessageViewModel(messageMap, fieldViewModelLocator);
         }
 
         [It]

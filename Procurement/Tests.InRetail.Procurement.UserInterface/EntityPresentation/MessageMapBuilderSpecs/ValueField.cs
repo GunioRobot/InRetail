@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs;
@@ -24,7 +25,6 @@ namespace Tests.InRetail.Procurement.EntityPresentation.MessageMapBuilderSpecs
         {
             _compile = _property.Compile();
             _target = target;
-            _compile(target);
             _observableValue = target.FromPropertyChanged(_property);
             _observableValue2 = _observableValue.Select(x => (object)x);
         }

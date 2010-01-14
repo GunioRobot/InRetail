@@ -14,6 +14,8 @@ namespace Exploration.Tests.StructureMap
             var instance = ObjectFactory.GetInstance<IOpenFoo<TestClass>>();
             Assert.NotNull(instance);
         }
+
+      
     }
 
     public class TestClass

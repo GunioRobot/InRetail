@@ -1,41 +1,44 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using InRetail.UiCore.Extensions;
+using Tests.InRetail.Procurement.EntityPresentation.EntityPartPresenterSpecs;
 using Xunit.Extensions;
 
 namespace Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs
 {
     public class when_creating_message_view_model_for_change_supplier : With_New_Context
     {
-        
-        private ILookUpDataProvider lookUpDataProvider;
+        private IFieldViewModelLocator fieldViewModelLocator;
 
         public override void Given()
         {
             base.Given();
-            lookUpDataProvider = Moq.Mock<ILookUpDataProvider>();
-            lookUpDataProvider.Setup(x => x.GetLookupData<Supplier>()).Returns(new[]
-                                                                        {
-                                                                            new Supplier() {Name = "Elgar"},
-                                                                            new Supplier() {Name = "Supplier2"},
-                                                                            new Supplier() { Name = "Supplier3" }
-                                                                        });
-            
-            messageMap.SetupGet(x => x.Title).Returns("Supplier");
 
-            var field0 = Moq.Mock<IField_v2<Supplier>>();
-            field0.SetupGet(x => x.Label).Returns("Supplier Name");
-            field0.SetupGet(x => x.Value).Returns(new Supplier() { Name = "Elgar" });
-            //field0.Setup(x => x.BuildViewModel()).Returns(new ReferenceFieldViewModel<Supplier>(field0, lookUpDataProvider));
+            messageMap = New.MessageMap_v2("Supplier")
+                .Fields(x => x.Label("Supplier Name")
+                                .Value(new Supplier() { Name = "Elgar" })
+                            ).Build();
+            var fieldV2s = messageMap.Fields.ToList();
 
-            messageMap.Setup(x => x.Fields).Returns(new[] { field0, });
+            var lookUpDataProvider = Moq.Mock<ILookUpDataProvider>();
+            lookUpDataProvider.Setup(x => x.GetLookupData<Supplier>())
+                .Returns(new[]
+                             {
+                                 new Supplier() {Name = "Elgar"},
+                                 new Supplier() {Name = "Supplier2"},
+                                 new Supplier() {Name = "Supplier3"}
+                             });
 
-          
+            fieldViewModelLocator = Moq.Mock<IFieldViewModelLocator>();
+            fieldViewModelLocator.Setup(x => x.GetViewModel(fieldV2s[0]))
+                .Returns((IField_v2 x) => new ReferenceFieldViewModel<Supplier>(x, lookUpDataProvider));
         }
 
         public override void When()
         {
             base.When();
+            viewModel = new MessageViewModel(messageMap, fieldViewModelLocator);
         }
 
         [It]
@@ -56,5 +59,10 @@ namespace Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs
             fieldViewModel0.LookUpData.ShouldContain(new Supplier() { Name = "Supplier2" });
             fieldViewModel0.LookUpData.ShouldContain(new Supplier() { Name = "Supplier3" });
         }
+    }
+
+    public interface IFieldViewModelLocator
+    {
+        IFieldViewModel GetViewModel(IField_v2 field0);
     }
 }

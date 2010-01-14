@@ -1,7 +1,9 @@
 using System;
+using System.Linq;
 using InRetail.EntityPresentation;
 using InRetail.UiCore.Extensions;
 using Tests.InRetail.Procurement.AssertHelpers;
+using Tests.InRetail.Procurement.EntityPresentation.EntityPartPresenterSpecs;
 using Tests.InRetail.Procurement.EntityPresentation.EntityPresentationModelBuilderSpecs;
 using Xunit.Extensions;
 
@@ -9,29 +11,29 @@ namespace Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs
 {
     public class when_creating_message_view_model_for_change_order_attributes : With_New_Context
     {
-
+        private IFieldViewModelLocator fieldViewModelLocator;
         public override void Given()
         {
             base.Given();
             
-            messageMap.SetupGet(x => x.Title).Returns("Change Order Attributes");
             
-            var field0 = Moq.Mock<IField_v2<string>>();
-            field0.SetupGet(x => x.Label).Returns("Ref.");
-            field0.SetupGet(x => x.Value).Returns("PO001");
-            //field0.Setup(x => x.BuildViewModel()).Returns(new ValueFieldViewModel<string>(field0));
+            
+           messageMap = New.MessageMap_v2("Change Order Attributes")
+                .Fields(x => x.Label("Ref.").Value("PO001"),
+                        x => x.Label("Order Date").Value(new DateTime(2010, 1, 12))).Build();
+           var fieldV2s = messageMap.Fields.ToList();
 
-            var field1 = Moq.Mock<IField_v2<DateTime>>();
-            field1.SetupGet(x => x.Label).Returns("Order Date");
-            field1.SetupGet(x => x.Value).Returns(new DateTime(2010, 1, 12));
-            //field1.Setup(x => x.BuildViewModel()).Returns(new ValueFieldViewModel<DateTime>(field1));
-
-            messageMap.Setup(x => x.Fields).Returns(new IField_v2[] { field0, field1 });
+            fieldViewModelLocator = Moq.Mock<IFieldViewModelLocator>();
+            fieldViewModelLocator.Setup(x => x.GetViewModel(fieldV2s[0]))
+                .Returns((IField_v2 x) =>new ValueFieldViewModel<string>(x));
+            fieldViewModelLocator.Setup(x => x.GetViewModel(fieldV2s[1]))
+                .Returns((IField_v2 x) => new ValueFieldViewModel<DateTime>(x));
         }
 
         public override void When()
         {
             base.When();
+            viewModel = new MessageViewModel(messageMap, fieldViewModelLocator);
         }
 
         [It]

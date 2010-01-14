@@ -17,6 +17,9 @@ namespace Tests.InRetail.Procurement.EntityPresentation.MessageMapBuilderSpecs
             messageMap.Fields[0].ObservableValue.Subscribe(x => newvalue1 = x);
             messageMap.Fields[0].As<IField_v2<string>>().ObservableValue.Subscribe(x => newvalue2 = x);
 
+            newvalue1.ShouldEqual(null);
+            newvalue2.ShouldEqual(null);
+
             order.Ref = "Acho Magaria!";
 
             messageMap.Fields[0].Value.ShouldEqual("Acho Magaria!");

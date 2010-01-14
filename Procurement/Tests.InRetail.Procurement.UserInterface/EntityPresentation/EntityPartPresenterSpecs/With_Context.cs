@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using InRetail.EntityPresentation;
 using Moq;
+using Tests.InRetail.Procurement.EntityPresentation.MessageViewModelSpecs;
 
 namespace Tests.InRetail.Procurement.EntityPresentation.EntityPartPresenterSpecs
 {
@@ -23,6 +24,67 @@ namespace Tests.InRetail.Procurement.EntityPresentation.EntityPartPresenterSpecs
         public static PartBuilder Part()
         {
             return new PartBuilder();
+        }
+
+        public static MessageMap_v2Builder MessageMap_v2(string title)
+        {
+            return new MessageMap_v2Builder(title);
+        }
+    }
+
+    internal class MessageMap_v2Builder : IBuilder<IMessageMap_v2>
+    {
+        private readonly string _title;
+        private IList<IField_v2> _fields;
+
+        public MessageMap_v2Builder(string title)
+        {
+            _title = title;
+        }
+
+        public MessageMap_v2Builder Fields(params Action<Field_v2Builder>[] configs)
+        {
+            _fields=new List<IField_v2>();
+            foreach (var action in configs)
+            {
+                var bilder = new Field_v2Builder();
+                action(bilder);
+                _fields.Add(bilder.Build());
+            }
+            return this;
+        }
+
+        public IMessageMap_v2 Build()
+        {
+            var mock = new Mock<IMessageMap_v2>();
+            mock.SetupGet(x => x.Title).Returns(_title);
+            mock.Setup(x => x.Fields).Returns(_fields);
+            return mock.Object;
+        }
+    }
+
+    internal class Field_v2Builder : IBuilder<IField_v2> {
+        private string _label;
+        private object _value;
+
+        public Field_v2Builder Label(string label)
+        {
+            _label = label;
+            return this;
+        }
+
+        public Field_v2Builder Value<T>(T value)
+        {
+            _value = value;
+            return this;
+        }
+
+        public IField_v2 Build()
+        {
+            var mock = new Mock<IField_v2>();
+            mock.SetupGet(x => x.Label).Returns(_label);
+            mock.SetupGet(x => x.Value).Returns(_value);
+            return mock.Object;
         }
     }
 

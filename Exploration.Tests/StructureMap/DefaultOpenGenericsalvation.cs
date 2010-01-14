@@ -1,3 +1,4 @@
+using System;
 using StructureMap;
 using Xunit;
 using StructureMap.Configuration.DSL;
@@ -26,6 +27,16 @@ namespace Exploration.Tests.StructureMap
 
             Assert.True(defView is DefaultView<Bar>);
             Assert.True(fooView is FooView);
+        }
+
+        [Fact]
+        public void Resolving_closing_type_by_type_parameter_type()
+        {
+            var generic = typeof (IView<>);
+            System.Type specificType = generic.MakeGenericType(new System.Type[] { typeof(Foo) });
+            var o = container.GetInstance(specificType);
+
+            Assert.True(o is FooView);
         }
     }
 

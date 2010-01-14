@@ -63,11 +63,6 @@ namespace Tests.InRetail.Procurement.EntityPresentation.EntityPresentationModelB
             get { throw new NotImplementedException(); }
         }
 
-        public IFieldViewModel BuildViewModel()
-        {
-            throw new NotImplementedException();
-        }
-
         public object Value { get; set; }
     }
 }
