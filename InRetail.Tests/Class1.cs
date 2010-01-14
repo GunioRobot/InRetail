@@ -70,11 +70,7 @@ namespace Tests.InRetail
     public static class MoqExtension
     {
         [DebuggerNonUserCode]
-        public static Mock<T> Moq<T>(this T o) where T : class
-        {
-            return Mock.Get<T>(o);
-        }
-        [DebuggerNonUserCode]
+
         public static void Verify<T>(this T o, Expression<Action<T>> a) where T : class
         {
             Mock.Get<T>(o).Verify(a);
@@ -97,6 +93,17 @@ namespace Tests.InRetail
             return Mock.Get<T>(o).Setup(expression);
         }
 
+        [DebuggerNonUserCode]
+        public static ISetupGetter<T, TProperty> SetupGet<T, TProperty>(this T o, Expression<Func<T, TProperty>> expression) where T : class
+        {
+            return Mock.Get<T>(o).SetupGet(expression);
+        }
+
+        [DebuggerNonUserCode]
+        public static Mock<T> Moq<T>(this T o) where T : class
+        {
+            return Mock.Get<T>(o);
+        }
     }
 
     public static class Moq

@@ -1,46 +1,59 @@
+using System;
+using System.Collections.Generic;
 using InRetail.UiCore;
+using InRetail.UiCore.Screens;
 using Moq;
 
 namespace Tests.InRetail.UserInterface.ScreenManagement.ScreenConductorSpecs
 {
-    public class When_Opening_Screen_Witch_Is_Already_Opened_But_It_Is_Not_Active : With_Open_Screens
+    public class When_Opening_Screen_Witch_Is_Already_Opened_But_It_Is_Not_Active : When_Creating_ScreenConductor
     {
-        protected TestScreen3 createdScreen;
+        private IScreen newScreen;
+        private IScreenSubject screenSubject;
+        private IScreen inActiveScreen;
 
         public override void Given()
         {
             base.Given();
-            createdScreen = new Mock<TestScreen3>().Object;
-            screenFactory.Moq().Setup(x => x.Build<TestScreen3>()).Returns(createdScreen);
+            inActiveScreen = newScreen = Moq.Mock<IScreen>();
+
+            screenSubject = Moq.Mock<IScreenSubject>();
+            screenSubject.Setup(x => x.Matches(inActiveScreen)).Returns(true);
+
+            var someOtherScreen = Moq.Stub<IScreen>();
+            screenCollection.Setup(x => x.Active).Returns(someOtherScreen);
+            screenCollection.SetupGet(x => x.AllScreens).Returns(new[] { someOtherScreen, inActiveScreen });
+
         }
 
         public override void When()
         {
-            conductor.OpenScreen(new SingletonScreenSubject<TestScreen3>());
+            base.When();
+            conductor.OpenScreen(screenSubject);
         }
 
         [It]
-        public void Then_Screen_Should_Not_Created_By_Screen_Factory()
+        public void Should_Not_Call_ScreenSubject_To_CreateScreen_NewScreen()
         {
-            screenFactory.Moq().Verify(x => x.Build<TestScreen3>(), Times.Never());
+            screenSubject.Verify(x => x.CreateScreen(It.IsAny<IScreenFactory>()), Times.Never());
         }
 
         [It]
-        public void Then_Screen_Should_Activated()
+        public void Should_Activate_InActiveScreen()
         {
-            notActiveScreen.Moq().Verify(x => x.Activate(screenObjectRegistry), Times.Once());
+            inActiveScreen.Verify(x => x.Activate(screenObjectRegistry), Times.Once());
         }
 
         [It]
-        public void Then_Screen_Should_Not_Added_To_ScreenCollection()
+        public void Should_Not_Add_NewScreen_To_ScreenCollection()
         {
-            screenCollection.Moq().Verify(x => x.Add(createdScreen), Times.Never());
+            screenCollection.Moq().Verify(x => x.Add(newScreen), Times.Never());
         }
 
         [It]
-        public void Then_Screen_Should_Shown_By_Screen_Collection()
+        public void Should_Call_ScreenCollection_To_Show_InActiveScreen()
         {
-            screenCollection.Moq().Verify(x => x.Show(notActiveScreen), Times.Once());
+            screenCollection.Verify(x => x.Show(inActiveScreen), Times.Once());
         }
     }
 }

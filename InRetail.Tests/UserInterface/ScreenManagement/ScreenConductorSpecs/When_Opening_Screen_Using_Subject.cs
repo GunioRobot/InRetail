@@ -1,46 +1,46 @@
-using InRetail.UiCore;
+using System;
+using System.Collections.Generic;
+using InRetail.UiCore.Screens;
 using Moq;
 
 namespace Tests.InRetail.UserInterface.ScreenManagement.ScreenConductorSpecs
 {
-    public class When_Opening_Screen_Using_Subject : With_Emty_Conductor
+    public class When_Opening_Screen_Using_Subject : When_Creating_ScreenConductor
     {
-        protected TestScreen2 testScreen;
+        IScreen screenToOpen;
+        IScreenSubject screenSubject;
 
         public override void Given()
         {
             base.Given();
-            testScreen = new Mock<TestScreen2>().Object;
-            screenFactory.Moq().Setup(x => x.Build<TestScreen2>()).Returns(testScreen);
+            screenToOpen = new Mock<IScreen>().Object;
+
+            screenSubject = Moq.Mock<IScreenSubject>();
+            screenSubject.Setup(x => x.CreateScreen(screenFactory)).Returns(screenToOpen);
         }
 
         public override void When()
         {
-            conductor.OpenScreen(new SingletonScreenSubject<TestScreen2>());
+            base.When();
+            conductor.OpenScreen(screenSubject);
         }
 
         [It]
-        public void Then_Screen_Should_Be_Created_By_Screen_Factory()
+        public void Should_Activate_Screen_And_Pass_ScreenObjectRegistry_To_Screen_To_Register_ScreenActions()
         {
-            screenFactory.Moq().Verify(x => x.Build<TestScreen2>(), Times.Once());
+            screenToOpen.Verify(x => x.Activate(screenObjectRegistry), Times.Once());
         }
 
         [It]
-        public void Then_Screen_Should_Activated_And_Given_Chance_To_Register_ScreenActions()
+        public void Should_Add_Screen_To_Screen_Collection()
         {
-            testScreen.Moq().Verify(x => x.Activate(screenObjectRegistry), Times.Once());
+            screenCollection.Verify(x => x.Add(screenToOpen), Times.Once());
         }
 
         [It]
-        public void Then_Screen_Should_Added_to_Screen_Collection()
+        public void Should_Call_Screen_Collection_To_Show_Screen()
         {
-            screenCollection.Moq().Verify(x => x.Add(testScreen), Times.Once());
-        }
-
-        [It]
-        public void Then_Screen_Should_Shown_By_Screen_Collection()
-        {
-            screenCollection.Moq().Verify(x => x.Show(testScreen), Times.Once());
+            screenCollection.Verify(x => x.Show(screenToOpen), Times.Once());
         }
     }
 }

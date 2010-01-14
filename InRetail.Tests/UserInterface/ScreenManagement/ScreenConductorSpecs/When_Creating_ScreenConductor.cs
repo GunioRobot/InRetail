@@ -1,26 +1,33 @@
-using System.Collections.Generic;
-using InRetail.Shell;
+﻿using InRetail.Shell;
 using InRetail.UiCore;
 using InRetail.UiCore.Actions;
 using InRetail.UiCore.Screens;
-using Moq;
 
 namespace Tests.InRetail.UserInterface.ScreenManagement.ScreenConductorSpecs
 {
-    public abstract class With_Emty_Conductor : Specification
+    public class When_Creating_ScreenConductor : Specification
     {
         protected ScreenConductor conductor;
-        protected IScreenFactory screenFactory;
         protected IScreenObjectRegistry screenObjectRegistry;
         protected IScreenCollection screenCollection;
-        protected IList<object> activeScreens;
+        protected IScreenFactory screenFactory;
 
         public override void Given()
         {
-            screenFactory = new Mock<IScreenFactory>().Object;
-            screenObjectRegistry = new Mock<IScreenObjectRegistry>().Object;
-            screenCollection = new Mock<IScreenCollection>().Object;
+            screenCollection = Moq.Mock<IScreenCollection>();
+            screenObjectRegistry=Moq.Mock<IScreenObjectRegistry>();
+            screenFactory = Moq.Mock<IScreenFactory>();
+        }
+
+        public override void When()
+        {
             conductor = new ScreenConductor(screenCollection, screenFactory, screenObjectRegistry);
+        }
+
+        [It]
+        public void Just_Initializes_Private_Fields()
+        {
+
         }
     }
 }
