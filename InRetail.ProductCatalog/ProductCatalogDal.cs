@@ -12,7 +12,7 @@
 // Generation date: 12/8/2009 12:11:03 PM
 namespace ProductCatalogModel
 {
-    
+
     /// <summary>
     /// There are no comments for ProductCatalogContainer in the schema.
     /// </summary>
@@ -21,7 +21,7 @@ namespace ProductCatalogModel
         /// <summary>
         /// Initialize a new ProductCatalogContainer object.
         /// </summary>
-        public ProductCatalogContainer(global::System.Uri serviceRoot) : 
+        public ProductCatalogContainer(global::System.Uri serviceRoot) :
                 base(serviceRoot)
         {
             this.OnContextCreated();

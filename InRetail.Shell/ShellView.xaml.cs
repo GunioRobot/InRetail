@@ -23,7 +23,7 @@ namespace InRetail.Shell
         public ShellView()
         {
             InitializeComponent();
-            
+
         }
 
         public void ShowView()

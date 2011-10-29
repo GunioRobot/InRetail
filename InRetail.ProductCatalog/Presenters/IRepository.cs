@@ -39,7 +39,7 @@ namespace InRetail.ProductCatalog.Presenters
                 //{
                 //    var container = new ProductCatalogContainer(new Uri(@"http://localhost:2691/ProductCatalog.svc/"));
                 //    var list = (IEnumerable<T>)container.ProductDetailViewModels.Take(10);
-                    
+
                 //    return list.ToList();
                 //});
                 //return task.ToObservable().SelectMany(x => x);

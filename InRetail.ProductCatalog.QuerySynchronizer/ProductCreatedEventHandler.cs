@@ -21,7 +21,7 @@ namespace InRetail.ProductCatalog.QuerySynchronizer
             Uow.CurrentSession.Save(view);
             Uow.Commit();
             Console.WriteLine("ProductCreatedEvent Received {0}", message.Description);
-            
+
         }
     }
 }

@@ -14,10 +14,10 @@ namespace InRetail.Shell
         }
 
         public IShellView View { get; private set; }
-        
+
         public void AddModuleAction(IScreenAction action)
         {
-            
+
         }
     }
 

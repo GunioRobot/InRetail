@@ -22,7 +22,7 @@ namespace InRetail.ProductCatalog
                          });
 
 
-            
+
             ForRequestedType<IProductDetailView>().TheDefaultIsConcreteType<ProductDetailView>();
         }
     }

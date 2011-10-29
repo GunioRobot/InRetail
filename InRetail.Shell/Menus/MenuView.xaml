@@ -5,12 +5,12 @@
     <UserControl.Resources>
         <HierarchicalDataTemplate DataType = "{x:Type Menus:MenuItemViewModel}"
                                 ItemsSource = "{Binding Path=Menus}">
-            
+
             <DockPanel>
             <TextBlock Text="{Binding Path=Name}"/>
             <Button  DockPanel.Dock="Right" Content="{Binding Name}" Command="{Binding ActionCommand}"/>
                 </DockPanel>
-        
+
         </HierarchicalDataTemplate>
     </UserControl.Resources>
     <Grid>

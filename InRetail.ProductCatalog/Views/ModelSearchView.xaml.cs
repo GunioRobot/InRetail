@@ -27,7 +27,7 @@ namespace InRetail.ProductCatalog.Views
             _refreshList = Observable.FromEvent<RoutedEventArgs>(btnRefresh, "Click");
 
 
-           
+
         }
 
         public IObservable<IEvent<RoutedEventArgs>> RefreshList
@@ -35,5 +35,5 @@ namespace InRetail.ProductCatalog.Views
             get { return _refreshList; }
         }
     }
-    
+
 }

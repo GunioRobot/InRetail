@@ -6,11 +6,11 @@ using FluentNHibernate.Conventions.Instances;
 
 namespace InRetail.ProductCatalog.Persistence
 {
-    public class ClassConvention : IClassConvention 
+    public class ClassConvention : IClassConvention
     {
         public void Apply(IClassInstance instance)
         {
-            
+
             instance.Table(Inflector.Pluralize(instance.EntityType.Name));
         }
     }

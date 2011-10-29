@@ -24,11 +24,11 @@ If an exception occurs while activating instances during enumeration, this metho
 A call to:
 
     object IServiceLocator.GetInstance(serviceType)
-    
+
 MUST be exactly equivalent to a call to:
 
     object IServiceLocator.GetInstance(serviceType, null)
-    
+
 A call to:
 
     TService IServiceLocator.GetInstance<TService>()
@@ -36,23 +36,23 @@ A call to:
 MUST be exactly equivalent to a call to:
 
     (TService)IServiceLocator.GetInstance(typeof(TService), null)
-    
+
 A call to:
 
     TService IServiceLocator.GetInstance<TService>(key)
-    
+
 MUST be exactly equivalent to a call to:
 
     (TService)IServiceLocator.GetInstance(typeof(TService), key)
-    
+
 A call to:
 
     IEnumerable<TService> IServiceLocator.GetAllInstances<TService>()
-    
+
 Must be exactly equivalent to a call to:
 
     IEnumerable<object> IServiceLocator.GetAllInstances(typeof(TService))
-    
+
 with the exception that the objects returned by the enumerator are already cast to type TService.
 
 **** Throwing ActivationException ****

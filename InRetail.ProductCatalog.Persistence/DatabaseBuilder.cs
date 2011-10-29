@@ -2,7 +2,7 @@ namespace InRetail.ProductCatalog.Persistence
 {
     public class DatabaseBuilder : IDatabaseBuilder
     {
- 
+
         private readonly IUnitOfWork _unitOfWork;
 
         public DatabaseBuilder(IUnitOfWork unitOfWork)

@@ -7,6 +7,6 @@ namespace InRetail.ProductCatalog
 {
     public class ScreenActionRegistry
     {
-        
+
     }
 }

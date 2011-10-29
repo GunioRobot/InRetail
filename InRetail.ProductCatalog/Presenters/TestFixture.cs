@@ -23,7 +23,7 @@ namespace InRetail.ProductCatalog.Presenters
             var cont = new ProductCatalogContainer(new Uri(@"http://localhost:2691/ProductCatalog.svc/"));
             var infos = cont.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public).
                 Where(
-                    x=>x.PropertyType.IsGenericType && 
+                    x=>x.PropertyType.IsGenericType &&
                     x.PropertyType.GetGenericArguments().FirstOrDefault(t => t == typeof(ProductDetailViewModel)) != null).
                 First();
         }

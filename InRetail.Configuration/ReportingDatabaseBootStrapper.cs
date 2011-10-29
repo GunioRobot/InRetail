@@ -14,8 +14,8 @@ namespace InRetail.Configuration
         private readonly SqlCreateBuilder _sqlCreateBuilder = new SqlCreateBuilder();
         private readonly List<Type> _dtos = new List<Type>
         {
-            typeof(ProductReport), 
-            typeof(CategoryReport), 
+            typeof(ProductReport),
+            typeof(CategoryReport),
         };
 
         public static void BootStrap()

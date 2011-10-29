@@ -4,7 +4,7 @@ namespace InRetail.ProductCatalog.Persistence
     {
         public ProductDetailViewMapping()
         {
-            
+
         }
     }
 }

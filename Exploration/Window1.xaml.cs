@@ -19,8 +19,8 @@ namespace Exploration
         public Window1()
         {
             InitializeComponent();
-        
-         
+
+
         }
     }
 

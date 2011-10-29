@@ -68,5 +68,5 @@ namespace InRetail.Bus.Direct
         }
     }
 
-    
+
 }

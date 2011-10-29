@@ -18,7 +18,7 @@ namespace Tests.InRetail.Scenarios.Adding_a_new_product
                 .Setup(x => x.Save(It.IsAny<ProductReport>()))
                 .Callback<ProductReport>(a => SavedProductObject = a);
 
-            
+
         }
         protected override ProductCreatedEvent When()
         {

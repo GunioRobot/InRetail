@@ -23,14 +23,14 @@ namespace InRetail.ProductCatalog.Persistence
                     .AssemblyOf<ProductDetailViewModel>()
                     .Conventions
                     .Add(new ClassConvention())))
-                
-                
+
+
                 .BuildConfiguration();
             cfg.SetProperty(Environment.ProxyFactoryFactoryClass, typeof (ProxyFactoryFactory).AssemblyQualifiedName);
             cfg.SetProperty(Environment.ConnectionDriver, typeof (SQLite20Driver).AssemblyQualifiedName);
 
 
-            var export = new SchemaExport(cfg); 
+            var export = new SchemaExport(cfg);
             export.Drop(true,true);
             export.Create(true,true);
 

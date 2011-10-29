@@ -40,6 +40,6 @@
                 </WpfToolkit:DataGrid.GroupStyle>
             </WpfToolkit:DataGrid>
         </DockPanel>
-        
+
     </Grid>
 </UserControl>

@@ -26,8 +26,8 @@ namespace InRetail.Reporting.Infrastructure
 
         public IEnumerable<TDto> GetByExample<TDto>(object example) where TDto : class
         {
-            return example == null 
-                       ? GetByExample<TDto>(new Dictionary<string, object>()) 
+            return example == null
+                       ? GetByExample<TDto>(new Dictionary<string, object>())
                        : GetByExample<TDto>(GetPropertyInformation(example));
         }
 
@@ -165,7 +165,7 @@ namespace InRetail.Reporting.Infrastructure
                         .GetMethod("DoGetByExample", BindingFlags.NonPublic | BindingFlags.Instance)
                         .MakeGenericMethod(childDtoType)
                         .Invoke(this, new[] { sqliteTransaction, childDtoType, CreateSelectObject(dto) as object });
-                    
+
                     property.SetValue(dto, childDtos, new object[] { });
                 }
             }
@@ -175,7 +175,7 @@ namespace InRetail.Reporting.Infrastructure
         {
             var columnName = string.Format("{0}Id", parentDto.GetType().Name);
             var columnValue = parentDto.GetType().GetProperty("Id").GetValue(parentDto, new object[] {});
-         
+
             return new Dictionary<string, object> { {columnName, columnValue} };
         }
 

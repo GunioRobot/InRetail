@@ -92,7 +92,7 @@ namespace InRetail.Shell.StructureMap
 
         /// <summary>
         /// Configures the <see cref="IRegionBehaviorFactory"/>. This will be the list of default
-        /// behaviors that will be added to a region. 
+        /// behaviors that will be added to a region.
         /// </summary>
         protected virtual IRegionBehaviorFactory ConfigureDefaultRegionBehaviors()
         {

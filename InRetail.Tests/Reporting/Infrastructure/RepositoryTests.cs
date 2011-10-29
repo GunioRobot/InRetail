@@ -49,7 +49,7 @@ namespace Tests.InRetail.Reporting.Infrastructure
             _repository.Save(new CategoryReport(Guid.NewGuid(), cat1, "Test Category3"));
             _repository.Save(new CategoryReport(Guid.NewGuid(), root, "Test Category4"));
             _repository.Save(new CategoryReport(Guid.NewGuid(), root, "Test Category5"));
-            
+
             _repository.Save(categoryReport);
 
             CategoryReport sut = _repository.GetByExample<CategoryReport>(new { Name = "Test Category" }).FirstOrDefault();
